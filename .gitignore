@@ -2,3 +2,4 @@
 #IntelliJ Idea
 .idea
 *.iml
+*bower_components
