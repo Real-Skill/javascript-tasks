@@ -1,0 +1,9 @@
+{
+    "name": "angular-egghead",
+    "version": "0.0.0",
+    "dependencies": {
+        "angular": "1.2.16",
+        "bootstrap": "~3.1.1"
+    },
+    "appPath": "app"
+}
