@@ -15,3 +15,5 @@ Celem ćwicznia jest wykorzystanie **angular binding** do połączenia pola teks
 
 ###+ Zadanie dodatkowe
 Spróbuj połączyć inputy z kolumnami tabeli.
+
+Powodzenia!
