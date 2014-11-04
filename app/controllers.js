@@ -1,15 +1,18 @@
-var bind = angular.module('bind', []);
-bind.factory('Direction', function() {
-    return {direction: "Direction? Left and right!"}
+var mySong = angular.module('mySong', []);
+mySong.factory('SongText', function() {
+    return {song: "Soft Kitty, Warm Kitty, little ball of fur. Happy Kitty, Sleepy Kitty, purr, purr, purr...", newWord : 'purr'}
 });
 
-function LeftCtrl($scope,Direction)
+function SongCtrl($scope,SongText)
 {
-    $scope.enter = Direction;
+    $scope.data = SongText;
 }
 
-function RightCtrl($scope,Direction)
+function NewWorldCtrl ($scope,SongText)
 {
-    $scope.enter = Direction;
+    $scope.data = SongText;
+    $scope.replaceWordUppercase = function(textIn, oldWord,newWord){
+        return textIn.split(oldWord).join(newWord);
+    }
 
 }
