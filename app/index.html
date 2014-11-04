@@ -5,56 +5,30 @@
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
-<body ng-app="">
+<body ng-app="bind">
 <div class="container">
-    <div class="page-header">
-        <h1>1991
-            <small>Best songs</small>
+    <div class="page-header row">
+        <h1>CENTER
+            <small>RIGHT | LEFT</small>
         </h1>
+        <!--<div class="col-md-offset-4 col-md-4">-->
+            <!--<input type="text" class="form-control" maxlength="10" ng-model="enter.direction">-->
+            <!--<h3 class="bg-info">{{enter.direction || "CENTER" }}</h3>-->
+        <!--</div>-->
     </div>
-    <div class="well col-md-4">
-        <div>
-            <label>First place </label>
-            <input type="text" class="form-control" placeholder="active">
+    <div class="row">
+        <div class="col-md-4" ng-controller="LeftCtrl">
+            <input type="text" class="form-control" maxlength="10" ng-model="enter.direction">
+            <h3 class="bg-warning">{{enter.direction || "LEFT"}}</h3>
         </div>
-        <div>
-            <label>Second place</label>
-            <input type="text" class="form-control" placeholder="success">
+        <div class="col-md-offset-4 col-md-4" ng-controller="RightCtrl">
+            <input type="text" class="form-control" maxlength="10" ng-model="enter.direction">
+            <h3 class="bg-success">{{enter.direction || "RIGHT"}}</h3>
         </div>
-        <div>
-            <label>Third place</label>
-            <input type="text" class="form-control" placeholder="warning">
-        </div>
-    </div>
-    <div class="col-md-8">
-        <table class="table table-condensed">
-            <thead>
-            <tr>
-                <th> Position</th>
-                <th> Artist</th>
-                <th> Song</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>1</td>
-                <td>Bryan Adams</td>
-                <td>(Everything I Do) I Do It for You</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Color Me Badd</td>
-                <td>I Wanna Sex You Up</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>C+C Music Factory</td>
-                <td>Gonna Make You Sweat (Everybody Dance Now)</td>
-            </tr>
-            </tbody>
-        </table>
     </div>
 </div>
+
 <script src="../bower_components/angular/angular.js"></script>
+<script src="controllers.js"></script>
 </body>
 </html>
