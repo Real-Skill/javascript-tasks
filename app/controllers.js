@@ -3,13 +3,13 @@ bind.factory('Direction', function() {
     return {direction: "Direction? Left and right!"}
 });
 
-function LeftCtrl($scope,Data)
+function LeftCtrl($scope,Direction)
 {
-    $scope.enter = Data;
+    $scope.enter = Direction;
 }
 
-function RightCtrl($scope,Data)
+function RightCtrl($scope,Direction)
 {
-    $scope.enter = Data;
+    $scope.enter = Direction;
 
 }
