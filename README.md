@@ -13,8 +13,7 @@ Celem ćwicznia jest wykorzystanie metody zdefiniowanej na $scope zamieniającej
 * tekst z pola ```textarea```
 * słowo, które będzie zamieniane na inne,
 * nowe słowo
-3. Zamianę wybranego słowa można uzyskać przykładowo w poniższy sposób
-```textIn.split(oldWord).join(newWord)``` 
+3. Zamianę wybranego słowa można uzyskać przykładowo tak: ```textIn.split(oldWord).join(newWord)``` 
 4. Podobnie jak w punkcie 1 połącz pole tekstowe o id ```word``` z przykładowym nowym słowem umieszczonym w ```mySong.factory``` (atrybut ```newWord```)
 5. Wykorzystaj funckję ```replaceWord()``` (z odpowiednimi argumentami aby zastępić słowo ```purr``` na nowe, podane w polu tekstowym) do wyświelenia zmienionego tekstu nagłówku ```<h3>```
 
