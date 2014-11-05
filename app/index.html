@@ -5,29 +5,44 @@
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
-<body ng-app="mySong">
-<div class="container">
+<body ng-app="myApp">
+<div class="container" ng-controller="FilterCtrl">
     <div class="page-header">
-        <h1>Replace
-            <small>word</small>
+        <h1>Just
+            <small>filter</small>
         </h1>
-        <div class="well" ng-controller="NewWordCtrl">
-            <h3>{{replaceWord(data.song, "purr",data.newWord)}}</h3>
-        </div>
     </div>
-    <div class="col-md-6" ng-controller="SongCtrl">
-        <div class="form-group">
-            <label for="mainText" class="control-label">Main text</label>
-            <textarea id="mainText" class="form-control" ng-model="data.song"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="word" class="control-label">Replace "purr" with word</label>
-            <input type="text" id="word" class="form-control" ng-model="data.newWord">
-        </div>
+    <div class="well">
+        <label for="tellMe" class="label label-default">Give me some text ...</label>
+        <input type="text" id="tellMe" class="form-control" ng-model="data.tellMe">
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <th>Without filter</th>
+        <th>With filter</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{data.citation}}</td>
+            <td>{{data.citation | quote}}</td>
+        </tr>
+        <tr>
+            <td>{{data.title}}</td>
+            <td>{{data.title | withoutH}}</td>
+        </tr>
+        <tr>
+            <td>{{data.someText}}</td>
+            <td>{{data.someText | firstLetterUpp : true}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="active">
+        <label class="label label-default">... and I repeat it in capitals </label>
+        <h3 class="active">{{data.tellMe | uppercase}}</h3>
     </div>
 </div>
 
 <script src="../bower_components/angular/angular.js"></script>
-<script src="controllers.js"></script>
+<script src="FilterCtrl.js"></script>
 </body>
 </html>
