@@ -1,20 +1,49 @@
-##Exercise 4 : defining-a-method-on-the-scope
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title>AngularJS Tutorials</title>
+    <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+</head>
 
-Celem ćwicznia jest wykorzystanie metody zdefiniowanej na $scope zamieniającej podane słowo w tekście na nowe. 
+<body ng-app="myApp">
+<div class="container" ng-controller="FilterCtrl">
+    <div class="page-header">
+        <h1>Just
+            <small>filter</small>
+        </h1>
+    </div>
+    <div class="well">
+        <label for="tellMe" class="label label-default">Give me some text ...</label>
+        <input type="text" id="tellMe" class="form-control" ng-model="data.tellMe">
+    </div>
+    <table class="table table-striped table-bordered">
+        <thead>
+        <th>Without filter</th>
+        <th>With filter</th>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{data.citation}}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{data.title}}</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>{{data.someText}}</td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="active">
+        <label class="label label-default">... and I repeat it in capitals </label>
 
-###Zanim zaczniesz, zapoznaj się z:
-* materiałem filmowym: [angularjs-defining-a-method-on-the-scope](https://egghead.io/lessons/angularjs-defining-a-method-on-the-scope)
+        <h3>Input</h3>
+    </div>
+</div>
 
-
-###Ćwiczenie
-
-1. Za pomocą dyrektywy ```ng-model``` połącz  textarea z tekstem piosenki umieszczonym w ```mySong.factory``` (atrybut ```song```)
-2. Utwórz w kontrolerze ```NewWordCtrl``` metodę o nazwie ```replaceWord()``` jej zadaniem jest zamiana wybranego słowa na nowe. Metoda przyjmuje trzy argumenty:
-* tekst z pola ```textarea```
-* słowo, które będzie zamieniane na inne,
-* nowe słowo
-3. Zamianę wybranego słowa można uzyskać przykładowo tak: ```textIn.split(oldWord).join(newWord)``` 
-4. Podobnie jak w punkcie 1 połącz pole tekstowe o id ```word``` z przykładowym nowym słowem umieszczonym w ```mySong.factory``` (atrybut ```newWord```)
-5. Wykorzystaj funckję ```replaceWord()``` (z odpowiednimi argumentami aby zastępić słowo ```purr``` na nowe, podane w polu tekstowym) do wyświelenia zmienionego tekstu nagłówku ```<h3>```
-
-Powodzenia!
+<script src="../bower_components/angular/angular.js"></script>
+<script src="FilterCtrl.js"></script>
+</body>
+</html>
