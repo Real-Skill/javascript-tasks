@@ -11,8 +11,8 @@
         <h1>Replace
             <small>word</small>
         </h1>
-        <div class="well" ng-controller="NewWorldCtrl">
-            <h3>{{replaceWordUppercase(data.song, "purr",data.newWord)}}</h3>
+        <div class="well" ng-controller="NewWordCtrl">
+            <h3>{{replaceWord(data.song, "purr",data.newWord)}}</h3>
         </div>
     </div>
     <div class="col-md-6" ng-controller="SongCtrl">
@@ -21,11 +21,10 @@
             <textarea id="mainText" class="form-control" ng-model="data.song"></textarea>
         </div>
         <div class="form-group">
-            <label for="replaceWord" class="control-label">Replace "purr" with word</label>
-            <input type="text" id="replaceWord" class="form-control" ng-model="data.newWord">
+            <label for="word" class="control-label">Replace "purr" with word</label>
+            <input type="text" id="word" class="form-control" ng-model="data.newWord">
         </div>
     </div>
-</div>
 </div>
 
 <script src="../bower_components/angular/angular.js"></script>

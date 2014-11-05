@@ -1,32 +1,21 @@
-##Exercise 3 : sharing data between controllers
+##Exercise 4 : defining-a-method-on-the-scope
 
-Celem ćwicznia jest zaprezentowanie wymiany danych między kontrolerami. 
+Celem ćwicznia jest wykorzystanie metody zdefiniowanej na $scope zamieniającej podane słowo w tekście na nowe. 
 
 ###Zanim zaczniesz, zapoznaj się z:
-* materiałamu filmowymi: [angularjs-the-dot](https://egghead.io/lessons/angularjs-the-dot) oraz [angularjs-sharing-data-between-controllers](https://egghead.io/lessons/angularjs-sharing-data-between-controllers)
+* materiałem filmowym: [angularjs-defining-a-method-on-the-scope](https://egghead.io/lessons/angularjs-defining-a-method-on-the-scope)
 
 
 ###Ćwiczenie
 
-1. Opierając się na materiale filmowym```angularjs-the-dot``` dokonaj zmian w pliku ```index.html```  tak aby połączyć (zbindować) ze sobą inputy.
-
-2. Zakomentuj div  ```CENTER``` w pliku ```index.html```, co spowoduje, że wpisując tekst do pola  ```left``` nie będzie się wyświetlał w ```right```; 
-
-3. W pliku ```controllers.js``` dodaj moduł ```bind```  
-
-``` 
-var bind = angular.module('bind', []);
-```
-4. Utwórz ```factory``` zwracający zmianną ```direction``
-
-```
-bind.factory('Direction', function() {
-    return {direction: "Direction? Left and right!"}
-});
-```
-
-5. Opierając się na materiale filmowym```angularjs-sharing-data-between-controllers``` zedytuj kontrolery ```LeftCtrl``` oraz ```RightCtrl```
-
-6. Nie zapomnij o dodaniu modułu ```bind``` w pliku ```index.html```
+1. Za pomocą dyrektywy ```ng-model``` połącz  textarea z tekstem piosenki umieszczonym w ```mySong.factory``` (atrybut ```song```)
+2. Utwórz w kontrolerze ```NewWordCtrl``` metodę o nazwie ```replaceWord()``` jej zadaniem jest zamiana wybranego słowa na nowe. Metoda przyjmuje trzy argumenty:
+* tekst z pola ```textarea```
+* słowo, które będzie zamieniane na inne,
+* nowe słowo
+3. Zamianę wybranego słowa można uzyskać przykładowo w poniższy sposób
+```textIn.split(oldWord).join(newWord)``` 
+4. Podobnie jak w punkcie 1 połącz pole tekstowe o id ```word``` z przykładowym nowym słowem umieszczonym w ```mySong.factory``` (atrybut ```newWord```)
+5. Wykorzystaj funckję ```replaceWord()``` (z odpowiednimi argumentami aby zastępić słowo ```purr``` na nowe, podane w polu tekstowym) do wyświelenia zmienionego tekstu nagłówku ```<h3>```
 
 Powodzenia!
