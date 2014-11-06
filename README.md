@@ -7,7 +7,7 @@ Celem ćwicznia jest napisanie oraz wykorzystanie prostych filtrów.
 
 ###Ćwiczenie
 
-1.   W pliku ```StudentCtrl.js``` utwórz pusty obiekt ```Students```.
+1.   W pliku ```UserCtrl.js``` utwórz pusty obiekt ```Students```.
 2.   Dodaj do niego atrybut ```list``` i przypisz do niego dane umieszczone w pliku ```student.json```
 3.   Zaktualizuj kontroler przypisując do zmiennej ```students``` na ```$scope``` informacje o studentach.
 4.   Wykorzystaj dyrektywę ```ng-repeat``` aby wypełnić tabelę danymi z  ```students.list``` - zwróć uwagę na nagłówki.

@@ -6,44 +6,42 @@
 </head>
 
 <body ng-app="myApp">
-<div class="container" ng-controller="StudentCtrl">
+<div class="container" ng-controller="UserCtrl">
     <div class="page-header">
-        <h1>Students
-            <small>book</small>
+        <h1>Users
+            <small>list</small>
         </h1>
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">
             <label for="search" class="label label-default">Search...</label>
-            <input type="text" id="search" class="form-control" ng-model="searchStudent.$">
+            <input type="text" id="search" class="form-control" ng-model="searchUser.$">
+
+            <label for="one" class="label label-default">1</label>
+            <input type="radio" id="one" ng-model="limit" value="1">
+
+            <label for="two" class="label label-default">10</label>
+            <input type="radio" id="two" ng-model="limit" value="10">
+
+            <label for="three" class="label label-default">15</label>
+            <input type="radio" id="three" ng-model="limit" value="15" checked>
+
         </div>
         <table class="table table-hover table-bordered">
             <thead>
-            <tr class="alert">
-                <th><label for="first" class="label label-default">First Name</label>
-                    <input type="text" class="form-control" id="first" ng-model="searchStudent.name.first">
-                </th>
-                <th><label for="last" class="label label-default">Last Name</label>
-                    <input type="text" class="form-control" id="last" ng-model="searchStudent.name.last">
-                </th>
-                <th><label for="age" class="label label-default">Age</label>
-                    <input type="text" class="form-control" id="age" ng-model="searchStudent.age">
-                </th>
-                <th><label for="email" class="label label-default">Email</label>
-                    <input type="text" class="form-control" id="email" ng-model="searchStudent.email">
-                </th>
-                <th><label for="phone" class="label label-default">Phone</label>
-                    <input type="text" class="form-control" id="phone" ng-model="searchStudent.phone">
-                </th>
+            <tr>
+                <th class="text-center"><a href="" ng-click="choice = 'id'">Id</a></th>
+                <th class="text-center"><a href="" ng-click="choice = 'username'">UserName</a></th>
+                <th class="text-center"><a href="" ng-click="choice = 'fullName'">Full Name</a></th>
+                <th class="text-center"><a href="" ng-click="choice = 'gender'">Gender</a></th>
             </tr>
             </thead>
             <tbody>
-            <tr class="text-center" ng-repeat="student in students.list | filter: searchStudent">
-                <td>{{student.name.first}}</td>
-                <td>{{student.name.last}}</td>
-                <td>{{student.age}}</td>
-                <td>{{student.email}}</td>
-                <td>{{student.phone}}</td>
+            <tr class="text-center" ng-repeat="user in users.list | filter: searchUser | orderBy: choice">
+                <td>{{user.id}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.fullName}}</td>
+                <td>{{user.gender}}</td>
             </tr>
             </tbody>
         </table>
@@ -51,6 +49,6 @@
 </div>
 
 <script src="../bower_components/angular/angular.js"></script>
-<script src="StudentCtrl.js"></script>
+<script src="UserCtrl.js"></script>
 </body>
 </html>
