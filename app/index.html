@@ -5,50 +5,32 @@
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
-<body ng-app="myApp">
-<div class="container" ng-controller="UserCtrl">
+<body ng-app="myRadio">
+<div class="container" ng-controller="RadioCtrl as radioCtrl">
     <div class="page-header">
-        <h1>Users
-            <small>list</small>
+        <h1>Radio
+            <small>directives</small>
         </h1>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <label for="search" class="label label-default">Search...</label>
-            <input type="text" id="search" class="form-control" ng-model="searchUser.$">
 
-            <label for="one" class="label label-default">1</label>
-            <input type="radio" id="one" ng-model="limit" value="1">
+    <div class="well text-center text-danger">
+        <h3>Small test directive</h3>
 
-            <label for="two" class="label label-default">10</label>
-            <input type="radio" id="two" ng-model="limit" value="10">
-
-            <label for="three" class="label label-default">15</label>
-            <input type="radio" id="three" ng-model="limit" value="15" checked>
-
-        </div>
-        <table class="table table-hover table-bordered">
-            <thead>
-            <tr>
-                <th class="text-center"><a href="" ng-click="choice = 'id'">Id</a></th>
-                <th class="text-center"><a href="" ng-click="choice = 'username'">UserName</a></th>
-                <th class="text-center"><a href="" ng-click="choice = 'fullName'">Full Name</a></th>
-                <th class="text-center"><a href="" ng-click="choice = 'gender'">Gender</a></th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="text-center" ng-repeat="user in users.list | filter: searchUser | orderBy: choice">
-                <td>{{user.id}}</td>
-                <td>{{user.username}}</td>
-                <td>{{user.fullName}}</td>
-                <td>{{user.gender}}</td>
-            </tr>
-            </tbody>
-        </table>
+        <div only-to-practice-directive=""></div>
+        <div only-to-practice-directive="" message="I'm from attirbute"></div>
     </div>
-</div>
 
+    <div class="col-md-offset-3 col-md-3">
+        <h3>Choose fruit</h3>
+        <radio-block></radio-block>
+    </div>
+    <div class="col-md-3 -col-md-offset-3">
+        <h3>Choose vegetable</h3>
+        <radio-inline></radio-inline>
+    </div>
+
+</div>
 <script src="../bower_components/angular/angular.js"></script>
-<script src="UserCtrl.js"></script>
+<script src="RadioCtrl.js"></script>
 </body>
 </html>
