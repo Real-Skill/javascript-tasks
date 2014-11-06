@@ -27,6 +27,5 @@ myApp.factory('Users', function ()
 function UserCtrl($scope, Users)
 {
     $scope.users = Users;
-    $scope.limists = [5, 10, 15];
 
 }

@@ -1,18 +1,15 @@
-##Exercise 6: angularjs-ngrepeat-and-filtering-data
+##Exercise 7 : angularjs-built-in-filters
 
-Celem ćwicznia jest napisanie oraz wykorzystanie prostych filtrów. 
+Celem ćwicznia jest wykorzystanie gotowych opcji filtrujących
 
 ###Zanim zaczniesz, zapoznaj się z:
-* [angularjs-ngrepeat-and-filtering-data](https://egghead.io/lessons/angularjs-ngrepeat-and-filtering-data)
+* [angularjs-built-in-filters](https://egghead.io/lessons/angularjs-built-in-filters)
+
 
 ###Ćwiczenie
 
-1.   W pliku ```UserCtrl.js``` utwórz pusty obiekt ```Students```.
-2.   Dodaj do niego atrybut ```list``` i przypisz do niego dane umieszczone w pliku ```student.json```
-3.   Zaktualizuj kontroler przypisując do zmiennej ```students``` na ```$scope``` informacje o studentach.
-4.   Wykorzystaj dyrektywę ```ng-repeat``` aby wypełnić tabelę danymi z  ```students.list``` - zwróć uwagę na nagłówki.
-5.   Dodaj do dyrektywy ```ng-repeat``` filtr ```searchStudent``` a następnie zmodfikuj wszystkie inputy z nagłówków, tak aby wyszukiwały przez pryzmat swojej kategori. 
-6.   Główny input wyszukuje po wszystkich kategoriach.
+1. Wypróbuj działanie filtrów ```orderBy``` oraz ```limitTo``` (wg wybranego przez Ciebie atrybutu) oraz ```lowercase``` oraz ```uppercase```. 
+2. Wykorzystaj ```choice``` (wykorzystuje go dyrektywa ```ng-click``` jako argument ```orderBy```, który umożliwi sortowanie wg kolumn
+3. Podobnie wykorzystaj model```limit``` jako argumet ```limitTo``` do ograniczenia wyświetlania przez "radio choice".
 
- 
 Powodzenia!
