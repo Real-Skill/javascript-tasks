@@ -1,17 +1,17 @@
-##Exercise 5 : angularjs-filters
+##Exercise 5 : Angular filters
 
-Celem ćwicznia jest napisanie oraz wykorzystanie prostych filtrów. 
+The goal of this exercise is the creation and use simple filters.
 
-###Zanim zaczniesz, zapoznaj się z:
+###Before you start, please refer to:
 * [angularjs-filters](https://egghead.io/lessons/angularjs-filters)
-* [wyrażeniami regularnymi](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
+* [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
 
-###Ćwiczenie
+###Exercise
 
-1.   Uzupełnij filtr ```quote``` tak by umieszczał tekst w cudzysłowie.
-2.   Użyj go na atrybucie ```citation``` i wyświetl wynik w odpowiednim miejscu tabeli.
-3.   Utwórz filtr o nazwie ```withoutH```, który usunie wszystkie litery "H" oraz "h" z tekstu. (Wskazówka: spróbuj wykorzystać metodę z poprzedniego ćwiczenia) a następnie użyj go na atrybucie ```title```
-4.   Przeanalizuj poniższy kod a w szczególności wyrażenie regularne a następnie uzupełnij filtr ```firstLetterUp```, którego zadaniem jest zamiana pierwszej litery słowa na dużą
+1.   Complete **quote** filter, to place the text in quotation marks.
+2.   Use it on  **citation**   and display the result in the right place of the table.
+3.   Create a filter called **withoutH**, that will remove all the "H" and "h" characters from the text (**Hint:** try to use a method from the previous exercise) and then use it on the **title** attribute
+4.   Review the following code (in particular regular expression) and then complete filter  **firstLetterUp**, whose purpose is to convert the first letter of the word to the large ones.
 ```
 return text.replace(/([^\W_]+[^\s-]*) */g, function (text)
         {
@@ -19,7 +19,7 @@ return text.replace(/([^\W_]+[^\s-]*) */g, function (text)
         }); </code></p>
 ```
 
-5. Aby użyć ```firstLetterUp``` dla każdego słowa w ```someText```, przy wywołaniu filtra należy dodać wartość true ```data.someText | firstLetterUp : true``` 
-6. Wyświel zawartość pola tekstowego w znaczniku ```<h3> Input </h3>``` i użyj na nim gotowy filtr ```uppercase```
+5. To use **firstLetterUp**  for each word in **someText**,  when calling the filter, add true value ```data.someText | firstLetterUp : true``` 
+6. View the contents of the text box in the tag ```<h3> Input </h3>``` and use on him ready filter: ```uppercase```
  
-Powodzenia
+Good luck!
