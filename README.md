@@ -35,8 +35,8 @@ template: ' <div>' +
 7. Add to the second directive ```message="I'm from attirbute"``` attribute.
 8. In ```RadioCtrl.js``` update directive  ```onlyToPracticeDirective```  to display the contents of the variable ```information``` created at $scope and the content attribute added in index.html
 ```
-        show.text(scope.radioCtrl.information);
-        show.text(attribute.message);
-        ```
+show.text(scope.radioCtrl.information);
+show.text(attribute.message);
+```
 
 Good luck!
