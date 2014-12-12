@@ -1,5 +1,5 @@
 ##Exercise 8 : Angular first directive
-Celem ćwicznia jest wykonanie prostych dyrektyw
+The goal of this exercise is create simple directive.
 ###Before you start, please refer to:
 * [angularjs-first-directive](https://egghead.io/lessons/angularjs-first-directive)
 * [write-your-first-directive](https://egghead.io/lessons/write-your-first-directive)
