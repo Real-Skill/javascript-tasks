@@ -1,17 +1,14 @@
-##Exercise 8 : angularjs-first-directive
-
+##Exercise 8 : Angular first directive
 Celem ćwicznia jest wykonanie prostych dyrektyw
-
-###Zanim zaczniesz, zapoznaj się z:
+###Before you start, please refer to:
 * [angularjs-first-directive](https://egghead.io/lessons/angularjs-first-directive)
 * [write-your-first-directive](https://egghead.io/lessons/write-your-first-directive)
 
+###Exercise
 
-###Ćwiczenie
-
-1. W pliku ```RadioCtrl``` dodaj moduł o nazwie ```myRadio``` 
-2. Utwórz dyrektywę ```radioBlock``` której atrybut ```restrict``` jest ustawiony na wartosc E ( w pliku .html dyrektywa będzie używana za pomocą formy ```<my-directive></my-directive>```)
-3. Dodaj do dyrektywy atrybut ```template```z zawartocią poniżej (radio choice block)
+1. In **RadioCtrl** file, add ```myRadio``` module
+2. Create a ```radioBlock``` directive, which ```restrict``` attribute is set to **E** value ( in .html file, directive will be used by ```<my-directive></my-directive>``` tag)
+3. Add attribute ```template``` with the following contents(radio choice block)
 
 ```
 template: ' <div>' +
@@ -21,7 +18,7 @@ template: ' <div>' +
                 '<label> <input type="radio" name="fruitsRadios" value="banana"> banana </label> </div>' +
                 '</div>'
 ```
-4. Utwórz dyrektywę ```radioInline``` tak jak ```radioBlock```, ze zmienioną zawartość atrybutu ```template```
+4. Create ```radioInline``` directive such as ```radioBlock```, with content ``template```
 
 ```
         template: '<div> ' +
@@ -34,15 +31,14 @@ template: ' <div>' +
     }
     ```
     
-5. Pod nagłówkiem ```Choose fruit``` dodaj dyrektywę ```radioBlock``` a poniżej  ``` Choose vegetable``` dyrektywę ```radioInline```
+5. Under the headong ```Choose fruit``` add directive ```radioBlock``` and below ``` Choose vegetable``` directive ```radioInline```
 
-6. Dodaj dwa razy dyrektywę ```onlyToPracticeDirective``` poniżej ```<h3>Small test directive</h3>``` pamiętając, by każdą umieścić w znaczniku ```<div>```
-7. Dodaj do drugiej dyrektywy atrybut ```message="I'm from attirbute"```
-8. W pliku ```RadioCtrl.js``` zaktualizuj dyrektywę  ```onlyToPracticeDirective```  tak aby wyświetlała zawartość zmiennej ```information``` utowrzonej na $scopie oraz zawartość atrybutu dodanego w pliku index.html
-
+6. Add two times ```onlyToPracticeDirective``` directive, below ```<h3>Small test directive</h3>``` (remember to put each in tag ```<div>```)
+7. Add to the second directive ```message="I'm from attirbute"``` attribute.
+8. In ```RadioCtrl.js``` update directive  ```onlyToPracticeDirective```  to display the contents of the variable ```information``` created at $scope and the content attribute added in index.html
 ```
         show.text(scope.radioCtrl.information);
         show.text(attribute.message);
         ```
 
-Powodzenia!
+Good luck!
