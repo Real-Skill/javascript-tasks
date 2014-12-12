@@ -29,10 +29,8 @@ template: ' <div>' +
                 '<input type="radio" name="vegetablesRadio" value="cucumber" checked> cucumber</label> ' +
                 '</div>'
     }
-    ```
-    
+```
 5. Under the headong ```Choose fruit``` add directive ```radioBlock``` and below ``` Choose vegetable``` directive ```radioInline```
-
 6. Add two times ```onlyToPracticeDirective``` directive, below ```<h3>Small test directive</h3>``` (remember to put each in tag ```<div>```)
 7. Add to the second directive ```message="I'm from attirbute"``` attribute.
 8. In ```RadioCtrl.js``` update directive  ```onlyToPracticeDirective```  to display the contents of the variable ```information``` created at $scope and the content attribute added in index.html
