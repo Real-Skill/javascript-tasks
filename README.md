@@ -19,7 +19,7 @@ return text.replace(/([^\W_]+[^\s-]*) */g, function (text)
         });
 ```
 
-* To use **firstLetterUp**  for each word in **someText**,  when calling the filter, add true value ```data.someText | firstLetterUp : true``` 
+* To use **firstLetterUp**  for each word in **someText**,  just add it behind **|** ```data.someText | firstLetterUp``` 
 * View the contents of the text box in the tag ```<h3> Input </h3>``` and use on him ready filter: ```uppercase```
  
 Good luck!
