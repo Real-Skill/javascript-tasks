@@ -18,7 +18,7 @@ myApp.filter('withoutH', function ()
 
 myApp.filter('firstLetterUpp', function ()
 {
-    return function (text, all)
+    return function (text)
     {
         return text.replace(/([^\W_]+[^\s-]*) */g, function (text)
         {
