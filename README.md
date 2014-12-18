@@ -16,7 +16,7 @@ The goal of this exercise is the creation and use simple filters.
 return text.replace(/([^\W_]+[^\s-]*) */g, function (text)
         {
             return text.charAt(0).toUpperCase() + text.substr(1).toLowerCase();
-        }); </code></p>
+        });
 ```
 
 * To use **firstLetterUp**  for each word in **someText**,  when calling the filter, add true value ```data.someText | firstLetterUp : true``` 
