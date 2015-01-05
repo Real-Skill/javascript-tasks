@@ -13,9 +13,9 @@ The goal of this exercise is create simple directive.
 ```
 template: ' <div>' +
                 '<div class="radio"> ' +
-                '<label> <input type="radio" name="fruitsRadios" value="apple" checked> apple </label> </div>' +
+                '<label> <input type="radio" name="fruitsRadios" value="apple" checked> apple </label> </div>'+
                 '<div class="radio"> ' +
-                '<label> <input type="radio" name="fruitsRadios" value="banana"> banana </label> </div>' +
+                '<label> <input type="radio" name="fruitsRadios" value="banana"> banana </label> </div>'+
                 '</div>'
 ```
 * Create ```radioInline``` directive such as ```radioBlock```, with content ``template```
@@ -32,7 +32,7 @@ template: '<div> ' +
 * Under the heading ```Choose fruit``` add directive ```radioBlock``` and below ``` Choose vegetable``` directive ```radioInline```
 * Add two times ```onlyToPracticeDirective``` directive, below ```<h3>Small test directive</h3>``` (remember to put each in tag ```<div>```)
 * Add to the second directive ```message="I'm from attribute"``` attribute.
-8. In ```RadioCtrl.js``` update directive  ```onlyToPracticeDirective```  to display the contents of the variable ```information``` created at $scope and the content attribute added in index.html
+* In ```RadioCtrl.js``` update directive  ```onlyToPracticeDirective```  to display the contents of the variable ```information``` created at $scope and the content attribute added in index.html
 ```
         if (undefined == attribute.message) {
             show.text(scope.radioCtrl.information);
