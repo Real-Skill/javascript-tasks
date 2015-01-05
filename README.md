@@ -12,11 +12,11 @@ The goal of this exercise is create simple directive.
 
 ```
 template: ' <div>' +
-                '<div class="radio"> ' +
-                '<label> <input type="radio" name="fruitsRadios" value="apple" checked> apple </label> </div>'+
-                '<div class="radio"> ' +
-                '<label> <input type="radio" name="fruitsRadios" value="banana"> banana </label> </div>'+
-                '</div>'
+           '<div class="radio"> ' +
+           '<label> <input type="radio" name="fruitsRadios" value="apple" checked> apple </label> </div>'+
+           '<div class="radio"> ' +
+           '<label> <input type="radio" name="fruitsRadios" value="banana"> banana </label> </div>'+
+           '</div>'
 ```
 * Create ```radioInline``` directive such as ```radioBlock```, with content ``template```
 
