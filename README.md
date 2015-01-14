@@ -1,6 +1,6 @@
 ##Exercise 5 : Angular filters
 
-The goal of this exercise is the creation and use simple filters.
+The goal of this exercise is the creation and use simple filters. It also introduces regular expressions.
 
 ###Before you start, please refer to:
 * [angularjs-filters](https://egghead.io/lessons/angularjs-filters)
@@ -21,6 +21,17 @@ return text.replace(/([^\W_]+[^\s-]*) */g, function (text)
 ```
 
 * To use **firstLetterUp**  for each word in **someText**,  just add it behind **|** ```data.someText | firstLetterUp``` 
-* Bind the contents of the upper text input(model) to display them inside the h3 tag and use on him default filter provided by angular: ```uppercase```
+* Bind the contents of the upper text input(model) to display them inside the h3 tag. Use on him default filter provided by angular: ```uppercase```
+
+###Completion
+
+Expected result of this exercise is to display upper input value capitalised with appropriate filter below the table. Moreover, You should create
+and use your custom filters to achieve following results in the table:
+
+**To be, or not to be...** should be filtered to ***"To be, or not to be..."*** and displayed in the first row
+**The Hobbit: The Battle of the Five Armies** should be filtered to ***Te obbit: Te Battle of te Five Armies*** and displayed in the second row
+**Visit BBC News for up-to-the-minute news, breaking news, video, audio and stories.** should be filtered to
+***Visit Bbc News For Up-To-The-Minute News, Breaking News, Video, Audio And Stories.*** and displayed in the last row.
+
  
 Good luck!
