@@ -18,19 +18,25 @@
     </div>
     <table class="table table-striped table-bordered">
         <thead>
-        <th>Without filter</th>
-        <th>With filter</th>
+        <tr>
+            <th>Filter</th>
+            <th>Without filter</th>
+            <th>With filter</th>
+        </tr>
         </thead>
         <tbody>
         <tr>
+            <td>quote</td>
             <td>{{data.citation}}</td>
             <td>{{data.citation | quote}}</td>
         </tr>
         <tr>
+            <td>withoutH</td>
             <td>{{data.title}}</td>
             <td>{{data.title | withoutH}}</td>
         </tr>
         <tr>
+            <td>firstLetterUp</td>
             <td>{{data.someText}}</td>
             <td>{{data.someText | firstLetterUpp : true}}</td>
         </tr>
