@@ -3,34 +3,29 @@
 <head lang="en">
     <title>AngularJS Tutorials</title>
     <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 
-<body ng-app="myRadio">
-<div class="container" ng-controller="RadioCtrl as radioCtrl">
+<body ng-app="myApp">
+<div class="container">
     <div class="page-header">
-        <h1>Radio
+        <h1>Easy
             <small>directives</small>
         </h1>
     </div>
 
-    <div class="well text-center text-danger">
-        <h3>Small test directive</h3>
-
-        <div only-to-practice-directive=""></div>
-        <div only-to-practice-directive="" message="I'm from attribute"></div>
+    <div class="col-sm-offset-2 col-sm-2">
+        <hero></hero>
     </div>
-
-    <div class="col-md-offset-3 col-md-3">
-        <h3>Choose fruit</h3>
-        <radio-block></radio-block>
+    <div class="col-sm-2">
+        <superhero></superhero>
     </div>
-    <div class="col-md-3 -col-md-offset-3">
-        <h3>Choose vegetable</h3>
-        <radio-inline></radio-inline>
+    <div class="col-sm-2">
+        <hero></hero>
     </div>
 
 </div>
 <script src="../bower_components/angular/angular.js"></script>
-<script src="Radio.js"></script>
+<script src="myApp.js"></script>
 </body>
 </html>

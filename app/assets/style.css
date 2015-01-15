@@ -1,0 +1,9 @@
+.mask-position {
+    position: absolute; top: 15px; left: 57px;
+}
+.hero-position {
+    position: relative; left: 0; top: 0;
+}
+.relative-position {
+    position: relative; left: 0; top: 0;
+}
