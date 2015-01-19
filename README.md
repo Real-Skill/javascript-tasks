@@ -2,14 +2,14 @@
 ###The goal
 In this application, you are supposed to create three simple filters and use them in correct place.
 
-####Requirements
+###Requirements
 1. ***quote*** filter - places the text in quotes
 2. ***withoutH*** filter - removes all the letters H and h
 3. ***firstLetterUp*** filter - converts the first letter of the word to the large ones
 
 Additionaly, you are supposed to use build-in angular filter to display upper input value capitalised below the table.
 
-####Result
+###Result
 | Filter | Without filter | With filter |
 |--------|----------------|-------------|
 | quote  | To be, or not to be...| "To be, or not to be..." |
