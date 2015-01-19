@@ -1,5 +1,5 @@
 ##Exercise 5 : Angular filters
-###The goal
+
 In this application, you are supposed to create three simple filters and use them in correct place.
 
 ###Requirements
