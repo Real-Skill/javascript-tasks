@@ -1,21 +1,12 @@
-##Exercise 43 : Unit Testing AngularJS
-Test **quote, withoutH, firstLetterUp** filters. 
+##Exercise 44 : Unit Testing "Hello World"
+Test simple angular expression. Based on video learn how to configure a test, compile an element, and access AngularJS in your tests.
 
 ###Requirements
-Check that they work correctly using the sample data:
-* **quote** : 
-    * 'To be, or not to be...'
-    * 'Test test'
-* **withoutH** : 
-    * 'TestH test'
-    * 'Test testh'
-    * 'Testh testH'
-* **firstLetterUpp** :
-    * 'the Hobbit: the Battle of the five Armies'
-    * 'test test'
 
 ###Result
-![alt text](app/assets/test.jpg)
+* **text** element should return ```'Ala has 3 cats'```
+* **operation** element should ```12321```
+
 
 ### Test Configuration:
 * ```npm install```
@@ -25,6 +16,6 @@ Check that they work correctly using the sample data:
 * set Application parameters to ```start test\karma.conf.js```
 
 ###Before you start, please refer to:
-* [angularjs-testing-overview](https://egghead.io/lessons/angularjs-testing-overview)
+* [angularjs-unit-testing-hello-world](https://egghead.io/lessons/angularjs-unit-testing-hello-world)
 
 Good luck!
