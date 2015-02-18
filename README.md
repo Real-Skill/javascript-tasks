@@ -1,7 +1,8 @@
 ##Exercise 44 : Unit Testing "Hello World"
-Test simple angular expression. Based on video learn how to configure a test, compile an element, and access AngularJS in your tests.
+Test simple angular expression. 
 
 ###Requirements
+Based on video learn how to configure a test, compile an element, and access AngularJS in your tests.
 
 ###Result
 * **text** element should return ```'Ala has 3 cats'```
