@@ -1,25 +1,30 @@
-##Exercise 5 : Angular filters
-###The goal
-In this application, you are supposed to create three simple filters and use them in correct place.
+##Exercise 43 : Unit Testing AngularJS
+Test **quote, withoutH, firstLetterUp** filters. 
 
-####Requirements
-1. ***quote*** filter - places the text in quotes
-2. ***withoutH*** filter - removes all the letters H and h
-3. ***firstLetterUp*** filter - converts the first letter of the word to the large ones
+###Requirements
+Check that they work correctly using the sample data:
+* **quote** : 
+    * 'To be, or not to be...'
+    * 'Test test'
+* **withoutH** : 
+    * 'TestH test'
+    * 'Test testh'
+    * 'Testh testH'
+* **firstLetterUpp** :
+    * 'the Hobbit: the Battle of the five Armies'
+    * 'test test'
 
-Additionaly, you are supposed to use build-in angular filter to display upper input value capitalised below the table.
+###Result
+![alt text](app/assets/test.jpg)
 
-####Result
-| Filter | Without filter | With filter |
-|--------|----------------|-------------|
-| quote  | To be, or not to be...| "To be, or not to be..." |
-| withoutH  | The Hobbit: The Battle of the Five Armies   | Te obbit: Te Battle of te Five Armies |
-|firstLetterUp|Visit BBC News for up-to-the-minute news, breaking news, video, audio and stories. |Visit Bbc News For Up-To-The-Minute News, Breaking News, Video, Audio And Stories|
+### Test Configuration:
+* ```npm install```
+* ```bower install```
+* Run -> Edit Configuration -> Press plus button -> Pick up Node.js
+* set JavaScript file to ```node_modules\karma\bin\karma```
+* set Application parameters to ```start test\karma.conf.js```
 
 ###Before you start, please refer to:
-* [angularjs-filters](https://egghead.io/lessons/angularjs-filters)
-* [docs.angularjs: filter](https://docs.angularjs.org/api/ng/filter)
-* [regular expressions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions)
-* [regular expression online](https://regex101.com/)
+* [angularjs-testing-overview](https://egghead.io/lessons/angularjs-testing-overview)
 
 Good luck!
