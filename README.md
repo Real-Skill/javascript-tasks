@@ -1,11 +1,11 @@
-##Exercise 45 : Unit Testing a Directive
-Test simple angular directives. 
+##Exercise 46: Unit Testing Directive Scope
+Your task is to test the two directives: **enter** and **leave**. Complete test cases.
 
 ###Requirements
-Based on video test what classes have been added (**using directive!**) to the square and the circle elements.
-
-###Result
-* both tests should return truth
+* check whether the **mouseenter** event add to the **circle** element **bg-danger** class
+* check whether the **mouseleave** event remove class
+* to call the events instead of ```browserTrigger(element,'click')``` use ```element.triggerHandler('click')```
+* to use isolete scope instead of ```element.scope()``` use ```element.isolateScope()``` 
 
 ### Test Configuration:
 * ```npm install```
@@ -15,6 +15,6 @@ Based on video test what classes have been added (**using directive!**) to the s
 * set Application parameters to ```start test\karma.conf.js```
 
 ###Before you start, please refer to:
-* [angularjs-unit-testing-a-directive](https://egghead.io/lessons/angularjs-unit-testing-a-directive)
+* [angularjs-unit-testing-directive-scope](https://egghead.io/lessons/angularjs-unit-testing-directive-scope)
 
 Good luck!

@@ -5,29 +5,37 @@ describe("directives", function ()
     var $scope;
 
     beforeEach(module("myApp"));
-
     beforeEach(inject(function ($compile, $rootScope)
     {
         $scope = $rootScope;
-        square = angular.element('<div click-on="bg-info" class="square center-block"></div>');
-        circle = angular.element('<div enter class="circle center-block"></div>');
+        circle = angular.element('<div enter leave class="circle center-block"></div>');
         circle = $compile(circle)($rootScope);
-        square = $compile(square)($rootScope);
     }));
-    describe("click-on", function ()
-    {
-        it("should add a class of bg-info", function ()
-        {
-            expect(square.hasClass("bg-info")).toBe(true);
-        })
-    });
 
-    describe("enter", function ()
+    describe("circle", function ()
     {
-        it("should add a class of bg-danger", function ()
+        it("should add bg-info a class when mouseenter", function ()
         {
+            circle.triggerHandler("mouseenter");
             expect(circle.hasClass("bg-danger")).toBe(true);
-        })
-    });
+        });
 
+        it("should respond to a mouseenter event", function ()
+        {
+            circle.triggerHandler("mouseenter");
+            expect(circle.scope().entered).toBe(true);
+        });
+
+        it("should remove bg-info class when mouseleave", function ()
+        {
+            circle.triggerHandler("mouseleave");
+            expect(circle.hasClass("bg-danger")).toBe(false);
+        });
+
+        it("should respond to a mouseleave event", function ()
+        {
+            circle.triggerHandler("mouseleave");
+            expect(circle.isolateScope().left).toBe(true);
+        });
+    });
 });

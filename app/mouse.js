@@ -1,18 +1,29 @@
 var myApp = angular.module("myApp", []);
 
-myApp.directive("clickOn", function ()
+myApp.directive("enter", function ()
 {
-    return function (scope, element, attrs)
+    return function (scope, element)
     {
-        element.addClass(attrs.clickOn);
-
+        element.bind("mouseenter", function ()
+        {
+            element.addClass('bg-danger');
+            scope.entered = true;
+        })
     }
 });
 
-myApp.directive("enter", function ()
+myApp.directive("leave", function ()
 {
-    return function (scope, element, attrs)
-    {
-        element.addClass("bg-danger");
+    return {
+        scope: {},
+        link: function (scope, element, attrs)
+        {
+            element.bind("mouseleave", function ()
+            {
+                element.removeClass(attrs.enter);
+                scope.left = true;
+            })
+        }
     }
+
 });
