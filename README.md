@@ -1,13 +1,11 @@
-##Exercise 44 : Unit Testing "Hello World"
-Test simple angular expression. 
+##Exercise 45 : Unit Testing a Directive
+Test simple angular directives. 
 
 ###Requirements
-Based on video learn how to configure a test, compile an element, and access AngularJS in your tests.
+Based on video test what classes have been added (**using directive!**) to the square and the circle elements.
 
 ###Result
-* **text** element should return ```'Ala has 3 cats'```
-* **operation** element should ```12321```
-
+* both tests should return truth
 
 ### Test Configuration:
 * ```npm install```
@@ -17,6 +15,6 @@ Based on video learn how to configure a test, compile an element, and access Ang
 * set Application parameters to ```start test\karma.conf.js```
 
 ###Before you start, please refer to:
-* [angularjs-unit-testing-hello-world](https://egghead.io/lessons/angularjs-unit-testing-hello-world)
+* [angularjs-unit-testing-a-directive](https://egghead.io/lessons/angularjs-unit-testing-a-directive)
 
 Good luck!
