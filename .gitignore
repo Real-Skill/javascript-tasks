@@ -1,6 +1,5 @@
 #IDEs
 #IntelliJ Idea
 .idea
-*.iml
-*bower_components
 *node_modules
+*app/bower_components
