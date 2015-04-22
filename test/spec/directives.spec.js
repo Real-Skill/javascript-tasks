@@ -1,10 +1,11 @@
-describe("directives", function ()
+describe('directives', function ()
 {
+    'use strict';
+
     var circle;
-    var square;
     var $scope;
 
-    beforeEach(module("myApp"));
+    beforeEach(module('app'));
     beforeEach(inject(function ($compile, $rootScope)
     {
         $scope = $rootScope;
@@ -12,29 +13,29 @@ describe("directives", function ()
         circle = $compile(circle)($rootScope);
     }));
 
-    describe("circle", function ()
+    describe('circle', function ()
     {
-        it("should add bg-info a class when mouseenter", function ()
+        it('should add bg-info a class when mouseenter', function ()
         {
-            circle.triggerHandler("mouseenter");
-            expect(circle.hasClass("bg-danger")).toBe(true);
+            circle.triggerHandler('mouseenter');
+            expect(circle.hasClass('bg-danger')).toBe(true);
         });
 
-        it("should respond to a mouseenter event", function ()
+        it('should respond to a mouseenter event', function ()
         {
-            circle.triggerHandler("mouseenter");
+            circle.triggerHandler('mouseenter');
             expect(circle.scope().entered).toBe(true);
         });
 
-        it("should remove bg-info class when mouseleave", function ()
+        it('should remove bg-info class when mouseleave', function ()
         {
-            circle.triggerHandler("mouseleave");
-            expect(circle.hasClass("bg-danger")).toBe(false);
+            circle.triggerHandler('mouseleave');
+            expect(circle.hasClass('bg-danger')).toBe(false);
         });
 
-        it("should respond to a mouseleave event", function ()
+        it('should respond to a mouseleave event', function ()
         {
-            circle.triggerHandler("mouseleave");
+            circle.triggerHandler('mouseleave');
             expect(circle.isolateScope().left).toBe(true);
         });
     });
