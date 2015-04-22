@@ -1,6 +1,6 @@
 ## Grunt configuration exercise
 
-Configure **Gruntfile.js** in accordance with the requirements. You start with ready **grunt serve** command
+Configure **Gruntfile.js** in accordance with the requirements. You start with ready **grunt serve** command.
 
 ###Requirements
 * add a property corresponding to a jshint: 
