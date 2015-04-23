@@ -3,20 +3,11 @@
 Configure **Gruntfile.js** in accordance with the requirements. You start with ready **grunt serve** command.
 
 ###Requirements
-* add a property corresponding to a jshint: 
-    * use the options provided in **.jshintrc** file
-    * check all **.js** files in **app** folder
-* add a property corresponding to a karma test
-    * check **scripts** in **bower.json** file
-    * **unit** should start once / **dev** should be available at all times
-    * you find **karma** configuration in **test** folder
-* add a property corresponding to a  wiredep
-    * modify **index.html** file that **wiredep command** inject **css* and *js** dependency in the right places
-    * test it using  ```bower install bootstrap --save``` 
-    * modify 'wiredep' so as not to inject the **bootstrap.js** file  
-* install the necessary plugins
-
-    
+You should use grunt to 
+    * detect errors and potential problems in your JavaScript code
+    * run test
+    * find your components and injects them directly into the index.html file 
+        
 ###Results
 * **grunt jshint** command result
 
