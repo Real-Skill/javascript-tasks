@@ -1,0 +1,26 @@
+{
+    "name": "js-assesment",
+    "description": "Fork 'away' of Rebecca Murphey's js-assessment",
+    "version": "0.0.0",
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-jshint": "~0.8.0",
+        "karma-phantomjs-launcher": "~0.1.4",
+        "karma": "~0.12.16",
+        "karma-coverage": "~0.2.4",
+        "karma-jasmine": "~0.1.5",
+        "karma-spec-reporter": "0.0.13"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/it-crowd/js-assessment.git"
+    },
+    "scripts": {
+        "start": "node_modules/karma/bin/karma start test/karma.conf.js",
+        "test": "node_modules/karma/bin/karma start test/karma.conf.js --singleRun true"
+    }
+}
