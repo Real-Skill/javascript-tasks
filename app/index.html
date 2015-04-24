@@ -1,31 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
 <head lang="en">
     <title>AngularJS Tutorials</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="bower_components/fuelux/dist/css/fuelux.css">
 </head>
 
-<body ng-app="app">
+<body class="fuelux text-center">
 <div class="container">
     <div class="page-header">
-        <h1>Easy
-            <small>directives</small>
+        <h1>Bower
+            <small>conflicts</small>
         </h1>
     </div>
+    <div class="col-md-4">
+        <h3>Typeahead</h3>
 
-    <div class="col-sm-offset-2 col-sm-2">
-        <hero></hero>
+        <div id="the-basics">
+            <input class="typeahead form-control" type="text" placeholder="States of USA">
+        </div>
     </div>
-    <div class="col-sm-2">
-        <superhero></superhero>
+    <div class="col-md-4">
+        <h3>Checkbox - fuelux</h3>
+
+        <div class="checkbox" id="myCheckbox">
+            <label class="checkbox-custom" data-initialize="checkbox">
+                <input class="sr-only" type="checkbox" value="">
+                <span class="checkbox-label">Check me</span>
+            </label>
+        </div>
     </div>
-    <div class="col-sm-2">
-        <hero></hero>
+    <div class="col-md-4">
+        <div ng-controller="ButtonsCtrl">
+            <h3>Checkbox</h3>
+            <pre>{{checkModel}}</pre>
+            <div class="btn-group">
+                <label class="btn btn-primary" ng-model="checkModel.left" btn-checkbox>Left</label>
+                <label class="btn btn-primary" ng-model="checkModel.middle" btn-checkbox>Middle</label>
+                <label class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Right</label>
+            </div>
+        </div>
     </div>
+
 
 </div>
 <script src="bower_components/angular/angular.js"></script>
-<script src="hero.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/typeahead.js/dist/typeahead.jquery.js"></script>
+<script src="bower_components/fuelux/dist/js/fuelux.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+
+<script src="app.js"></script>
 </body>
 </html>
