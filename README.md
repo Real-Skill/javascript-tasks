@@ -1,14 +1,19 @@
-#NodeJS - simple security
+#ExpressJS - simple security
 
 ##Summary
-Authentication and authorization in ExpressJS.
+Authentication in ExpressJS.
 
-We've got simple app where user can do a CRUD operations on a phone book. Please, secure it.
+We've got simple app where user can do CRUD operations on a phone book. Please, secure it.
 
 ##Goal
 Your task is to secure the `phone` endpoint so that only authenticated users can interact with it.
 There are already some routes and business objects configured.
-All you need to do is to implement authentication and authorization.
+All you need to do is to implement authentication.
+
+Look at `user.manager.js` and `security.js`. Security checks happen on business layer.
+Authentication middleware is declared in `routes.js`.
+When user is authenticated the middleware should set user property on request object, which is used later on as context to create managers.
+Managers pass the context to `security` service that decides if user is authenticated or not.
 
 ##API
 
