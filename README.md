@@ -1,11 +1,37 @@
 #NodeJS - simple security
 
-This task test your skills in writing application in NodeJS with framework expressJS and using mongoose/mongoose-q to integrate with mongoDB. You have prepared routes 
-and requests are config. You have to write authentication and authorization.
+##Summary
+Authentication and authorization in ExpressJS.
 
-##Authenticate
-* in file **routes** you must complete function **authenticate**, when request have header authorization it should takes this header and decode Base64 and should call **next**.
-* When user NOT exist in DB should throw exception. Password in DB should be code sha1.
-* In layer manager You must check is user exist in request.
+We've got simple app where user can do a CRUD operations on a phone book. Please, secure it.
+
+##Goal
+Your task is to secure the `phone` endpoint so that only authenticated users can interact with it.
+There are already some routes and business objects configured.
+All you need to do is to implement authentication and authorization.
+
+##API
+
+###Authenticate user
+```
+POST /api/user/auth
+{email:'', password:''}
+```
+
+Expected response:
+
+```
+{token:''}
+```
+
+Where the token is plain value. It should be Base64 encoded end sent as header on subsequent requests that require authorization. Sample header for
+token 'abc'.
+
+```
+Authorization: Token YWJj
+```
  
- Good luck!
+##Setup
+`npm test` to run tests
+
+`npm start` to run the app
