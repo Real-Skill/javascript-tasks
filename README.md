@@ -1,1 +1,1 @@
-#NodeJS - scaffolding
+#NodeJS with mongo - scaffolding

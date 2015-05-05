@@ -1,11 +1,8 @@
 (function ()
 {
     'use strict';
-    var q = require('q');
-
-
 
     module.exports = {
-
+        'url': 'mongodb://localhost/simpleDB'
     };
 })();
