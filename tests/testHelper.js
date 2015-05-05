@@ -15,17 +15,6 @@
         return phonesSchema.createQ(phones);
     }
 
-    function seedUsers(users)
-    {
-        if (mongoose.connection.collections.user) {
-            mongoose.connection.collections.user.drop();
-        }
-        var userSchema = mongoose.models.user;
-        userSchema = userSchema || mongoose.model('user', require('../app/DAO/userDAO').schema);
-        return userSchema.createQ(users);
-    }
-
-
     function openDBConnection()
     {
         mongoose.connect(configDB.url, function (error)
@@ -39,7 +28,7 @@
     function closeDBConnection(done)
     {
         //sometimes need this function
-        //mongoose.connection.db.dropDatabase();
+        mongoose.connection.db.dropDatabase();
         mongoose.connection.close(function (error)
         {
             if (error) {
@@ -160,7 +149,6 @@
     module.exports = {
         isEquals: isEquals,
         seedPhones: seedPhones,
-        seedUsers: seedUsers,
         openDBConnection: openDBConnection,
         closeDBConnection: closeDBConnection
     };

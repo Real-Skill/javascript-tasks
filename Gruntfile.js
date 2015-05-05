@@ -5,10 +5,36 @@ module.exports = function (grunt)
 
     var jenkinsOptions = {
         reporter: 'checkstyle',
-        reporterOutput: 'target/jshint.xml'
+        reporterOutput: 'tests/target/jshint.xml'
     };
 
     grunt.initConfig({
+        jasmine_node: {
+            coverage: {
+                options: {
+                    coverage: {
+                        reportDir: 'tests/target',
+                        excludes: ['**/tests/**'],
+                        report: ['cobertura']
+                    },
+                    forceExit: true,
+                    match: '.',
+                    matchAll: false,
+                    specFolders: ['tests'],
+                    extensions: 'js',
+                    specNameMatcher: 'spec',
+                    captureExceptions: true,
+                    showColors: true,
+                    junitreport: {
+                        report: true,
+                        savePath: './tests/target/tests/',
+                        useDotNotation: true,
+                        consolidate: true
+                    }
+                },
+                src: ['**/*.js']
+            }
+        },
         jshint: {
             options: {
                 jshintrc: true,
@@ -21,5 +47,7 @@ module.exports = function (grunt)
             }
         }
     });
+    grunt.loadNpmTasks('grunt-jasmine-node-coverage');
     grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.registerTask('test', ['jasmine_node','jshint:jenkins']);
 };

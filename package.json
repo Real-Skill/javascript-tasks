@@ -1,5 +1,5 @@
 {
-  "name": "RS224",
+  "name": "Pagination",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
@@ -8,6 +8,9 @@
     "cors": "^2.5.3",
     "debug": "~2.1.1",
     "express": "~4.12.2",
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-jasmine-node-coverage": "^0.4.1",
     "jade": "~1.9.2",
     "jasmine-node": "^1.14.5",
     "mongoose": "^4.0.1",
@@ -18,7 +21,7 @@
     "supertest": "^0.15.0"
   },
   "scripts": {
-    "test": "jasmine-node  test/*.js test/spec/*.spec.js app/*.js app/**/*.js --autotest --noStack",
+    "test": "jasmine-node --junitreport --output tests/target/tests tests/*.js tests/spec/*.spec.js app/*.js app/**/*.js --autotest --noStack",
     "nodemon": "nodemon app/index.js",
     "start": "node app/index.js"
   }
