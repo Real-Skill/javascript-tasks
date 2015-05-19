@@ -1,4 +1,4 @@
-## Bower dependencies exercise
+## Bower dependencies
 
 In this exercise, you are dealing with package conflicts. After you solve them correctly, you should run the application as in **Reslut**.
 
