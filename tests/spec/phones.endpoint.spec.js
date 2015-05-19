@@ -6,20 +6,20 @@ describe('phones,endpoint', function ()
     var testHelper = require('../testHelper');
     var sha1 = require('sha1');
     var phones = [{
-        model: 'Nokia',
-        brand: 'Test Phone',
-        stan: 'New'
-        },
-        {
-            model: 'Mock',
-            brand: 'Super Phone',
-            stan: 'Used'
-        },
-        {
-            model: 'Time Phone',
-            brand: 'Test Phone',
-            stan: 'New'
-        }];
+                      model: 'Nokia',
+                      brand: 'Test Phone',
+                      stan: 'New'
+                  },
+                  {
+                      model: 'Mock',
+                      brand: 'Super Phone',
+                      stan: 'Used'
+                  },
+                  {
+                      model: 'Time Phone',
+                      brand: 'Test Phone',
+                      stan: 'New'
+                  }];
     beforeEach(function (done)
     {
         testHelper.openDBConnection();
@@ -65,7 +65,7 @@ describe('phones,endpoint', function ()
                     });
                 });
             });
-            describe('when set limit to 2 and limit to 0', function ()
+            describe('when set limit to 0 and skip to 1', function ()
             {
                 it('should pagination response', function (done)
                 {
@@ -81,67 +81,67 @@ describe('phones,endpoint', function ()
                 });
             });
         });
-        describe('POST /api/phones', function ()
+    });
+    describe('POST /api/phones', function ()
+    {
+        var phone = {model: 'New phones', brand: 'new brand mock'};
+        describe('when we add one element without _id', function ()
         {
-            var phone = {model: 'New phones', brand: 'new brand mock'};
-            describe('when we add one element without _id', function ()
+            beforeEach(function (done)
             {
-                beforeEach(function (done)
-                {
-                    superTest.post('/api/phones').send(phone).end(done);
-                });
+                superTest.post('/api/phones').send(phone).end(done);
+            });
 
-                it('should response 201 and this element', function (done)
+            it('should response 201 and this element', function (done)
+            {
+                superTest.post('/api/phones').send(phone).expect(201).end(function (error, response)
                 {
-                    superTest.post('/api/phones').send(phone).expect(201).end(function (error, response)
-                    {
-                        if (response.body.results && testHelper.isEquals(phone, response.body.results, ['_id', '__v'])) {
-                            done();
-                        } else {
-                            done('Results is NOT equals');
-                        }
-                    });
-                });
-
-                it('should response array with 2 element', function (done)
-                {
-                    superTest.get('/api/phones?skip=0&limit=2').expect(200).end(function (error, response)
-                    {
-                        phones.push(phone);
-                        if (2 === response.body.results.length && 4 === response.body.total &&
-                                testHelper.isEquals(phones[0], response.body.results[0], ['_id', '__v']) &&
-                                testHelper.isEquals(phones[1], response.body.results[1], ['_id', '__v'])) {
-                            done();
-                        } else {
-                            done('Results is NOT equals');
-                        }
-                    });
+                    if (response.body.results && testHelper.isEquals(phone, response.body.results, ['_id', '__v'])) {
+                        done();
+                    } else {
+                        done('Results is NOT equals');
+                    }
                 });
             });
-            describe('when we update element in db', function ()
+
+            it('should response array with 2 element', function (done)
             {
-                beforeEach(function (done)
+                superTest.get('/api/phones?skip=0&limit=2').expect(200).end(function (error, response)
                 {
-                    superTest.get('/api/phones').expect(200).end(function (error, response)
-                    {
-                        phone = response.body.results[0];
+                    phones.push(phone);
+                    if (2 === response.body.results.length && 4 === response.body.total &&
+                            testHelper.isEquals(phones[0], response.body.results[0], ['_id', '__v']) &&
+                            testHelper.isEquals(phones[1], response.body.results[1], ['_id', '__v'])) {
                         done();
-                    });
+                    } else {
+                        done('Results is NOT equals');
+                    }
                 });
-                it('should update this element in db', function (done)
+            });
+        });
+        describe('when we update element in db', function ()
+        {
+            beforeEach(function (done)
+            {
+                superTest.get('/api/phones').expect(200).end(function (error, response)
                 {
-                    phone.model = 'Test test';
-                    phone.brand = 'mock mock';
-                    superTest.post('/api/phones').send(phone).end(function ()
+                    phone = response.body.results[0];
+                    done();
+                });
+            });
+            it('should update this element in db', function (done)
+            {
+                phone.model = 'Test test';
+                phone.brand = 'mock mock';
+                superTest.post('/api/phones').send(phone).end(function ()
+                {
+                    superTest.get('/api/phones/' + phone._id).expect(200).end(function (error, response)
                     {
-                        superTest.get('/api/phones/' + phone._id).expect(200).end(function (error, response)
-                        {
-                            if (response.body.results && testHelper.isEquals(phone, response.body.results)) {
-                                done();
-                            } else {
-                                done('Results is NOT equals');
-                            }
-                        });
+                        if (response.body.results && testHelper.isEquals(phone, response.body.results)) {
+                            done();
+                        } else {
+                            done('Results is NOT equals');
+                        }
                     });
                 });
             });
@@ -218,7 +218,7 @@ describe('phones,endpoint', function ()
                     if (testHelper.isEquals({}, response.body)) {
                         superTest.get('/api/phones').end(function (error, response)
                         {
-                            if (1 === response.body.results.length && 3 === response.body.total && 4 === respond.body.total) {
+                            if (3 === response.body.results.length && 3 === response.body.total && 4 === respond.body.total) {
                                 done();
                             } else {
                                 done('Length results is NOT correct');

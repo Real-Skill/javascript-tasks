@@ -1,26 +1,33 @@
-#NodeJS - simple pagination
+#MongoDB - simple pagination
 
 ##Summary
-Pagination with mongoDB in ExpressJS.
+Backend app supporting pagination.
 
-We've got simple app where user can do a CRUD operations on a phone book, but server sending all data in database, please write pagination.
+Application has got already configured endpoints for CRUD operations and three DAO methods. We need DAO's find method to be configured in a way that would allow to paginate data depending on received query.
 
 
 ##Goal
-Your task is write pagination to endpoint `GET /api/phones`, default settings server should sent only first record in database. When in request have query params
-**skip** and **limit** should pagination records and sent under property **results** and under property **total** sent how many records in database.
-There are already some routes and business objects configured.
+Your goal is to write body of DAO's find method. Possible properties of query params are:
 
-##API
+``` skip, limit ```
 
-```
-GET /api/phones[...]
-```
+where `skip` and `limit` can be positive signed numbers.
+By default request for data should return only one, first record from collection.
+Structure of response.body should be like:
+
+```{ result: [], total: x }```
+
+where under `result` are returned data and under `total` are number of all records in collection.
+
 
 ##Documentation
 * [mongoose](http://mongoosejs.com/)
  
 ##Setup
-`npm test` to run tests (when You run start test you must switch off application, the tests automatically run the server)
+Run `npm install` before start.
 
-`npm start` to run the app
+Run `grunt test` to run unit tests. Note that you have to run `mongod` on your system before running rests.
+ 
+ 
+ Good luck!
+ 

@@ -6,7 +6,9 @@
   var mongoose = require('mongoose');
   var bodyParser = require('body-parser');
   var configDB = require('./config/database.config');
+  var logger = require('morgan');
   var app = express();
+  app.use(logger('dev'));
   app.use(express.static(__dirname + '/'));
   app.use(bodyParser.urlencoded({extended: false}));
   app.use(bodyParser.json());
