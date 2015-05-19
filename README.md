@@ -1,4 +1,4 @@
-#Mongo - scaffolding
+#mongo
 
 You can quickly create NodeJS tasks by cloning the scaffolding repo. 
 You don't have to bother with coverage/reporters/gruntfile/npm configuration.
