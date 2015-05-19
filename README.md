@@ -1,60 +1,46 @@
-#NodeJS - simple CRUD
+#MongoDB - simple CRUD queries
 
 ##Summary
-CRUD with mongoDB in ExpressJS.
+CRUD application in ExpressJS using MongoDB.
  
-We've got a simple routes, we needs write CRUD, please write this.
+There are API provided which are handling all CRUD requests and running appropriate DAO methods. All endpoints should have response.body structure like:
+
+```
+{results: data}
+```
+
+where `data` is appropriate data returning by DAO methods.
 
 ##Goal
-Your task is to write a DAO layer for endpoints file **/app/REST/phone.endpoint** in **/app/DAO/phoneDAO**
- 
- 
+Your goal is to write a DAO layer using MongoDB queries. Use **/app/DAO/phoneDAO** file for your solutions.
+  
 ##API
 
 ###Get all records in database
-
 ```
 GET /api/phones
 ```
 
-Expected response:
-
-```
-{results:[...]}
-```
 ###Create or update record in database
-
 ```
 POST /api/phones
 ```
 
-Expected response:
-
-```
-{results:{}}
-```
 ###Get one record in database
-
 ```
-GET /api/phones/[...]
+GET /api/phones/:id
 ```
 
-Expected response:
-
-```
-{results:{}}
-```
-###Remove record 
-
+###Remove record
 ```
 DELETE /api/phones/{}
 ```
 
-Expected response:
+##Setup
+Run `npm install` before start.
 
-```
-{results:{}}
-```
+Run `grunt test` to run unit tests. Note that you have to run `mongod` on your system before running rests.
+
  
  
  Good luck!
