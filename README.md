@@ -1,12 +1,11 @@
 ## Bower dependencies
 
-In this exercise, you are dealing with package conflicts. After you solve them correctly, you should run the application as in **Reslut**.
+In this task, you have to deal with package conflicts.
+This app uses AngularJS, AngularUI, typeahead.js, fuelux and Angular-Bootstrap. Those libraries have transitive dependencies that may conflict with each other.
 
-###Requirements
-* resolved conflicts should be added to the **bower.json** file
-
-###Result
-When conflicts in dependencies are resolved correctly, view should display working properly Typeahead, Checkbox - fluent and Checkbox with buttons.
+###Goal
+Modify **bower.json** file so that next `bower install` does not ask any question and app works properly
+When dependency conflicts are resolved correctly, you should see properly working Typeahead, Checkbox - fluent and Checkbox with buttons.
 
 ###Before you start, read about
 [bower-how-to](http://herereadthis.com/code/bower-how-to)
