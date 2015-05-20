@@ -26,7 +26,7 @@ module.exports = function (grunt)
                 options: {
                     open: true, middleware: function (connect)
                     {
-                        return [connect().use('/bower_components', connect.static('./bower_components')), connect.static(config.app)
+                        return [connect().use('/app/bower_components', connect.static('./app/bower_components')), connect.static(config.app)
 
                         ];
                     }

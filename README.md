@@ -1,15 +1,25 @@
-## Grunt configuration exercise
+## Grunt configuration
 
-Configure **Gruntfile.js** in accordance with the requirements. You start with ready **grunt serve** command.
+Grunt is a task-based command line build tool for JavaScript projects. 
+You can use Grunt to automate minification, compilation, unit testing, linting... - take a look at [gruntjs.com](http://gruntjs.com/)
 
-###Requirements
-You should use grunt to: 
- * detect errors and potential problems in your JavaScript code
- * run test
- * find your components and injects them directly into the index.html file 
+Grunt and Grunt plugins are installed and managed via `npm`, the Node.js package manager.
+
+
+##Goal
+You goal is install and load npm task to:
+
+ * detect errors and potential problems in your JavaScript code located in app folder (`grunt-contrib-jshint`),
+
+ * run tests (`grunt-karma`) located in test folder, 
+
+ * find your components, install via bower and injects them directly into the `index.html` file (`grunt-wiredep`)
  
-###Results
+From bootstrap component, should be injected only part of the CSS. Remember that, you can't manually modify `index.html` file.
 
+You start with ready `grunt serve` task (you can use it to start browser in live reload mode).
+
+###Results
 * **grunt jshint** command result
 
 ```
@@ -26,7 +36,7 @@ Done, without errors.
 Running "karma:unit" (karma) task
 INFO [karma]: Karma v0.12.31 server started at http://localhost:8080/
 INFO [launcher]: Starting browser PhantomJS
-INFO [PhantomJS 1.9.8 (Windows 8)]: Connected on socket TG9EkfmmMR0ChBee9hwF with id 54727324
+INFO [PhantomJS 1.9.8 (Windows 8)]: Connected on socket VST86J4WhW0JtSyeodAH with id 71276573
 
   directives
     circle
@@ -35,22 +45,8 @@ INFO [PhantomJS 1.9.8 (Windows 8)]: Connected on socket TG9EkfmmMR0ChBee9hwF wit
       ? should remove bg-info class when mouseleave
       ? should respond to a mouseleave event
 
-PhantomJS 1.9.8 (Windows 8): Executed 4 of 4 SUCCESS (0.732 secs / 0.13 secs)
+PhantomJS 1.9.8 (Windows 8): Executed 4 of 4 SUCCESS (0.682 secs / 0.114 secs)
 
-
-Running "karma:dev" (karma) task
-INFO [karma]: Karma v0.12.31 server started at http://localhost:8080/
-INFO [launcher]: Starting browser PhantomJS
-INFO [PhantomJS 1.9.8 (Windows 8)]: Connected on socket tvDJhVZXICTumxR49jxK with id 44356070
-
-  directives
-    circle
-      ? should add bg-info a class when mouseenter
-      ? should respond to a mouseenter event
-      ? should remove bg-info class when mouseleave
-      ? should respond to a mouseleave event
-
-PhantomJS 1.9.8 (Windows 8): Executed 4 of 4 SUCCESS (0.49 secs / 0.1 secs)
 ```
 
 * **grunt wiredep** command result
@@ -65,15 +61,23 @@ Done, without errors.
 * **.js** file added
 
 ```
+...
 <script src="bower_components/jquery/dist/jquery.js"></script>
-
 <script src="bower_components/angular/angular.js"></script>
+
+<script src="mouse.js"></script>
+</body>
+</html>
 ```
 
 * **.css** file add
 ```
+...
+<title>AngularJS Tutorials</title>
 
 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+
+...
 ```
 
 ###Before you start, please refer to:
