@@ -1,24 +1,25 @@
-describe('phones,endpoint', function ()
+describe('phonesDAO', function ()
 {
     'use strict';
 
-    var superTest = require('supertest')(require('../../app/index.js'));
+    var DAO = require( '../../app/index.js' );
+
     var testHelper = require('../testHelper');
     var phones = [{
-        model: 'Nokia',
-        brand: 'Test Phone',
-        stan: 'New'
-    },
-        {
-            model: 'Mock',
-            brand: 'Super Phone',
-            stan: 'Used'
-        },
-        {
-            model: 'Time Phone',
-            brand: 'Test Phone',
-            stan: 'New'
-        }];
+                      model: 'Nokia',
+                      brand: 'Test Phone',
+                      stan: 'New'
+                  },
+                  {
+                      model: 'Mock',
+                      brand: 'Super Phone',
+                      stan: 'Used'
+                  },
+                  {
+                      model: 'Time Phone',
+                      brand: 'Test Phone',
+                      stan: 'New'
+                  }];
     beforeEach(function (done)
     {
         testHelper.openDBConnection();
@@ -26,20 +27,29 @@ describe('phones,endpoint', function ()
         {
             done();
         });
+
     });
     afterEach(function (done)
     {
         testHelper.closeDBConnection(done);
     });
-    describe('GET /api/phones', function ()
+    describe('DAO\'s search method' , function ()
     {
-        describe('when seed 3 phones', function ()
+        it('should return promise', function (done)
         {
-            it('should response 200 and response have 3 elements', function (done)
+            if (testHelper.isPromise( DAO.search({}) )) {
+                done();
+            } else {
+                done('Return is NOT promise');
+            }
+        });
+
+        describe('when don\'t provide query params', function ()
+        {
+            it('should respond with 3 elements', function (done)
             {
-                superTest.get('/api/phones').expect(200).end(function (error, response)
-                {
-                    if (testHelper.isEquals(phones, response.body.results, ['_id', '__v'])) {
+                DAO.search({}).then( function( data ) {
+                    if (testHelper.isEquals( phones, testHelper.convertFromMongo(data), ['_id', '__v'])) {
                         done();
                     } else {
                         done('Results is NOT equals');
@@ -48,192 +58,246 @@ describe('phones,endpoint', function ()
             });
         });
 
-        describe('when url have query params', function ()
+        describe('when provided string to search for', function()
         {
-            it('should filter response results', function (done)
+            it( 'should respond with 3 elements', function( done )
             {
-                superTest.get('/api/phones?query=Test').expect(200).end(function (error, response)
-                {
-                    if (error) {
-                        done('Some gone wrong' + error);
-                    }
-                    if (response.body.results && 2 === response.body.results.length &&
-                            testHelper.isEquals(phones[0], response.body.results[0], ['_id', '__v']) &&
-                            testHelper.isEquals(phones[2], response.body.results[1], ['_id', '__v'])) {
+                DAO.search({ query: 'Pho' }).then( function( data ) {
+                    if( testHelper.isEquals( phones, testHelper.convertFromMongo(data), ['_id', '__v']) ) {
                         done();
-                    } else {
-                        done('Results is NOT equals');
+                    }
+                    else {
+                        done('Results is NOT equals')
                     }
                 });
-                superTest.get('/api/phones?query=sed').expect(200).end(function (error, response)
-                {
-                    if (error) {
-                        done('Some gone wrong' + error);
-                    }
-                    if (response.body.results && 1 === response.body.results.length &&
-                            testHelper.isEquals(phones[1], response.body.results[0], ['_id', '__v'])) {
+            } );
+
+            it( 'should respond with 1 elements', function( done )
+            {
+                DAO.search({ query: 'oki' }).then( function( data ) {
+                    if( testHelper.isEquals( [ phones[ 0 ] ], testHelper.convertFromMongo(data), ['_id', '__v']) ) {
                         done();
-                    } else {
-                        done('Results is NOT equals');
+                    }
+                    else {
+                        done('Results is NOT equals')
                     }
                 });
-                superTest.get('/api/phones?query=Nok').expect(200).end(function (error, response)
-                {
-                    if (error) {
-                        done('Some gone wrong' + error);
-                    }
-                    if (response.body.results && 1 === response.body.results.length &&
-                            testHelper.isEquals(phones[0], response.body.results[0], ['_id', '__v'])) {
-                        done();
-                    } else {
-                        done('Results is NOT equals');
-                    }
-                });
-            });
+            } );
         });
     });
-    describe('POST /api/phones', function ()
+
+    describe('DAO\'s getDetails method', function ()
     {
-        describe('when we add one element without _id', function ()
+        it('should return promise', function (done)
         {
-            var phone = {model: 'New phones', brand: 'new brand mock'};
-            it('should response 201 and this element', function (done)
-            {
-                superTest.post('/api/phones').send(phone).expect(201).end(function (error, response)
-                {
-                    if (testHelper.isEquals(phone, response.body.results, ['_id', '__v'])) {
-                        done();
-                    } else {
-                        done('Results is NOT equals');
-                    }
-                });
-            });
-            beforeEach(function (done)
-            {
-                superTest.post('/api/phones').set({}).send(phone).end(done);
-            });
-            it('should response array with 4 element', function (done)
-            {
-                superTest.get('/api/phones').expect(200).end(function (error, response)
-                {
-                    phones.push(phone);
-                    if (4 === response.body.results.length && testHelper.isEquals(phones, response.body.results, ['_id', '__v'])) {
-                        done();
-                    } else {
-                        done('Results is NOT equals');
-                    }
-                });
-            });
+            if (testHelper.isPromise( DAO.getDetails(0) )) {
+                done();
+            } else {
+                done('Return is NOT promise');
+            }
         });
-        describe('when we update element in db', function ()
+
+        describe('when we are getting first row from database', function ()
         {
-            var phone;
+            var phoneId, phone;
             beforeEach(function (done)
             {
-                superTest.get('/api/phones').expect(200).end(function (error, response)
-                {
-                    phone = response.body.results[2];
+                DAO.search({}).then( function( data ) {
+                    phone = testHelper.convertFromMongo(data)[0];
+                    phoneId = phone._id;
                     done();
                 });
             });
-            it('should update this element in db', function (done)
+
+            it('should respond with first element', function (done)
             {
-                phone.model = 'Test test';
-                phone.brand = 'mock mock';
-                superTest.post('/api/phones').send(phone).end(function ()
+                DAO.getDetails(phoneId).then( function( data ) {
+                    if (testHelper.isEquals(phone, testHelper.convertFromMongo(data))) {
+                        done();
+                    } else {
+                        done('Results is NOT equals');
+                    }
+                } );
+            });
+        });
+
+        describe('when we are trying to get not existing row', function ()
+        {
+            it('should respond with error', function (done)
+            {
+                DAO.getDetails( 0 ).then( function() {
+                    done( 'Returns something' );
+                } ).catch( function( error ) {
+                    if( error.name === 'CastError' ) {
+                        done();
+                    }
+                    else {
+                        done( 'Different error than CastError' )
+                    }
+                } );
+            });
+        });
+    });
+
+    describe('DAO\'s createNewOrUpdate method', function ()
+    {
+        it('should return promise', function (done)
+        {
+            if (testHelper.isPromise( DAO.createNewOrUpdate({}) )) {
+                done();
+            } else {
+                done('Return is NOT promise');
+            }
+        });
+
+        describe('when provided element has no _id', function ()
+        {
+            var phone = {model: 'New phones', brand: 'new brand mock'};
+            it('should respond with this element', function (done)
+            {
+                DAO.createNewOrUpdate( phone ).then(function (data)
                 {
-                    superTest.get('/api/phones/' + phone._id).expect(200).end(function (error, response)
-                    {
-                        if (testHelper.isEquals(phone, response.body.results)) {
+                    if (testHelper.isEquals(phone, testHelper.convertFromMongo(data), ['_id', '__v'])) {
+                        done();
+                    } else {
+                        done('Results is NOT equals');
+                    }
+                });
+            });
+
+            it('should database contain 4 rows', function (done)
+            {
+                DAO.createNewOrUpdate(phone).then( function() {
+                    DAO.search({}).then( function(data) {
+                        if( 4 === data.length ) {
                             done();
-                        } else {
-                            done('Results is NOT equals');
+                        }
+                        else {
+                            done( 'Result has no 4 elements' );
                         }
                     });
                 });
             });
         });
-    });
-    describe('GET /api/phones/:id', function ()
-    {
-        describe('when we get id first element in the array', function ()
+
+        describe('when provided element has _id', function ()
         {
-            var phoneId, phone;
+            var phone;
             beforeEach(function (done)
             {
-                superTest.get('/api/phones').end(function (error, response)
+                DAO.search({}).then(function (data)
                 {
-                    phone = response.body.results[0];
-                    phoneId = response.body.results[0]._id;
+                    phone = testHelper.convertFromMongo(data)[2];
                     done();
                 });
             });
-            it('should response 200 and details first phone', function (done)
+            it('should respond with this element', function (done)
             {
-                superTest.get('/api/phones/' + phoneId).expect(200).end(function (error, response)
+                DAO.createNewOrUpdate( phone ).then(function (data)
                 {
-                    if (testHelper.isEquals(phone, response.body.results)) {
+                    if (testHelper.isEquals(phone, testHelper.convertFromMongo(data))) {
                         done();
                     } else {
                         done('Results is NOT equals');
                     }
                 });
             });
-        });
-        describe('when we get id third element in array', function ()
-        {
-            var phoneId, phone;
-            beforeEach(function (done)
+
+            it('should database contain 3 rows', function (done)
             {
-                superTest.get('/api/phones').end(function (error, response)
-                {
-                    phone = response.body.results[2];
-                    phoneId = response.body.results[2]._id;
-                    done();
-                });
-            });
-            it('should response 200 and details first phone', function (done)
-            {
-                superTest.get('/api/phones/' + phoneId).expect(200).end(function (error, response)
-                {
-                    if (testHelper.isEquals(phone, response.body.results)) {
-                        done();
-                    } else {
-                        done('Results is NOT equals');
-                    }
+                DAO.createNewOrUpdate(phone).then( function() {
+                    DAO.search({}).then( function(data) {
+                        if( 3 === data.length ) {
+                            done();
+                        }
+                        else {
+                            done( 'Result has no 4 elements' );
+                        }
+                    });
                 });
             });
         });
-    });
-    describe('DELETE /api/phones/:id', function ()
+    } );
+    describe('DAO\'s removePhone method', function ()
     {
-        var phoneId;
-        beforeEach(function (done)
+        it('should return promise', function (done)
         {
-            superTest.get('/api/phones').end(function (error, response)
-            {
-                phoneId = response.body.results[0]._id;
+            if (testHelper.isPromise( DAO.removePhone(0) )) {
                 done();
-            });
+            } else {
+                done('Return is NOT promise');
+            }
         });
-        it('should response 200 and remove this element in db', function (done)
+
+        describe( 'when in database exist row with provided id', function()
         {
-            superTest.get('/api/phones').end(function (error, respond)
+            var phoneId, phone;
+            beforeEach(function (done)
             {
-                superTest.delete('/api/phones/' + phoneId).expect(200).end(function (error, response)
+                DAO.search({}).then(function (data)
                 {
-                    if (testHelper.isEquals({}, response.body)) {
-                        superTest.get('/api/phones').end(function (error, response)
-                        {
-                            if (3 === response.body.results.length && 4 === respond.body.results.length) {
-                                done();
-                            } else {
-                                done('Length results is NOT correct');
-                            }
-                        });
-                    } else {
+                    phone = testHelper.convertFromMongo(data)[1];
+                    phoneId = phone._id;
+                    done();
+                });
+            });
+
+            it('should respond with deleted element', function (done)
+            {
+                DAO.removePhone( phoneId).then( function(data) {
+                    if (testHelper.isEquals(phone, testHelper.convertFromMongo(data))) {
+                        done();
+                    }
+                    else {
                         done('Results is NOT equals');
                     }
+                });
+            });
+
+            it('should database contain 2 rows', function( done )
+            {
+                DAO.removePhone( phoneId).then( function(data) {
+                    DAO.search({}).then( function(data)
+                    {
+                        if( 2 === data.length ) {
+                            done();
+                        }
+                        else {
+                            done( 'Result has no 2 elements' );
+                        }
+                    });
+                });
+            });
+        });
+
+        describe( 'when in database do not exist row with provided id', function()
+        {
+            it('should respond with error', function (done)
+            {
+                DAO.removePhone(0).then( function() {
+                    done( 'Returns something' );
+                } ).catch( function( error ) {
+                    if( error.name === 'CastError' ) {
+                        done();
+                    }
+                    else {
+                        done( 'Different error than CastError' )
+                    }
+                } );
+            });
+
+            it('should database contain 3 rows', function( done )
+            {
+                DAO.removePhone(0).catch( function() {
+                    DAO.search({}).then( function(data)
+                    {
+                        if( 3 === data.length ) {
+                            done();
+                        }
+                        else {
+                            done( 'Result has no 3 elements' );
+                        }
+                    });
                 });
             });
         });

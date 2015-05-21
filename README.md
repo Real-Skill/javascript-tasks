@@ -1,40 +1,32 @@
 #MongoDB - simple CRUD queries
 
 ##Summary
-CRUD application in ExpressJS using MongoDB.
- 
-There are API provided which are handling all CRUD requests and running appropriate DAO methods. All endpoints should have response.body structure like:
-
-```
-{results: data}
-```
-
-where `data` is appropriate data returning by DAO methods.
+DAO layer serving to perform CRUD operations on database using MongoDB.
 
 ##Goal
-Your goal is to write a DAO layer using MongoDB queries. Use **/app/DAO/phoneDAO** file for your solutions.
-  
-##API
+Your goal is to write a DAO layer using MongoDB queries. Use **/app/DAO/phoneDAO** file for your solutions. All DAO methods should return promise. You need to fill this methods in accordance to guidelines:
 
-###Get all records in database
-```
-GET /api/phones
-```
+####search()
+*Arguments:* object with body like: `{ query: '' }` where under `query` property is string to search for
 
-###Create or update record in database
-```
-POST /api/phones
-```
+*Return:* array containing all founded data.
 
-###Get one record in database
-```
-GET /api/phones/:id
-```
+####getDetails()
+*Arguments:* id of phone existing in collection;
 
-###Remove record
-```
-DELETE /api/phones/{}
-```
+*Return:* object with all fields of element.
+
+####createNewOrUpdate()
+*Arguments:* object; if id of provided element already exist in collection it should get proper element and update it; otherwise it should add new element to collection
+
+*Return:* object with all fields of element.
+
+####removePhone()
+*Arguments:* id of phone to remove from collection
+
+*Return:* object with all fields of removed element.
+
+
 
 ##Setup
 Run `npm install` before start.

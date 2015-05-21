@@ -11,16 +11,18 @@
     });
     var Model = mongoose.model('phones', phoneSchema);
 
-    function createNewOrUpdate(phone)
-    {
-
-    }
 
     function search(query)
     {
+
     }
 
     function getDetails(phoneId)
+    {
+
+    }
+
+    function createNewOrUpdate(phone)
     {
 
     }
@@ -31,10 +33,9 @@
     }
 
     module.exports = {
-        removePhone: removePhone,
+        search: search,
         getDetails: getDetails,
         createNewOrUpdate: createNewOrUpdate,
-        search: search,
-        schema: phoneSchema
+        removePhone: removePhone
     };
 })();
