@@ -157,11 +157,57 @@
         return equals(expected, results);
     }
 
+    function copyObj( obj ) {
+        var cpy;
+
+        if( obj instanceof Array ) {
+            cpy = [];
+            for( var i=0; i<obj.length; i++ ) {
+                cpy.push( copyObj( obj[ i ] ) );
+            }
+        }
+        else {
+            obj = fromMongo( obj );
+            cpy = {};
+            for( var prop in obj ) {
+                if( obj.hasOwnProperty( prop ) ) {
+                    cpy[ prop ] = obj[ prop ];
+                }
+            }
+        }
+
+        return cpy;
+    }
+
+    function fromMongo(obj)
+    {
+        var cpy;
+
+        if( obj instanceof Array ) {
+            cpy = [];
+            for( var i=0; i<obj.length; i++ ) {
+                cpy.push( fromMongo( obj[ i ] ) );
+            }
+        }
+        else {
+            cpy =  obj._doc;
+        }
+
+        return cpy;
+    }
+
+    function isPromise( obj ) {
+        return typeof obj.catch === 'function' || typeof obj.then === 'function';
+    }
+
     module.exports = {
         isEquals: isEquals,
         seedPhones: seedPhones,
         seedUsers: seedUsers,
         openDBConnection: openDBConnection,
-        closeDBConnection: closeDBConnection
+        closeDBConnection: closeDBConnection,
+        copyObj: copyObj,
+        convertFromMongo: fromMongo,
+        isPromise: isPromise
     };
 })();
