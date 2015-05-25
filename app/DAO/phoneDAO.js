@@ -11,48 +11,33 @@
     });
     var Model = mongoose.model('phones', phoneSchema);
 
-    function createNewOrUpdate(phone)
-    {
-        if (!phone._id) {
-            //    create
-            return new Model(phone).saveQ().then(function (result)
-            {
-                return {results: result};
-            });
-        } else {
-            //update
-            var id = phone._id;
-            delete phone._id;
-            return Model.where('_id').equals(id).findOneAndUpdateQ(phone).then(function (results)
-            {
-                return {results: results};
-            });
-        }
-    }
-
     function search(query)
     {
+        var
+            skip = 0,
+            limit = query.limit ? parseInt( query.limit, 10 ) : 2,
+            total;
 
-    }
+        if( query.hasOwnProperty( 'skip' ) && query.skip > 0 ) {
+            skip = parseInt( query.skip, 10 );
+        }
+        if( query.hasOwnProperty( 'limit' ) && query.skip > -1 ) {
+            skip = parseInt( query.skip, 10 );
+        }
 
-    function getDetails(phoneId)
-    {
-        return Model.findOneQ({_id: phoneId}).then(function (result)
-        {
-            return {results: result};
+        return Model.find().count().then( function( data ) {
+            total = data;
+            return Model.find()
+                .skip( skip )
+                .limit( limit )
+                .execQ()
+                .then( function( data ) {
+                    return { results: data, total: total };
+                } );
         });
     }
 
-    function removePhone(phoneId)
-    {
-        return Model.findByIdAndRemoveQ(phoneId);
-    }
-
     module.exports = {
-        removePhone: removePhone,
-        getDetails: getDetails,
-        createNewOrUpdate: createNewOrUpdate,
-        search: search,
-        schema: phoneSchema
+        search: search
     };
 })();

@@ -1,33 +1,31 @@
 #MongoDB - simple pagination
 
 ##Summary
-Backend app supporting pagination.
-
-Application has got already configured endpoints for CRUD operations and three DAO methods. We need DAO's find method to be configured in a way that would allow to paginate data depending on received query.
-
+DAO's method designed to receiving data from mongo database. There is ability to paginate data using only mongo query.
 
 ##Goal
-Your goal is to write body of DAO's find method. Possible properties of query params are:
+Your goal consist in write body of DAO's search method. Use **/app/DAO/phoneDAO** file for your solution. Searching operation is performing on collection which has structure:
 
-``` skip, limit ```
+```
+{
+    model: String,
+    brand: String,
+    state: String
+}
+```
 
-where `skip` and `limit` can be positive signed numbers.
-By default request for data should return only one, first record from collection.
-Structure of response.body should be like:
+Our DAO method accepts as parameter object whose properties could be `skip` and/or `limit` which type is number.
 
-```{ result: [], total: x }```
+You need to fill our DAO method in accordance to guidelines:
 
-where under `result` are returned data and under `total` are number of all records in collection.
+- it should return promise,
+- structure of returning data should have structure like: `{ results: [], total: int }`, where results is found data and total is number of all elements in collection.
 
 
-##Documentation
-* [mongoose](http://mongoosejs.com/)
- 
 ##Setup
-Run `npm install` before start.
+Type `npm install` before start.
 
-Run `grunt test` to run unit tests. Note that you have to run `mongod` on your system before running rests.
- 
+Type `grunt test` to run unit tests. Note that you have to run `mongod` on your system before running rests.
  
  Good luck!
  
