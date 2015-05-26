@@ -1,23 +1,21 @@
 {
-  "name": "angular-egghead",
-  "description": "angular training",
-  "dependencies": {},
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-connect": "^0.7.1",
-    "grunt-contrib-watch": "^0.6.1",
-    "karma": "~0.12.16",
-    "karma-coverage": "~0.2.4",
-    "karma-jasmine": "~0.1.5",
-    "karma-phantomjs-launcher": "~0.1.4",
-    "karma-spec-reporter": "0.0.13"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/aniaw/angular-egghead.git"
-  },
-  "scripts": {
-    "start": "grunt karma:dev",
-    "test": "grunt karma:unit"
-  }
+    "name": "angular-egghead",
+    "description": "grunt training",
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-contrib-connect": "^0.7.1",
+        "grunt-contrib-watch": "^0.6.1",
+        "grunt-protractor-runner": "~2.0.0",
+        "grunt-protractor-webdriver": "~0.2.0",
+        "karma": "~0.12.16",
+        "karma-coverage": "~0.2.4",
+        "karma-jasmine": "~0.1.5",
+        "karma-phantomjs-launcher": "~0.1.4",
+        "karma-spec-reporter": "0.0.13"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/aniaw/angular-egghead.git"
+    }
 }

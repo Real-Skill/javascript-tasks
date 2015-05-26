@@ -7,6 +7,8 @@ module.exports = function (grunt)
 
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-protractor-runner');
+    grunt.loadNpmTasks('grunt-protractor-webdriver');
 
     var config = {
         app: 'app'
@@ -32,9 +34,31 @@ module.exports = function (grunt)
                     }
                 }
             }
+        },
+        protractor_webdriver: {
+            start: {
+                options: {
+                    path: 'node_modules/protractor/bin/',
+                    command: 'webdriver-manager start'
+                }
+            }
+        },
+        protractor: {
+            options: {
+                keepAlive: true,
+                configFile: 'test/protractor.conf.js'
+
+            },
+            run: {}
         }
 
     });
+
+    grunt.registerTask('test', [
+        'protractor_webdriver',
+        'protractor:run'
+    ]);
+
 
     grunt.registerTask('serve', function ()
     {

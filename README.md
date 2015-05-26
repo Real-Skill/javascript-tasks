@@ -17,7 +17,9 @@ You goal is install and load npm task to:
  
 From bootstrap component, should be injected only part of the CSS. Remember that, you can't manually modify `index.html` file.
 
-You start with ready `grunt serve` task (you can use it to start browser in live reload mode).
+You start with ready tasks: 
+
+`grunt serve` (you can use it to start browser in live reload mode) and `grunt test` (to start protractor test)
 
 ###Results
 * **grunt jshint** command result
@@ -79,6 +81,17 @@ Done, without errors.
 
 ...
 ```
+
+###Setup
+
+Run `npm install -g protractor` to install protractor globally
+
+Run `webdriver-manager update` to update webdriver-manager (helper tool to easily get an instance of a Selenium Server running)
+
+Run `grunt serve` to start browser in live reload mode
+
+Run `grunt test` to start protractor test
+
 
 ###Before you start, please refer to:
 * [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint)
