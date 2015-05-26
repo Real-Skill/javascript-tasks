@@ -1,12 +1,23 @@
 ## Bower dependencies
 
-In this exercise, you are dealing with package conflicts. After you solve them correctly, you should run the application as in **Reslut**.
+In this task, you have to deal with package conflicts.
+This app uses AngularJS, AngularUI, typeahead.js, fuelux and Angular-Bootstrap. Those libraries have transitive dependencies that may conflict with each other.
 
-###Requirements
-* resolved conflicts should be added to the **bower.json** file
+###Goal
+Modify **bower.json** file so that next `bower install` does not ask any question and app works properly
+When dependency conflicts are resolved correctly, you should see properly working Typeahead, Checkbox - fluent and Checkbox with buttons.
 
-###Result
-When conflicts in dependencies are resolved correctly, view should display working properly Typeahead, Checkbox - fluent and Checkbox with buttons.
+###Setup
+
+Run `npm install -g protractor` to install protractor globally
+
+Run `webdriver-manager update` to update webdriver-manager (helper tool to easily get an instance of a Selenium Server running)
+
+Run `grunt serve` to start browser in live reload mode
+
+Run `grunt test` to start protractor test
+
+
 
 ###Before you start, read about
 [bower-how-to](http://herereadthis.com/code/bower-how-to)
