@@ -17,31 +17,37 @@
         <h3>Typeahead</h3>
 
         <div id="the-basics">
-            <input class="typeahead form-control" type="text" placeholder="States of USA">
+            <input id="typeahead" class="typeahead form-control" type="text" placeholder="States of USA">
         </div>
     </div>
     <div class="col-md-4">
         <h3>Checkbox - fuelux</h3>
 
-        <div class="checkbox" id="myCheckbox">
-            <label class="checkbox-custom" data-initialize="checkbox">
-                <input class="sr-only" type="checkbox" value="">
-                <span class="checkbox-label">Check me</span>
+        <div class="checkbox" data-initialize="checkbox" id="checkboxFuelux">
+            <label class="checkbox-custom">
+                <input id="inputFuelux" class="sr-only" data-toggle="#checkboxToggleID" type="checkbox" value="option1">
+                <span class="checkbox-label">Toggles element with matching ID</span>
             </label>
         </div>
+
+        <div class="alert bg-info" id="checkboxToggleID">ID toggling container</div>
+
     </div>
-    <div class="col-md-4">
-        <div ng-controller="ButtonsCtrl">
-            <h3>Checkbox</h3>
-            <pre>{{checkModel}}</pre>
-            <div class="btn-group">
-                <label class="btn btn-primary" ng-model="checkModel.left" btn-checkbox>Left</label>
-                <label class="btn btn-primary" ng-model="checkModel.middle" btn-checkbox>Middle</label>
-                <label class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Right</label>
-            </div>
+    <div class="col-md-4 text-center" ng-controller="ButtonCtrl">
+
+        <div class="btn-group">
+            <label class="btn btn-primary" ng-model="checkModel.left" btn-checkbox>Left</label>
+            <label class="btn btn-primary" ng-model="checkModel.middle" btn-checkbox>Middle</label>
+            <label class="btn btn-primary" ng-model="checkModel.right" btn-checkbox>Right</label>
+        </div>
+        <div class="well-sm">
+
+            <p>Left: <span ng-bind="checkModel.left"></span></p>
+            <p>Middle: <span ng-bind="checkModel.middle"></span></p>
+            <p>Right: <span ng-bind="checkModel.right"></span></p>
+
         </div>
     </div>
-
 
 </div>
 <script src="bower_components/angular/angular.js"></script>
@@ -49,7 +55,7 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/typeahead.js/dist/typeahead.jquery.js"></script>
 <script src="bower_components/fuelux/dist/js/fuelux.js"></script>
-<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
 <script src="app.js"></script>
 </body>

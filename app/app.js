@@ -2,15 +2,17 @@
 
 var app = angular.module('app', ['ui.bootstrap']);
 
-app.controller('ButtonsCtrl', function ($scope) {
-    $scope.singleModel = 1;
-
-    $scope.radioModel = 'Middle';
+app.controller('ButtonCtrl', function ($scope) {
 
     $scope.checkModel = {
         left: false,
         middle: true,
         right: false
+    };
+
+    $scope.setMe = 'Nothing happen.';
+    $scope.clickOn = function(){
+        $scope.setMe = 'You click me!';
     };
 });
 
@@ -56,7 +58,7 @@ $('#the-basics .typeahead').typeahead({
         source: substringMatcher(states)
     });
 
-$('#myCheckbox').checkbox();
+$('#checkboxFuelux').checkbox();
 $('.checkbox input').on('change', function () {
     console.log($(this).is(':checked'));
 });
