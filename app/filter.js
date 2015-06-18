@@ -17,7 +17,7 @@ app.filter('withoutH', function ()
     };
 });
 
-app.filter('firstLetterUpp', function ()
+app.filter('firstLetterUp', function ()
 {
     return function (text)
     {

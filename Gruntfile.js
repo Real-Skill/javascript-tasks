@@ -7,11 +7,14 @@
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
-module.exports = function (grunt) {
+module.exports = function (grunt)
+{
 
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    require('load-grunt-tasks')(grunt);
 
+    grunt.loadNpmTasks('grunt-protractor-webdriver');
     var config = {
         app: 'app'
     };
@@ -37,7 +40,8 @@ module.exports = function (grunt) {
             livereload: {
                 options: {
                     open: true,
-                    middleware: function (connect) {
+                    middleware: function (connect)
+                    {
                         return [
                             connect().use('/bower_components', connect.static('./bower_components')), connect.static(config.app)
 
@@ -45,14 +49,60 @@ module.exports = function (grunt) {
                     }
                 }
             }
+        },
+        protractor_webdriver: {
+            driver: {
+                options: {}
+            }
+        },
+        protractor: {
+            options: {
+                configFile: 'tests/config.js',
+                keepAlive: false,
+                noColor: false
+            },
+            chrome: {
+                options: {
+                    args: {
+                        browser: 'chrome'
+                    }
+                }
+            },
+            firefox: {
+                options: {
+                    args: {
+                        browser: 'firefox'
+                    }
+                }
+            },
+            phantomjs: {
+                options: {
+                    args: {
+                        browser: 'phantomjs'
+                    }
+                }
+            }
+        },
+        karma: {
+            unit: {
+                configFile: 'tests/karma.conf.js'
+            }
         }
     });
 
-    grunt.registerTask('serve', function () {
+    grunt.registerTask('serve', function ()
+    {
         grunt.task.run([
             'connect:livereload', 'watch'
         ]);
     });
+    grunt.registerTask('test', [
+        'protractor:chrome'
+    ]);
+
+    grunt.registerTask('test:phantomjs', [
+        'protractor_webdriver', 'protractor:phantomjs'
+    ]);
 
     grunt.registerTask('default', ['serve']);
 };
