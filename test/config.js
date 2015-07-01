@@ -17,7 +17,8 @@ module.exports.config = {
     allScriptsTimeout: 40000,
 
     cucumberOpts: {
-        require: 'features/**/*.js',
+        tags: ['~@ignore'],
+        require: 'features/steps/*.js',
         format: 'pretty',
         timeout: 20000
     }

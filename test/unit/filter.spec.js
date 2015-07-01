@@ -1,7 +1,7 @@
-'use strict';
-
 describe('filter', function ()
 {
+    'use strict';
+
     beforeEach(module('app'));
 
     var withoutHFilter;
