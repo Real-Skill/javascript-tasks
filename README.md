@@ -1,10 +1,10 @@
 #Exercise 5 : Angular filters
 
 ##Summary
-In this application, you are supposed to create three simple filters and use them in correct place.
+In this application, you are supposed to create three simple filters and use them in right places.
 
 ##Goals
-1. `quote` filter - places the text in quotes
+1. `quote` filter - wraps the text with quotes
 2. `withoutH` filter - removes all the letters H and h
 3. `firstLetterUp` filter - converts the first letter of the word to the large ones (take a look at regular expression)
 
@@ -23,7 +23,7 @@ Additionaly, you are supposed to use build-in angular filter to display upper in
 * [regular expression online](https://regex101.com/)
 
 ##Setup
-You should have installed `npm`, `bower`, `grunt`  packages to run this example. First, run sequentially
+You should have `npm`, `bower`, `grunt` packages installed to run this example. First, run sequentially
 
 ```
 npm install
