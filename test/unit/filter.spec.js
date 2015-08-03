@@ -42,6 +42,7 @@ describe('filter', function ()
         {
             expect(firstLetterUpFilter('the Hobbit: the Battle of the five Armies')).toEqual('The Hobbit: The Battle Of The Five Armies');
             expect(firstLetterUpFilter('first letter up')).toEqual('First Letter Up');
+            expect(firstLetterUpFilter('Visit BBC News for up-to-the-minute news, breaking news, video, audio and stories.')).toEqual('Visit Bbc News For Up-To-The-Minute News, Breaking News, Video, Audio And Stories.');
         }));
     });
 });
