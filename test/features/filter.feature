@@ -4,3 +4,7 @@ Feature: Text filter
     When I browse to the "/"
     When I enter "Lorem ipsum dolor sit amet" into "inputs.tellMe" field
     Then the css element ".active" should contain the text "LOREM IPSUM DOLOR SIT AMET"
+    When I enter "One, two, three" into "inputs.tellMe" field
+    Then the css element ".active" should contain the text "ONE, TWO, THREE"
+
+
