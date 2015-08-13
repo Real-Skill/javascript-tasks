@@ -23,7 +23,7 @@ Additionaly, you are supposed to use build-in angular filter to display upper in
 * [regular expression online](https://regex101.com/)
 
 ##Setup
-You should have `npm`, `bower`, `grunt` packages installed to run this example. First, run sequentially
+ You should have installed `npm`, `bower`, `grunt-cli`  packages to run this example. To resolve dependencies run:
 
 ```
 npm install
@@ -33,21 +33,19 @@ npm install
 bower install
 ```
 
-To start the application run
+To run the application:
 
 ```
 grunt serve
 ```
 
-
-To start cucumber tests, run sequentially in separate terminals the application and command
+To run cucumber tests:
 
 ```
 grunt test
 ```
 
-
-To start unit test run
+To run unit tests:
 
 ```
 grunt karma
