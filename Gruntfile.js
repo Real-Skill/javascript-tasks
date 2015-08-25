@@ -30,7 +30,7 @@ module.exports = function (grunt)
             }
         }, connect: {
             options: {
-                port: 9000, livereload: 35729, hostname: 'localhost'
+                port: 9000, livereload: 35729, hostname: '127.0.0.1'
             }, livereload: {
                 options: {
                     open: true, middleware: function (connect)
@@ -43,7 +43,11 @@ module.exports = function (grunt)
             }
         }, protractor_webdriver: {
             driver: {
-                options: {}
+                options: {
+                    path: 'node_modules/webdriver-manager/bin/',
+                    command: 'webdriver-manager start',
+                    keepAlive: true
+                }
             }
         }, protractor: {
             options: {

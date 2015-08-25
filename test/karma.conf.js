@@ -32,6 +32,12 @@ module.exports = function (config)
             'app/**/*.js': 'coverage'
         },
 
+        coverageReporter:{
+            dir: 'test/target/',
+            type: 'cobertura',
+            file: 'coverage.xml'
+        },
+
 
         junitReporter: {
             outputFile: 'test/target/test-results.xml'
