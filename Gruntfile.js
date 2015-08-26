@@ -29,8 +29,15 @@ module.exports = function (grunt)
                 }, files: ['<%= config.app %>/**/*.html', '<%= config.app %>/**/*.js']
             }
         }, connect: {
-            options: {
-                port: 9000, livereload: 35729, hostname: '127.0.0.1'
+            serve: {
+                options: {
+                    port: 9000, livereload: 35729, hostname: '127.0.0.1'
+                }
+            },
+            test: {
+                options: {
+                    port: 9001, livereload: 35730, hostname: '127.0.0.1'
+                }
             }, livereload: {
                 options: {
                     open: true, middleware: function (connect)
@@ -80,9 +87,9 @@ module.exports = function (grunt)
 
     grunt.registerTask('serve', function ()
     {
-        grunt.task.run(['connect:livereload', 'watch']);
+        grunt.task.run(['connect:serve', 'watch']);
     });
-    grunt.registerTask('test', ['protractor_webdriver', 'protractor:chrome']);
+    grunt.registerTask('test', ['connect:test', 'protractor_webdriver', 'protractor:chrome']);
 
     grunt.registerTask('default', ['serve']);
 };
