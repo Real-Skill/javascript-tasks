@@ -28,15 +28,15 @@ module.exports = function (grunt)
                     livereload: '<%= connect.options.livereload %>'
                 }, files: ['<%= config.app %>/**/*.html', '<%= config.app %>/**/*.js']
             }
-        }, connect: {
-            serve: {
+        },
+
+        connect: {
+            options: {
+                port: 9000, livereload: 35729, hostname: '127.0.0.1'
+            }, test: {
                 options: {
-                    port: 9000, livereload: 35729, hostname: '127.0.0.1'
-                }
-            },
-            test: {
-                options: {
-                    port: 9001, livereload: 35730, hostname: '127.0.0.1'
+                    // set the location of the application files
+                    base: ['app']
                 }
             }, livereload: {
                 options: {
@@ -50,11 +50,7 @@ module.exports = function (grunt)
             }
         }, protractor_webdriver: {
             driver: {
-                options: {
-                    path: 'node_modules/webdriver-manager/bin/',
-                    command: 'webdriver-manager start',
-                    keepAlive: true
-                }
+                options: {}
             }
         }, protractor: {
             options: {
@@ -77,6 +73,10 @@ module.exports = function (grunt)
                         browser: 'phantomjs'
                     }
                 }
+            }, continuous: {
+                options: {
+                    keepAlive: true
+                }
             }
         }, karma: {
             unit: {
@@ -87,9 +87,9 @@ module.exports = function (grunt)
 
     grunt.registerTask('serve', function ()
     {
-        grunt.task.run(['connect:serve', 'watch']);
+        grunt.task.run(['connect:livereload', 'watch']);
     });
-    grunt.registerTask('test', ['connect:test', 'protractor_webdriver', 'protractor:chrome']);
+    grunt.registerTask('test', ['connect:test','protractor_webdriver', 'protractor:firefox']);
 
     grunt.registerTask('default', ['serve']);
 };

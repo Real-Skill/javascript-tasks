@@ -9,7 +9,7 @@ module.exports.config = {
     ],
 
     capabilities: {
-        'browserName': 'chrome'
+        'browserName': 'firefox'
     },
 
     baseUrl: 'http://127.0.0.1:9000',
