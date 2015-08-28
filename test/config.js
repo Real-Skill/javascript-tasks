@@ -12,7 +12,7 @@ module.exports.config = {
         'browserName': 'firefox'
     },
 
-    baseUrl: 'http://127.0.0.1:9000',
+    baseUrl: 'http://127.0.0.1:9001',
 
     allScriptsTimeout: 40000,
 
