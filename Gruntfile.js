@@ -36,7 +36,8 @@ module.exports = function (grunt)
             }, test: {
                 options: {
                     // set the location of the application files
-                    base: ['app']
+                    base: ['app'],
+                    port: 9001
                 }
             }, livereload: {
                 options: {
