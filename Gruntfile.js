@@ -90,7 +90,7 @@ module.exports = function (grunt)
     {
         grunt.task.run(['connect:livereload', 'watch']);
     });
-    grunt.registerTask('test', ['connect:test','protractor_webdriver', 'protractor:firefox']);
+    grunt.registerTask('test', ['connect:test', 'protractor:chrome']);
 
     grunt.registerTask('default', ['serve']);
 };
