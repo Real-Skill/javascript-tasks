@@ -43,7 +43,7 @@ bower install
  grunt serve
  ```
 
-###To test this exercise:
+###To test the application:
 
 You must install protractor as an admin: 
 
