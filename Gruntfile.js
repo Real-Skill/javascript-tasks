@@ -13,6 +13,7 @@ module.exports = function (grunt)
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-protractor-webdriver');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-karma');
 
     require('load-grunt-tasks')(grunt);
@@ -56,24 +57,7 @@ module.exports = function (grunt)
         }, protractor: {
             options: {
                 configFile: 'test/config.js', keepAlive: false, noColor: false
-            }, chrome: {
-                options: {
-                    args: {
-                        browser: 'chrome'
-                    }
-                }
-            }, firefox: {
-                options: {
-                    args: {
-                        browser: 'firefox'
-                    }
-                }
-            }, phantomjs: {
-                options: {
-                    args: {
-                        browser: 'phantomjs'
-                    }
-                }
+
             }, continuous: {
                 options: {
                     keepAlive: true
@@ -83,6 +67,9 @@ module.exports = function (grunt)
             unit: {
                 configFile: 'test/karma.conf.js'
             }
+        },
+        jshint: {
+            all: ['app/**/*.js']
         }
     });
 
@@ -90,7 +77,7 @@ module.exports = function (grunt)
     {
         grunt.task.run(['connect:livereload', 'watch']);
     });
-    grunt.registerTask('test', ['connect:test', 'protractor:chrome']);
+    grunt.registerTask('test', ['connect:test', 'protractor']);
 
     grunt.registerTask('default', ['serve']);
 };

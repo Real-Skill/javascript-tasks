@@ -25,7 +25,9 @@ You are not supposed to edit or add any CSS styles.
 * [regular expression online](https://regex101.com/)
 
 ##Setup
- You should have installed `npm`, `bower`, `grunt-cli`  packages to run this example. To resolve dependencies run:
+ You should have `npm`, `bower`, `grunt-cli`  packages installed to run this example.
+ 
+###To resolve dependencies run:
 
 ```
 npm install
@@ -35,22 +37,45 @@ npm install
 bower install
 ```
 
-To run the application:
+###To run the application:
+ 
+ ```
+ grunt serve
+ ```
+
+###To test this exercise:
+
+You must install protractor as an admin: 
 
 ```
-grunt serve
+npm install -g protractor
 ```
 
-To run cucumber tests:
+```
+webdriver-manager update --standalone
+```
+        
+In order to test the application you must have `webdriver-manager` running in background.
 
 ```
-grunt test
+webdriver-manager start
 ```
 
-To run unit tests:
+To run all the tests:
 
 ```
-grunt karma
+npm test
+```
+
+To run only karma unit tests:
+
+```
+npm run karma
+```
+To run only protractor tests:
+
+```
+npm run protractor
 ```
 
 Good luck!
