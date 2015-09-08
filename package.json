@@ -26,7 +26,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/aniaw/angular-egghead.git"
+    "url": "git://github.com/aniaw/angular-egghead-exercises.git"
+
   },
   "engines": {
     "node": ">=0.10.0"
