@@ -37,8 +37,8 @@ module.exports = function ()
         clearAndType(webElement, text).then(callback);
     });
 
-    this.Then(/^the css element "([^"]*)" should contain the text "(.*)"$/, function (cssClass, text, callback) {
-        expect(element(by.css(cssClass)).getText()).to.eventually.equal(text).and.notify(callback);
+    this.Then(/^I should see "([^"]*)" in "([^"]*)"$/, function (text, result, callback) {
+        expect(fragments(result)().getText()).to.eventually.equal(text).and.notify(callback);
     });
 
     this.Then(/^pause$/, function (callback)

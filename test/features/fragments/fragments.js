@@ -27,9 +27,7 @@ var fragments = function (text)
     'use strict';
 
     var mapping = {
-        inputs: {
-            tellMe: element.bind(null, by.id('tellMe'))
-        }
+        tellMe: element.bind(null, by.id('tellMe')), filterTellMe: element.bind(null, by.css('h3'))
     };
     return byString(mapping, text);
 };
