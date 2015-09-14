@@ -6,7 +6,7 @@
     "eqeqeq": true,
     "eqnull": true,
     "forin": true,
-    "freeze": true,
+    "freeze": false,
     "immed": true,
     "indent": 4,
     "jquery": true,
@@ -26,11 +26,5 @@
     "strict": true,
     "trailing": true,
     "undef": true,
-    "unused": true,
-    "globals": {
-        "beforeEach": true,
-        "describe": true,
-        "expect": true,
-        "it": true
-    }
+    "unused": false
 }

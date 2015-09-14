@@ -1,4 +1,3 @@
-/*global module*/
 module.exports = function (grunt)
 {
     'use strict';
@@ -8,7 +7,7 @@ module.exports = function (grunt)
             options: {
                 jshintrc: true
             },
-            all: ['impl/**/*.js', 'test/**/*.js']
+            all: ['app/*.js', 'test/**/*spec.js']
         }
     });
 

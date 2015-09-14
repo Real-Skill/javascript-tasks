@@ -3,26 +3,22 @@
 ### JS Assessments test basic JavaScript knowledge. Please read instructions carefully to ensure that you understand each task.
 
 Each exercise consist of few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
-Your solutions should be placed inside **impl/day1.js** file, as a properties of **window.day1** object.
+Your solutions should be placed inside `app/exercise1.js` file, as a properties of `window.exercise1` object.
 
 #### Before you start...
 
 Resolve provided dependencies by typing in console:
 
     npm install
-    bower install
 
 To test your solution locally, type:
-
-    npm start
-
-or
 
     npm test
 
 JavaScript basic functions:
 
     http://www.w3schools.com/jsref/
+    
 Javascript EcmaScript5 tutorials and more:
 
     https://developer.mozilla.org/en-US/docs/Web/JavaScript
@@ -43,7 +39,7 @@ Function given correct parameters should return a String literal with ASCII repr
 
 ## Part II:
 
-Create **deleteStr** function that will allow you to delete string from an Array of strings. This function should accept two parameters:
+Create **deleteString** function that will allow you to delete string from an Array of strings. This function should accept two parameters:
 
     deleteStr(stringToDelete, arrayOfStrings)
 
@@ -70,9 +66,12 @@ This function should square value of every Number inside of **customArray** that
 
 ## Part V:
 
-Create **trapezeSquare** function that will calculate trapeze square:
+Create **areaOfTrapezoid** function that will calculate trapeze square:
 
-    trapezeSquare(a, b, h)
+    areaOfTrapezoid(a, b, h)
+    
+-   **a, b, h** parameters should be non-negative numbers
+
 
 The formula is as provided:
 
