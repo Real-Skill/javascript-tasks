@@ -5,7 +5,7 @@
 
     function authenticate(request, response, next)
     {
-        next()
+        next();
     }
 
     module.exports = function (router)

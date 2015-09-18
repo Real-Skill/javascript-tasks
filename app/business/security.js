@@ -6,7 +6,8 @@
     function isAuthenticated(context)
     {
         var defer = q.defer();
-        defer.reject('UNAUTHORIZED');
+//        TODO make sure this function is properly implemented.
+        defer.reject();
         return defer.promise;
     }
 

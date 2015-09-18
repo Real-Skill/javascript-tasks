@@ -22,12 +22,5 @@
                 }
             });
         });
-        router.route('/api/user').post(function (request, response)
-        {
-            userManager.addUser(request.body).then(function (result)
-            {
-                response.status(201).send(result);
-            });
-        });
     };
 })();

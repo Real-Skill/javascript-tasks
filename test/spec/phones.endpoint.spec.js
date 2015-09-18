@@ -2,7 +2,7 @@ describe('phones,endpoint', function ()
 {
     'use strict';
 
-    var superTest = require('supertest')(require('../../app/index.js'));
+    var superTest = require('supertest-as-promised')(require('../../app/index.js'));
     var testHelper = require('../testHelper');
     var sha1 = require('sha1');
     describe('POST /api/phones', function ()
@@ -11,34 +11,27 @@ describe('phones,endpoint', function ()
         describe('when user is authenticated', function ()
         {
             var token;
-            beforeEach(function (done)
+            beforeEach(function ()
             {
-                superTest.post('/api/user/auth').set('Content-type', 'application/json').send({email: 'mock@email.com', password: 'simplePassword'})
-                        .end(function (error,
-                                       response)
+                return superTest.post('/api/user/auth').set('Content-type', 'application/json').send({email: 'mock@email.com', password: 'simplePassword'})
+                        .then(function (response)
                         {
-                            if (error) {
-                                done(error);
-                            }
                             token = 'Token ' + new Buffer(response.body.token.toString()).toString('base64');
-                            done();
                         });
             });
             describe('when we add one element without _id', function ()
             {
-                beforeEach(function (done)
+                beforeEach(function ()
                 {
-                    superTest.post('/api/phones').set('Authorization', token).send(phone).end(done);
+                    return superTest.post('/api/phones').set('Authorization', token).send(phone);
                 });
 
-                it('should response 201 and this element', function (done)
+                it('should response 201 and this element', function ()
                 {
-                    superTest.post('/api/phones').set('Authorization', token).send(phone).expect(201).end(function (error, response)
+                    return superTest.post('/api/phones').set('Authorization', token).send(phone).expect(201).then(function (response)
                     {
-                        if (response.body.results && testHelper.isEquals(phone, response.body.results, ['_id'])) {
-                            done();
-                        } else {
-                            done('Results is NOT equals');
+                        if (!response.body.results || !testHelper.isEquals(phone, response.body.results, ['_id'])) {
+                            throw new Error('Results is NOT equals');
                         }
                     });
                 });
@@ -88,22 +81,22 @@ describe('phones,endpoint', function ()
         });
         describe('when user is NOT authorized', function ()
         {
-            it('should response 401 and NOT add element to DB', function (done)
+            it('should response 401 and NOT add element to DB', function ()
             {
-                superTest.post('/api/phones').send(phone).expect(401).end(function ()
+                return superTest.post('/api/phones').send(phone).expect(401).then(function ()
                 {
-                    superTest.get('/api/phones').expect(200).end(function (error, response)
-                    {
-                        var phones = [{_id: 1, model: 'Test test', brand: 'mock mock' },
-                            {_id: 2, model: 'New phones', brand: 'new brand mock'},
-                            {_id: 3, model: 'New phones', brand: 'new brand mock'}];
-                        if (response.body.results && testHelper.isEquals(phones, response.body.results)) {
-                            done();
-                        } else {
-                            done('Results is NOT equals');
-                        }
-                    });
-                });
+                    return superTest.get('/api/phones').expect(200);
+                }).then(function (response)
+                        {
+                            var phones = [
+                                {_id: 1, model: 'Test test', brand: 'mock mock' },
+                                {_id: 2, model: 'New phones', brand: 'new brand mock'},
+                                {_id: 3, model: 'New phones', brand: 'new brand mock'}
+                            ];
+                            if (!response.body.results || !testHelper.isEquals(phones, response.body.results)) {
+                                throw new Error('Results is NOT equals');
+                            }
+                        });
             });
         });
     });

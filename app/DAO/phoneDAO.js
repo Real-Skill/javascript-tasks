@@ -8,20 +8,16 @@
     function createNewOrUpdate(phone)
     {
         var defer = q.defer();
-        console.log(phone._id);
         if (!phone._id) {
             //    create'
-            console.log('create??');
             var phoneAdd = {_id: sequence++, model: phone.model, brand: phone.brand, stan: phone.stan};
             data.push(phoneAdd);
             defer.resolve({results: phoneAdd});
             return defer.promise;
         } else {
             //update
-            console.log('update');
             for (var i = 0; i < data.length; i++) {
                 if (phone._id.toString() === data[i]._id.toString()) {
-                    console.log('update');
                     data[i] = phone;
                     defer.resolve({results: data[i]})
                 } else if (i === data.length - 1) {

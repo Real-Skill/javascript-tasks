@@ -2,26 +2,8 @@ describe('user.endpoint', function ()
 {
     'use strict';
 
-    var superTest = require('supertest')(require('../../app/index.js'));
-    var testHelper = require('../testHelper');
+    var superTest = require('supertest-as-promised')(require('../../app/index.js'));
     var sha1 = require('sha1');
-
-    describe('POST /api/user', function ()
-    {
-        var user = {email: 'new@user.com', password: 'password'};
-        it('should create user and response 201 and user', function (done)
-        {
-            superTest.post('/api/user').send(user).expect(201).end(function (error, response)
-            {
-                delete  user.password;
-                if (testHelper.isEquals(user, response.body, ['_id', '__v'])) {
-                    done();
-                } else {
-                    done('Results is NOT equal');
-                }
-            });
-        });
-    });
 
     describe('POST /api/user/auth', function ()
     {
@@ -30,14 +12,12 @@ describe('user.endpoint', function ()
             describe('and password is correct', function ()
             {
                 var user = {email: 'mock@email.com', password: 'simplePassword'};
-                it('should response status 200 and create token', function (done)
+                it('should response status 200 and create token', function ()
                 {
-                    superTest.post('/api/user/auth').send(user).expect(200).end(function (error, response)
+                    return superTest.post('/api/user/auth').send(user).expect(200).then(function (response)
                     {
-                        if (response.body.token && 'number' === typeof response.body.token) {
-                            done();
-                        } else {
-                            done('Results NOT have token');
+                        if (!(response.body.token)) {
+                            throw new Error('Results NOT have token');
                         }
                     });
                 });
@@ -45,14 +25,12 @@ describe('user.endpoint', function ()
             describe('and password is NOT correct', function ()
             {
                 var user = {email: 'mock@email.com', password: 'simplePassword1'};
-                it('should response status 401 and NOT create token', function (done)
+                it('should response status 401 and NOT create token', function ()
                 {
-                    superTest.post('/api/user/auth').send(user).expect(401).end(function (error, response)
+                    return superTest.post('/api/user/auth').send(user).expect(401).then(function (response)
                     {
-                        if (!response.body.token) {
-                            done();
-                        } else {
-                            done('Results have NOT token');
+                        if (response.body.token) {
+                            throw new Error('Results have NOT token');
                         }
                     });
                 });
@@ -60,15 +38,12 @@ describe('user.endpoint', function ()
         });
         describe('when user NOT exist in DB', function ()
         {
-            it('should get response 404', function (done)
+            it('should get response 404', function ()
             {
-                superTest.post('/api/user/auth').set('Content-type', 'application/json').send({
+                return superTest.post('/api/user/auth').set('Content-type', 'application/json').send({
                     email: 'simple', password: 'digest'
-                }).expect(404).expect({}).end(done);
+                }).expect(404).expect({});
             });
         });
-
-
     });
-
 });
