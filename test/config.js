@@ -1,11 +1,11 @@
 module.exports.config = {
     seleniumAddress: 'http://localhost:4444/wd/hub',
 
-    framework: 'cucumber',
+    framework: 'jasmine2',
 
     // Spec patterns are relative to this directory.
     specs: [
-        'features/**/*.feature'
+        'features/*.spec.js'
     ],
 
     capabilities: {
@@ -15,11 +15,14 @@ module.exports.config = {
     baseUrl: 'http://127.0.0.1:9001',
 
     allScriptsTimeout: 40000,
+    resultJsonOutputFile: 'test/target/report.json',
 
-    cucumberOpts: {
-        tags: ['~@ignore'],
-        require: 'features/steps/*.js',
-        format: 'pretty',
-        timeout: 20000
+    onPrepare: function () {
+        var jasmineReporters = require('jasmine-reporters');
+        jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
+            consolidateAll: true,
+            filePrefix: 'protractor-results',
+            savePath: 'test/target'
+        }));
     }
 };

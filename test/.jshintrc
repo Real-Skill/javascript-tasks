@@ -5,7 +5,10 @@
     "describe": true,
     "afterEach": true,
     "beforeEach": true,
+    "beforeAll": true,
+    "afterAll": true,
     "it": true,
+    "by": true,
     "xit": true,
     "expect": true,
     "module": true,
@@ -13,7 +16,8 @@
     "jasmine": true,
     "spyOn": true,
     "mockApi": true,
-    "browser": true
+    "browser": true,
+    "element": true
   },
   "browser": true,
   "camelcase": true,
@@ -28,6 +32,7 @@
   "latedef": true,
   "newcap": true,
   "noarg": true,
+  "node": true,
   "noempty": true,
   "nonbsp": true,
   "nonew": true,

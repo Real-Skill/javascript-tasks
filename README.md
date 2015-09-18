@@ -39,27 +39,17 @@ bower install
 
 ###To run the application:
  
- ```
- grunt serve
- ```
-
+```
+grunt serve
+```
+ 
+###To detect errors and potential problems in your code:
+ 
+```
+grunt jshint
+```
+ 
 ###To test the application:
-
-You must install protractor as an admin: 
-
-```
-npm install -g protractor
-```
-
-```
-webdriver-manager update --standalone
-```
-        
-In order to test the application you must have `webdriver-manager` running in background.
-
-```
-webdriver-manager start
-```
 
 To run all the tests:
 

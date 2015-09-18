@@ -1,12 +1,6 @@
 /*jshint camelcase:false*/
 'use strict';
 
-// # Globbing
-// for performance reasons we're only matching one level down:
-// 'test/spec/{,*/}*.js'
-// use this if you want to recursively match all subfolders:
-// 'test/spec/**/*.js'
-
 module.exports = function (grunt)
 {
 
@@ -57,7 +51,24 @@ module.exports = function (grunt)
         }, protractor: {
             options: {
                 configFile: 'test/config.js', keepAlive: false, noColor: false
-
+            }, chrome: {
+                options: {
+                    args: {
+                        browser: 'chrome'
+                    }
+                }
+            }, firefox: {
+                options: {
+                    args: {
+                        browser: 'firefox'
+                    }
+                }
+            }, phantomjs: {
+                options: {
+                    args: {
+                        browser: 'phantomjs'
+                    }
+                }
             }, continuous: {
                 options: {
                     keepAlive: true
@@ -65,19 +76,24 @@ module.exports = function (grunt)
             }
         }, karma: {
             unit: {
-                configFile: 'test/karma.conf.js'
+                configFile: 'test/karma.conf.js',
+                singleRun: true
             }
         },
         jshint: {
-            all: ['app/**/*.js']
+            options: {
+                jshintrc: true
+            },
+            all: ['app/*.js']
         }
     });
 
-    grunt.registerTask('serve', function ()
-    {
-        grunt.task.run(['connect:livereload', 'watch']);
-    });
-    grunt.registerTask('test', ['connect:test', 'protractor']);
+    grunt.registerTask('serve', ['connect:livereload', 'watch']);
+    grunt.registerTask('test', ['karma', 'connect:test', 'protractor_webdriver', 'protractor:chrome']);
+
+    grunt.registerTask('test:unit', ['karma']);
+
+    grunt.registerTask('test:protractor', ['connect:test', 'protractor_webdriver', 'protractor:chrome']);
 
     grunt.registerTask('default', ['serve']);
 };
