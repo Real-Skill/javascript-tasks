@@ -1,0 +1,323 @@
+{
+    "getPhoneByOS": {
+        "spec1": [
+            {
+                "name": "Dell Streak 7"
+            },
+            {
+                "name": "Dell Venue"
+            },
+            {
+                "name": "DROID™ 2 Global by Motorola"
+            },
+            {
+                "name": "DROID™ 2 Global by Motorola"
+            },
+            {
+                "name": "MOTOROLA ATRIX™ 4G"
+            },
+            {
+                "name": "DROID™ Pro by Motorola"
+            },
+            {
+                "name": "SANYO ZIO"
+            },
+            {
+                "name": "T-Mobile G2"
+            }
+        ],
+        "spec2": [
+            {
+                "name": "LG Axis"
+            },
+            {
+                "name": "Samsung Gem™"
+            }
+        ]
+    },
+    "getPhonesByNetwork": {
+        "spec1": [
+            {
+                "availability": [
+                    "T-Mobile"
+                ],
+                "name": "Dell Streak 7"
+            },
+            {
+                "availability": [
+                    "AT&T",
+                    "KT",
+                    "T-Mobile"
+                ],
+                "name": "Dell Venue"
+            },
+            {
+                "availability": [
+                    "T-Mobile"
+                ],
+                "name": "T-Mobile G2"
+            }
+        ],
+        "spec2": [
+            {
+                "availability": [
+                    "Verizon"
+                ],
+                "name": "DROID™ 2 Global by Motorola"
+            },
+            {
+                "availability": [
+                    "Verizon"
+                ],
+                "name": "DROID™ 2 Global by Motorola"
+            },
+            {
+                "availability": [
+                    "Verizon"
+                ],
+                "name": "DROID™ Pro by Motorola"
+            },
+            {
+                "availability": [
+                    "M1,",
+                    "O2,",
+                    "Orange,",
+                    "Singtel,",
+                    "StarHub,",
+                    "T-Mobile,",
+                    "Vodafone"
+                ],
+                "name": "Nexus S"
+            },
+            {
+                "availability": [
+                    "Sprint"
+                ],
+                "name": "SANYO ZIO"
+            }
+        ]
+    },
+    "getPhonesWithConditions": {
+        "spec1": [
+            {
+                "connectivity": {
+                    "bluetooth": "Bluetooth 3.0",
+                    "cell": "T-mobile HSPA+ @ 2100/1900/AWS/850 MHz",
+                    "gps": true,
+                    "infrared": false,
+                    "wifi": "802.11 b/g"
+                },
+                "name": "Dell Streak 7"
+            },
+            {
+                "connectivity": {
+                    "bluetooth": "Bluetooth 3.0",
+                    "cell": "3G/CDMA : 850MHz/1900MHz\n",
+                    "gps": true,
+                    "infrared": false,
+                    "wifi": "802.11 b/g"
+                },
+                "name": "Samsung Gem™"
+            },
+            {
+                "connectivity": {
+                    "bluetooth": "Bluetooth 2.1",
+                    "cell": "GSM: 850, 900, 1800, 1900  UMTS: Yes",
+                    "gps": true,
+                    "infrared": true,
+                    "wifi": "802.11 b/g/n"
+                },
+                "name": "T-Mobile G2"
+            }
+        ],
+        "spec2": [
+            {
+                "connectivity": {
+                    "bluetooth": "Bluetooth 3.0",
+                    "cell": "T-mobile HSPA+ @ 2100/1900/AWS/850 MHz",
+                    "gps": true,
+                    "infrared": false,
+                    "wifi": "802.11 b/g"
+                },
+                "name": "Dell Streak 7"
+            },
+            {
+                "connectivity": {
+                    "bluetooth": "Bluetooth 3.0",
+                    "cell": "3G/CDMA : 850MHz/1900MHz\n",
+                    "gps": true,
+                    "infrared": false,
+                    "wifi": "802.11 b/g"
+                },
+                "name": "Samsung Gem™"
+            },
+            {
+                "connectivity": {
+                    "bluetooth": "Bluetooth 2.1",
+                    "cell": "GSM: 850, 900, 1800, 1900  UMTS: Yes",
+                    "gps": true,
+                    "infrared": true,
+                    "wifi": "802.11 b/g/n"
+                },
+                "name": "T-Mobile G2"
+            },
+            {
+                "connectivity": {
+                    "bluetooth": "Bluetooth 3.0"
+                },
+                "name": "T-Mobile G2"
+            }
+        ]
+    },
+    "getPhonesWithWeight": {
+        "spec1": [
+            {
+                "name": "Dell Venue",
+                "sizeAndWeight": {
+                    "weight": 164
+                }
+            },
+            {
+                "name": "DROID™ 2 Global by Motorola",
+                "sizeAndWeight": {
+                    "weight": 169
+                }
+            },
+            {
+                "name": "DROID™ 2 Global by Motorola",
+                "sizeAndWeight": {
+                    "weight": 169
+                }
+            },
+            {
+                "name": "LG Axis",
+                "sizeAndWeight": {
+                    "weight": 158
+                }
+            }
+        ],
+        "spec2": [
+            {
+                "name": "Nexus S",
+                "sizeAndWeight": {
+                    "weight": 129
+                }
+            },
+            {
+                "name": "Samsung Gem™",
+                "sizeAndWeight": {
+                    "weight": 110
+                }
+            },
+            {
+                "name": "SANYO ZIO",
+                "sizeAndWeight": {
+                    "weight": 105
+                }
+            },
+            {
+                "name": "T-Mobile G2",
+                "sizeAndWeight": {
+                    "weight": 111
+                }
+            }
+        ]
+    },
+    "groupByTalkTime": {
+        "spec1": [
+            {
+                "_id": "4 hours",
+                "count": 1
+            },
+            {
+                "_id": "6 hours",
+                "count": 1
+            },
+            {
+                "_id": "5 hours",
+                "count": 1
+            },
+            {
+                "_id": "8 hours",
+                "count": 3
+            },
+            {
+                "_id": "7 hours",
+                "count": 5
+            }
+        ],
+        "spec2": [
+            {
+                "_id": "4 hours",
+                "count": 1
+            },
+            {
+                "_id": "6 hours",
+                "count": 1
+            },
+            {
+                "_id": "5 hours",
+                "count": 1
+            },
+            {
+                "_id": "8 hours",
+                "count": 3
+            },
+            {
+                "_id": "7 hours",
+                "count": 6
+            }
+        ]
+    },
+    "searchInFeatures": {
+        "spec1": [
+            {
+                "additionalFeatures": "Adobe Flash Player 10, QWERTY keyboard, Quadband GSM Worldphone, Advance Business Security, QWERTY keyboard, Complex Password Secure, QWERTY keyboard, Review & Edit Documents with Quick Office, Personal 3G Mobile Hotspot for up to 5 WiFi enabled Devices, Advanced Social Networking brings all social content into a single homescreen widget",
+                "name": "DROID™ 2 Global by Motorola",
+                "score": 1.878048780487805
+            },
+            {
+                "additionalFeatures": "Adobe Flash Player 10, Quadband GSM Worldphone,QWERTY keyboard Advance Business Security, Complex Password Secure, QWERTY keyboard, Review & Edit Documents with Quick Office, Personal 3G Mobile Hotspot for up to 5 WiFi enabled Devices, Advanced Social Networking brings all social content into a single homescreen widget",
+                "name": "DROID™ 2 Global by Motorola",
+                "score": 1.576923076923077
+            },
+            {
+                "additionalFeatures": "Adobe Flash Player 10, Quadband GSM Worldphone, Advance Business Security,QWERTY keyboard, Complex Password Secure, Review & Edit, QWERTY keyboard Documents with Quick Office, Personal 3G Mobile Hotspot for up to 5 WiFi enabled Devices, Advanced Social Networking brings all social content into a single homescreen widget",
+                "name": "DROID™ Pro by Motorola",
+                "score": 1.576923076923077
+            },
+            {
+                "additionalFeatures": "Gorilla Glass display, Dedicated Camera Key, Ring Silence Switch, Swype keyboard.",
+                "name": "Dell Venue",
+                "score": 0.5454545454545454
+            },
+            {
+                "additionalFeatures": "Accessibility features: Tactile, four-direction keypad, start and end call buttons, keyboard, dedicated number keys, camera button, TalkBack screen reader",
+                "name": "LG Axis",
+                "score": 0.5263157894736842
+            }
+        ],
+        "spec2": [
+            {
+                "additionalFeatures": "Adobe Flash Player 10, QWERTY keyboard, Quadband GSM Worldphone, Advance Business Security, QWERTY keyboard, Complex Password Secure, QWERTY keyboard, Review & Edit Documents with Quick Office, Personal 3G Mobile Hotspot for up to 5 WiFi enabled Devices, Advanced Social Networking brings all social content into a single homescreen widget",
+                "name": "DROID™ 2 Global by Motorola",
+                "score": 0.9390243902439025
+            },
+            {
+                "additionalFeatures": "Adobe Flash Player 10, Quadband GSM Worldphone,QWERTY keyboard Advance Business Security, Complex Password Secure, QWERTY keyboard, Review & Edit Documents with Quick Office, Personal 3G Mobile Hotspot for up to 5 WiFi enabled Devices, Advanced Social Networking brings all social content into a single homescreen widget",
+                "name": "DROID™ 2 Global by Motorola",
+                "score": 0.7884615384615385
+            },
+            {
+                "additionalFeatures": "Adobe Flash Player 10, Quadband GSM Worldphone, Advance Business Security,QWERTY keyboard, Complex Password Secure, Review & Edit, QWERTY keyboard Documents with Quick Office, Personal 3G Mobile Hotspot for up to 5 WiFi enabled Devices, Advanced Social Networking brings all social content into a single homescreen widget",
+                "name": "DROID™ Pro by Motorola",
+                "score": 0.7884615384615385
+            },
+            {
+                "additionalFeatures": "Accessibility features: tactile qwerty trackpad, three programmable keys, camera button",
+                "name": "T-Mobile G2",
+                "score": 0.55
+            }
+        ]
+    }
+}
