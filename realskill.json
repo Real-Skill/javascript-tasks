@@ -1,0 +1,5 @@
+{
+  "protect": [
+    "test/", "README.md", ".gitignore", ".jshintrc", "Gruntfile.js", "package.json"
+  ]
+}
