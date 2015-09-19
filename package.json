@@ -1,0 +1,27 @@
+{
+  "name": "hapijs-basics",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "hapi": "16.4.3",
+    "hapi-auth-bearer-token": "5.1.0",
+    "inert": "4.2.0",
+    "joi": "10.6.0"
+  },
+  "devDependencies": {
+    "bluebird": "3.0.5",
+    "chai": "3.4.1",
+    "grunt": "0.4.5",
+    "grunt-cli": "0.1.13",
+    "grunt-contrib-jshint": "0.11.2",
+    "grunt-mocha-test": "0.12.7",
+    "lodash": "3.10.1",
+    "mocha-junit-reporter": "1.6.1",
+    "node-uuid": "1.4.7",
+    "supertest": "3.0.0",
+    "supertest-as-promised": "2.0.2"
+  },
+  "scripts": {
+    "test": "grunt verify --force"
+  }
+}
