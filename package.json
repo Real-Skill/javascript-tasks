@@ -1,0 +1,22 @@
+{
+  "name": "lodash-training",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "lodash": "4.13.1"
+  },
+  "devDependencies": {
+    "chai": "3.5.0",
+    "chance": "0.8.0",
+    "grunt": "1.0.0",
+    "grunt-cli": "0.1.13",
+    "grunt-contrib-jshint": "0.11.2",
+    "grunt-mocha-test": "0.12.7",
+    "mocha-junit-reporter": "1.6.1",
+    "sinon": "1.17.3",
+    "sinon-chai": "2.8.0"
+  },
+  "scripts": {
+    "test": "grunt verify --force"
+  }
+}
