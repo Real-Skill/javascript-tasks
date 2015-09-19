@@ -7,13 +7,13 @@
 // use this if you want to recursively match all subfolders:
 // 'test/spec/**/*.js'
 
-module.exports = function (grunt) {
+module.exports = function (grunt)
+{
 
-    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-protractor-runner');
     grunt.loadNpmTasks('grunt-protractor-webdriver');
-
 
     var config = {
         app: 'app'
@@ -29,43 +29,58 @@ module.exports = function (grunt) {
         }, connect: {
             options: {
                 port: 9000, livereload: 35729, hostname: 'localhost'
+            }, test: {
+                options: {
+                    // set the location of the application files
+                    base: ['app'],
+                    port: 9001
+                }
             }, livereload: {
                 options: {
-                    open: true, middleware: function (connect) {
+                    open: true, middleware: function (connect)
+                    {
                         return [connect().use('/app/bower_components', connect.static('./app/bower_components')), connect.static(config.app)
 
                         ];
                     }
                 }
             }
-
         },
         protractor_webdriver: {
-            start: {
+            driver: {
+                options: {}
+            }
+        }, protractor: {
+            options: {
+                configFile: 'test/protractor.conf.js', keepAlive: false, noColor: false
+            }, chrome: {
                 options: {
-                    path: 'node_modules/protractor/bin/',
-                    command: 'webdriver-manager start'
+                    args: {
+                        browser: 'chrome'
+                    }
+                }
+            }, firefox: {
+                options: {
+                    args: {
+                        browser: 'firefox'
+                    }
+                }
+            }, phantomjs: {
+                options: {
+                    args: {
+                        browser: 'phantomjs'
+                    }
+                }
+            }, continuous: {
+                options: {
+                    keepAlive: true
                 }
             }
-        },
-        protractor: {
-            options: {
-                keepAlive: true,
-                configFile: 'spec/protractor.conf.js'
-
-            },
-            run: {}
         }
-
     });
 
-    grunt.registerTask('test', [
-        'protractor_webdriver',
-        'protractor:run'
-    ]);
-    grunt.registerTask('serve', function () {
-        grunt.task.run(['connect:livereload', 'watch']);
-    });
+    grunt.registerTask('serve', ['connect:livereload', 'watch']);
+    grunt.registerTask('test', ['connect:test', 'protractor_webdriver', 'protractor:chrome']);
 
-    grunt.registerTask('default', ['serve'])
+    grunt.registerTask('default', ['serve']);
 };

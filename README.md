@@ -18,7 +18,6 @@ Run `grunt serve` to start browser in live reload mode
 Run `grunt test` to start protractor test
 
 
-
 ###Before you start, read about
 [bower-how-to](http://herereadthis.com/code/bower-how-to)
 
