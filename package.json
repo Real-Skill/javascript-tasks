@@ -1,0 +1,22 @@
+{
+  "name": "mongodb-text-search-bug",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "mongodb": "2.2.30"
+  },
+  "devDependencies": {
+    "chai": "4.1.0",
+    "grunt": "0.4.5",
+    "grunt-cli": "0.1.13",
+    "grunt-contrib-jshint": "0.11.2",
+    "grunt-mocha-test": "0.12.7",
+    "mocha": "3.4.2",
+    "mocha-junit-reporter": "1.6.1",
+    "sinon": "2.3.8",
+    "sinon-chai": "2.12.0"
+  },
+  "scripts": {
+    "test": "grunt verify --force"
+  }
+}

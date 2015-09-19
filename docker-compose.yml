@@ -1,0 +1,4 @@
+db:
+  image: mongo:3.2.4
+  ports:
+    - 27017:27017

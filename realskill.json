@@ -1,0 +1,16 @@
+{
+    "protect": [
+        "data/",
+        "node_modules/",
+        "target/",
+        "test/",
+        ".gitignore",
+        ".jshintrc",
+        "docker-compose.yml",
+        "Gruntfile.js",
+        "nodemon.json",
+        "package.json",
+        "README.md",
+        "realskill.json"
+    ]
+}
