@@ -1,3 +1,4 @@
 .idea
-tests/target
-node_modules
+*.iml
+node_modules/
+target/

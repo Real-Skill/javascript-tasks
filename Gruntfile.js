@@ -3,51 +3,48 @@ module.exports = function (grunt)
 {
     'use strict';
 
-    var jenkinsOptions = {
-        reporter: 'checkstyle',
-        reporterOutput: 'tests/target/jshint.xml'
-    };
-
     grunt.initConfig({
-        jasmine_node: {
-            coverage: {
-                options: {
-                    coverage: {
-                        reportDir: 'tests/target',
-                        excludes: ['**/tests/**'],
-                        report: ['cobertura']
-                    },
-                    forceExit: true,
-                    match: '.',
-                    matchAll: false,
-                    specFolders: ['tests'],
-                    extensions: 'js',
-                    specNameMatcher: 'spec',
-                    captureExceptions: true,
-                    showColors: true,
-                    junitreport: {
-                        report: true,
-                        savePath: './tests/target/tests/',
-                        useDotNotation: true,
-                        consolidate: true
-                    }
-                },
-                src: ['**/*.js']
-            }
-        },
         jshint: {
             options: {
                 jshintrc: true,
+                require: 'coverage/blanket',
                 src: ['app/**/*.js', 'test/**/*.js']
             },
             default: ['<%=jshint.options.src%>'],
-            jenkins: {
-                options: jenkinsOptions,
+            verify: {
+                options: {
+                    reporter: 'checkstyle',
+                    reporterOutput: 'target/jshint.xml'
+                },
                 src: ['<%=jshint.options.src%>']
             }
+        },
+        mocha_istanbul: {
+            options: {
+                coverageFolder: 'target',
+                src: ['test/unit/**/*.spec.js'],
+                ui: 'bdd',
+                recursive: true
+            },
+            default: {
+                options: {
+                    reporter: 'spec'
+                },
+                src: ['<%=mocha_istanbul.options.src%>']
+            },
+            verify: {
+                options: {
+                    reporter: 'mocha-junit-reporter',
+                    reportFormats: ['cobertura'],
+                    mochaOptions: [ '--reporter-options', 'mochaFile=target/test-results.xml']
+                },
+                src: ['<%=mocha_istanbul.options.src%>']
+            }
+
         }
     });
-    grunt.loadNpmTasks('grunt-jasmine-node-coverage');
+    grunt.loadNpmTasks('grunt-mocha-istanbul');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.registerTask('test', ['jasmine_node','jshint:jenkins']);
+    grunt.registerTask('verify', ['jshint:verify', 'mocha_istanbul:verify']);
+    grunt.registerTask('default', ['jshint:default', 'mocha_istanbul:default']);
 };
