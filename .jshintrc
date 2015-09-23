@@ -17,6 +17,7 @@
   "maxstatements": 0,
   "newcap": true,
   "noarg": true,
+  "node": true,
   "noempty": true,
   "nonbsp": true,
   "nonew": true,
@@ -31,10 +32,9 @@
     "require": true,
     "describe": true,
     "afterEach": true,
+    "after": true,
     "beforeEach": true,
-    "it": true,
-    "expect": true,
-    "jasmine": true,
-    "spyOn": true
+    "before": true,
+    "it": true
   }
 }

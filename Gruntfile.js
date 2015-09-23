@@ -7,7 +7,6 @@ module.exports = function (grunt)
         jshint: {
             options: {
                 jshintrc: true,
-                require: 'coverage/blanket',
                 src: ['app/**/*.js', 'test/**/*.js']
             },
             default: ['<%=jshint.options.src%>'],
@@ -19,32 +18,32 @@ module.exports = function (grunt)
                 src: ['<%=jshint.options.src%>']
             }
         },
-        mocha_istanbul: {
+        mochaTest: {
             options: {
-                coverageFolder: 'target',
+                recursive: true,
                 src: ['test/unit/**/*.spec.js'],
-                ui: 'bdd',
-                recursive: true
+                ui: 'bdd'
             },
             default: {
                 options: {
                     reporter: 'spec'
                 },
-                src: ['<%=mocha_istanbul.options.src%>']
+                src: ['<%=mochaTest.options.src%>']
+
             },
             verify: {
                 options: {
                     reporter: 'mocha-junit-reporter',
-                    reportFormats: ['cobertura'],
-                    mochaOptions: [ '--reporter-options', 'mochaFile=target/test-results.xml']
+                    reporterOptions: {
+                        mochaFile: 'target/test-results.xml'
+                    }
                 },
-                src: ['<%=mocha_istanbul.options.src%>']
+                src: ['<%=mochaTest.options.src%>']
             }
-
         }
     });
-    grunt.loadNpmTasks('grunt-mocha-istanbul');
+    grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.registerTask('verify', ['jshint:verify', 'mocha_istanbul:verify']);
-    grunt.registerTask('default', ['jshint:default', 'mocha_istanbul:default']);
+    grunt.registerTask('verify', ['jshint:verify', 'mochaTest:verify']);
+    grunt.registerTask('default', ['jshint:default', 'mochaTest:default']);
 };

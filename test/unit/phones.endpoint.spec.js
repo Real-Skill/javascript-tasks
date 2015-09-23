@@ -1,46 +1,56 @@
+/*jshint -W030 */
 describe('phonesDAO', function ()
 {
     'use strict';
 
-    var DAO = require('../../app/index.js');
+    var DAO = require('../../app/DAO/phoneDAO.js');
 
     var testHelper = require('../testHelper');
+    var chai = require('chai');
+    var expect = chai.expect;
+    chai.use(require('../mochaHelper.js'));
+    var mongoose = require('mongoose');
+
     var phones = [
-        {
-            model: 'Nokia',
-            brand: 'Test Phone',
-            stan: 'New'
-        },
         {
             model: 'Mock',
             brand: 'Super Phone',
-            stan: 'Used'
+            state: 'Used'
+        },
+        {
+            model: 'Nokia',
+            brand: 'Test Phone',
+            state: 'New'
         },
         {
             model: 'Time Phone',
             brand: 'Test Phone',
-            stan: 'New'
+            state: 'New'
         }
     ];
     before(function ()
     {
-        testHelper.openDBConnection();
+        return testHelper.openDBConnection();
     });
-    after(function (done)
+    after(function ()
     {
-        testHelper.closeDBConnection(done);
+        return testHelper.closeDBConnection().then(function ()
+        {
+            mongoose.models = {};
+            mongoose.modelSchemas = {};
+        });
     });
     beforeEach(function ()
     {
         return testHelper.seedPhones(phones);
     });
+
     describe('DAO\'s search method', function ()
     {
         it('should return promise', function ()
         {
-            if (!testHelper.isPromise(DAO.search({}))) {
-                throw new Error('Return is NOT promise');
-            }
+            //noinspection BadExpressionStatementJS
+            expect(DAO.search({})).to.be.promise;
         });
 
         describe('when don\'t provide query params', function ()
@@ -49,9 +59,7 @@ describe('phonesDAO', function ()
             {
                 return DAO.search({}).then(function (data)
                 {
-                    if (!testHelper.isEquals(phones, testHelper.convertFromMongo(data), ['_id', '__v'])) {
-                        throw new Error('Results is NOT equals');
-                    }
+                    expect(testHelper.convertFromMongo(data)).to.softEqual(phones, ['_id', '__v']);
                 });
             });
         });
@@ -62,9 +70,7 @@ describe('phonesDAO', function ()
             {
                 return DAO.search({ query: 'Pho' }).then(function (data)
                 {
-                    if (!testHelper.isEquals(phones, testHelper.convertFromMongo(data), ['_id', '__v'])) {
-                        throw new Error('Results is NOT equals')
-                    }
+                    expect(testHelper.convertFromMongo(data)).to.softEqual(phones, ['_id', '__v']);
                 });
             });
 
@@ -72,9 +78,7 @@ describe('phonesDAO', function ()
             {
                 return DAO.search({ query: 'oki' }).then(function (data)
                 {
-                    if (!testHelper.isEquals([ phones[ 0 ] ], testHelper.convertFromMongo(data), ['_id', '__v'])) {
-                        throw new Error('Results is NOT equals')
-                    }
+                    expect(testHelper.convertFromMongo(data)).to.softEqual([phones[1]], ['_id', '__v']);
                 });
             });
         });
@@ -84,9 +88,8 @@ describe('phonesDAO', function ()
     {
         it('should return promise', function ()
         {
-            if (!testHelper.isPromise(DAO.getDetails(0))) {
-                throw new Error('Return is NOT promise');
-            }
+            //noinspection BadExpressionStatementJS
+            expect(DAO.getDetails(0)).to.be.promise;
         });
 
         describe('when we are getting first row from database', function ()
@@ -105,9 +108,7 @@ describe('phonesDAO', function ()
             {
                 return DAO.getDetails(phoneId).then(function (data)
                 {
-                    if (!testHelper.isEquals(phone, testHelper.convertFromMongo(data))) {
-                        throw new Error('Results is NOT equals');
-                    }
+                    expect(testHelper.convertFromMongo(data)).to.softEqual(phone, ['_id']);
                 });
             });
         });
@@ -121,9 +122,7 @@ describe('phonesDAO', function ()
                     throw new Error('Returns something');
                 }).catch(function (error)
                         {
-                            if (error.name !== 'CastError') {
-                                throw new Error('Different error than CastError')
-                            }
+                            expect(error.name).to.equal('CastError');
                         });
             });
         });
@@ -133,9 +132,8 @@ describe('phonesDAO', function ()
     {
         it('should return promise', function ()
         {
-            if (!testHelper.isPromise(DAO.createNewOrUpdate({}))) {
-                throw new Error('Return is NOT promise');
-            }
+            //noinspection BadExpressionStatementJS
+            expect(DAO.createNewOrUpdate({})).to.be.promise;
         });
 
         describe('when provided element has no _id', function ()
@@ -145,9 +143,7 @@ describe('phonesDAO', function ()
             {
                 return DAO.createNewOrUpdate(phone).then(function (data)
                 {
-                    if (!testHelper.isEquals(phone, testHelper.convertFromMongo(data), ['_id', '__v'])) {
-                        throw new Error('Results is NOT equals');
-                    }
+                    expect(testHelper.convertFromMongo(data)).to.softEqual(phone, ['_id', '__v']);
                 });
             });
 
@@ -157,9 +153,7 @@ describe('phonesDAO', function ()
                 {
                     return DAO.search({}).then(function (data)
                     {
-                        if (4 !== data.length) {
-                            throw new Error('Result has no 4 elements');
-                        }
+                        expect(data).to.have.length(4);
                     });
                 });
             });
@@ -179,9 +173,7 @@ describe('phonesDAO', function ()
             {
                 return DAO.createNewOrUpdate(phone).then(function (data)
                 {
-                    if (!testHelper.isEquals(phone, testHelper.convertFromMongo(data))) {
-                        throw new Error('Results is NOT equals');
-                    }
+                    expect(testHelper.convertFromMongo(data)).to.softEqual(phone, ['_id']);
                 });
             });
 
@@ -191,9 +183,7 @@ describe('phonesDAO', function ()
                 {
                     return DAO.search({}).then(function (data)
                     {
-                        if (3 !== data.length) {
-                            throw new Error('Result has no 4 elements');
-                        }
+                        expect(data).to.have.length(3);
                     });
                 });
             });
@@ -203,9 +193,8 @@ describe('phonesDAO', function ()
     {
         it('should return promise', function ()
         {
-            if (!testHelper.isPromise(DAO.removePhone(0))) {
-                throw new Error('Return is NOT promise');
-            }
+            //noinspection BadExpressionStatementJS
+            expect(DAO.removePhone(0)).to.be.promise;
         });
 
         describe('when in database exist row with provided id', function ()
@@ -224,9 +213,7 @@ describe('phonesDAO', function ()
             {
                 return DAO.removePhone(phoneId).then(function (data)
                 {
-                    if (!testHelper.isEquals(phone, testHelper.convertFromMongo(data))) {
-                        throw new Error('Results is NOT equals');
-                    }
+                    expect(testHelper.convertFromMongo(data)).to.softEqual(phone, ['_id']);
                 });
             });
 
@@ -236,9 +223,7 @@ describe('phonesDAO', function ()
                 {
                     return DAO.search({}).then(function (data)
                     {
-                        if (2 !== data.length) {
-                            throw new Error('Result has no 2 elements');
-                        }
+                        expect(data).to.have.length(2);
                     });
                 });
             });
@@ -253,9 +238,7 @@ describe('phonesDAO', function ()
                     throw new Error('Returns something');
                 }).catch(function (error)
                         {
-                            if (error.name !== 'CastError') {
-                                throw new Error('Different error than CastError')
-                            }
+                            expect(error.name).to.equal('CastError');
                         });
             });
 
@@ -265,9 +248,7 @@ describe('phonesDAO', function ()
                 {
                     return DAO.search({}).then(function (data)
                     {
-                        if (3 !== data.length) {
-                            throw new Error('Result has no 3 elements');
-                        }
+                        expect(data).to.have.length(3);
                     });
                 });
             });

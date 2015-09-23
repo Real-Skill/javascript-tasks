@@ -39,11 +39,21 @@ All DAO methods should return promises. You need to implement those methods in a
 
 
 ##Setup
-Run `npm install` to download all the dependencies.
+To install dependencies from package.json:
 
-Run `npm test` to run unit tests. Note that you have to run `mongod` on your system before running tests.
+    npm install
 
-Run `grunt test:dev` to run tests in watch mode.
+To run tests in development mode:
+
+    mocha --watch
+
+To run verify jshint, tests and coverage:
+
+    npm test
+
+To run verify jshint, tests and coverage with human readable output:
+
+    grunt --force
 
  
  
