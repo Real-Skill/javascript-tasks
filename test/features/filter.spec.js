@@ -1,10 +1,10 @@
-'use strict';
-
 var FilterApplication = require('./pageFragments/filterApplication.fragment.js');
 var filterApplication = new FilterApplication();
 
 describe('Filter application', function ()
 {
+    'use strict';
+
     beforeAll(function ()
     {
         browser.get('/');

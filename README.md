@@ -27,45 +27,32 @@ You are not supposed to edit or add any CSS styles.
 ##Setup
  You should have `npm`, `bower`, `grunt-cli`  packages installed to run this example.
  
-###To resolve dependencies run:
+###To install dependencies 
 
-```
-npm install
-```
+    npm install && bower install
 
-```
-bower install
-```
 
-###To run the application:
- 
-```
-grunt serve
-```
- 
-###To detect errors and potential problems in your code:
- 
-```
-grunt jshint
-```
- 
-###To test the application:
+###To start application in live reload mode:
 
-To run all the tests:
+    grunt serve
+    
+###Jshint
+To run verify jshint:
+    
+    grunt jshint:default
 
-```
-npm test
-```
+###Run tests
 
-To run only karma unit tests:
+To unit tests in development mode:
+    
+    grunt test:dev
+    
+To run e2e tests in development mode:
 
-```
-npm run karma
-```
-To run only protractor tests:
+    grunt test:e2e
 
-```
-npm run protractor
-```
+To run verify jshint, tests and coverage:
+
+    npm test
 
 Good luck!

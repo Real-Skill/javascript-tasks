@@ -13,29 +13,27 @@ module.exports = function (config)
         frameworks: ['jasmine'],
 
         // list of files / patterns to load in the browser
-        files: ['app/bower_components/angular/angular.js',
-                'app/bower_components/angular-mocks/angular-mocks.js',
-                'app/filter.js',
-                'test/unit/**/*spec.js'],
+        files: ['app/bower_components/angular/angular.js', 'app/bower_components/angular-mocks/angular-mocks.js', 'app/*.js', 'app/!(bower_components)/**/*.js',
+                'test/unit/**/*.spec.js'],
 
         // list of files / patterns to exclude
         exclude: [],
 
-        reporters: ['spec', 'coverage', 'progress', 'junit'],
+        reporters: ['spec', 'coverage', 'junit'],
 
         preprocessors: {
-            'app/**/*.js': 'coverage'
+            'app/(!bower_components)/**/*.js': 'coverage'
         },
 
-        coverageReporter:{
-            dir: 'test/target/',
+        coverageReporter: {
+            dir: 'target/',
             type: 'cobertura',
             file: 'coverage.xml'
         },
 
 
         junitReporter: {
-            outputFile: 'test/target/test-results.xml'
+            outputFile: 'target/test-results.xml'
         },
 
         // web server port
