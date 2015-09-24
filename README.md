@@ -19,7 +19,8 @@ Our DAO method accepts as parameter object whose properties could be `skip` and/
 You need to fill our DAO method in accordance to guidelines:
 
 - it should return promise,
-- structure of returning data should have structure like: `{ results: [], total: int }`, where results is found data and total is number of all elements in collection.
+- structure of returning data should have structure like: `{ results: [], total: int }`,
+ where results is found data and total is number of all elements in collection.
 
 
 ##Setup
@@ -28,4 +29,3 @@ Type `npm install` before start.
 Type `grunt test` to run unit tests. Note that you have to run `mongod` on your system before running rests.
  
  Good luck!
- 

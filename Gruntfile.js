@@ -3,51 +3,47 @@ module.exports = function (grunt)
 {
     'use strict';
 
-    var jenkinsOptions = {
-        reporter: 'checkstyle',
-        reporterOutput: 'tests/target/jshint.xml'
-    };
-
     grunt.initConfig({
-        jasmine_node: {
-            coverage: {
-                options: {
-                    coverage: {
-                        reportDir: 'tests/target',
-                        excludes: ['**/tests/**'],
-                        report: ['cobertura']
-                    },
-                    forceExit: true,
-                    match: '.',
-                    matchAll: false,
-                    specFolders: ['tests'],
-                    extensions: 'js',
-                    specNameMatcher: 'spec',
-                    captureExceptions: true,
-                    showColors: true,
-                    junitreport: {
-                        report: true,
-                        savePath: './tests/target/tests/',
-                        useDotNotation: true,
-                        consolidate: true
-                    }
-                },
-                src: ['**/*.js']
-            }
-        },
         jshint: {
             options: {
                 jshintrc: true,
                 src: ['app/**/*.js', 'test/**/*.js']
             },
             default: ['<%=jshint.options.src%>'],
-            jenkins: {
-                options: jenkinsOptions,
+            verify: {
+                options: {
+                    reporter: 'checkstyle',
+                    reporterOutput: 'target/jshint.xml'
+                },
                 src: ['<%=jshint.options.src%>']
+            }
+        },
+        mochaTest: {
+            options: {
+                recursive: true,
+                src: ['test/unit/**/*.spec.js'],
+                ui: 'bdd'
+            },
+            default: {
+                options: {
+                    reporter: 'spec'
+                },
+                src: ['<%=mochaTest.options.src%>']
+
+            },
+            verify: {
+                options: {
+                    reporter: 'mocha-junit-reporter',
+                    reporterOptions: {
+                        mochaFile: 'target/test-results.xml'
+                    }
+                },
+                src: ['<%=mochaTest.options.src%>']
             }
         }
     });
-    grunt.loadNpmTasks('grunt-jasmine-node-coverage');
+    grunt.loadNpmTasks('grunt-mocha-test');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.registerTask('test', ['jasmine_node','jshint:jenkins']);
+    grunt.registerTask('verify', ['jshint:verify', 'mochaTest:verify']);
+    grunt.registerTask('default', ['jshint:default', 'mochaTest:default']);
 };
