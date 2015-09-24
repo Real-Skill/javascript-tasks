@@ -17,7 +17,7 @@ Your goal is to write a DAO layer using MongoDB queries. Use **/app/DAO/phoneDAO
 All DAO methods should return promises. You need to implement those methods in accordance to following guidelines:
 
 ####search()
-*Arguments:* object with body like: `{ query: '' }` where `query` property is a string to search for
+*Arguments:* object with body like: `{ query: '' }` where `query` property is a string to search for; results should be sorted by model name ascending
 
 *Return:* array containing all founded data
 

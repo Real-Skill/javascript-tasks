@@ -1,5 +1,5 @@
 /*jshint -W030 */
-describe('phonesDAO', function ()
+describe('phoneDAO', function ()
 {
     'use strict';
 
