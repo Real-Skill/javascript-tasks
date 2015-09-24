@@ -10,7 +10,7 @@ Your goal is to write a DAO layer using MongoDB queries. Use **/app/DAO/phoneDAO
 {
     model: String,
     brand: String,
-    stan: String
+    state: String
 }
 ```
  
