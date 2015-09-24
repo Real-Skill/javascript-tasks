@@ -36,7 +36,7 @@
         return this.element.sendKeys(text);
     };
 
-    TextInput.prototype.clearValue = function (text)
+    TextInput.prototype.clearValue = function ()
     {
         return this.element.clear();
     };

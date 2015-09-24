@@ -52,7 +52,8 @@ describe('filter', function ()
         }));
         it('should change first letter uppercase for separated by -', inject(function (firstLetterUpFilter)
         {
-            expect(firstLetterUpFilter('Visit BBC News for up-to-the-minute news, breaking news, video, audio and stories.')).toEqual('Visit Bbc News For Up-To-The-Minute News, Breaking News, Video, Audio And Stories.');
+            expect(firstLetterUpFilter('Visit BBC News for up-to-the-minute news, breaking news, video, audio and stories.')).
+                    toEqual('Visit Bbc News For Up-To-The-Minute News, Breaking News, Video, Audio And Stories.');
         }));
     });
 });
