@@ -37,6 +37,18 @@ Authorization: Token YWJj
 ```
  
 ##Setup
-`npm test` to run tests
+To install dependencies from package.json:
 
-`npm start` to run the app
+    npm install
+
+To run tests in development mode:
+
+    mocha --watch
+
+To run verify jshint, tests and coverage:
+
+    npm test
+
+To run verify jshint, tests and coverage with human readable output:
+
+    grunt --force
