@@ -40,7 +40,7 @@
         var defer = q.defer();
         for (var i = 0; i < data.length; i++) {
             if (phoneId === data[i]._id.toString()) {
-                defer.resolve({results: data[i]})
+                defer.resolve(data[i])
             } else if (i === data.length - 1) {
                 defer.reject('NOT_FOUND');
             }
@@ -53,7 +53,7 @@
         phoneId = parseInt(phoneId, 10);
         data.splice(phoneId - 1, 1);
         var defer = q.defer();
-        defer.resolve({results: data});
+        defer.resolve(data);
         return defer.promise;
     }
 

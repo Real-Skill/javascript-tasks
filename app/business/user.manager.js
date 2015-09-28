@@ -3,7 +3,6 @@
     'use strict';
 
     var sha1 = require('sha1');
-    var q = require('q');
     var userDAO = require('../DAO/userDAO');
 
     function hashPassword(password)

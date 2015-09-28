@@ -1,10 +1,14 @@
-describe('phones,endpoint', function ()
+describe('phones.endpoint', function ()
 {
     'use strict';
 
     var superTest = require('supertest-as-promised')(require('../../app/index.js'));
-    var testHelper = require('../testHelper');
     var sha1 = require('sha1');
+
+    var chai = require('chai');
+    var expect = chai.expect;
+    chai.use(require('../mochaHelper.js'));
+
     describe('POST /api/phones', function ()
     {
         var phone = {model: 'New phones', brand: 'new brand mock'};
@@ -13,8 +17,8 @@ describe('phones,endpoint', function ()
             var token;
             beforeEach(function ()
             {
-                return superTest.post('/api/user/auth').set('Content-type', 'application/json').send({email: 'mock@email.com', password: 'simplePassword'})
-                        .then(function (response)
+                return superTest.post('/api/user/auth').set('Content-type',
+                                'application/json').send({email: 'mock@email.com', password: 'simplePassword'}).then(function (response)
                         {
                             token = 'Token ' + new Buffer(response.body.token.toString()).toString('base64');
                         });
@@ -26,62 +30,57 @@ describe('phones,endpoint', function ()
                     return superTest.post('/api/phones').set('Authorization', token).send(phone);
                 });
 
-                it('should response 201 and this element', function ()
+                it('should respond with 201 and newly created element', function ()
                 {
                     return superTest.post('/api/phones').set('Authorization', token).send(phone).expect(201).then(function (response)
                     {
-                        if (!response.body.results || !testHelper.isEquals(phone, response.body.results, ['_id'])) {
-                            throw new Error('Results is NOT equals');
-                        }
+                        expect(response.body.results).to.softEqual(phone, ['_id']);
                     });
                 });
 
-                it('should response array with 1 element', function (done)
+                describe('and GET /api/phones request is made', function ()
                 {
-                    superTest.get('/api/phones').set('Authorization', token).expect(200).end(function (error, response)
+                    it('should response array with 1 element that just has been added', function ()
                     {
-                        var phones = [{_id: 1, model: 'New phones', brand: 'new brand mock'},
-                            {_id: 2, model: 'New phones', brand: 'new brand mock'},
-                            {_id: 3, model: 'New phones', brand: 'new brand mock'}];
-                        if (3 === response.body.results.length && testHelper.isEquals(phones, response.body.results)) {
-                            done();
-                        } else {
-                            done('Results is NOT equals');
-                        }
+                        return superTest.get('/api/phones').set('Authorization', token).expect(200).then(function (response)
+                        {
+                            var phones = [
+                                {_id: 1, model: 'New phones', brand: 'new brand mock'},
+                                {_id: 2, model: 'New phones', brand: 'new brand mock'},
+                                {_id: 3, model: 'New phones', brand: 'new brand mock'}
+                            ];
+
+                            expect(response.body.results).to.softEqual(phones);
+                        });
                     });
                 });
             });
-            describe('when we update element in db', function ()
+            describe('when updating existing element', function ()
             {
-                beforeEach(function (done)
+                beforeEach(function ()
                 {
-                    superTest.get('/api/phones').set('Authorization', token).expect(200).end(function (error, response)
+                    return superTest.get('/api/phones').set('Authorization', token).expect(200).then(function (response)
                     {
                         phone = response.body.results[0];
-                        done();
                     });
                 });
-                it('should update this element in db', function (done)
+                it('should return updated element on subsequent get request', function ()
                 {
                     phone.model = 'Test test';
                     phone.brand = 'mock mock';
-                    superTest.post('/api/phones').set('Authorization', token).send(phone).end(function ()
+                    return superTest.post('/api/phones').set('Authorization', token).send(phone).then(function ()
                     {
-                        superTest.get('/api/phones/' + phone._id).set('Authorization', token).expect(200).end(function (error, response)
+                        return superTest.get('/api/phones/' + phone._id).set('Authorization', token).expect(200).then(function (response)
                         {
-                            if (response.body.results && testHelper.isEquals(phone, response.body.results)) {
-                                done();
-                            } else {
-                                done('Results is NOT equals');
-                            }
+                            expect(response.body).to.softEqual(phone);
                         });
                     });
                 });
             });
         });
-        describe('when user is NOT authorized', function ()
+        describe('when user is NOT authenticated', function ()
         {
-            it('should response 401 and NOT add element to DB', function ()
+            it('should respond with 401 and NOT add element to DB', function ()
             {
                 return superTest.post('/api/phones').send(phone).expect(401).then(function ()
                 {
@@ -93,175 +92,136 @@ describe('phones,endpoint', function ()
                                 {_id: 2, model: 'New phones', brand: 'new brand mock'},
                                 {_id: 3, model: 'New phones', brand: 'new brand mock'}
                             ];
-                            if (!response.body.results || !testHelper.isEquals(phones, response.body.results)) {
-                                throw new Error('Results is NOT equals');
-                            }
+                            expect(response.body.results).to.softEqual(phones);
                         });
             });
         });
     });
     describe('GET /api/phones/:id', function ()
     {
-        describe('when user is authorized', function ()
+        describe('when user is authenticated', function ()
         {
             var token;
-            beforeEach(function (done)
+            beforeEach(function ()
             {
-                superTest.post('/api/user/auth').set('Content-type', 'application/json').send({email: 'mock@email.com', password: 'simplePassword'})
-                        .end(function (error,
-                                       response)
+                return superTest.post('/api/user/auth').set('Content-type',
+                                'application/json').send({email: 'mock@email.com', password: 'simplePassword'}).expect(200).then(function (response)
                         {
-                            if (error) {
-                                done(error);
-                            }
                             token = 'Token ' + new Buffer(response.body.token.toString()).toString('base64');
-                            done();
                         });
             });
             describe('when we get id first element in the array', function ()
             {
                 var phoneId, phone;
-                beforeEach(function (done)
+                beforeEach(function ()
                 {
-                    superTest.get('/api/phones').set('Authorization', token).end(function (error, response)
+                    return superTest.get('/api/phones').set('Authorization', token).expect(200).then(function (response)
                     {
                         phone = response.body.results[0];
                         phoneId = response.body.results[0]._id;
-                        done();
                     });
                 });
-                it('should response 200 and details first phone', function (done)
+                it('should response 200 and details first phone', function ()
                 {
-                    superTest.get('/api/phones/' + phoneId).set('Authorization', token).expect(200).end(function (error, response)
+                    return  superTest.get('/api/phones/' + phoneId).set('Authorization', token).expect(200).then(function (response)
                     {
-                        if (response.body.results && testHelper.isEquals(phone, response.body.results)) {
-                            done();
-                        } else {
-                            done('Results is NOT equals');
-                        }
+                        expect(response.body).to.softEqual(phone);
                     });
                 });
             });
             describe('when we get id third element in array', function ()
             {
                 var phoneId, phone;
-                beforeEach(function (done)
+                beforeEach(function ()
                 {
-                    superTest.get('/api/phones').set('Authorization', token).end(function (error, response)
+                    return superTest.get('/api/phones').set('Authorization', token).then(function (response)
                     {
                         phone = response.body.results[2];
                         phoneId = response.body.results[2]._id;
-                        done();
                     });
                 });
-                it('should response 200 and details first phone', function (done)
+                it('should response 200 and details first phone', function ()
                 {
-                    superTest.get('/api/phones/' + phoneId).set('Authorization', token).expect(200).end(function (error, response)
+                    return superTest.get('/api/phones/' + phoneId).set('Authorization', token).expect(200).then(function (response)
                     {
-                        if (response.body.results && testHelper.isEquals(phone, response.body.results)) {
-                            done();
-                        } else {
-                            done('Results is NOT equals');
-                        }
+                        expect(response.body).to.softEqual(phone);
                     });
                 });
             });
         });
-        describe('when user is NOT authorized', function ()
+        describe('when user is NOT authenticated', function ()
         {
-            it('should response 401', function (done)
+            it('should response 401', function ()
             {
                 var phoneId;
-                superTest.get('/api/phones').expect(200).end(function (error, response)
+                return superTest.get('/api/phones').expect(200).then(function (response)
                 {
                     phoneId = response.body.results[0]._id;
-                    superTest.get('/api/phones/' + phoneId).expect(401).end(done);
+                    return superTest.get('/api/phones/' + phoneId).expect(401);
                 });
             });
         });
     });
     describe('DELETE /api/phones/:id', function ()
     {
-        describe('when user is authorized', function ()
+        describe('when user is authenticated', function ()
         {
             var token;
-            beforeEach(function (done)
+            beforeEach(function ()
             {
-                superTest.post('/api/user/auth').set('Content-type', 'application/json').send({email: 'mock@email.com', password: 'simplePassword'})
-                        .end(function (error,
-                                       response)
+                return superTest.post('/api/user/auth').set('Content-type',
+                                'application/json').send({email: 'mock@email.com', password: 'simplePassword'}).expect(200).then(function (response)
                         {
-                            if (error) {
-                                done(error);
-                            }
                             token = 'Token ' + new Buffer(response.body.token.toString()).toString('base64');
-                            done();
                         });
             });
             var phoneId;
-            beforeEach(function (done)
+            beforeEach(function ()
             {
-                superTest.get('/api/phones').end(function (error, response)
+                return superTest.get('/api/phones').then(function (response)
                 {
                     phoneId = response.body.results[0]._id;
-                    done();
                 });
             });
-            it('should response 200 and remove this element in db', function (done)
+            it('should response 200 and remove this element in db', function ()
             {
-                superTest.get('/api/phones').end(function (error, respond)
+                return superTest.get('/api/phones').then(function (initialGetResponse)
                 {
-                    superTest.delete('/api/phones/' + phoneId).set('Authorization', token).expect(200).end(function (error, response)
+                    expect(initialGetResponse.body.results).to.have.length(3);
+                    return superTest.delete('/api/phones/' + phoneId).set('Authorization', token).expect(200).then(function (response)
                     {
-
-                        if (testHelper.isEquals({}, response.body)) {
-                            superTest.get('/api/phones').end(function (error, response)
-                            {
-                                if (2 === response.body.results.length && 3 === respond.body.results.length) {
-                                    done();
-                                } else {
-                                    done('Length results is NOT correct');
-                                }
-                            });
-                        } else {
-                            done('Results is NOT equals');
-                        }
+                        expect(response.body).to.eql({});
+                        return superTest.get('/api/phones').then(function (response)
+                        {
+                            expect(response.body.results).to.have.length(2);
+                        });
                     });
                 });
             });
         });
-        describe('when user is NOT authorized', function ()
+        describe('when user is NOT authenticated', function ()
         {
             var token;
-            beforeEach(function (done)
+            beforeEach(function ()
             {
-                superTest.post('/api/user/auth').set('Content-type', 'application/json').send({email: 'mock@email.com', password: 'simplePassword'})
-                        .end(function (error,
-                                       response)
+                return superTest.post('/api/user/auth').set('Content-type',
+                                'application/json').send({email: 'mock@email.com', password: 'simplePassword'}).then(function (response)
                         {
-                            if (error) {
-                                done(error);
-                            }
                             token = 'Token ' + new Buffer(response.body.token.toString()).toString('base64');
-                            done();
                         });
             });
-            it('should response 401 and NOT remove data', function (done)
+            it('should response 401 and NOT remove data', function ()
             {
                 var phoneId;
-                superTest.get('/api/phones').expect(200).end(function (error, response)
+                return  superTest.get('/api/phones').expect(200).then(function (response)
                 {
                     phoneId = response.body.results[0]._id;
-                    superTest.delete('/api/phones/' + phoneId).expect(401).end(function ()
+                    return superTest.delete('/api/phones/' + phoneId).expect(401).then(function ()
                     {
-                        superTest.get('/api/phones/' + phoneId).set('Authorization', token).expect(200).end(function (error, respond)
+                        return superTest.get('/api/phones/' + phoneId).set('Authorization', token).expect(200).then(function (response)
                         {
-                            var expect = { _id: 2, model: 'New phones', brand: 'new brand mock' };
-                            if (respond.body.results && testHelper.isEquals(expect, respond.body.results)) {
-                                done();
-                            } else {
-                                done('Remove data.');
-                            }
+                            var expectedResult = { _id: 2, model: 'New phones', brand: 'new brand mock' };
+                            expect(response.body).to.softEqual(expectedResult);
                         });
                     });
                 });

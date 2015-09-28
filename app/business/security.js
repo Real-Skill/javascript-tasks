@@ -1,14 +1,14 @@
 (function ()
 {
     'use strict';
-    var q = require('q');
+    var Promise = require('bluebird');
 
     function isAuthenticated(context)
     {
-        var defer = q.defer();
-//        TODO make sure this function is properly implemented.
-        defer.reject();
-        return defer.promise;
+        return new Promise(function(resolve,reject){
+            //        TODO make sure this function is properly implemented.
+            reject();
+        });
     }
 
     module.exports = {

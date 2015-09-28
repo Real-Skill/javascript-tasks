@@ -15,6 +15,9 @@ Authentication middleware is declared in `routes.js`.
 When user is authenticated the middleware should set user property on request object, which is used later on as context to create managers.
 Managers pass the context to `security` service that decides if user is authenticated or not.
 
+If user is NOT authetnicated an is attepmts to get restricted resource, the they should get 401 http status code.
+Password in database should be encoded with `sha1`.
+
 ##API
 
 ###Authenticate user
@@ -29,13 +32,13 @@ Expected response:
 {token:''}
 ```
 
-Where the token is plain value. It should be Base64 encoded end sent as header on subsequent requests that require authorization. Sample header for
-token 'abc'.
+The token is plain value. It should be Base64 encoded end sent as header on subsequent requests that requires authorization.
+Sample header for token 'abc'.
 
 ```
 Authorization: Token YWJj
 ```
- 
+
 ##Setup
 To install dependencies from package.json:
 

@@ -1,10 +1,16 @@
-(function ()
+'use strict';
+
+module.exports = function (chai, utils)
 {
-    'use strict';
+    function isDate(value)
+    {
+        return Object.prototype.toString.call(value) === '[object Date]';
+    }
 
-
-    var toString = Object.prototype.toString;
-    var isArray = Array.isArray;
+    function isRegExp(value)
+    {
+        return Object.prototype.toString.call(value) === '[object RegExp]';
+    }
 
     function isScope(obj)
     {
@@ -16,24 +22,15 @@
         return obj && obj.window === obj;
     }
 
-    function isDate(value)
-    {
-        return toString.call(value) === '[object Date]';
-    }
-
     function isFunction(value)
     {
         return typeof value === 'function';
     }
 
-    function isRegExp(value)
-    {
-        return toString.call(value) === '[object RegExp]';
-    }
-
 
     function equals(o1, o2)
     {
+        /*jshint maxcomplexity:false*/
         if (o1 === o2) {
             return true;
         }
@@ -47,8 +44,8 @@
         /*jshint -W116*/
         if (t1 == t2) {
             if (t1 == 'object') {
-                if (isArray(o1)) {
-                    if (!isArray(o2)) {
+                if (Array.isArray(o1)) {
+                    if (!Array.isArray(o2)) {
                         return false;
                     }
                     if ((length = o1.length) == o2.length) {
@@ -65,13 +62,16 @@
                     }
                     return equals(o1.getTime(), o2.getTime());
                 } else if (isRegExp(o1) && isRegExp(o2)) {
-                    return o1.toString() == o2.toString();
+                    return o1.toString() == o2.Object.prototype.toString();
                 } else {
-                    if (isScope(o1) || isScope(o2) || isWindow(o1) || isWindow(o2) || isArray(o2)) {
+                    if (isScope(o1) || isScope(o2) || isWindow(o1) || isWindow(o2) || Array.isArray(o2)) {
                         return false;
                     }
                     keySet = {};
                     for (key in o1) {
+                        if (!o1.hasOwnProperty(key)) {
+                            continue;
+                        }
                         if (key.charAt(0) === '$' || isFunction(o1[key])) {
                             continue;
                         }
@@ -92,25 +92,43 @@
         return false;
     }
 
-    function isEquals(expected, results, ignore)
+    function softEquals(expected, results, ignore)
     {
         var i;
         if (results instanceof Array) {
             for (i = 0; i < results.length; i++) {
-                isEquals(null, results[i], ignore);
+                softEquals(expected[i], results[i], ignore);
             }
         } else if (ignore instanceof Array) {
             for (i = 0; i < ignore.length; i++) {
-                /*jshint -W073*/
-                if (results.hasOwnProperty(ignore[i])) {
+                if (results) {
                     delete results[ignore[i]];
+                }
+                if (expected) {
+                    delete expected[ignore[i]];
                 }
             }
         }
         return equals(expected, results);
     }
 
-    module.exports = {
-        isEquals: isEquals
-    };
-})();
+    function isPromise(obj)
+    {
+        return typeof obj.catch === 'function' || typeof obj.then === 'function';
+    }
+
+    utils.addMethod(chai.Assertion.prototype, 'softEqual', function (expected, ignore)
+    {
+        var result = softEquals(expected, this._obj, ignore);
+        if (!result) {
+            console.log(expected);
+            console.log(this._obj);
+        }
+        this.assert(result, 'expected #{this} to equal #{exp}', 'expected #{this} to not equal #{exp}', expected, this._obj);
+    });
+    utils.addProperty(chai.Assertion.prototype, 'promise', function ()
+    {
+        this.assert(isPromise(this._obj), 'expected #{this} to be a promise', 'expected #{this} not to be a promise');
+    });
+
+};
