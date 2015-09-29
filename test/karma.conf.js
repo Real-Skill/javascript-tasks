@@ -22,7 +22,8 @@ module.exports = function (config)
         reporters: ['spec', 'coverage', 'junit'],
 
         preprocessors: {
-            'app/(!bower_components)/**/*.js': 'coverage'
+            'app/*.js': 'coverage',
+            'app/!(bower_components)/**/*.js': 'coverage'
         },
 
         coverageReporter: {
