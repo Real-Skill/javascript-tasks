@@ -16,7 +16,7 @@ You are not supposed to edit or add any CSS styles.
 |--------|----------------|-------------|
 | quote  | To be, or not to be...| "To be, or not to be..." |
 | withoutH  | The Hobbit: The Battle of the Five Armies   | Te obbit: Te Battle of te Five Armies |
-|firstLetterUp|Visit BBC News for up-to-the-minute news, breaking news, video, audio and stories. |Visit Bbc News For Up-To-The-Minute News, Breaking News, Video, Audio And Stories|
+|firstLetterUp|Visit News for up-to-the-minute news, breaking news, video, audio and stories. |Visit News For Up-To-The-Minute News, Breaking News, Video, Audio And Stories|
 
 ##Before you start
 * [angularjs-filters](https://egghead.io/lessons/angularjs-filters)

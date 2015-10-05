@@ -25,7 +25,7 @@ describe('Filter application', function ()
             it('should display the text with firstLetterUp filter', function ()
             {
                 expect(filterApplication.getThirdRowWithoutFilterColumn()).
-                        toEqual('Visit Bbc News For Up-To-The-Minute News, Breaking News, Video, Audio And Stories.');
+                        toEqual('Visit News For Up-To-The-Minute News, Breaking News, Video, Audio And Stories.');
             });
         });
 

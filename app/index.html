@@ -16,7 +16,7 @@
         <label for="tellMe" class="label label-default">Give me some text ...</label>
         <input type="text" id="tellMe" class="form-control" ng-model="data.tellMe">
     </div>
-    <table id="table" class="table table-striped table-bordered">
+    <table class="table table-striped table-bordered">
         <thead>
         <tr>
             <th>Filter</th>
@@ -28,17 +28,17 @@
         <tr>
             <td>quote</td>
             <td>{{data.citation}}</td>
-            <td>{{data.citation | quote}}</td>
+            <td id="quote">{{data.citation | quote}}</td>
         </tr>
         <tr>
             <td>withoutH</td>
             <td>{{data.title}}</td>
-            <td>{{data.title | withoutH}}</td>
+            <td id="withoutH">{{data.title | withoutH}}</td>
         </tr>
         <tr>
             <td>firstLetterUp</td>
             <td>{{data.someText}}</td>
-            <td>{{data.someText | firstLetterUp : true}}</td>
+            <td id="firstLetterUp">{{data.someText | firstLetterUp : true}}</td>
         </tr>
         </tbody>
     </table>

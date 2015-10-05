@@ -71,9 +71,9 @@
         textInput: element.bind(element, by.css('input')),
         filterTellMe: element.bind(element, by.css('h3')),
         tableField: {
-            firstWithFilter: element.bind(null, by.css('#table tbody tr:nth-of-type(1) td:nth-of-type(3)')),
-            secondWithFilter: element.bind(null, by.css('#table tbody tr:nth-of-type(2) td:nth-of-type(3)')),
-            thirdWithFilter: element.bind(null, by.css('#table tbody tr:nth-of-type(3) td:nth-of-type(3)'))
+            firstWithFilter: element.bind(null, by.css('#quote')),
+            secondWithFilter: element.bind(null, by.css('#withoutH')),
+            thirdWithFilter: element.bind(null, by.css('#firstLetterUp'))
         }
     };
 
