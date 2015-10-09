@@ -3,11 +3,28 @@
     'use strict';
 
     window.exercise1 = {
-        // create functions according to the template below:
-        // functionName: function (paramA, paramB)
-        // {
-        // }
+        getDescendingNumbers: function (start, stop)
+        {
 
+        },
+        deleteString: function (stringToDelete, arrayOfStrings)
+        {
 
+        },
+
+        stringCounter: function (customArray)
+        {
+
+        },
+
+        squareOdd: function (customArray)
+        {
+
+        },
+
+        areaOfTrapezoid: function (a, b, h)
+        {
+
+        }
     };
 })();
