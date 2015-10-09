@@ -25,12 +25,16 @@ You are not supposed to edit or add any CSS styles.
 * [regular expression online](https://regex101.com/)
 
 ##Setup
- You should have `npm`, `bower`, `grunt-cli`  packages installed to run this example.
  
 ###To install dependencies 
+ 
+```
+npm install
+```
 
-    npm install && bower install
-
+```
+bower install
+```
 
 ###To start application in live reload mode:
 

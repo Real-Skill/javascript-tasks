@@ -25,7 +25,7 @@
     "load-grunt-tasks": "0.4.0"
   },
   "scripts": {
-    "pretest": "webdriver-manager update --standalone",
+    "postinstall": "webdriver-manager update --standalone",
     "test": "grunt verify --force"
   }
 }
