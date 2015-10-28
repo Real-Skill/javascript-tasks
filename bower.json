@@ -1,14 +1,13 @@
 {
-    "name": "angular-egghead",
-    "description": "angular training",
-    "dependencies": {
-        "jquery": "1.6",
-        "angular": "~1.2.16",
-        "bootstrap": "2.1",
-        "typeahead.js": "0.10.5",
-        "fuelux": "latest",
-        "angular-bootstrap": "latest"
-    },
-    "appPath": "app"
-
+  "name": "angular-egghead",
+  "description": "angular training",
+  "dependencies": {
+    "jquery": "1.6",
+    "angular": "~1.2.16",
+    "bootstrap": "2.1",
+    "typeahead.js": "0.10.5",
+    "fuelux": "latest",
+    "angular-bootstrap": "latest"
+  },
+  "appPath": "app"
 }
