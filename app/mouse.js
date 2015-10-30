@@ -1,31 +1,28 @@
-/* jshint -W015 */
-
-'use strict';
-var app = angular.module('app', []);
-
-app.directive('enter', function ()
+(function()
 {
-    return function (scope, element)
+    'use strict';
+
+    var app = angular.module('app', []);
+
+    app.directive('enter', function ()
     {
-        element.bind('mouseenter', function ()
+        return function (scope, element, attrs)
         {
-            element.addClass('bg-danger');
-            scope.entered = true;
-        });
-    };
-});
+            element.bind('mouseenter', function ()
+            {
+                element.addClass(attrs.enter);
+            });
+        };
+    });
 
-app.directive('leave', function ()
-{
-    return {
-        scope: {}, link: function (scope, element, attrs)
+    app.directive('leave', function ()
+    {
+        return function (scope, element, attrs)
         {
             element.bind('mouseleave', function ()
             {
-                element.removeClass(attrs.enter);
-                scope.left = true;
+                element.removeClass(attrs.leave);
             });
-        }
-    };
-
-});
+        };
+    });
+})();

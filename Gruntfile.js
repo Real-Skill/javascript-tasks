@@ -1,34 +1,48 @@
 /*jshint camelcase:false*/
 
-'use strict';
-
 module.exports = function (grunt)
 {
+    'use strict';
 
-    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-protractor-runner');
+    grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-protractor-webdriver');
+
+    require('load-grunt-tasks')(grunt);
 
     var config = {
         app: 'app'
     };
 
     grunt.initConfig({
-        config: config, watch: {
+        config: config,
+        watch: {
             livereload: {
                 options: {
                     livereload: '<%= connect.options.livereload %>'
-                }, files: ['<%= config.app %>/*.html', '<%= config.app %>/*.js']
+                },
+                files: ['<%= config.app %>/**/*.html', '<%= config.app %>/**/*.js']
             }
-        }, connect: {
+        },
+
+        connect: {
             options: {
-                port: 9000, livereload: 35729, hostname: 'localhost'
-            }, livereload: {
+                port: 9000,
+                livereload: 35729,
+                hostname: '127.0.0.1'
+            },
+            test: {
                 options: {
-                    open: true, middleware: function (connect)
+                    base: ['app'],
+                    port: 9001
+                }
+            },
+            livereload: {
+                options: {
+                    open: true,
+                    middleware: function (connect)
                     {
-                        return [connect().use('/app/bower_components', connect.static('./app/bower_components')), connect.static(config.app)
+                        return [connect().use('/bower_components', connect.static('./bower_components')), connect.static(config.app)
 
                         ];
                     }
@@ -36,34 +50,53 @@ module.exports = function (grunt)
             }
         },
         protractor_webdriver: {
-            start: {
+            driver: {
                 options: {
-                    path: 'node_modules/protractor/bin/',
-                    command: 'webdriver-manager start'
+                    path: 'node_modules/.bin/',
+                    command: 'webdriver-manager start',
+                    keepAlive: true
                 }
             }
         },
         protractor: {
             options: {
-                keepAlive: true,
-                configFile: 'test/protractor.conf.js'
-
+                configFile: 'test/protractor.conf.js',
+                keepAlive: false,
+                noColor: false
             },
-            run: {}
+            chrome: {
+                options: {
+                    args: {
+                        browser: 'chrome'
+                    }
+                }
+            },
+            firefox: {
+                options: {
+                    args: {
+                        browser: 'firefox'
+                    }
+                }
+            },
+            phantomjs: {
+                options: {
+                    args: {
+                        browser: 'phantomjs'
+                    }
+                }
+            },
+            continuous: {
+                options: {
+                    keepAlive: true
+                }
+            }
         }
 
     });
 
-    grunt.registerTask('test', [
-        'protractor_webdriver',
-        'protractor:run'
-    ]);
+    grunt.registerTask('serve', ['connect:livereload', 'watch']);
 
-
-    grunt.registerTask('serve', function ()
-    {
-        grunt.task.run(['connect:livereload', 'watch']);
-    });
+    grunt.registerTask('test:e2e', ['connect:test', 'protractor_webdriver', 'protractor:chrome']);
 
     grunt.registerTask('default', ['serve']);
 };

@@ -1,27 +1,29 @@
-## Grunt configuration
+# Grunt configuration
 
+## Summary
 Grunt is a task-based command line build tool for JavaScript projects. 
 You can use Grunt to automate minification, compilation, unit testing, linting... - take a look at [gruntjs.com](http://gruntjs.com/)
 
-Grunt and Grunt plugins are installed and managed via `npm`, the Node.js package manager.
+Grunt and its plugins are installed and managed via `npm`, the Node.js package manager.
 
 
-##Goal
-You goal is install and load npm task to:
+## Goals
 
- * detect errors and potential problems in your JavaScript code located in app folder (`grunt-contrib-jshint`),
+Create four grunt tasks, repsonsible for:
+* detect errors and potential problems in your JavaScript code located in app folder 
+* run unit tests
+* find your components, install via bower and injects them directly into the `index.html` file 
 
- * run tests (`grunt-karma`) located in test folder, 
 
- * find your components, install via bower and injects them directly into the `index.html` file (`grunt-wiredep`)
- 
-From bootstrap component, should be injected only part of the CSS. Remember that, you can't manually modify `index.html` file.
+// You goal is install and load npm task to:
+// * detect errors and potential problems in your JavaScript code located in app folder (`grunt-contrib-jshint`),
+// * run tests (`grunt-karma`) located in test folder, 
+// * find your components, install via bower and injects them directly into the `index.html` file (`grunt-wiredep`)
+// From bootstrap component, should be injected only part of the CSS. Remember that, you can't manually modify `index.html` file.
+// You start with ready tasks: 
+// `grunt serve` (you can use it to start browser in live reload mode) and `grunt test` (to start protractor test)
 
-You start with ready tasks: 
-
-`grunt serve` (you can use it to start browser in live reload mode) and `grunt test` (to start protractor test)
-
-###Results
+### Results
 * **grunt jshint** command result
 
 ```
@@ -82,15 +84,27 @@ Done, without errors.
 ...
 ```
 
-###Setup
+## Setup
 
-Run `npm install -g protractor` to install protractor globally
+### To install dependencies 
 
-Run `webdriver-manager update` to update webdriver-manager (helper tool to easily get an instance of a Selenium Server running)
+```
+npm install
+```
 
-Run `grunt serve` to start browser in live reload mode
+```
+bower install
+```
 
-Run `grunt test` to start protractor test
+### To start application in live reload mode
+
+    grunt serve
+    
+### Run tests
+
+To run e2e tests in development mode:
+
+    grunt test:e2e
 
 
 ###Before you start, please refer to:

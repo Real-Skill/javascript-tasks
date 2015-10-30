@@ -2,12 +2,7 @@
     width: 200px;
     height: 200px;
     border-radius: 100px;
-    border: dashed;
+    border: solid;
 
 }
 
-.square {
-    width: 200px;
-    height: 200px;
-    border: dashed;
-}

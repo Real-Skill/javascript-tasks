@@ -2,27 +2,24 @@
 <html>
 <head lang="en">
     <title>AngularJS Tutorials</title>
-    <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
-    <!-- endbower -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body ng-app="app">
 <div class="container">
-    <div id="header" class="page-header">
-        <h1>Circle </h1>
+    <div class="page-header">
+        <h1>Circle
+            <small>and square</small>
+        </h1>
     </div>
     <div class="text-center">
-        <p><strong>Enter / leave mouse</strong></p>
-
-        <div id="circle" enter="bg-danger" leave class="circle center-block"></div>
+        <p class="label-danger"><strong>Enter / leave mouse</strong></p>
+        <div enter="btn-danger" leave="btn-danger" class="circle center-block"></div>
     </div>
 </div>
-<!-- bower:js -->
-<script src="bower_components/jquery/dist/jquery.js"></script>
+
 <script src="bower_components/angular/angular.js"></script>
-<!-- endbower -->
 <script src="mouse.js"></script>
 </body>
 </html>
