@@ -1,6 +1,7 @@
 {
-  "name": "angular-egghead",
-  "description": "angular training",
+  "name": "bower-resolutions",
+  "version": "0.0.0",
+  "private": true,
   "dependencies": {
     "jquery": "1.6",
     "angular": "~1.2.16",
@@ -8,6 +9,5 @@
     "typeahead.js": "0.10.5",
     "fuelux": "latest",
     "angular-bootstrap": "latest"
-  },
-  "appPath": "app"
+  }
 }
