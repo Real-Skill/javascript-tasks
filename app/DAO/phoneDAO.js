@@ -1,7 +1,7 @@
 (function ()
 {
     'use strict';
-    var mongoose = require('mongoose-q')();
+    var mongoose = require('mongoose-bird')(require('mongoose'));
     var phoneSchema = new mongoose.Schema({
         model: String,
         brand: String,

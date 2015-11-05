@@ -89,7 +89,7 @@ describe('phoneDAO', function ()
         it('should return promise', function ()
         {
             //noinspection BadExpressionStatementJS
-            expect(DAO.getDetails(0)).to.be.promise;
+            expect(DAO.getDetails('563b4a25916ddf3737ef03a6')).to.be.promise;
         });
 
         describe('when we are getting first row from database', function ()
@@ -194,7 +194,7 @@ describe('phoneDAO', function ()
         it('should return promise', function ()
         {
             //noinspection BadExpressionStatementJS
-            expect(DAO.removePhone(0)).to.be.promise;
+            expect(DAO.removePhone('563b4a25916ddf3737ef03a6')).to.be.promise;
         });
 
         describe('when in database exist row with provided id', function ()
