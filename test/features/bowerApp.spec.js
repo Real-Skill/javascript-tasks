@@ -137,15 +137,15 @@ describe('Bower application', function ()
     {
         it('should have "jquery" properties in resolutions', function ()
         {
-            expect(bowerApplication.getBowerJsonResolutions()).toMatch('jquery');
+            expect(bowerApplication.getBowerJsonResolutions('jquery')).toBe(true);
         });
         it('should have "bootstrap" properties in resolutions', function ()
         {
-            expect(bowerApplication.getBowerJsonResolutions()).toMatch('bootstrap');
+            expect(bowerApplication.getBowerJsonResolutions('bootstrap')).toBe(true);
         });
         it('should have "angular" properties in resolutions', function ()
         {
-            expect(bowerApplication.getBowerJsonResolutions()).toMatch('angular');
+            expect(bowerApplication.getBowerJsonResolutions('angular')).toBe(true);
         });
     });
 });
