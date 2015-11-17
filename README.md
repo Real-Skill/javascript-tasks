@@ -17,7 +17,7 @@ Your goal is to write a DAO layer using mongoose package. Use **/app/DAO/phoneDA
 All DAO methods should return promises. You need to implement those methods in according to following guidelines:
 
 ####search()
-*Arguments:* object with body like: `{ query: '' }` where `query` property is a string to search for; results should be sorted by property `model` ascending
+*Arguments:* object with body like: `{ query: '' }`that let search by ``brand`` or ``model``; results should be sorted by property `model` ascending
 
 *Return:* array containing all founded data
 
