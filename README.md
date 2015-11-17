@@ -1,89 +1,30 @@
-# Grunt configuration
+# Grunt tasks
 
 ## Summary
-Grunt is a task-based command line build tool for JavaScript projects. 
-You can use Grunt to automate minification, compilation, unit testing, linting... - take a look at [gruntjs.com](http://gruntjs.com/)
+Grunt is a task-based command line build tool for JavaScript projects. Grunt and its plugins are installed and managed via `npm`, the Node.js package manager.
 
-Grunt and its plugins are installed and managed via `npm`, the Node.js package manager.
-
+Create three grunt tasks responsible for validate files with JSHint, run unit tests and inject bower plugins directly into the `index.html` file.
 
 ## Goals
 
-Create four grunt tasks, repsonsible for:
-* detect errors and potential problems in your JavaScript code located in app folder 
-* run unit tests
-* find your components, install via bower and injects them directly into the `index.html` file 
+After installing appropriate grunt plugins (**make sure to save installed dependencies in `package.json`!**), configure `Grunt.js` file and create three tasks:
 
+* **jshint** task:
+    
+    * should detect errors and potential problems in .js files and create `jshint.xml` report in `target` folder (use built-in XML JSHint reporter),
+    * should specify all .js files from: `app` folder, `test` folder and its **subfolders** to linted, moreover `bower components` should be excluded from checking 
+ 
+* **karma** task:    
 
-// You goal is install and load npm task to:
-// * detect errors and potential problems in your JavaScript code located in app folder (`grunt-contrib-jshint`),
-// * run tests (`grunt-karma`) located in test folder, 
-// * find your components, install via bower and injects them directly into the `index.html` file (`grunt-wiredep`)
-// From bootstrap component, should be injected only part of the CSS. Remember that, you can't manually modify `index.html` file.
-// You start with ready tasks: 
-// `grunt serve` (you can use it to start browser in live reload mode) and `grunt test` (to start protractor test)
+    * responsible for running unit tests in two different modes
+    * includes two subtasks: `dev` which keeps the karma server up after a test run and `unit` which runs tests and exits 
+    * both subtasks use the same `karma.conf.js` configuration file
 
-### Results
-* **grunt jshint** command result
+* **wiredep** task:
 
-```
-Running "jshint:all" (jshint) task
->> 1 file lint free.
-
-Done, without errors.
-```
-
-* **grunt karma** command result
-
-```
-
-Running "karma:unit" (karma) task
-INFO [karma]: Karma v0.12.31 server started at http://localhost:8080/
-INFO [launcher]: Starting browser PhantomJS
-INFO [PhantomJS 1.9.8 (Windows 8)]: Connected on socket VST86J4WhW0JtSyeodAH with id 71276573
-
-  directives
-    circle
-      ? should add bg-info a class when mouseenter
-      ? should respond to a mouseenter event
-      ? should remove bg-info class when mouseleave
-      ? should respond to a mouseleave event
-
-PhantomJS 1.9.8 (Windows 8): Executed 4 of 4 SUCCESS (0.682 secs / 0.114 secs)
-
-```
-
-* **grunt wiredep** command result
-
-```
-
-Running "wiredep:task" (wiredep) task
-
-Done, without errors.
-```
-
-* **.js** file added
-
-```
-...
-<script src="bower_components/jquery/dist/jquery.js"></script>
-<script src="bower_components/angular/angular.js"></script>
-
-<script src="mouse.js"></script>
-</body>
-</html>
-```
-
-* **.css** file add
-```
-...
-<title>AngularJS Tutorials</title>
-
-<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-
-...
-```
-
+    * should inject bower dependencies directly into the `index.html` file,
+    * for the `bootstrap` component inject only the CSS part
+    
 ## Setup
 
 ### To install dependencies 

@@ -15,7 +15,7 @@ module.exports = function (grunt)
     };
 
     grunt.initConfig({
-        config: config,
+        config: {app: 'app'},
         watch: {
             livereload: {
                 options: {
@@ -91,10 +91,11 @@ module.exports = function (grunt)
                 }
             }
         }
-
     });
 
     grunt.registerTask('serve', ['connect:livereload', 'watch']);
+
+    grunt.registerTask('verify', ['jshint', 'wiredep', 'karma:unit', 'connect:test', 'protractor_webdriver', 'protractor:chrome']);
 
     grunt.registerTask('test:e2e', ['connect:test', 'protractor_webdriver', 'protractor:chrome']);
 
