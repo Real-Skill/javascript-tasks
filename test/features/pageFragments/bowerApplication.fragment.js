@@ -82,9 +82,10 @@
         return this.element.isSelected();
     };
 
-    File.prototype.getContent = function ()
+    File.prototype.getContent = function (property)
     {
-        return JSON.stringify(JSON.parse(fs.readFileSync(this.element, 'utf8')).resolutions);
+        var data = JSON.parse(fs.readFileSync(this.element, 'utf8')).resolutions;
+        return data.hasOwnProperty(property);
     };
 
 
@@ -195,11 +196,11 @@
 
 
     //file
-    PageFragment.prototype.getBowerJsonResolutions = function ()
+    PageFragment.prototype.getBowerJsonResolutions = function (property)
     {
-        return helper.file('bower.json').getContent();
+        return helper.file('bower.json').getContent(property);
     };
 
     module.exports = PageFragment;
-})
-();
+
+})();
