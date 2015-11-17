@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "mongoose": "4.0.1",
-    "mongoose-q": "0.0.17"
+    "bluebird": "^2.10.1",
+    "mongoose": "4.2.6",
+    "mongoose-bird": "0.0.1"
   },
   "devDependencies": {
     "bluebird": "2.10.1",
@@ -12,7 +13,11 @@
     "grunt": "0.4.5",
     "grunt-cli": "0.1.13",
     "grunt-contrib-jshint": "0.11.2",
+    "grunt-mocha": "^0.4.13",
+    "grunt-mocha-istanbul": "3.0.1",
     "grunt-mocha-test": "0.12.7",
+    "istanbul": "0.3.20",
+    "mocha": "2.3.3",
     "mocha-junit-reporter": "1.6.1"
   },
   "scripts": {

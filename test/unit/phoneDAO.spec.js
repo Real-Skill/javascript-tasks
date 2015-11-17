@@ -1,3 +1,4 @@
+/*global before,beforeEach, after*/
 describe('DAO\'s search method', function ()
 {
 
@@ -371,7 +372,7 @@ describe('DAO\'s search method', function ()
         var result;
         before(function ()
         {
-            return DAO.search({ sortBy: 'state', sortDir: 'DESC' }).then(function (data)
+            return DAO.search({sortBy: 'state', sortDir: 'DESC'}).then(function (data)
             {
                 result = data;
             });

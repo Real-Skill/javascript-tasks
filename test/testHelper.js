@@ -3,7 +3,7 @@
     'use strict';
 
     var Promise = require('bluebird');
-    var mongoose = require('mongoose-q')();
+    var mongoose = require('mongoose-bird')(require('mongoose'));
     var configDB = require('../app/config/database.config');
 
     function seedPhones(phones)
@@ -13,7 +13,7 @@
         }
         var phonesSchema = mongoose.models.phones;
         phonesSchema = phonesSchema || mongoose.model('phones', require('../app/DAO/phoneDAO').schema);
-        return phonesSchema.createQ(phones);
+        return phonesSchema.createAsync(phones);
     }
 
     function openDBConnection()
@@ -56,7 +56,7 @@
         if (obj instanceof Array) {
             cpy = [];
             for (var i = 0; i < obj.length; i++) {
-                cpy.push(fromMongo(obj[ i ]));
+                cpy.push(fromMongo(obj[i]));
             }
         } else {
             cpy = obj._doc ? obj._doc : obj;

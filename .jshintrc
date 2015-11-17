@@ -32,9 +32,8 @@
     "require": true,
     "describe": true,
     "afterEach": true,
-    "after": true,
     "beforeEach": true,
-    "before": true,
-    "it": true
+    "it": true,
+    "expect": true
   }
 }
