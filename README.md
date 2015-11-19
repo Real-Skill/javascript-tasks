@@ -4,8 +4,8 @@
 Implement DAO layer responsible for retrieving data from MongoDB.
 
 ##Goal
-Your goal is to write body of DAO's `search` method. Use **/app/DAO/phoneDAO** file for your solution.
-Search operation will be performed on collection with following structure:
+Your goal is to write `search` method using the **/app/DAO/phoneDAO** file as your solution.
+The search operation will be performed on the collection with the following structure:
 
 ```
 {
@@ -15,17 +15,17 @@ Search operation will be performed on collection with following structure:
 }
 ```
 
-Our DAO method accepts as parameter object with following properties: `search, skip, limit, sortDir, sortBy` where `search` is string to search for,`sortDir`
-can be set to 'ASC or 'DESC' and `sortBy` is name of field to sort by. Properties `skip` and `limit` are numbers.
+Our DAO method accepts the parameter object with following properties: `search, skip, limit, sortDir, sortBy` where `search` is a string to search for,
+`sortDir`can be set to 'ASC or 'DESC' and `sortBy` is name of the field to sort by. Properties `skip` and `limit` should be a number.
 
-You need to fill DAO method in accordance to guidelines:
+You need to fill DAO method in accordance to the guidelines:
 
-- it should return promise,
-- result of search (by default) should be sorted `ascending` by `_id` field and page size set to 2.
-- returned data structure should be like: `{ results: [], total: int }`, where results is found data and total is number of all elements in collection.
+- it should return a promise,
+- the result of the search (by default) should be sorted `ascending` by `_id` field and return two elements,
+- returned data structure should be like: `{ results: [], total: int }`, where `results` are found data and `total` is a number of all elements in 
+the collection.
 
- 
-##Setup
+ ##Setup
 To install dependencies from package.json:
 
     npm install
