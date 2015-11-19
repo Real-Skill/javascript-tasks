@@ -5,7 +5,10 @@
     var phoneSchema = new mongoose.Schema({
         model: String,
         brand: String,
-        state: {type: String, enum: ['Used', 'New', 'Unknown']}
+        state: {
+            type: String,
+            enum: ['Used', 'New', 'Unknown']
+        }
     }, {
         collection: 'phones'
     });

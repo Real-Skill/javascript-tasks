@@ -1,4 +1,3 @@
-/*global before,beforeEach, after*/
 describe('DAO\'s search method', function ()
 {
 
@@ -252,7 +251,33 @@ describe('DAO\'s search method', function ()
         var result;
         before(function ()
         {
-            return DAO.search({skip: 1, limit: 3}).then(function (data)
+            return DAO.search({
+                skip: 1,
+                limit: 3
+            }).then(function (data)
+            {
+                result = data;
+            });
+        });
+        it('should respond last two elements', function ()
+        {
+            expect(testHelper.convertFromMongo(result.results)).to.softEqual(phones.slice(1), ['_id', '__v']);
+        });
+        it('should respond with total equal to 3', function ()
+        {
+            expect(result.total).to.equal(3);
+        });
+    });
+
+    describe('when limit and skips params are string', function ()
+    {
+        var result;
+        before(function ()
+        {
+            return DAO.search({
+                skip: '1',
+                limit: '3'
+            }).then(function (data)
             {
                 result = data;
             });
@@ -372,7 +397,10 @@ describe('DAO\'s search method', function ()
         var result;
         before(function ()
         {
-            return DAO.search({sortBy: 'state', sortDir: 'DESC'}).then(function (data)
+            return DAO.search({
+                sortBy: 'state',
+                sortDir: 'DESC'
+            }).then(function (data)
             {
                 result = data;
             });
