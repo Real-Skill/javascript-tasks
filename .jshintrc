@@ -34,6 +34,9 @@
     "afterEach": true,
     "beforeEach": true,
     "it": true,
-    "expect": true
+    "expect": true,
+    "before": true,
+    "beforeEach": true,
+    "after": true
   }
 }
