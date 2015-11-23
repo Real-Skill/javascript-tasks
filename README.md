@@ -5,9 +5,16 @@ Grunt is a task-based command line build tool for JavaScript projects. Grunt and
 
 Create three grunt tasks responsible for validate files with JSHint, run unit tests and inject bower plugins directly into the `index.html` file.
 
+At the beginning application is in not working state.
+
 ## Goals
 
 After installing appropriate grunt plugins (**make sure to save installed dependencies in `package.json`!**), configure `Grunt.js` file and create three tasks:
+
+* **wiredep** task:
+
+    * should inject bower dependencies directly into the `index.html` file,
+    * for the `bootstrap` component inject only the CSS part
 
 * **jshint** task:
     
@@ -16,14 +23,8 @@ After installing appropriate grunt plugins (**make sure to save installed depend
  
 * **karma** task:    
 
-    * responsible for running unit tests in two different modes
-    * includes two subtasks: `dev` which keeps the karma server up after a test run and `unit` which runs tests and exits 
-    * both subtasks use the same `karma.conf.js` configuration file
-
-* **wiredep** task:
-
-    * should inject bower dependencies directly into the `index.html` file,
-    * for the `bootstrap` component inject only the CSS part
+    * should use `karma.conf.js` configuration file
+    * should contain `unit` subtask which runs all tests
     
 ## Setup
 
