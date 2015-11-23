@@ -9,7 +9,7 @@ At the beginning application is in not working state.
 
 ## Goals
 
-After installing appropriate grunt plugins (**make sure to save installed dependencies in `package.json`!**), configure `Grunt.js` file and create three tasks:
+After installing appropriate grunt plugins, configure `Grunt.js` file and create three tasks:
 
 * **wiredep** task:
 
