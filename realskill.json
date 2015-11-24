@@ -1,0 +1,9 @@
+{
+    "protect": [
+        "Gruntfile.js",
+        ".jshintrc",
+        "package.json",
+        "test/",
+        "README.md"
+    ]
+}
