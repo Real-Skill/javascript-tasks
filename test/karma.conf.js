@@ -13,28 +13,24 @@ module.exports = function (config)
         frameworks: ['jasmine'],
 
         // list of files / patterns to load in the browser
-        files: [
-                'app/*.js',
-                'test/unit/**/*spec.js'],
+        files: ['app/**/*.js','test/unit/**/*.spec.js'],
 
         // list of files / patterns to exclude
         exclude: [],
 
-        reporters: ['spec', 'coverage', 'progress', 'junit'],
+        reporters: ['spec', 'coverage', 'junit'],
 
         preprocessors: {
             'app/**/*.js': 'coverage'
         },
 
-        coverageReporter:{
-            dir: 'test/target/',
-            type: 'cobertura',
-            file: 'coverage.xml'
+        coverageReporter: {
+            dir: 'target/', type: 'cobertura', file: 'coverage.xml'
         },
 
 
         junitReporter: {
-            outputFile: 'test/target/test-results.xml'
+            outputFile: 'target/test-results.xml'
         },
 
         // web server port
@@ -55,7 +51,7 @@ module.exports = function (config)
 
         // Continuous Integration mode
         // if true, it capture browsers, run tests and exit
-        singleRun: false,
+        singleRun: true,
 
         colors: true,
 

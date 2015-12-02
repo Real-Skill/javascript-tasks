@@ -16,7 +16,7 @@ describe('exercise1', function ()
 
             it('should return false when "start" is greater than "stop"', function ()
             {
-                expect(exercise1.getDescendingNumbers(1, 15)).toBeFalsy();
+                expect(exercise1.getDescendingNumbers(1, 15)).toBe(false);
             });
         });
 
@@ -24,19 +24,19 @@ describe('exercise1', function ()
         {
             it('should return false when "start" is a string', function ()
             {
-                expect(exercise1.getDescendingNumbers('asa', 1)).toBeFalsy();
+                expect(exercise1.getDescendingNumbers('asa', 1)).toBe(false);
             });
             it('should return false when "stop" is a string', function ()
             {
-                expect(exercise1.getDescendingNumbers(1, 'asa')).toBeFalsy();
+                expect(exercise1.getDescendingNumbers(1, 'asa')).toBe(false);
             });
             it('should return false when "start" is a NaN', function ()
             {
-                expect(exercise1.getDescendingNumbers(NaN, 1)).toBeFalsy();
+                expect(exercise1.getDescendingNumbers(NaN, 1)).toBe(false);
             });
             it('should return false when "stop" is a NaN', function ()
             {
-                expect(exercise1.getDescendingNumbers(99, NaN)).toBeFalsy();
+                expect(exercise1.getDescendingNumbers(99, NaN)).toBe(false);
             });
         });
     });
@@ -118,15 +118,15 @@ describe('exercise1', function ()
         {
             it('should return false when "a" is a negative number', function ()
             {
-                expect(exercise1.areaOfTrapezoid(-1, 3, 6)).toBeFalsy();
+                expect(exercise1.areaOfTrapezoid(-1, 3, 6)).toBe(false);
             });
             it('should return false when "b" is a negative number', function ()
             {
-                expect(exercise1.areaOfTrapezoid(1, -3, 6)).toBeFalsy();
+                expect(exercise1.areaOfTrapezoid(1, -3, 6)).toBe(false);
             });
             it('should return false when "h" is a negative number', function ()
             {
-                expect(exercise1.areaOfTrapezoid(1, 3, -6)).toBeFalsy();
+                expect(exercise1.areaOfTrapezoid(1, 3, -6)).toBe(false);
             });
 
 
@@ -135,15 +135,15 @@ describe('exercise1', function ()
         {
             it('should return false when "a" is not a number', function ()
             {
-                expect(exercise1.areaOfTrapezoid('text', 3, 6)).toBeFalsy();
+                expect(exercise1.areaOfTrapezoid('text', 3, 6)).toBe(false);
             });
             it('should return false when "b" is not a number', function ()
             {
-                expect(exercise1.areaOfTrapezoid(1, 'text', 6)).toBeFalsy();
+                expect(exercise1.areaOfTrapezoid(1, 'text', 6)).toBe(false);
             });
             it('should return false when "h" is not a number', function ()
             {
-                expect(exercise1.areaOfTrapezoid(1, 3, 'text')).toBeFalsy();
+                expect(exercise1.areaOfTrapezoid(1, 3, 'text')).toBe(false);
             });
 
         });

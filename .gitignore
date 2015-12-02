@@ -1,5 +1,6 @@
 #IDEs
 #IntelliJ Idea
 .idea
-*node_modules
-*test/target
+node_modules
+target
+npm-debug.log

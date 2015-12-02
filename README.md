@@ -1,4 +1,4 @@
-# Exercise 1 
+# Basic JavaScipt Part I
 
 ##Summary
 JS Assessment tests for basic JavaScript knowledge. Each exercise consist of a few simple tasks. You have been provided with the function
@@ -6,9 +6,9 @@ JS Assessment tests for basic JavaScript knowledge. Each exercise consist of a f
  
 Write your solutions inside `app/exercise1.js` file. 
 
-##Goals
+## Goals
 
-###getDescendingNumbers function
+### getDescendingNumbers function
 
 Modify **getDescendingNumbers** function:
 
@@ -18,7 +18,8 @@ Modify **getDescendingNumbers** function:
 Given correct parameters the function should return a String literal with ASCII representation of the numbers starting at **numberFrom** to **numberTo**(included), separated by ' ' (space). Otherwise the function should return false.
 
 
-###deleteString function
+### deleteString function
+
 Modify **deleteString** function that will allow you to delete a string from an Array of Strings. 
 
 - **stringToDelete** - parameter should be a String that should be deleted
@@ -26,27 +27,27 @@ Modify **deleteString** function that will allow you to delete a string from an 
 
  This function should return an array of the remaining Strings(or an empty array).
 
-###stringCounter function
+### stringCounter function
+
 Modify **stringCounter** function for counting the number of String elements in an Array. 
 
 - **customArray** - parameter should be an Array of elements
 
 Please be aware that the Array can consist of many other elements other than Strings and the function is supposed to count only String elements. The return value should be a number of string elements in the provided Array.
 
-###squareOdd function
+### squareOdd function
+
 Modify **squareOdd** function: 
 
 - **customArray** - parameter should be an Array of elements
 
-
 This function should square value of every Number inside of **customArray** that is an odd number and return an array with proper numbers changed, leaving the rest of items unaffected.
 
+### areaOfTrapezoid function
 
-###areaOfTrapezoid function
 Create **areaOfTrapezoid** function that will calculate the area of a trapezoid:
    
 -   **a, b, h** parameters should not be negative Numbers
-
 
 The formula is as provided:
 
@@ -56,14 +57,6 @@ If the parameters are incorrect the function should return false.
 
 ## Before you start...
 
-Resolve the provided dependencies by typing in console:
-
-    npm install
-
-To test your solution locally, type:
-
-    npm test
-
 JavaScript basic functions:
 
     http://www.w3schools.com/jsref/
@@ -71,5 +64,27 @@ JavaScript basic functions:
 Javascript EcmaScript5 tutorials and more:
 
     https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+## Setup
+
+### To install dependencies
+
+    npm install
+
+### JShint
+
+To run verify jshint:
+
+    grunt jshint:default
+
+### Run tests
+
+To start developing unit tests
+
+    grunt test:dev
+ 
+To run tests and static analysis
+
+    npm test
 
 Good luck!
