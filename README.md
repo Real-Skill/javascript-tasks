@@ -1,32 +1,12 @@
-# Javascript Logical Operators
+# JavaScript Modules 
 
-### JS Assessments test basic JavaScript knowledge. Please read instructions carefully to ensure that you understand each task.
+## Summary
 
-Each exercise consist of few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
-Your solutions should be placed inside **impl/modules.js** file(inside exports.modulesAnswers object).
+JS Assessment for JavaScript modules knowledge. You are supposed to implement functions, having provided only the function name and purpose.
 
-#### Before you start...
+## Goals
 
-Resolve provided dependencies by typing in console:
-
-    npm install
-    bower install
-
-To test your solution locally, type:
-
-    npm start
-    
-or
-
-    npm test
-
-JavaScript basic functions:
-
-    http://www.w3schools.com/jsref/
-Javascript EcmaScript5 tutorials and more:
-
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript
-
+Your solutions should be placed inside **app/modules.js** file(inside window.modulesAnswers object).
 
 ## createModule:
 
@@ -45,3 +25,37 @@ Create simple module consuming two strings:
 
     <greeting>, <name>
 
+## Before you start...
+
+JavaScript basic functions:
+
+    http://www.w3schools.com/jsref/
+    
+Javascript EcmaScript5 tutorials and more:
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+## Setup
+
+### To install dependencies
+
+    npm install
+
+### JShint
+
+To run verify jshint:
+
+    grunt jshint:default
+
+### Run tests
+
+To start developing unit tests
+
+    grunt test:dev
+ 
+To run tests and static analysis
+
+    npm test
+
+Good luck!
+ 
