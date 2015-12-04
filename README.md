@@ -1,34 +1,14 @@
 # Javascript Function
 
-### JS Assessments test basic JavaScript knowledge. Please read instructions carefully to ensure that you understand each task.
+## Summary
 
 Each exercise consist of few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
-Your solutions should be placed inside **impl/functions.js** file(inside exports.asyncAnswers object).
 
-#### Before you start...
+## Goals
 
-Resolve provided dependencies by typing in console:
+Your solutions should be placed inside **app/functions.js** file(inside window.functionsAnswers object).
 
-    npm install
-    bower install
-
-To test your solution locally, type:
-
-    npm start
-    
-or
-
-    npm test
-
-JavaScript basic functions:
-
-    http://www.w3schools.com/jsref/
-Javascript EcmaScript5 tutorials and more:
-
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript
-
-
-## argsAsArray:
+### argsAsArray:
 
 Write a function with two parameters:
 
@@ -38,7 +18,7 @@ Write a function with two parameters:
 The **fn** parameter is a function that is required to be called with multiple parameters contained in **arr** array. 
 The return value should be value of **fn** called with **arr** parameters.
 
-## speak:
+### speak:
 
 Implement simple function that consumes:
 
@@ -47,7 +27,7 @@ Implement simple function that consumes:
     
 This simple function should return a value from **fn** call with **obj** passed as parameter.
 
-## functionFunction:
+### functionFunction:
 
 Function should accept only single parameter:
 
@@ -58,7 +38,7 @@ the string with following pattern:
 
     str, <function param>
 
-## makeClosures:
+### makeClosures:
 
 **makeClosures** function as the name suggests is all about closures and consumes:
 
@@ -68,7 +48,7 @@ the string with following pattern:
 This function is expected to return an array of generated functions. Those functions are expected to return a value
 calculated from calling **fn** with certain **arr** parameter.
 
-## partial:
+### partial:
 
 Implement **partial** function that generate simplified version of function:
 
@@ -79,12 +59,12 @@ Implement **partial** function that generate simplified version of function:
 Generated function should accept another **str3** parameter and return value from calling **fn** with **str1**, 
 **str2** and **str3** parameters.
 
-## useArguments:
+### useArguments:
 
 This example is a little tricky. You are about to create a function that doesn't accept any parameter, but being
 called with any number of parameters it should return a sum of all available parameters.
 
-## callIt:
+### callIt:
 
 Function accepts only one parameter:
 
@@ -97,7 +77,7 @@ for e.x. calling the function as follows:
 
 should call a function **fn** with all the provided arguments, **arg1**, **arg2** and **arg3**.
 
-## partialUsingArguments:
+### partialUsingArguments:
 
 Using knowledge from **partial** and **callIt** tasks you are asked to create a function generator:
 
@@ -110,7 +90,7 @@ that newly generated function doesn't accept any parameter but having any number
 they should be added to the actual function apply as a parameters and value returned should be equal
 of that apply.
 
-## curryIt:
+### curryIt:
 
 Implement more advanced function accepting only single parameter:
 
@@ -126,3 +106,38 @@ parameters required remaining and so on. For example:
 should return same value(calculated from fn with passed parameters) as following call:
 
     curryIt(fn(a, b, c))
+
+## Before you start...
+
+JavaScript basic functions:
+
+    http://www.w3schools.com/jsref/
+    
+Javascript EcmaScript5 tutorials and more:
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+## Setup
+
+### To install dependencies
+
+    npm install
+
+### JShint
+
+To run verify jshint:
+
+    grunt jshint:default
+
+### Run tests
+
+To start developing unit tests
+
+    grunt test:dev
+ 
+To run tests and static analysis
+
+    npm test
+
+Good luck!
+ 
