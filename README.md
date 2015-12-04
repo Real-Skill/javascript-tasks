@@ -1,34 +1,15 @@
-# Javascript Regex
+# JavaScript Regex
 
-### JS Assessments test basic JavaScript knowledge. Please read instructions carefully to ensure that you understand each task.
+## Summary
 
-Each exercise consist of few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
-Your solutions should be placed inside **impl/regex.js** file(inside exports.regexAnswers object).
+JS Assessment for JavaScript regex knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided 
+only the function name and purpose.
 
-#### Before you start...
+## Goals
 
-Resolve provided dependencies by typing in console:
+Your solutions should be placed inside **app/regex`.js** file(inside window.regexAnswers object).
 
-    npm install
-    bower install
-
-To test your solution locally, type:
-
-    npm start
-    
-or
-
-    npm test
-
-JavaScript basic functions:
-
-    http://www.w3schools.com/jsref/
-Javascript EcmaScript5 tutorials and more:
-
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript
-
-
-## containsNumber:
+### containsNumber:
 
 Create a simple function consuming string:
 
@@ -36,7 +17,7 @@ Create a simple function consuming string:
     
 This string should using ECMAScript V regex **test** function, check if string contain number.
 
-## containsRepeatingLetter:
+### containsRepeatingLetter:
 
 Create a simple function consuming string:
 
@@ -44,7 +25,7 @@ Create a simple function consuming string:
     
 This function should be able to detect a repeating letter in a string.
 
-## endsWithVowel:
+### endsWithVowel:
 
 Create a simple function consuming string:
 
@@ -52,7 +33,7 @@ Create a simple function consuming string:
 
 This function should be able to determine whether a string ends with a vowel.
 
-## captureThreeNumbers:
+### captureThreeNumbers:
 
 Create a simple function consuming string:
 
@@ -60,7 +41,7 @@ Create a simple function consuming string:
 
 This function should be able to capture the first series of three numbers.
 
-## matchesPattern:
+### matchesPattern:
 
 Create a simple function consuming string:
  
@@ -68,10 +49,46 @@ Create a simple function consuming string:
  
 This function should be able to determine whether a string matches a pattern.
 
-## isUSD:
+### isUSD:
 
 Create a simple function consuming string:
  
     str
  
 This function should be able to detect correctly-formatted monetary amounts in USD.
+
+
+## Before you start...
+
+JavaScript basic functions:
+
+    http://www.w3schools.com/jsref/
+    
+Javascript EcmaScript5 tutorials and more:
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+## Setup
+
+### To install dependencies
+
+    npm install
+
+### JShint
+
+To run verify jshint:
+
+    grunt jshint:default
+
+### Run tests
+
+To start developing unit tests
+
+    grunt test:dev
+ 
+To run tests and static analysis
+
+    npm test
+
+Good luck!
+ 
