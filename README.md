@@ -1,35 +1,14 @@
 # Javascript Arrays
 
-### JS Assessments test basic JavaScript knowledge. Please read instructions carefully to ensure that you understand each task.
+# Summary
 
 Each exercise consist of few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
-Your solutions should be placed inside **impl/arrays.js** file(inside exports.arraysAnswers object).
 
-#### Before you start...
+## Goals
 
-Resolve provided dependencies by typing in console:
+Your solutions should be placed inside **app/arraysAnswers.js** file(inside window.arraysAnswers object).
 
-    npm install
-    bower install
-
-To test your solution locally, type:
-
-    npm start
-    
-or
-
-    npm test
-
-JavaScript basic functions:
-
-    http://www.w3schools.com/jsref/
-Javascript EcmaScript5 tutorials and more:
-
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript
-
-
-
-## indexOf:
+### indexOf:
 
 Implement **indexOf** function that will accept two parameters:
 
@@ -39,7 +18,7 @@ Implement **indexOf** function that will accept two parameters:
 **array** parameter should accept an array, while **item** could be any object. This function should return the position that the **item**
 is assigned to in **array**. If there were no such elements, this function should return -1.
 
-## sum:
+### sum:
 
 Function **sum** is accepting sole parameter:
 
@@ -48,7 +27,7 @@ Function **sum** is accepting sole parameter:
 It should contain an array of numbers. **sum** function is expected to return sum of all the elements in the **array**.
 
 
-## remove:
+### remove:
 
 **remove** function is a simple function that also accept:
 
@@ -57,7 +36,7 @@ It should contain an array of numbers. **sum** function is expected to return su
     
 This function should return an array containing all the items in **array**, except **item**.
 
-## removeWithoutCopy:
+### removeWithoutCopy:
 
 **removeWithoutCopy** function is a more advanced version of **remove** accepting the same parameters:
 
@@ -66,7 +45,7 @@ This function should return an array containing all the items in **array**, exce
     
 This function should remove **item** element from **array** if it is contained within, and then be returned.
 
-## append:
+### append:
 
 **append** function that accepts:
 
@@ -75,7 +54,7 @@ This function should remove **item** element from **array** if it is contained w
     
 This function should add **item** to at the end of **array** and then be returned.
 
-## truncate:
+### truncate:
 
 Implement **truncate** function:
 
@@ -83,7 +62,7 @@ Implement **truncate** function:
 
 **truncate** should remove last item from the **array** and then return the **array** one element shorter.
 
-## prepend:
+### prepend:
 
 Implement **prepend** function that accepts:
 
@@ -93,7 +72,7 @@ Implement **prepend** function that accepts:
 As the name suggests **prepend** function should add **item** element at the beginning of **array**. 
 Having element added, function should return **array** with new values.
 
-## curtail:
+### curtail:
 
 **curtail** function accepting the sole parameter:
 
@@ -101,7 +80,7 @@ Having element added, function should return **array** with new values.
 
 This function should remove first element of **array** and return remaining elements.
 
-## concat:
+### concat:
 
 **concat** function accepts two parameters:
 
@@ -110,7 +89,7 @@ This function should remove first element of **array** and return remaining elem
 
 It should concatenate **arr1** and **arr2** and return the concatenated.
 
-## insert:
+### insert:
 
 Function **insert** accepts several parameters:
 
@@ -121,7 +100,7 @@ Function **insert** accepts several parameters:
 The **arr** is an array to add the **item** to. The last parameter, **index** is an position in array to add the **item** to.
 This function should return **arr**.
 
-## count:
+### count:
 
 **count** accepts:
 
@@ -130,7 +109,7 @@ This function should return **arr**.
 
 Having **arr** parameter as an array, this function is supposed to return the count of occurrences of **item** in **arr**.
 
-## duplicates:
+### duplicates:
 
 **duplicates** accepts:
 
@@ -139,7 +118,7 @@ Having **arr** parameter as an array, this function is supposed to return the co
 
 Having **arr** parameter as an array, this function is supposed to return the count of occurrences of **item** in **arr**.
 
-## square:
+### square:
 
 **square** function that accepts:
 
@@ -147,7 +126,7 @@ Having **arr** parameter as an array, this function is supposed to return the co
 
 This function is expected to calculate and return the power of 2 of every element from **arr** array. Result should be an array of numbers.
 
-## findAllOccurrences:
+### findAllOccurrences:
 
 Implement **findAllOccurrences** function as follows:
 
@@ -158,3 +137,37 @@ Having **arr** as array of strings you should find positions of **target** eleme
 as an **arr** and `b` as **target** you are supposed to return an array as follows: [1, 3] meaning that **target** occurs in second and fourth element
 of array, starting from 0.
 
+## Before you start...
+
+JavaScript basic functions:
+
+    http://www.w3schools.com/jsref/
+    
+Javascript EcmaScript5 tutorials and more:
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+## Setup
+
+### To install dependencies
+
+    npm install
+
+### JShint
+
+To run verify jshint:
+
+    grunt jshint:default
+
+### Run tests
+
+To start developing unit tests
+
+    grunt test:dev
+ 
+To run tests and static analysis
+
+    npm test
+
+Good luck!
+ 
