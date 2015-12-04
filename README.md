@@ -1,34 +1,15 @@
-# Javascript Logical Operators
+# JavaScript Numbers
 
-### JS Assessments test basic JavaScript knowledge. Please read instructions carefully to ensure that you understand each task.
+## Summary
 
-Each exercise consist of few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
-Your solutions should be placed inside **impl/numbers.js** file(inside exports.modulesAnswers object).
+JS Assessment for JavaScript numbers knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided 
+only the function name and purpose.
 
-#### Before you start...
+## Goals
 
-Resolve provided dependencies by typing in console:
+Your solutions should be placed inside **app/numbers.js** file(inside window.numbersAnswers object).
 
-    npm install
-    bower install
-
-To test your solution locally, type:
-
-    npm start
-    
-or
-
-    npm test
-
-JavaScript basic functions:
-
-    http://www.w3schools.com/jsref/
-Javascript EcmaScript5 tutorials and more:
-
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript
-
-
-## valueAtBit:
+### valueAtBit:
 
 Implement **valueAtBit** function:
 
@@ -37,7 +18,7 @@ Implement **valueAtBit** function:
     
 This function should return bit value of nth **bit** in **num** number.
 
-## base10:
+### base10:
 
 Using basic ECMAScript V functions create **base10** function that consume:
 
@@ -45,7 +26,7 @@ Using basic ECMAScript V functions create **base10** function that consume:
     
 This function should convert provided **str** to a decimal number and return it.
 
-## convertToBinary:
+### convertToBinary:
 
 Implement **convertToBinary** function:
 
@@ -53,7 +34,7 @@ Implement **convertToBinary** function:
     
 Having **num** parameter this function should return a string value with binary representation of **num** parameter.
 
-## multiply:
+### multiply:
 
 Create **multiply** function:
 
@@ -62,3 +43,37 @@ Create **multiply** function:
     
 It should multiply provided **number** parameter with given **precision**.
 
+## Before you start...
+
+JavaScript basic functions:
+
+    http://www.w3schools.com/jsref/
+    
+Javascript EcmaScript5 tutorials and more:
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+## Setup
+
+### To install dependencies
+
+    npm install
+
+### JShint
+
+To run verify jshint:
+
+    grunt jshint:default
+
+### Run tests
+
+To start developing unit tests
+
+    grunt test:dev
+ 
+To run tests and static analysis
+
+    npm test
+
+Good luck!
+ 
