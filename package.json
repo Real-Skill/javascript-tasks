@@ -15,9 +15,7 @@
     "karma-jasmine": "0.1.5",
     "karma-junit-reporter": "0.2.2",
     "karma-phantomjs-launcher": "0.1.4",
-    "karma-spec-reporter": "0.0.13",
-    "load-grunt-tasks": "3.2.0",
-    "sinon": "1.15.3"
+    "karma-spec-reporter": "0.0.13"
   },
   "scripts": {
     "test": "grunt verify --force"
