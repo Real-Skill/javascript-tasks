@@ -1,8 +1,9 @@
-# Javascript Arrays
+# JavaScript Arrays
 
 # Summary
 
-Each exercise consist of few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
+JS Assessment for JavaScript arrays knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided only the 
+function name and purpose.
 
 ## Goals
 
