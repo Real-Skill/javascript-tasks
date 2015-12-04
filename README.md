@@ -1,34 +1,15 @@
-# Javascript Objects
+# JavaScript Objects
 
-### JS Assessments test basic JavaScript knowledge. Please read instructions carefully to ensure that you understand each task.
+## Summary
 
-Each exercise consist of few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
-Your solutions should be placed inside **impl/objects.js** file(inside exports.objectsAnswers object).
+JS Assessment for JavaScript objects knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided 
+only the function name and purpose.
 
-#### Before you start...
+### Goals
 
-Resolve provided dependencies by typing in console:
+Your solutions should be placed inside **app/objects`.js** file(inside window.objectsAnswers object).
 
-    npm install
-    bower install
-
-To test your solution locally, type:
-
-    npm start
-    
-or
-
-    npm test
-
-JavaScript basic functions:
-
-    http://www.w3schools.com/jsref/
-Javascript EcmaScript5 tutorials and more:
-
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript
-
-
-## alterContext:
+### alterContext:
 
 Implement **alterContext** function:
 
@@ -38,7 +19,7 @@ Implement **alterContext** function:
 This function should call **fn** function from another context. Given **obj**, function should make use of **obj** fields instead
 of component **fn** depends on to.
 
-## alterObjects:
+### alterObjects:
 
 **alterObjects** function should accept two parameters:
 
@@ -48,7 +29,7 @@ of component **fn** depends on to.
 It is expected that this function should change **constructor** that every object created by it have their greeting property changed
 to a new **greeting**. Already existing objects derived from **constructor** should also have their properties changed.
 
-## iterate:
+### iterate:
 
 Create **iterate** function for iterating objects:
 
@@ -58,3 +39,37 @@ This function should iterate through object properties and return them as string
 
     ['<property>: <property value>', ...]
 
+## Before you start...
+
+JavaScript basic functions:
+
+    http://www.w3schools.com/jsref/
+    
+Javascript EcmaScript5 tutorials and more:
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+## Setup
+
+### To install dependencies
+
+    npm install
+
+### JShint
+
+To run verify jshint:
+
+    grunt jshint:default
+
+### Run tests
+
+To start developing unit tests
+
+    grunt test:dev
+ 
+To run tests and static analysis
+
+    npm test
+
+Good luck!
+ 
