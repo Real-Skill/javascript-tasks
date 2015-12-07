@@ -1,7 +1,4 @@
 {
-    "globals": {
-        "module": true
-    },
     "bitwise": true,
     "browser": true,
     "camelcase": true,
@@ -15,7 +12,6 @@
     "jquery": true,
     "latedef": true,
     "maxcomplexity": 10,
-    "maxdepth": 2,
     "maxlen": 160,
     "maxparams": 20,
     "maxstatements": 0,
@@ -30,5 +26,16 @@
     "strict": true,
     "trailing": true,
     "undef": true,
-    "unused": true
+    "unused": true,
+    "globals": {
+        "module": true,
+        "require": true,
+        "describe": true,
+        "afterEach": true,
+        "after": true,
+        "beforeEach": true,
+        "before": true,
+        "it": true,
+        "expect": true
+    }
 }

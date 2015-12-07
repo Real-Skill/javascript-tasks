@@ -1,3 +1,5 @@
 .idea
+*.iml
 node_modules
-tests/target
+target
+npm-debug.log
