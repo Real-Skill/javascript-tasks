@@ -2,7 +2,7 @@
 {
     'use strict';
 
-    window.objectsAnswers = {
+    window.regexAnswers = {
         containsNumber: function (str)
         {
         },
