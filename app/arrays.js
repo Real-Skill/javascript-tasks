@@ -11,15 +11,23 @@
         {
         },
 
+        copy: function (arr)
+        {
+        },
+
         remove: function (arr, item)
         {
         },
 
-        removeWithoutCopy: function (arr, item)
+        removeFromCopy: function (arr, item)
         {
         },
 
         append: function (arr, item)
+        {
+        },
+
+        appendToCopy: function (arr, item)
         {
         },
 
@@ -39,7 +47,7 @@
         {
         },
 
-        insert: function (arr, item, index)
+        insert: function (arr, index, item)
         {
         },
 

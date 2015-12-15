@@ -18,21 +18,42 @@
             expect(arraysAnswers.sum([18, 27, 33])).toBe(18 + 27 + 33);
         });
 
+        it('you should be able to copy an array', function ()
+        {
+            var input;
+            var result;
+
+            input = [1, 2, 3, 4];
+            result = arraysAnswers.copy(input);
+            expect(result).toEqual(input);
+            expect(result === input).toBe(false);
+
+            input = [1, 3, 5, 7, 9];
+            result = arraysAnswers.copy(input);
+            expect(result).toEqual(input);
+            expect(result === input).toBe(false);
+
+            input = [18, 27, 33];
+            result = arraysAnswers.copy(input);
+            expect(result).toEqual(input);
+            expect(result === input).toBe(false);
+        });
+
         it('you should be able to return a copy of an array without given value', function ()
         {
             var input;
 
             input = [1, 2, 3, 4, 2];
-            expect(arraysAnswers.remove(input, 2)).toEqual([1, 3, 4]);
+            expect(arraysAnswers.removeFromCopy(input, 2)).toEqual([1, 3, 4]);
             expect(input).toEqual([1, 2, 3, 4, 2]);
 
             input = [1, 2, 3, 4, 2];
-            expect(arraysAnswers.remove(input, 3)).toEqual([1, 2, 4, 2]);
+            expect(arraysAnswers.removeFromCopy(input, 3)).toEqual([1, 2, 4, 2]);
             expect(input).toEqual([1, 2, 3, 4, 2]);
 
 
             input = [5, 5, 5, 5, 5, 5];
-            expect(arraysAnswers.remove(input, 5)).toEqual([]);
+            expect(arraysAnswers.removeFromCopy(input, 5)).toEqual([]);
             expect(input).toEqual([5, 5, 5, 5, 5, 5]);
         });
 
@@ -40,7 +61,7 @@
         {
             function doTest(array, item, expectedResult)
             {
-                arraysAnswers.removeWithoutCopy(array, item);
+                arraysAnswers.remove(array, item);
                 expect(array).toEqual(expectedResult);
             }
 
@@ -81,22 +102,50 @@
 
         it('you should be able to remove the last item of an array', function ()
         {
-            expect(arraysAnswers.truncate([1, 2, 3, 4])).toEqual([1, 2, 3]);
-            expect(arraysAnswers.truncate([1])).toEqual([]);
-            expect(arraysAnswers.truncate([])).toEqual([]);
+            var input;
+
+            input = [1, 2, 3, 4];
+            expect(arraysAnswers.truncate(input)).toEqual(4);
+            expect(input).toEqual([1, 2, 3]);
+
+            input = [1];
+            expect(arraysAnswers.truncate(input)).toEqual(1);
+            expect(input).toEqual([]);
+
+            input = [];
+            expect(arraysAnswers.truncate(input)).toEqual(undefined);
+            expect(input).toEqual([]);
         });
 
         it('you should be able to add an item to the beginning of an array', function ()
         {
-            expect(arraysAnswers.prepend([1, 2, 3, 4], 5)).toEqual([5, 1, 2, 3, 4]);
-            expect(arraysAnswers.prepend([1], 3)).toEqual([3, 1]);
-            expect(arraysAnswers.prepend([], 2)).toEqual([2]);
+            var input;
+
+            input = [1, 2, 3, 4];
+            arraysAnswers.prepend(input, 5);
+            expect(input).toEqual([5, 1, 2, 3, 4]);
+
+
+            input = [1];
+            arraysAnswers.prepend(input, 3);
+            expect(input).toEqual([3, 1]);
+
+            input = [];
+            arraysAnswers.prepend(input, 2);
+            expect(input).toEqual([2]);
         });
 
         it('you should be able to remove the first item of an array', function ()
         {
-            expect(arraysAnswers.curtail([1, 2, 3, 4])).toEqual([2, 3, 4]);
-            expect(arraysAnswers.curtail([8, 54, 2])).toEqual([54, 2]);
+            var input;
+
+            input = [1, 2, 3, 4];
+            expect(arraysAnswers.curtail(input)).toEqual(1);
+            expect(input).toEqual([2, 3, 4]);
+
+            input = [8, 54, 2];
+            expect(arraysAnswers.curtail(input)).toEqual(8);
+            expect(input).toEqual([54, 2]);
         });
 
         it('you should be able to join together two arrays', function ()
@@ -108,16 +157,16 @@
         it('you should be able to add an item anywhere in an array', function ()
         {
             var input = [1, 2, 3, 4];
-            arraysAnswers.insert(input, 'z', 2);
+            arraysAnswers.insert(input, 2, 'z');
             expect(input).toEqual([1, 2, 'z', 3, 4]);
 
 
             input = [];
-            arraysAnswers.insert(input, 'c', 3);
+            arraysAnswers.insert(input, 3, 'c');
             expect(input).toEqual(['c']);
 
             input = [];
-            arraysAnswers.insert(input, 'x', 0);
+            arraysAnswers.insert(input, 0, 'x');
             expect(input).toEqual(['x']);
         });
 

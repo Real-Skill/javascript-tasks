@@ -9,134 +9,73 @@ function name and purpose.
 
 Your solutions should be placed inside **app/arraysAnswers.js** file(inside window.arraysAnswers object).
 
-### indexOf:
+### indexOf(array, item):
 
-Implement **indexOf** function that will accept two parameters:
+Returns the position of `item` in `array`. If there no `item` is found in `array`, returns -1.
 
-    array
-    item
+### sum(array):
 
-**array** parameter should accept an array, while **item** could be any object. This function should return the position that the **item**
-is assigned to in **array**. If there were no such elements, this function should return -1.
+Returns sum of all numbers in the `array`.
 
-### sum:
+### copy(array):
 
-Function **sum** is accepting sole parameter:
+Returns copy of `array`.
 
-    array
-    
-It should contain an array of numbers. **sum** function is expected to return sum of all the elements in the **array**.
+### remove(array, item):
 
+Remove all occurrences of `item` from `array`.
 
-### remove:
+### removeFromCopy(array, item):
 
-**remove** function is a simple function that also accept:
+Returns a copy of `array` without any occurrences of `item`.
 
-    array
-    item
-    
-This function should return an array containing all the items in **array**, except **item**.
+### append(array, item):
 
-### removeWithoutCopy:
+Append `item` at the end of `array`.
 
-**removeWithoutCopy** function is a more advanced version of **remove** accepting the same parameters:
+### appendToCopy(array, item):
 
-    array
-    item
-    
-This function should remove **item** element from **array** if it is contained within, and then be returned.
+Returns a copy of `array` with `item` appended at the end.
 
-### append:
+### truncate(array):
 
-**append** function that accepts:
+Removes last item from `array`. Returns removed element.
 
-    array
-    item
-    
-This function should add **item** to at the end of **array** and then be returned.
+### prepend(array, item):
 
-### truncate:
+Adds `item` at the beginning of `array`.
 
-Implement **truncate** function:
+### curtail(array):
 
-    array
+Removes first item from array. Returns removed element
 
-**truncate** should remove last item from the **array** and then return the **array** one element shorter.
+### concat(a, b):
 
-### prepend:
+Returns new array with all items from arrays `a` and `b`. 
+i.e. a=[3,4], b=[1,2] => concat(a,b) = [3,4,1,2]
 
-Implement **prepend** function that accepts:
+### insert(array, index, item):
 
-    array
-    item
+Inserts `item` to an `array` at given `index`.
+i.e. insert([1,2,3], 1, 'a') => [1,'a',2,3]
 
-As the name suggests **prepend** function should add **item** element at the beginning of **array**. 
-Having element added, function should return **array** with new values.
+### count(array, item):
 
-### curtail:
+Reeturns number of occurrences of `item` in `array`.
 
-**curtail** function accepting the sole parameter:
+### duplicates(array):
 
-    array
+Returns array of all dupplicates in arrray. Order is irrelevant.
+i.e. duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3]) => [1, 3, 4]
 
-This function should remove first element of **array** and return remaining elements.
+### square(array):
 
-### concat:
-
-**concat** function accepts two parameters:
-
-    arr1
-    arr2
-
-It should concatenate **arr1** and **arr2** and return the concatenated.
-
-### insert:
-
-Function **insert** accepts several parameters:
-
-    arr
-    item
-    index
-
-The **arr** is an array to add the **item** to. The last parameter, **index** is an position in array to add the **item** to.
-This function should return **arr**.
-
-### count:
-
-**count** accepts:
-
-    arr
-    item
-
-Having **arr** parameter as an array, this function is supposed to return the count of occurrences of **item** in **arr**.
-
-### duplicates:
-
-**duplicates** accepts:
-
-    arr
-    item
-
-Having **arr** parameter as an array, this function is supposed to return the count of occurrences of **item** in **arr**.
-
-### square:
-
-**square** function that accepts:
-
-    arr
-
-This function is expected to calculate and return the power of 2 of every element from **arr** array. Result should be an array of numbers.
+Returns array where each element is the power of 2 of every element from `array`.
 
 ### findAllOccurrences:
 
-Implement **findAllOccurrences** function as follows:
-
-    arr
-    target
-
-Having **arr** as array of strings you should find positions of **target** element in **arr** itself. For example if you were to use ['a', 'b', 'c', 'b']
-as an **arr** and `b` as **target** you are supposed to return an array as follows: [1, 3] meaning that **target** occurs in second and fourth element
-of array, starting from 0.
+Returns array of indexes under which `target` is found in `array`.
+i.e. findAllOccurrences(['a', 'b', 'c', 'b'], 'b') => [1,3]
 
 ## Before you start...
 
