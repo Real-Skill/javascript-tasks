@@ -1,0 +1,6 @@
+{
+    "protect": [
+        "test/unit/app.spec.js",
+        "test/mocha.opts"
+    ]
+}
