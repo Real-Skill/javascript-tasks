@@ -9,53 +9,29 @@ only the function name and purpose.
 
 Your solutions should be placed inside **app/regex`.js** file(inside window.regexAnswers object).
 
-### containsNumber:
+### containsNumber(str):
 
-Create a simple function consuming string:
+Check if string contain number. Returns true if str contains a number, false otherwise.
 
-    str
-    
-This string should using ECMAScript V regex **test** function, check if string contain number.
+### containsRepeatingLetter(str):
 
-### containsRepeatingLetter:
+Detects a repeating letter in a string.
 
-Create a simple function consuming string:
+### endsWithVowel(str):
 
-    str
-    
-This function should be able to detect a repeating letter in a string.
+Determines whether a string ends with a vowel.
 
-### endsWithVowel:
+### captureThreeNumbers(str):
 
-Create a simple function consuming string:
+Captures the first series of three numbers.
 
-    str
+### matchesPattern(str):
 
-This function should be able to determine whether a string ends with a vowel.
+Determines whether a string matches a pattern.
 
-### captureThreeNumbers:
+### isUSD(str):
 
-Create a simple function consuming string:
-
-    str
-
-This function should be able to capture the first series of three numbers.
-
-### matchesPattern:
-
-Create a simple function consuming string:
- 
-    str
- 
-This function should be able to determine whether a string matches a pattern.
-
-### isUSD:
-
-Create a simple function consuming string:
- 
-    str
- 
-This function should be able to detect correctly-formatted monetary amounts in USD.
+Detects correctly-formatted monetary amounts in USD.
 
 
 ## Before you start...
