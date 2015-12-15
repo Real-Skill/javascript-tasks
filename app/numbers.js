@@ -13,10 +13,6 @@
 
         convertToBinary: function (num)
         {
-        },
-
-        multiply: function (number, precision)
-        {
         }
     };
 

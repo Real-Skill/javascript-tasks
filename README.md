@@ -9,39 +9,17 @@ only the function name and purpose.
 
 Your solutions should be placed inside **app/numbers.js** file(inside window.numbersAnswers object).
 
-### valueAtBit:
+### valueAtBit(num, bit):
 
-Implement **valueAtBit** function:
+Returns bit value of nth `bit` in `num` number.
 
-    num
-    bit
-    
-This function should return bit value of nth **bit** in **num** number.
+### base10(str):
 
-### base10:
+Retruns number represented by binary `str` string.
 
-Using basic ECMAScript V functions create **base10** function that consume:
+### convertToBinary(num):
 
-    str
-    
-This function should convert provided **str** to a decimal number and return it.
-
-### convertToBinary:
-
-Implement **convertToBinary** function:
-
-    num
-    
-Having **num** parameter this function should return a string value with binary representation of **num** parameter.
-
-### multiply:
-
-Create **multiply** function:
-
-    number
-    precision
-    
-It should multiply provided **number** parameter with given **precision**.
+Returns a string value with binary representation of `num` parameter.
 
 ## Before you start...
 

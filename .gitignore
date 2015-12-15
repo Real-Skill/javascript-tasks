@@ -1,6 +1,7 @@
 #IDEs
 #IntelliJ Idea
 .idea
+*.iml
 node_modules
 target
 npm-debug.log
