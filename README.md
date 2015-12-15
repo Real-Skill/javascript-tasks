@@ -9,16 +9,36 @@ the function name and purpose.
 
 Your solutions should be placed inside **app/flowControl.js** file(inside window.flowControlAnswers object).
 
-### fizzBuzz:
+### fizzBuzz(number):
 
-Write a function that receives a number as its argument:
+Write a function that receives one parameter and:    
 
-    number
-    
 - if the number is divisible by 3, the function should return 'fizz'
 - if the number is divisible by 5, the function should return 'buzz';
 - if the number is divisible by 3 and 5, the function should return `fizzbuzz`;
+- if the number is not divisible by 3 nor 5, the function should return that number;
+- if parameter is not a number it should return false
 
+### whileLoop(iterator)
+
+Returns number of elements available through `iterator` where iterator is a function returning next available element.
+If no more element is available `iterator` returns `null`.
+
+### forLoop(start, end)
+
+Returns array of numbers between `start` (inclusive) and `end` (exclusive).
+i.e.: forLoop(100,102) => [100, 101]
+
+### exceptions(array)
+
+Returns sum of elements in array. If any element of array is not a number an exception should be thrown with message according to folowing pattern:
+
+    Item at index {index} is not a number
+    
+i.e. if first element of array is not a number the message should be:
+
+    Item at index 0 is not a number
+    
 
 ## Before you start...
 
