@@ -8,22 +8,19 @@ JS Assessment for JavaScript modules knowledge. You are supposed to implement fu
 
 Your solutions should be placed inside **app/modules.js** file(inside window.modulesAnswers object).
 
-## createModule:
+## createModule(greeting, name):
 
-Create simple module consuming two strings:
-
-    str1
-    str2
-    
-**createModule** should return new module with three properties:
+Returns object with three properties:
 
     name: str2
     greeting: str1
     sayIt: Function
     
-**sayIt** function is expected to return new string in the following pattern:
+`sayIt` function is expected to return new string in the following pattern:
 
     <greeting>, <name>
+    
+Keep in mind that name and greeting of the module can be modified after module has been created and it has to be reflected in `sayIt` method.
 
 ## Before you start...
 
