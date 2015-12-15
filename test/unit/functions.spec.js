@@ -5,39 +5,35 @@
 
     describe('functions', function ()
     {
-        var sayItCalled = false;
-        var sayIt = function (greeting, name, punctuation)
+        function sayIt(greeting, name, punctuation)
         {
-            sayItCalled = true;
             return greeting + ', ' + name + (punctuation || '!');
-        };
+        }
 
-        beforeEach(function ()
+        function concat()
         {
-            sayItCalled = false;
-        });
+            return Array.prototype.slice.apply(arguments);
+        }
 
         it('you should be able to use an array as arguments when calling a function', function ()
         {
-            var result = functionsAnswers.argsAsArray(sayIt, ['Hello', 'Ellie', '!']);
-            expect(result).toEqual('Hello, Ellie!');
-            expect(sayItCalled).toBeTruthy();
+            expect(functionsAnswers.argsAsArray(sayIt, ['Hello', 'Ellie'])).toEqual('Hello, Ellie!');
+            expect(functionsAnswers.argsAsArray(sayIt, ['Hello', 'Ellie', '!'])).toEqual('Hello, Ellie!');
+            expect(functionsAnswers.argsAsArray(sayIt, ['Hello', 'Rocky'])).toEqual('Hello, Rocky!');
+            expect(functionsAnswers.argsAsArray(sayIt, ['Hello', 'Rocky', '.'])).toEqual('Hello, Rocky.');
+            expect(functionsAnswers.argsAsArray(concat, ['Hello', 'Ellie', '!', 1, 2, 3])).toEqual(['Hello', 'Ellie', '!', 1, 2, 3]);
         });
 
         it('you should be able to change the context in which a function is called', function ()
         {
-            var speak = function ()
+            function speak()
             {
+                /*jshint -W040*/
                 return sayIt(this.greeting, this.name, '!!!');
-            };
-            var obj = {
-                greeting: 'Hello',
-                name: 'Rebecca'
-            };
+            }
 
-            var result = functionsAnswers.speak(speak, obj);
-            expect(result).toEqual('Hello, Rebecca!!!');
-            expect(sayItCalled).toBeTruthy();
+            expect(functionsAnswers.speak(speak, {greeting: 'Hello', name: 'Rebecca'})).toEqual('Hello, Rebecca!!!');
+            expect(functionsAnswers.speak(speak, {greeting: 'Cheers', name: 'Man'})).toEqual('Cheers, Man!!!');
         });
 
         it('you should be able to return a function from a function', function ()
@@ -49,24 +45,35 @@
         it('you should be able to use closures', function ()
         {
             var arr = [Math.random(), Math.random(), Math.random(), Math.random()];
-            var square = function (x)
+
+            function square(x)
             {
                 return x * x;
-            };
+            }
 
-            var funcs = functionsAnswers.makeClosures(arr, square);
+            function negate(x)
+            {
+                return -1 * x;
+            }
+
+            var funcs = functionsAnswers.makeClosures(arr);
             expect(funcs.length).toBe(arr.length);
 
-            for (var i = 0; i < arr.length; i++) {
-                expect(funcs[i]()).toEqual(square(arr[i]));
-            }
+            arr.forEach(function (item, index)
+            {
+                expect(funcs[index](square)).toEqual(square(item));
+            });
+
+            arr.forEach(function (item, index)
+            {
+                expect(funcs[index](negate)).toEqual(negate(item));
+            });
         });
 
         it('you should be able to create a "partial" function', function ()
         {
-            var partial = functionsAnswers.partial(sayIt, 'Hello', 'Ellie');
-            expect(partial('!!!')).toEqual('Hello, Ellie!!!');
-            expect(sayItCalled).toBeTruthy();
+            expect(functionsAnswers.partial(sayIt, 'Hello', 'Ellie')('!!!')).toEqual('Hello, Ellie!!!');
+            expect(functionsAnswers.partial(sayIt, 'Hello', 'Rick')('?')).toEqual('Hello, Rick?');
         });
 
         it('you should be able to use arguments', function ()
@@ -84,39 +91,36 @@
 
         it('you should be able to apply functions with arbitrary numbers of arguments', function ()
         {
-            (function ()
+            var a = Math.random();
+            var b = Math.random();
+            var c = Math.random();
+
+            var wasITake2ArgumentsCalled = false;
+            var iTake2Arguments = function (firstArgument, secondArgument)
             {
-                var a = Math.random();
-                var b = Math.random();
-                var c = Math.random();
+                expect(arguments.length).toEqual(2);
+                expect(firstArgument).toEqual(a);
+                expect(secondArgument).toEqual(b);
 
-                var wasITake2ArgumentsCalled = false;
-                var iTake2Arguments = function (firstArgument, secondArgument)
-                {
-                    expect(arguments.length).toEqual(2);
-                    expect(firstArgument).toEqual(a);
-                    expect(secondArgument).toEqual(b);
+                wasITake2ArgumentsCalled = true;
+            };
 
-                    wasITake2ArgumentsCalled = true;
-                };
+            var wasITake3ArgumentsCalled = false;
+            var iTake3Arguments = function (firstArgument, secondArgument, thirdArgument)
+            {
+                expect(arguments.length).toEqual(3);
+                expect(firstArgument).toEqual(a);
+                expect(secondArgument).toEqual(b);
+                expect(thirdArgument).toEqual(c);
 
-                var wasITake3ArgumentsCalled = false;
-                var iTake3Arguments = function (firstArgument, secondArgument, thirdArgument)
-                {
-                    expect(arguments.length).toEqual(3);
-                    expect(firstArgument).toEqual(a);
-                    expect(secondArgument).toEqual(b);
-                    expect(thirdArgument).toEqual(c);
+                wasITake3ArgumentsCalled = true;
+            };
 
-                    wasITake3ArgumentsCalled = true;
-                };
+            functionsAnswers.callIt(iTake2Arguments, a, b);
+            functionsAnswers.callIt(iTake3Arguments, a, b, c);
 
-                functionsAnswers.callIt(iTake2Arguments, a, b);
-                functionsAnswers.callIt(iTake3Arguments, a, b, c);
-
-                expect(wasITake2ArgumentsCalled).toBeTruthy();
-                expect(wasITake3ArgumentsCalled).toBeTruthy();
-            }());
+            expect(wasITake2ArgumentsCalled).toBeTruthy();
+            expect(wasITake3ArgumentsCalled).toBeTruthy();
         });
 
         it('you should be able to create a "partial" function for variable number of applied arguments', function ()

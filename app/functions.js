@@ -15,7 +15,7 @@
         {
         },
 
-        makeClosures: function (arr, fn)
+        makeClosures: function (arr)
         {
         },
 
