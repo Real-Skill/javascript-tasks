@@ -3,21 +3,21 @@
     'use strict';
 
     window.exercise1 = {
-        getDescendingNumbers: function (start, stop)
+        getDescendingNumbers: function (numberFrom, numberTo)
         {
 
         },
-        deleteString: function (stringToDelete, arrayOfStrings)
-        {
-
-        },
-
-        stringCounter: function (customArray)
+        deleteString: function (string, array)
         {
 
         },
 
-        squareOdd: function (customArray)
+        stringCounter: function (array)
+        {
+
+        },
+
+        squareOdd: function (array)
         {
 
         },

@@ -1,69 +1,41 @@
 # Basic JavaScipt Part I
 
 ##Summary
-JS Assessment tests for basic JavaScript knowledge. Each exercise consist of a few simple tasks. You have been provided with the function
- name and purpose, your job is to implement them.
+JS Assessment for basic JavaScript knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
  
-Write your solutions inside `app/exercise1.js` file. 
-
 ## Goals
 
-### getDescendingNumbers function
+Your solutions should be placed inside **app/exercise1.js** file(inside window.exercise1 object).
 
-Modify **getDescendingNumbers** function:
+### getDescendingNumbers(numberFrom, numberTo)
 
--   **numberFrom** parameter should be a Number and it is supposed to be higher than **numberTo**
--   **numberTo** parameter should be a Number and it is supposed to be lower than **numberFrom**
+Returns the string with numbers in descending order separated by ' ' (space). If `numberFrom` is lower than `numberTo` returns false.
 
-Given correct parameters the function should return a String literal with ASCII representation of the numbers starting at **numberFrom** to **numberTo**(included), separated by ' ' (space). Otherwise the function should return false.
+### deleteString(string, array)
 
+Removes `string` from `array` of strings. Returns update array of strings.
 
-### deleteString function
+### stringCounter(array)
 
-Modify **deleteString** function that will allow you to delete a string from an Array of Strings. 
+Returns a number of String elements in `array`.
 
-- **stringToDelete** - parameter should be a String that should be deleted
-- **arrayOfStrings** - parameter should be an Array of Strings
+### squareOdd(array)
 
- This function should return an array of the remaining Strings(or an empty array).
+Square value of every odd number inside of `array`. Returns update array and leaves the rest of items unaffected.
 
-### stringCounter function
+### areaOfTrapezoid(a,b,h)
 
-Modify **stringCounter** function for counting the number of String elements in an Array. 
-
-- **customArray** - parameter should be an Array of elements
-
-Please be aware that the Array can consist of many other elements other than Strings and the function is supposed to count only String elements. The return value should be a number of string elements in the provided Array.
-
-### squareOdd function
-
-Modify **squareOdd** function: 
-
-- **customArray** - parameter should be an Array of elements
-
-This function should square value of every Number inside of **customArray** that is an odd number and return an array with proper numbers changed, leaving the rest of items unaffected.
-
-### areaOfTrapezoid function
-
-Create **areaOfTrapezoid** function that will calculate the area of a trapezoid:
-   
--   **a, b, h** parameters should not be negative Numbers
-
-The formula is as provided:
-
-    h * ( a + b ) / 2
-
-If the parameters are incorrect the function should return false.
+Calculate the area of a trapezoid. If the parameters are incorrect the function should return false.
 
 ## Before you start...
 
-JavaScript basic functions:
+JavaScript basic functions: 
 
-    http://www.w3schools.com/jsref/
+[http://www.w3schools.com/jsref/](http://www.w3schools.com/jsref/)
     
-Javascript EcmaScript5 tutorials and more:
+Javascript EcmaScript5 tutorials and more: 
 
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript
+[https://developer.mozilla.org/en-US/docs/Web/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)    
 
 ## Setup
 
