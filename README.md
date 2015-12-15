@@ -9,33 +9,18 @@ only the function name and purpose.
 
 Your solutions should be placed inside **app/objects`.js** file(inside window.objectsAnswers object).
 
-### alterContext:
+### alterContext(fn, context):
 
-Implement **alterContext** function:
+Return result of calling method (`fn`) of some object in context of another `context`.
 
-    fn
-    obj
-    
-This function should call **fn** function from another context. Given **obj**, function should make use of **obj** fields instead
-of component **fn** depends on to.
+### alterObjects(constructor, greeting
 
-### alterObjects:
-
-**alterObjects** function should accept two parameters:
-
-    constructor
-    greeting
-    
-It is expected that this function should change **constructor** that every object created by it have their greeting property changed
-to a new **greeting**. Already existing objects derived from **constructor** should also have their properties changed.
+It is expected that this function should change `constructor` so that every object created by it has it's greeting property changed
+to a new `greeting`. Already existing objects derived from `constructor` should also have their properties changed.
 
 ### iterate:
 
-Create **iterate** function for iterating objects:
-
-    obj
-    
-This function should iterate through object properties and return them as strings in array in the following pattern:
+Iterates over object properties and returns them as strings in array according to the following pattern:
 
     ['<property>: <property value>', ...]
 
