@@ -28,6 +28,7 @@ describe('Lodash training', function ()
             expect(array).to.include('');
             expect(array).to.include(null);
             expect(array).to.include(0);
+            expect(array).to.include(false);
             expect(_.compact.apply(_, params)).to.eql([1, 2, 3]);
         });
     });
