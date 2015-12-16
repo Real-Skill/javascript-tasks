@@ -16,6 +16,10 @@ Please inspect that and try to get rid of that error.
 You may only modify `redisWrapper.js`.
 
 ##Setup
+You need to have Redis. You can install it manually of if you have docker and docker-compose, run:
+
+    docker-compose up -d
+    
 To install dependencies from package.json:
 
     npm install
