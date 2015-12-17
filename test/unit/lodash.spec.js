@@ -67,5 +67,44 @@ describe('Lodash training', function ()
         });
     });
 
+    describe('drop', function ()
+    {
+        describe('when number of elements to drop is not specified', function ()
+        {
+            it('should remove first element of array', function ()
+            {
+                var params = datasets.drop1();
+                var array = params[0];
+                expect(params.length).to.equal(1);
+                expect(array.length).to.be.above(0);
+                var result = _.drop.apply(_, params);
+                expect(result.length).to.equal(array.length - 1);
+                _.forEach(result, function (item, index)
+                {
+                    expect(item).to.equal(array[index + 1]);
+                });
+
+            });
+        });
+        describe('when number of elements to drop is specified', function ()
+        {
+            it('should remove first "n" elements of array', function ()
+            {
+                var params = datasets.drop2();
+                var array = params[0];
+                var numberOfElements = params[1];
+                expect(params.length).to.equal(2);
+                expect(array.length).to.be.above(0);
+                expect(numberOfElements).to.be.above(-1);
+                var result = _.drop.apply(_, params);
+                expect(result.length).to.equal(Math.max(0, array.length - numberOfElements));
+                _.forEach(result, function (item, index)
+                {
+                    expect(item).to.equal(array[index + numberOfElements]);
+                });
+            });
+        });
+    });
+
 });
 
