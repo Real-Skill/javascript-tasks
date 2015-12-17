@@ -17,5 +17,18 @@ module.exports = {
     {
         var array = [1, null, false, '', 0, 2, undefined, 3];
         return [array];
+    },
+    difference1: function ()
+    {
+        var baseArray = [1, null, false, '', 0, 2, undefined, 3];
+        var exclusion1 = [1, '', 0];
+        var exclusion2 = [null, false, 2, undefined, 3];
+        return [baseArray, exclusion1, exclusion2];
+    },
+    difference2: function ()
+    {
+        var baseArray = [1, null, false, '', 0, 2, undefined, 3];
+        var exclusion1 = [1, '', 0];
+        return [baseArray, exclusion1];
     }
 };
