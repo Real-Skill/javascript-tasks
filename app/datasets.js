@@ -72,5 +72,15 @@ module.exports = {
         var array = [1, {name: 'Jack', age: 33}, {name: 'Rick', age: 21}, 21, {name: 'Jack', age: 21}, 4, 5];
         var predicate = {name: 'Jack', age: 21};
         return [array, predicate];
+    },
+    first1: function ()
+    {
+        var array = [];
+        return [array];
+    },
+    first2: function ()
+    {
+        var array = [1];
+        return [array];
     }
 };

@@ -217,5 +217,29 @@ describe('Lodash training', function ()
         });
     });
 
+    describe('first', function ()
+    {
+        describe('when array is empty', function ()
+        {
+            it('should return undefined', function ()
+            {
+                var params = datasets.first1();
+                expect(params[0]).to.be.instanceof(Array);
+                expect(_.first.apply(_, params)).to.equal(undefined);
+            });
+        });
+        describe('when array is NOT empty', function ()
+        {
+            it('should return first element of the array', function ()
+            {
+                var params = datasets.first2();
+                var array = params[0];
+                expect(array.length).to.be.above(0);
+                var firsElement = array[0];
+                expect(_.first.apply(_, params)).to.equal(firsElement);
+            });
+        });
+    });
+
 });
 
