@@ -4,6 +4,8 @@ var chai = require('chai');
 var expect = chai.expect;
 var _ = require('lodash');
 var datasets = require('../../app/datasets');
+var Guy = require('./Guy');
+var chance = require('chance').Chance();
 
 describe('Lodash training', function ()
 {
@@ -173,6 +175,44 @@ describe('Lodash training', function ()
                 {
                     expect(item).to.equal('donkey');
                 });
+            });
+        });
+    });
+
+    describe('findIndex', function ()
+    {
+        describe('when looking for element whose "getName()" method returns "Jack"', function ()
+        {
+            it('should return it`s index', function ()
+            {
+                //Given
+                var jack = new Guy('Jack');
+                var array = new Array(1000);
+                _.times(array.length, function (index)
+                {
+                    var name;
+                    do {
+                        name = chance.first();
+                    } while (name === 'Jack');
+                    array[index] = new Guy(name);
+                });
+                var jackIndex = Math.round(Math.random() * array.length);
+                array[jackIndex] = jack;
+                //When
+                var params = datasets.findIndex1(array);
+                expect(params[0]).to.equal(array);
+                //Then
+                expect(_.findIndex.apply(_, params)).to.equal(jackIndex);
+            });
+        });
+        describe('when looking for element matching {name:"Jack", age:21}', function ()
+        {
+            it('should return it`s index', function ()
+            {
+                var params = datasets.findIndex2();
+                var predicate = params[1];
+                expect(predicate).to.eql({name: 'Jack', age: 21});
+                expect(_.findIndex.apply(_, params)).to.eql(4);
             });
         });
     });

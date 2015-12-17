@@ -57,5 +57,20 @@ module.exports = {
     {
         var array = new Array(1000);
         return [array, 'donkey'];
+    },
+    findIndex1: function (array)
+    {
+        function predicate(item)
+        {
+            return 'Jack' === item.getName();
+        }
+
+        return [array, predicate];
+    },
+    findIndex2: function ()
+    {
+        var array = [1, {name: 'Jack', age: 33}, {name: 'Rick', age: 21}, 21, {name: 'Jack', age: 21}, 4, 5];
+        var predicate = {name: 'Jack', age: 21};
+        return [array, predicate];
     }
 };
