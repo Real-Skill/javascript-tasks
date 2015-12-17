@@ -41,5 +41,21 @@ module.exports = {
         var array = [1, 2, {}, new Array(5)];
         var numberOfElements = 2;
         return [array, numberOfElements];
+    },
+    dropRight: function ()
+    {
+        var array = [1, 2, {}, new Array(5)];
+        var numberOfElements = 3;
+        return [array, numberOfElements];
+    },
+    fill1: function ()
+    {
+        var array = new Array(110);
+        return [array, '*', 3, 103];
+    },
+    fill2: function ()
+    {
+        var array = new Array(1000);
+        return [array, 'donkey'];
     }
 };

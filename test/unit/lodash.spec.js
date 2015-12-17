@@ -106,5 +106,76 @@ describe('Lodash training', function ()
         });
     });
 
+    describe('dropRight', function ()
+    {
+        describe('when number of elements to drop is specified', function ()
+        {
+            it('should remove last "n" elements of array', function ()
+            {
+                var params = datasets.dropRight();
+                var array = params[0];
+                var numberOfElements = params[1];
+                expect(params.length).to.equal(2);
+                expect(array.length).to.be.above(0);
+                expect(numberOfElements).to.be.above(-1);
+                var result = _.dropRight.apply(_, params);
+                expect(result.length).to.equal(Math.max(0, array.length - numberOfElements));
+                _.forEach(result, function (item, index)
+                {
+                    expect(item).to.equal(array[index]);
+                });
+            });
+        });
+    });
+
+    describe('fill', function ()
+    {
+        describe('when array has 110 elements and each item is undefined', function ()
+        {
+            it('should override 100 elements elements of array with "*" starting from postion 3', function ()
+            {
+                var params = datasets.fill1();
+                var array = params[0];
+                expect(params.length).to.be.above(2);
+                expect(array.length).to.be.equal(110);
+                _.forEach(array, function (item)
+                {
+                    expect(item).to.equal(undefined);
+                });
+                expect(_.fill.apply(_, params)).to.equal(array);
+                var i;
+                for (i = 0; i < 3; i++) {
+                    expect(array[i]).to.equal(undefined);
+                }
+                for (i = 3; i < 103; i++) {
+                    expect(array[i]).to.equal('*');
+                }
+
+                for (i = 103; i < 110; i++) {
+                    expect(array[i]).to.equal(undefined);
+                }
+            });
+        });
+        describe('when array has 1000 elements and no start and end params are specified', function ()
+        {
+            it('should override all elements of array with "donkey"', function ()
+            {
+                var params = datasets.fill2();
+                var array = params[0];
+                expect(params.length).to.equal(2);
+                expect(array.length).to.be.equal(1000);
+                _.forEach(array, function (item)
+                {
+                    expect(item).to.equal(undefined);
+                });
+                expect(_.fill.apply(_, params)).to.equal(array);
+                _.forEach(array, function (item)
+                {
+                    expect(item).to.equal('donkey');
+                });
+            });
+        });
+    });
+
 });
 
