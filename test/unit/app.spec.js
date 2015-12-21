@@ -37,7 +37,7 @@ describe('Promisified app', function ()
             //When
             app.get('http://kontestacja.com').then(thenSpy).catch(catchSpy);
             httpMock.callback(null, {body: payload});
-            return Promise.delay(1);
+            return Promise.delay(10);
         });
 
         it('should invoke then callback', function ()
@@ -65,7 +65,7 @@ describe('Promisified app', function ()
             //When
             app.get('http://kontestacja.com').then(thenSpy).catch(catchSpy);
             httpMock.callback(new Error('No connection to host'));
-            return Promise.delay(1);
+            return Promise.delay(10);
         });
 
         it('should invoke catch callback', function ()
