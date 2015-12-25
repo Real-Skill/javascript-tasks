@@ -241,5 +241,134 @@ describe('Lodash training', function ()
         });
     });
 
+    describe('flatten', function ()
+    {
+        describe('when isDeep is true', function ()
+        {
+            it('should flatten nested arrays recursively', function ()
+            {
+                var params = datasets.flaten1();
+                var array = params[0];
+                var hasNestedArray = _.any(array, function (item)
+                {
+                    if (_.isArray(item)) {
+                        return _.any(item, function (nestedItem)
+                        {
+                            return _.isArray(nestedItem);
+                        });
+                    }
+                    return false;
+                });
+                expect(hasNestedArray).to.equal(true);
+                expect(_.flatten.apply(_, params)).to.eql([1, 2, 3, 4]);
+            });
+        });
+        describe('when isDeep is false', function ()
+        {
+            it('should flatten only first level arrays', function ()
+            {
+                var params = datasets.flaten2();
+                var array = params[0];
+                var hasNestedArray = _.any(array, function (item)
+                {
+                    if (_.isArray(item)) {
+                        return _.any(item, function (nestedItem)
+                        {
+                            return _.isArray(nestedItem);
+                        });
+                    }
+                    return false;
+                });
+                expect(hasNestedArray).to.equal(true);
+                expect(_.flatten.apply(_, params)).to.eql([1, 2, [3], 4]);
+            });
+        });
+    });
+
+    describe('indexOf', function ()
+    {
+        it('should return index of an element in an array', function ()
+        {
+            var params = datasets.indexOf();
+            expect(_.indexOf.apply(_, params)).to.equal(2);
+        });
+    });
+
+    describe('initial', function ()
+    {
+        it('should return slice of an array without last element', function ()
+        {
+            var params = datasets.initial();
+            expect(_.initial.apply(_, params)).to.eql(['John', 'Doe']);
+        });
+    });
+    describe('intersection', function ()
+    {
+        describe('when 3 arrays are provided that have overlapping elements and each array is at least 5 elements long', function ()
+        {
+            it('should create an array of unique values that are included in all of the provided arrays ', function ()
+            {
+                var params = datasets.intersection();
+                _.forEach(params, function (item)
+                {
+                    expect(item.length).to.be.above(4);
+                });
+                expect(_.intersection.apply(_, params)).to.eql([2, 3, 1]);
+            });
+        });
+    });
+    describe('last', function ()
+    {
+        it('should return last element of array', function ()
+        {
+            var params = datasets.last1();
+            expect(_.last.apply(_, params)).to.eql(9);
+        });
+        it('should not modify the array', function ()
+        {
+            var params = datasets.last1();
+            var arrayLength = params[0].length;
+            _.last.apply(_, params);
+            expect(params[0].length).to.equal(arrayLength);
+        });
+        it('should return last character of a string', function ()
+        {
+            var params = datasets.last2();
+            expect(_.isString(params[0])).to.equal(true);
+            expect(_.last.apply(_, params)).to.eql('9');
+        });
+    });
+    describe('pull', function ()
+    {
+        it('should remove values from an array', function ()
+        {
+            var params = datasets.pull();
+            var array = params[0];
+            var initialArrayLength = array.length;
+            _.pull.apply(_, params);
+            expect(array.length).to.below(initialArrayLength);
+            expect(array).to.eql([3, 4, 5, 6]);
+        });
+    });
+    describe('pullAt', function ()
+    {
+        describe('when indexes are provided as array [4,9]', function ()
+        {
+            it('should remove elements from array corresponding to the given indexes and returns an array of the removed elements', function ()
+            {
+                var params = datasets.pullAt();
+                expect(params[1]).to.eql([4, 9]);
+                expect(_.pullAt.apply(_, params)).to.eql([100, 200]);
+            });
+            it('should mutate the array', function ()
+            {
+                var params = datasets.pullAt();
+                var array = params[0];
+                var initialArrayLength = array.length;
+                _.pullAt.apply(_, params);
+                expect(array.length).to.be.below(initialArrayLength);
+            });
+        });
+    });
 });
 
