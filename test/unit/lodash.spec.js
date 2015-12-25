@@ -370,5 +370,44 @@ describe('Lodash training', function ()
             });
         });
     });
+    describe('remove', function ()
+    {
+        it('should remove elements that have truthy property `online`', function ()
+        {
+            var params = datasets.remove();
+            var array = params[0];
+            var predicate = params[1];
+            expect(predicate).to.eql('online');
+            var initialArrayLength = array.length;
+            expect(initialArrayLength).to.be.above(3);
+            expect(_.remove.apply(_, params)).to.eql([{online: 1}, {online: true}, {online: 'yes'}]);
+            expect(array.length).to.be.below(initialArrayLength);
+        });
+    });
+    describe('take', function ()
+    {
+        it('should remove 3 first elements of array bigger than 5 elements', function ()
+        {
+            var params = datasets.take();
+            var array = params[0];
+            var initialArrayLength = array.length;
+            expect(initialArrayLength).to.be.above(5);
+            expect(_.take.apply(_, params)).to.eql([{online: 1}, 1, 2, '3', 4]);
+            expect(array.length).to.equal(initialArrayLength);
+        });
+    });
+    describe('union', function ()
+    {
+        it('should merge 3 different arrays each having 2 elements', function ()
+        {
+            var params = datasets.union();
+            expect(params.length).to.equal(3);
+            _.forEach(params, function (array)
+            {
+                expect(array.length).to.equal(2);
+            });
+            expect(_.union.apply(_, params)).to.eql([1, 2, 3]);
+        });
+    });
 });
 

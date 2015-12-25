@@ -131,5 +131,24 @@ module.exports = {
         var array = [0, 1, 2, 3, 100, 5, 6, 7, 8, 200];
         var indices = [4, 9];
         return [array, indices];
+    },
+    remove: function ()
+    {
+        var array = [{online: 1}, {online: true}, {online: 'yes'}, 1];
+        var predicate = 'online';
+        return [array, predicate];
+    },
+    take: function ()
+    {
+        var array = [{online: 1}, 1, 2, '3', 4, 5, 6];
+        var count = 5;
+        return [array, count];
+    },
+    union: function ()
+    {
+        var array1 = [1, 2];
+        var array2 = [2, 3];
+        var array3 = [1, 3];
+        return [array1, array2, array3];
     }
 };
