@@ -95,6 +95,24 @@ describe('Lodash tasks', function ()
             expect(array).to.not.contain(element3);
             expect(array.length).to.equal(103);
         });
+
+        it('should be possible to get a copy of that array without specific values', function ()
+        {
+            var array;
+            var values;
+            var keys = {};
+            while (_.keys(keys).length < 100) {
+                keys[Math.random()] = true;
+            }
+            keys = _.keys(keys);
+            values = keys.slice(0, 3);
+            array = _.shuffle(_.union(values, keys));
+            var solution = tasks.task6(array, values);
+            var method = solution.method;
+            var params = solution.params;
+            //WhenThen
+            expect(_[method].apply(_, params).sort()).to.eql(keys.sort());
+        });
     });
 
     it('should be possible to join variable number of arrays and make results unique', function ()
@@ -118,5 +136,43 @@ describe('Lodash tasks', function ()
         var params = solution.params;
         //WhenThen
         expect(_[method].apply(_, params).sort()).to.eql(_.keys(items).sort());
+    });
+
+    describe('given 2 arrays', function ()
+    {
+        it('should be possible to calculate elements that do not exist in both arrays, but exist only in one of them', function ()
+        {
+            var uniqs = [];
+            var array1 = [];
+            var array2 = [];
+            _.times(100, function ()
+            {
+                var value = Math.random();
+                if (0.3 < Math.random()) {
+                    array1.push(value);
+                } else if (0.6 < Math.random()) {
+                    array1.push(value);
+                    array2.push(value);
+                } else {
+                    array2.push(value);
+                }
+            });
+            _.forEach(array1, function (item)
+            {
+                if (!_.contains(array2, item)) {
+                    uniqs.push(item);
+                }
+            });
+            _.forEach(array2, function (item)
+            {
+                if (!_.contains(array1, item)) {
+                    uniqs.push(item);
+                }
+            });
+            var solution = tasks.task5(array1, array2);
+            var method = solution.method;
+            var params = solution.params;
+            expect(_[method].apply(_, params)).to.eql(uniqs);
+        });
     });
 });

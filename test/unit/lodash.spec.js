@@ -409,5 +409,56 @@ describe('Lodash training', function ()
             expect(_.union.apply(_, params)).to.eql([1, 2, 3]);
         });
     });
+    describe('uniq', function ()
+    {
+        describe('given elements are considered equal if they have the same value of x property', function ()
+        {
+            it('should return duplicate-free version of array', function ()
+            {
+                var params = datasets.uniq1();
+                var array = params[0];
+                var initialLength = array.length;
+                var result = _.uniq.apply(_, params);
+                expect(result).to.eql([{x: 1}, {x: 2}, 3]);
+                expect(result.length).to.be.below(initialLength);
+            });
+        });
+        describe('given elements are considered equal if they have the same value of x and y properties', function ()
+        {
+            it('should return duplicate-free version of array', function ()
+            {
+                var params = datasets.uniq2();
+                var array = params[0];
+                var initialLength = array.length;
+                var result = _.uniq.apply(_, params);
+                expect(result).to.eql([{x: 1, y: 1}, {x: 1, y: 2}, 3]);
+                expect(result.length).to.be.below(initialLength);
+            });
+        });
+    });
+    describe('without', function ()
+    {
+        it('should remove specific elements from an array', function ()
+        {
+            var params = datasets.without();
+            var array = params[0];
+            var initialArrayLength = array.length;
+            var result = _.without.apply(_, params);
+            expect(result).to.eql([1, 2, 1, 3, 4]);
+            expect(result.length).to.be.below(initialArrayLength);
+        });
+    });
+    describe('xor', function ()
+    {
+        it('should return only elements that do not exist in both arrays', function ()
+        {
+            var params = datasets.xor();
+            _.forEach(params, function (item)
+            {
+                expect(item.length).to.be.above(2);
+            });
+            expect(_.xor.apply(_, params)).to.eql([1, 2]);
+        });
+    });
 });
 

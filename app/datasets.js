@@ -150,5 +150,31 @@ module.exports = {
         var array2 = [2, 3];
         var array3 = [1, 3];
         return [array1, array2, array3];
+    },
+    uniq1: function ()
+    {
+        var array = [{x: 1}, {x: 2}, 3, {x: 1}];
+        var iteratee = 'x';
+        return [array, iteratee];
+    },
+    uniq2: function ()
+    {
+        var array = [{x: 1, y: 1}, {x: 1, y: 2}, 3, 3];
+        var iteratee = function (value)
+        {
+            return value.x + ';' + value.y;
+        };
+        return [array, iteratee];
+    },
+    without: function ()
+    {
+        var array = [1, 2, 5, 1, 3, 4];
+        return [array, 5, 6];
+    },
+    xor: function ()
+    {
+        var array1 = [1, 2, 3, 1, 4];
+        var array2 = [3, 4, 3];
+        return [array1, array2];
     }
 };

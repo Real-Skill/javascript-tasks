@@ -28,5 +28,19 @@ module.exports = {
             method: 'union',
             params: array
         };
+    },
+    task5: function (array1, array2)
+    {
+        return {
+            method: 'xor',
+            params: [array1, array2]
+        };
+    },
+    task6: function (array, values)
+    {
+        return {
+            method: 'without',
+            params: [array, values]
+        };
     }
 };
