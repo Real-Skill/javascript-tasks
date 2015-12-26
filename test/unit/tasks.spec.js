@@ -175,4 +175,30 @@ describe('Lodash tasks', function ()
             expect(_[method].apply(_, params)).to.eql(uniqs);
         });
     });
+
+    describe('given array of CSV lines', function ()
+    {
+        it('should be possible to construct objects', function ()
+        {
+            var array = [
+                ['name', 'age'],
+                ['Jack', 10],
+                ['Don', 5],
+                ['Sam', 13]
+            ];
+            var results = [];
+            _.forEach(array, function (item, index)
+            {
+                if (!index) {
+                    return;
+                }
+                var solution = tasks.task7(array, index);
+                var method = solution.method;
+                var params = solution.params;
+                results.push(_[method].apply(_, params));
+            });
+
+            expect(results).to.eql([{name: 'Jack', age: 10}, {name: 'Don', age: 5}, {name: 'Sam', age: 13}]);
+        });
+    });
 });

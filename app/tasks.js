@@ -42,5 +42,12 @@ module.exports = {
             method: 'without',
             params: [array, values]
         };
+    },
+    task7: function (array, index)
+    {
+        return {
+            method: 'zipObject',
+            params: [array[0], array[index]]
+        };
     }
 };
