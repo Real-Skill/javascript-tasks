@@ -1,4 +1,4 @@
-# Basic JavaScipt Part I
+# Basic JavaScript Part I
 
 ##Summary
 JS Assessment for basic JavaScript knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
