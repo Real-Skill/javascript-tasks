@@ -1,4 +1,4 @@
-# Basic JavaScipt Part VII
+# Basic JavaScript Part VII
 
 ## Summary
 
