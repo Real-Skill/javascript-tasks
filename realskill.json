@@ -1,5 +1,3 @@
 {
-  "protect": [
-    "test/*"
-  ]
+  "protect": ["test/", "README.md"]
 }
