@@ -1,6 +1,21 @@
-# Mongo DB scaffolding for RealSkill
+# Mongoose custom valdiation
 
-You can quickly create mongodb tasks by cloning the scaffolding repo. You don't have to bother with coverage/reporters/gruntfile/npm configuration.
+##Summary
+Our car dealer wants to forbid it's staff to order any pink cars.
+The only exception is "Pink Cadillac", it's probably because of that song he's heard on the radio.
+
+##Goal
+Implement mongoose validation to make our dealer happy.
+
+We store cars in MongoDb using Mongoose and the schema looks like this:
+```
+{
+    brand: String,
+    color: String
+}
+```
+
+So make sure no pink Ferraris or other brands (except for Cadillac) don't get into our database. 
 
 ## Setup
 
