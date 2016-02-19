@@ -12,7 +12,7 @@ Your solutions should be placed inside **app/exercise7.js** file(inside window.e
 
 Checks if the `num` is a prime number. Returns true or false.
 
-### whaType (arg)
+### whatType (arg)
 
 Returns the type of `arg`.
 
