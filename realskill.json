@@ -1,6 +1,3 @@
 {
-    "protect": [
-        "test/unit/app.spec.js",
-        "test/mocha.opts"
-    ]
+  "protect": ["test/", "README.md"]
 }
