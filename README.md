@@ -18,7 +18,7 @@ Returns string with letters from `text` (without space). When `text` is not stri
 
 ### alphabetOrder(str)
 
-Returns letters from `str` in alphabetical order. Capitalization doesn't matter.
+Returns lower case letters from `str` in alphabetical order. Capitalization doesn't matter.
 
 ### upperCase(str)
 
