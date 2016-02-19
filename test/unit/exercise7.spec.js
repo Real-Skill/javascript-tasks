@@ -22,7 +22,7 @@
             });
         });
 
-        describe('whaType', function ()
+        describe('whatType', function ()
         {
             var variable12,
                     p = {x: 10};
