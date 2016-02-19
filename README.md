@@ -14,12 +14,12 @@ Copies properties from one objects to another. Returns object or if parameters `
 
 ### countLetter(object,letter)
 
-Counts the occurrence of a `letter` inside every property of an `object`.
+Counts the occurrence of a `letter` (lower and upper case doesn't matter) inside every property of an `object`.
 
 ### makeObject(array)
 
-Creates object from 2D `array` where each element of `array` is an array like this: [properties, propertiesValue]. Returns false when inner array has more 
-than 2 dimensions.
+Creates object from 2D `array` where each element of `array` is an array like this: [properties, propertiesValue]. Returns false when inner array isn't 
+equal 2 dimensions.
 
 ### propertyNames(object)
 
