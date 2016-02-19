@@ -1,6 +1,41 @@
-# Mongo DB scaffolding for RealSkill
+# Mongoose valdiation error
 
-You can quickly create mongodb tasks by cloning the scaffolding repo. You don't have to bother with coverage/reporters/gruntfile/npm configuration.
+##Summary
+Everything seems absolutely perfect, but for some reason we're getting ValidationError.
+Find out why and fix the issue.
+
+##Goal
+We have simple Mongo database where we store TODOs. The schema looks like this:
+
+```
+{
+    attributes: {
+        name: String,
+        type: String
+    },
+    relationships: {
+        attendees: Array
+    }
+}
+```
+
+When we try to save following object:
+```
+{
+    attributes: {
+        name: 'Meet Tom',
+        type: 'meeting'
+    }
+}
+```
+We're getting follogin exception:
+```
+ValidationError: event validation failed
+    at Object.module.exports.createEvent (app/app.js:22:16)
+    at Context.<anonymous> (test/unit/app.spec.js:28:24)
+```
+
+Do you know what the hell is wrong?
 
 ## Setup
 
