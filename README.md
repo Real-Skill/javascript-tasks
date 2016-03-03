@@ -22,7 +22,7 @@ Number prototype. Returns the number increased by `number`.
 
 ### isInTheRange()
 
-Number prototype. Returns true when number is between `a` and `b`, otherwise returns false. When `a` is less than `b` returns undefined.
+Number prototype. Returns true when number is between `a` and `b`, otherwise returns false. When `b` is less than `a` returns undefined.
 
 ## Before you start...
 
