@@ -1,54 +1,197 @@
 'use strict';
 
 var chai = require('chai');
+chai.use(require('sinon-chai'));
 var expect = chai.expect;
 var chance = require('chance');
 var _ = require('lodash');
 var datasets = require('../../app/datasets');
+var sinon = require('sinon');
 
 describe('Lodash Collection training', function () {
+
     describe('countBy', function () {
-        it('should count repeating numbers', function () {
-            expect(_.countBy.apply(_, datasets.countBy())).to.eql({1: 1, 2: 2, 6: 2, 7: 3});
+        describe('countBy1 function', function () {
+            var params = datasets.countBy();
+
+            it('should match types of passing elements', function () {
+                var element1 = params[0] instanceof Array;
+                var element2 = params[1] instanceof Function;
+
+                expect(params.length).to.eql(2);
+                expect(element1).to.eql(true);
+                expect(element2).to.eql(true);
+            });
+            it('should contain array of numbers and floating numbers', function () {
+                var arr = params[0];
+                var countInt = 0;
+                var countFloat = 0;
+                for (var i = 0; i < arr.length; i++) {
+                    if (typeof arr[i] !== 'number') {
+                        expect(typeof arr[i]).to.eql('number');
+                    }
+                    if (arr[i] === parseInt(arr[i])) {
+                        countInt++;
+                    } else if (arr[i] === parseFloat(arr[i])) {
+                        countFloat++;
+                    }
+                }
+
+                expect(arr.length).to.eql(8);
+                expect(countInt).to.eql(5);
+                expect(countFloat).to.eql(3);
+            });
+            it('should count repeating numbers', function () {
+                expect(_.countBy.apply(_, datasets.countBy())).to.eql({1: 1, 2: 2, 6: 2, 7: 3});
+            });
         });
-        it('should count length of given strings', function () {
-            expect(_.countBy.apply(_, datasets.countBy2())).to.eql({3: 2, 4: 3, 5: 1});
+
+        describe('countBy2 function', function () {
+            var params = datasets.countBy2();
+
+            it('should match types of passing elements', function () {
+                var element1 = params[0] instanceof Array;
+                var element2 = typeof params[1];
+
+                expect(params.length).to.eql(2);
+                expect(element1).to.eql(true);
+                expect(element2).to.eql('string');
+            });
+            it('should contain array of string with different strings length', function () {
+                var arr = params[0];
+                var string0 = 0;
+                var string1 = 0;
+                var string2 = 0;
+                for (var i = 0; i < arr.length; i++) {
+                    if (typeof arr[i] !== 'string') {
+                        expect(typeof arr[i]).to.eql('string');
+                    }
+                    if (arr[i].length === 3) {
+                        string0++;
+                    } else if (arr[i].length === 4) {
+                        string1++;
+                    } else if (arr[i].length === 5) {
+                        string2++;
+                    }
+                }
+
+                expect(arr.length).to.eql(6);
+                expect(string0).to.eql(2);
+                expect(string1).to.eql(3);
+                expect(string2).to.eql(1);
+            });
+            it('should count length of given strings', function () {
+                expect(_.countBy.apply(_, datasets.countBy2())).to.eql({3: 2, 4: 3, 5: 1});
+            });
         });
     });
 
     describe('every', function () {
-        it('should return true if all elements pass the predicate "ALIVE" check', function () {
+        describe('every function', function () {
             var params = datasets.every();
-            var array = params[0];
-            expect(array.length).to.eql(2);
-            array.forEach(function (n) {
-                expect(_.has(n, 'ALIVE')).to.eql(true);
+
+            it('should match types of passing elements', function () {
+                var element1 = params[0] instanceof Array;
+                var element2 = typeof params[1];
+
+                expect(element1).to.eql(true);
+                expect(element2).to.eql('string');
             });
-            expect(_.every.apply(_, datasets.every())).to.eql(true);
+            it('should contain array of objects', function () {
+                var array = params[0];
+                for (var i = 0; i < array.length; i++) {
+                    expect(Object.keys(array[i]).length).to.eql(2);
+                }
+
+                expect(array.length).to.eql(3);
+                array.forEach(function (n) {
+                    expect(_.has(n, 'ALIVE')).to.eql(true);
+                });
+            });
+            it('should return true if all elements pass the predicate "ALIVE" check', function () {
+                expect(_.every.apply(_, datasets.every())).to.eql(true);
+            });
         });
-        it('should return true if all elements are Booleanly true', function () {
+        describe('every2 function', function () {
             var params = datasets.every2();
             var array = params[0];
-            expect(array.length).to.eql(4);
-            expect(_.every.apply(_, datasets.every2())).to.eql(true);
+            var arrLenght = array.length;
+
+            it('should match types of passing elements', function () {
+                var element1 = params[0] instanceof Array;
+                var element2 = params[1] instanceof Function;
+
+                expect(element1).to.eql(true);
+                expect(element2).to.eql(true);
+            });
+            it('should contain array of different type elements which are Booleanly true', function () {
+                var types = _.map(array, function (i) {
+                    array = typeof i;
+
+                    return array;
+                });
+                var result = _.uniq(types);
+
+                expect(result.length).to.eql(arrLenght);
+            });
+
+            it('should return true if all elements are Booleanly true', function () {
+                expect(arrLenght).to.eql(4);
+                expect(_.every.apply(_, datasets.every2())).to.eql(true);
+            });
         });
     });
 
     describe('filter', function () {
-        it('should return filtered array with 2 objects with matching predicate of age', function () {
+        describe.only('filter function', function () {
             var params = datasets.filter();
-            var array = params[0];
-            expect(array.length).to.eql(5);
-            expect(_.filter.apply(_, datasets.filter())).to.eql([{name: 'Ali', age: 33, active: false},
-                {name: 'Kali', age: 21, active: true}]);
+
+            it('should match types of passing elements', function () {
+                var element1 = params[0] instanceof Array;
+                var element2 = params[1] instanceof Function;
+
+                expect(element1).to.eql(true);
+                expect(element2).to.eql(true);
+            });
+            it('should invoke passed function as predicate', function () {
+                //params[1] = sinon.spy(params[1]);
+                //var filter = _.filter.apply(_, params);
+                //console.log(filter);
+                //expect(filter).to.eql([ { name: 'Ali', age: 33, active: false },
+                //    { name: 'Kali', age: 21, active: true } ]);
+
+                var spy = sinon.spy(params[1]);
+                var users = [
+                    {name: 'Ali', age: 33, active: false},
+                    {name: 'zz', age: 56, active: false},
+                    {name: 'Kali', age: 21, active: true},
+                    {name: 'wqe', age: 88, active: true},
+                    {name: 'aszdew', age: 55, active: true}
+                ];
+                //var filter = _.filter.apply(_, [users, params[1]]);
+                params[1](users);
+                console.log();
+
+                expect(spy).to.have.been.callCount(1);
+                //expect(spy).to.have.been.returned([Object, Function]);
+            });
+            it('should return filtered array with 2 objects with matching predicate of age', function () {
+                var array = params[0];
+                expect(array.length).to.eql(5);
+                expect(_.filter.apply(_, datasets.filter())).to.eql([{name: 'Ali', age: 33, active: false},
+                    {name: 'Kali', age: 21, active: true}]);
+            });
         });
-        it('should return filtered array with 3 objects and match for age and active', function () {
-            var params = datasets.filter2();
-            var array = params[0];
-            expect(array.length).to.eql(5);
-            expect(_.filter.apply(_, datasets.filter2())).to.eql([{name: 'Bow', age: 23, active: true},
-                {name: 'Row', age: 23, active: true},
-                {name: 'Sou', age: 23, active: true}]);
+
+        describe('filter2 function', function () {
+            it('should return filtered array with 3 objects and match for age and active', function () {
+                var params = datasets.filter2();
+                var array = params[0];
+                expect(array.length).to.eql(5);
+                expect(_.filter.apply(_, datasets.filter2())).to.eql([{name: 'Bow', age: 23, active: true},
+                    {name: 'Row', age: 23, active: true},
+                    {name: 'Sou', age: 23, active: true}]);
+            });
         });
 
     });
@@ -228,10 +371,10 @@ describe('Lodash Collection training', function () {
             var array = params[0];
             expect(array.length).to.eql(4);
             expect(_.partition.apply(_, datasets.partition3())).to.eql([[],
-                    [{name: 'Andrinio', age: 36, active: false},
-                        {name: 'Harry', age: 40, active: true},
-                        {name: 'Kodi', age: 1, active: false},
-                        {name: 'Francheska', age: 61, active: true}]]
+                [{name: 'Andrinio', age: 36, active: false},
+                    {name: 'Harry', age: 40, active: true},
+                    {name: 'Kodi', age: 1, active: false},
+                    {name: 'Francheska', age: 61, active: true}]]
             );
         });
     });
