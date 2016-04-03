@@ -14,12 +14,14 @@ module.exports = {
     every: function () {
         var users = [
             {usr: 21, ALIVE: true},
-            {usr: 'pico', ALIVE: true}
+            {usr: 'pico', ALIVE: true},
+            {usr: 'asd', ALIVE: true}
         ];
-        return [users, {ALIVE: true}];
+        return [users, 'ALIVE'];
     },
     every2: function () {
-        var users = [2, 1, true, 'asd'];
+        var users = [Function, 1, true, 'asd'];
+
         return [users, Boolean];
     },
     filter: function () {
@@ -35,23 +37,23 @@ module.exports = {
                 return o.age;
             }
         };
+
         return [users, predi];
     },
     filter2: function () {
         var users = [
-            {name: 'Bow', age: 23, active: true},
-            {name: 'Sztou', age: 32, active: false},
-            {name: 'Row', age: 23, active: true},
-            {name: 'Glow', age: 11, active: false},
-            {name: 'Sou', age: 23, active: true}
+            {name: 'Bow', amount: 23, available: true, type: 'RANGE'},
+            {name: 'Axe', amount: 32, available: false, type: 'MELEE'},
+            {name: 'Sword', amount: 23, available: true, type: 'MELEE'},
+            {name: 'Lance', amount: 11, available: false, type: 'MELEE/RANGE'},
+            {name: 'GUN', amount: 23, available: true, type: 'RANGE'}
         ];
 
-        var predi = {age: 23, active: true};
+        var predi = {amount: 23, available: true};
 
         return [users, predi];
     },
     find: function (arr) {
-
         var predi = {age: 65};
 
         return [arr, predi];
@@ -63,12 +65,13 @@ module.exports = {
             {NAME: 'Joe', age: 23, active: false}
         ];
         var predi = 'NAME';
+
         return [users, predi];
     },
     groupBy: function () {
-        var users = [6.1, 4.2, 6.3, 4.6, 3.3, 8.3, 8.9];
+        var users = [2, 4, 9, 16, 25, 121, 81];
 
-        return [users, Math.floor];
+        return [users, Math.sqrt];
     },
     groupBy2: function () {
         var users = ['xyz', 2, 'combi', 4, 5, 'xyz'];
@@ -81,17 +84,25 @@ module.exports = {
         return [users, ['Ali', 'zs']];
     },
     includes2: function () {
-        var users = ['antidisestablishmentarianism', 'stablisorism', 'ekostablistorm', 'konfucjusz'];
+        var users = ['antidisestablishmentarianism', 'konfucju', 'ekostablistorm', 'stablisorism'];
 
         return [users, 'stabli'];
+    },
+    includes3: function (arr) {
+
+        return [arr, [[2, 5], ['wood', 3], [true, 1]]];
     },
     map: function (arr) {
 
         return [arr, 'user'];
     },
-    map2: function (arr) {
+    map2: function () {
+        var arr = [1, 2, 3, 4, 5, 6];
 
         function square(n) {
+            if (typeof n !== 'number') {
+                return false;
+            }
             if (n % 2 === 0) {
                 return n * n;
             } else {
@@ -101,38 +112,21 @@ module.exports = {
 
         return [arr, square];
     },
-    partition: function () {
-        var users = [
-            {name: 'Andrinio', age: 36, active: false},
-            {name: 'Harry', age: 40, active: true},
-            {name: 'Kodi', age: 1, active: false},
-            {name: 'Francheska', age: 61, active: true}
-        ];
+    partition: function (arr) {
+
         var foo = function (o) {
             return o.active;
         };
 
-        return [users, foo];
+        return [arr, foo];
     },
-    partition2: function () {
-        var users = [
-            {name: 'Andrinio', age: 36, active: false},
-            {name: 'Harry', age: 40, active: true},
-            {name: 'Kodi', age: 1, active: false},
-            {name: 'Francheska', age: 61, active: true}
-        ];
+    partition2: function (arr) {
 
-        return [users, 'age'];
+        return [arr, 'age'];
     },
-    partition3: function () {
-        var users = [
-            {name: 'Andrinio', age: 36, active: false},
-            {name: 'Harry', age: 40, active: true},
-            {name: 'Kodi', age: 1, active: false},
-            {name: 'Francheska', age: 61, active: true}
-        ];
+    partition3: function (arr) {
 
-        return [users, ''];
+        return [arr, ''];
     },
     reduce: function () {
         var users = [1, 2, 3, 4, 5];
@@ -141,10 +135,12 @@ module.exports = {
             return sum + n * n;
         };
 
-        return [users, x, 0];
+        return [users, x,0];
+
     },
-    sortBy: function (arr) {
-        var params = ['name', 'age'];
-        return [arr, params];
+    sortBy: function () {
+        var array = ['Duch','da','korale','kaszmirowe','adorujac','cie'];
+
+        return [array, 'length'];
     }
 };
