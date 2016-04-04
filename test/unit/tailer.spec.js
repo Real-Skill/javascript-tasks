@@ -19,6 +19,10 @@ describe('tailer', function () {
     before(function (done) {
         var MongoClient = require('mongodb').MongoClient;
         var url = 'mongodb://localhost/test';
+        var catOptions;
+        var dogOptions;
+        var nonCappedCollectionOptions = {};
+        var cappedCollectionOptions = {capped: true, size: 100};
         MongoClient.connect(url, function (err, _db) {
             if (err) {
                 done(err);
@@ -30,10 +34,17 @@ describe('tailer', function () {
             catCollection = db.collection('cat');
             catCollection = Promise.promisifyAll(catCollection);
 
+            if (0.5 < Math.random()) {
+                catOptions = cappedCollectionOptions;
+                dogOptions = nonCappedCollectionOptions;
+            } else {
+                catOptions = nonCappedCollectionOptions;
+                dogOptions = cappedCollectionOptions;
+            }
             db.dropDatabaseAsync().then(function () {
-                return db.createCollectionAsync('dog');
+                return db.createCollectionAsync('dog', dogOptions);
             }).then(function () {
-                return db.createCollectionAsync('cat', {capped: true, size: 100});
+                return db.createCollectionAsync('cat', catOptions);
             }).then(function () {
                 done();
             });
