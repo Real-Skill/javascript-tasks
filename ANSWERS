@@ -35,7 +35,7 @@ module.exports = {
         var predi = function (o) {
             if (o.age < 40) {
                 return o.age;
-            }
+            } else return false;
         };
 
         return [users, predi];
