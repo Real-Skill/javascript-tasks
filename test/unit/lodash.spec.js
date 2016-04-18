@@ -47,10 +47,13 @@ describe('Lodash Collection training', function () {
             it('should pass function test', function () {
                 var providedFunc = params[1];
                 var result = Math.floor;
+                var randomValue = chance.floating({min: 0, max: 100});
+
                 expect(providedFunc(2.3)).to.eql(result(2.3));
                 expect(providedFunc(7.1)).to.eql(result(7.1));
                 expect(providedFunc(7.6)).to.eql(result(7.6));
                 expect(providedFunc(5.9)).to.eql(result(5.9));
+                expect(providedFunc(randomValue)).to.eql(result(randomValue));
             });
             it('should count repeating numbers', function () {
                 expect(_.countBy.apply(_, datasets.countBy())).to.eql({1: 1, 2: 2, 6: 2, 7: 3});
@@ -639,7 +642,7 @@ describe('Lodash Collection training', function () {
                 var element = typeof params[1];
                 expect(element).to.eql('string');
                 expect(element).to.have.length.above(1);
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
             });
             it('should split persons only to truthy table when predicate is true for all', function () {
                 expect(_.partition.apply(_, datasets.partition2(users))).to.eql([[
@@ -695,7 +698,7 @@ describe('Lodash Collection training', function () {
                     }
                 }
             });
-            it('should add +10 to the age when age is lower than 40', function () {
+            it('should add +10 to the age when age is lower than 40 and split changed values to truthy table', function () {
                 expect(_.partition.apply(_, datasets.partition3())).to.eql([
                     [{age: 49}, {age: 21}, {age: 2}],
                     [{age: 43}, {age: 45}]
@@ -758,36 +761,19 @@ describe('Lodash Collection training', function () {
             expect(params.length).to.eql(2);
         });
         it('should contain array of random strings with different lenghts', function () {
-            var checkLetters = array[0].substr(0, 3);
-            var checkLetters2 = array[2].substr(2, 5);
-            var checkLetters3 = array[3].substr(6, 10);
-            var checkLetters4 = array[4].substr(3, 6);
-
             expect(array).to.have.length(6);
             array.forEach(function (item, index) {
                 expect(typeof item).to.eql('string');
                 if (index == 0) {
                     expect(item).to.have.length(4);
-                    expect(item).to.not.contain(checkLetters2);
-                    expect(item).to.not.contain(checkLetters3);
-                    expect(item).to.not.contain(checkLetters4);
                 } else if (index == 1) {
                     expect(item).to.have.length(2);
                 } else if (index == 2) {
                     expect(item).to.have.length(6);
-                    expect(item).to.not.contain(checkLetters);
-                    expect(item).to.not.contain(checkLetters3);
-                    expect(item).to.not.contain(checkLetters4);
                 } else if (index == 3) {
                     expect(item).to.have.length(10);
-                    expect(item).to.not.contain(checkLetters);
-                    expect(item).to.not.contain(checkLetters2);
-                    expect(item).to.not.contain(checkLetters4);
                 } else if (index == 4) {
                     expect(item).to.have.length(8);
-                    expect(item).to.not.contain(checkLetters);
-                    expect(item).to.not.contain(checkLetters2);
-                    expect(item).to.not.contain(checkLetters3);
                 } else if (index == 5) {
                     expect(item).to.have.length(3);
                 }
