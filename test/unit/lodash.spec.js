@@ -3,7 +3,7 @@
 var chai = require('chai');
 chai.use(require('sinon-chai'));
 var expect = chai.expect;
-var chance = require('chance');
+var chance = require('chance').Chance();
 var _ = require('lodash');
 var datasets = require('../../app/datasets');
 var sinon = require('sinon');
@@ -34,7 +34,7 @@ describe('Lodash Collection training', function () {
                         countInt++;
                     } else if (arr[i] === parseFloat(arr[i])) {
                         countFloat++;
-                        if (arr[i] === arr[i+1]) {
+                        if (arr[i] === arr[i + 1]) {
                             countFloat--;
                         }
                     }
@@ -196,13 +196,13 @@ describe('Lodash Collection training', function () {
                         expect(providedFunc(item)).to.eql(10);
                     } else if (index == 1) {
                         expect(providedFunc(item)).to.eql(false);
-                    }  else if (index == 2) {
+                    } else if (index == 2) {
                         expect(providedFunc(item)).to.eql(22);
-                    }  else if (index == 3) {
+                    } else if (index == 3) {
                         expect(providedFunc(item)).to.eql(false);
-                    }  else if (index == 4) {
+                    } else if (index == 4) {
                         expect(providedFunc(item)).to.eql(35);
-                    }  else if (index == 5) {
+                    } else if (index == 5) {
                         expect(providedFunc(item)).to.eql(false);
                     }
                 });
@@ -408,7 +408,7 @@ describe('Lodash Collection training', function () {
     });
 
     describe('includes', function () {
-        describe.only('incloudes function', function () {
+        describe('incloudes function', function () {
             var params = datasets.includes();
             var obj = params[0];
             var predicate = params[1];
@@ -434,14 +434,21 @@ describe('Lodash Collection training', function () {
                 expect(typeof obj.lastName).to.eql('string');
                 expect(typeof obj.users).to.eql('number');
                 expect(typeof obj.running).to.eql('boolean');
+                expect(obj.firstName).to.have.length.above(0);
+                expect(obj.lastName).to.have.length.above(3);
+                expect(obj.users).to.be.above(5000);
             });
             it('should include first value in the object', function () {
                 expect(_.includes.apply(_, [obj, predicate[0]])).to.eql(true);
+            });
+            it('should not include second value in the object', function () {
                 expect(_.includes.apply(_, [obj, predicate[1]])).to.eql(false);
             });
         });
         describe('includes2 function', function () {
             var params = datasets.includes2();
+            var array = params[0];
+            var predicate = params[1];
 
             it('should match types of passing elements', function () {
                 var element1 = params[0] instanceof Array;
@@ -449,55 +456,60 @@ describe('Lodash Collection training', function () {
 
                 expect(element1).to.eql(true);
                 expect(element2).to.eql('string');
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
             });
-            it('should include \'stabli\' word in array of words', function () {
-                var array = params[0];
-                var predicate = params[1];
-
+            describe('array of random words', function () {
+                it('should include array of random words where three words consist of stabli', function () {
+                    expect(array.length).to.eql(4);
+                    expect(array).to.contain('antidisestablishmentarianism');
+                    expect(array).to.not.contain('stabli');
+                });
+                it('should have each word with different length', function () {
+                    expect(array[1]).to.have.length.above(5);
+                    expect(array[1]).to.have.length.below(9);
+                    expect(array[2]).to.have.length.above(10);
+                    expect(array[2]).to.have.length.below(16);
+                    expect(array[3]).to.have.length.above(6);
+                });
+            });
+            it('should include proper predicate', function () {
                 expect(predicate).to.have.length(6);
-                expect(array.length).to.eql(4);
-                expect(array).to.contain('antidisestablishmentarianism');
-                expect(array).to.not.contain('stabli');
+                expect(predicate.substr(0, 2)).to.eql('st');
+                expect(predicate.substr(3, 1)).to.eql('b');
+                expect(predicate.substr(5, 6)).to.eql('i');
+            });
+            it('should return true if predicate is found', function () {
                 array.forEach(function (element, index) {
                     if (index !== 1) {
                         expect(_.includes.apply(_, [element, predicate])).to.eql(true);
                     }
-                    if (index == 1) {
-                        expect(element).to.have.length.above(5);
-                        expect(element).to.have.length.below(9);
-                        expect(_.includes.apply(_, [element, predicate])).to.eql(false);
-                    } else if (index == 2) {
-                        expect(element).to.have.length.above(10);
-                        expect(element).to.have.length.below(16);
-                    } else if (index == 3) {
-                        expect(element).to.have.length.above(6);
-                    }
                 });
+            });
+            it('should return false if predicate is not found', function () {
+                expect(_.includes.apply(_, [array[1], predicate])).to.eql(false);
             });
         });
         describe('includes3 function', function () {
             var array = [1, true, 3, 'wood', 4, 2, false, true, 'wodo'];
             var params = datasets.includes3(array);
-            var predicate1 = params[1][0];
-            var predicate2 = params[1][1];
-            var predicate3 = params[1][2];
-
+            var predicate1 = params[1];
+            var predicate2 = params[2];
             it('should match types of passing elements', function () {
-                var element = params[1] instanceof Array;
+                var element1 = params[0] instanceof Array;
+                var element2 = typeof params[1];
+                var element3 = typeof params[2];
 
-                expect(element).to.eql(true);
-                expect(params[1]).to.have.length(3);
-                expect(params[1][0]).to.have.length(2);
+                expect(element1).to.eql(true);
+                expect(element2).to.eql('string');
+                expect(element3).to.eql('number');
+                expect(params).to.have.length(3);
             });
             it('should include relevant values as predicates(fromIndex)', function () {
-                var checkValues = _.concat([], predicate1, predicate2, predicate3);
-                expect(checkValues).to.include.members([5, 3, 1]);
+                expect(predicate1).to.have.length(4);
+                expect(predicate2).to.be.above(1);
             });
             it('should return true when predicates with fromIndex find the value', function () {
-                expect(_.includes.apply(_, [array, predicate1[0], predicate1[1]])).to.eql(true);
-                expect(_.includes.apply(_, [array, predicate2[0], predicate2[1]])).to.eql(true);
-                expect(_.includes.apply(_, [array, predicate3[0], predicate3[1]])).to.eql(true);
+                expect(_.includes.apply(_, params)).to.eql(true);
             });
         });
     });
@@ -538,7 +550,7 @@ describe('Lodash Collection training', function () {
         });
         describe('map2 function', function () {
             var params = datasets.map2();
-            var spy = sinon.spy(params[1]);
+            var providedFunc = params[1];
 
             it('should match types of passing elements', function () {
                 var element1 = params[0] instanceof Array;
@@ -549,21 +561,35 @@ describe('Lodash Collection training', function () {
                 expect(params.length).to.eql(2);
             });
             it('should return false if array contains not only number', function () {
-                spy('as');
-                expect(spy).to.have.returned(false);
-                expect(spy).to.have.been.callCount(1);
+                expect(providedFunc('asd')).to.eql(false);
+                expect(providedFunc([])).to.eql(false);
+                expect(providedFunc({})).to.eql(false);
+                expect(providedFunc(true)).to.eql(false);
+                expect(providedFunc(false)).to.eql(false);
+                expect(providedFunc(undefined)).to.eql(false);
+                expect(providedFunc(null)).to.eql(false);
             });
-            it('should pass mock test', function () {
-                var array = params[0];
-                var testArray = [10, 12, 35, 40, 11, 16];
-                var result = _.map.apply(_, [testArray, spy]);
-                expect(array).to.have.length(6);
-                expect(array).to.not.include.members([10, 12, 35, 40, 11, 16]);
-                expect(spy).to.have.been.callCount(7);
-                expect(result).to.eql([100, 144, 35, 1600, 11, 256]);
+            it('should pass test for provided function', function () {
+                var randomNumber = chance.natural({min: 50, max: 190});
+                var randomNumber2 = chance.natural({min: 20, max: 44});
+                var randomNumber3 = chance.natural({min: 210, max: 245});
+                var testArray = [randomNumber, randomNumber2, randomNumber3];
+                var result = [];
+
+                testArray.forEach(function (item) {
+                    if (item % 2 === 0) {
+                        expect(providedFunc(item)).to.eql(item * item);
+                        return result.push(item * item);
+                    } else {
+                        expect(providedFunc(item)).to.eql(item + 1);
+                        return result.push(item + 1);
+                    }
+                });
+                expect(_.map.apply(_, [testArray, providedFunc])).to.eql(result);
+                expect(_.difference(testArray, result)).to.have.length(3);
             });
-            it('should square only even numbers in array', function () {
-                expect(_.map.apply(_, datasets.map2())).to.eql([1, 4, 3, 16, 5, 36]);
+            it('should square even numbers otherwise add +1 to the odd numbers in the array', function () {
+                expect(_.map.apply(_, datasets.map2())).to.eql([2, 4, 4, 16, 6, 36]);
             });
         });
     });
@@ -625,18 +651,54 @@ describe('Lodash Collection training', function () {
             });
         });
         describe('partition3 function', function () {
-            var params = datasets.partition3(users);
+            var params = datasets.partition3();
+            var providedObj = params[0];
+
             it('should match types of passing elements', function () {
-                expect(typeof params[1]).to.be.oneOf(['number', 'string', 'object', 'boolean']);
+                var element1 = params[0] instanceof Object;
+                var element2 = params[1] instanceof Function;
+
+                expect(element1).to.eql(true);
+                expect(element2).to.eql(true);
+                expect(params).to.have.length(2);
             });
-            it('should split persons only to falsy table when predicate is false for all', function () {
-                expect(_.partition.apply(_, datasets.partition3(users))).to.eql([[],
-                    [
-                        {name: 'Andrinio', age: 36, active: false},
-                        {name: 'Harry', age: 40, active: true},
-                        {name: 'Kodi', age: 1, active: false},
-                        {name: 'Francheska', age: 61, active: true}
-                    ]
+            it('should contain proper properties in object', function () {
+
+                Object.keys(providedObj).forEach(function (item, index) {
+                    if (index == 0) {
+                        expect(item).to.have.length(5);
+                    } else if (index == 1) {
+                        expect(item).to.have.length(4);
+                    } else if (index == 2) {
+                        expect(item).to.have.length(6);
+                    } else if (index == 3) {
+                        expect(item).to.have.length(3);
+                    } else if (index == 4) {
+                        expect(item).to.have.length(7);
+                    }
+                });
+            });
+            it('should contain proper age values in object', function () {
+                for (var i in providedObj) {
+                    if (providedObj.hasOwnProperty(i)) {
+                        if (i.length == 3) {
+                            expect(providedObj[i].age).to.eql(45);
+                        } else if (i.length == 4) {
+                            expect(providedObj[i].age).to.eql(43);
+                        } else if (i.length == 5) {
+                            expect(providedObj[i].age).to.eql(39);
+                        } else if (i.length == 6) {
+                            expect(providedObj[i].age).to.eql(11);
+                        } else if (i.length == 7) {
+                            expect(providedObj[i].age).to.eql(-8);
+                        }
+                    }
+                }
+            });
+            it('should add +10 to the age when age is lower than 40', function () {
+                expect(_.partition.apply(_, datasets.partition3())).to.eql([
+                    [{age: 49}, {age: 21}, {age: 2}],
+                    [{age: 43}, {age: 45}]
                 ]);
             });
         });
@@ -654,15 +716,23 @@ describe('Lodash Collection training', function () {
 
             expect(element1).to.eql(true);
             expect(element2).to.eql(true);
-            expect(element3).to.eql('number')
+            expect(element3).to.eql('number');
             expect(params.length).to.eql(3);
         });
         it('should pass mock test', function () {
-            var testArray = [10, 11, 12, 15];
+            var randomValue1 = chance.natural();
+            var randomValue2 = chance.natural();
+            var randomValue3 = chance.natural();
+            var randomValue4 = chance.natural();
+            var testArray = [randomValue1, randomValue2, randomValue3, randomValue4];
             var accumulator = 0;
             var checkFunc = _.reduce.apply(_, [testArray, spy, accumulator]);
+
+            testArray.forEach(function (item) {
+                accumulator += item * item;
+            });
             expect(spy).to.have.been.callCount(4);
-            expect(checkFunc).to.eql(590);
+            expect(checkFunc).to.eql(accumulator);
         });
         it('should count sum of squared numbers', function () {
             array.forEach(function (e) {

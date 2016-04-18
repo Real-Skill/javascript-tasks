@@ -48,55 +48,97 @@ module.exports = {
     },
     find: function (arr) {
 
-        return [];
+        return [arr, {age: 65}];
     },
     find2: function () {
-        return [[{NAME: '', active: true, age: 11}, {NAME: '', active: true, age: 5}, {
-            NAME: 'Rudi', age: 15, active: true, gender: 'M'
-        }], 'gender'];
+        var users = [
+            {NAME: 'Rudi', age: 15, active: true, gender: 'M'},
+            {NAME: 'Kodi', age: 25, active: true},
+            {NAME: 'Joe', age: 23, active: false}
+        ];
+        var predi = 'NAME';
+
+        return [users, predi];
     },
     groupBy: function () {
         return [[4, 9, 16, 25, 81, 121, 2], Math.sqrt];
     },
     groupBy2: function () {
 
-        return [];
+        return [['xyz', 'xyz', 'combi', 2, 4, 5], 'length'];
     },
     includes: function () {
 
-        //return [{firstName: '', lastName: '', users: 0, running: false}, [0, null]];
+        var users = {'firstName': 'Ali', 'lastName': 'BOM BOM', 'users': 999999, 'running': true};
+
+        return [users, ['Ali', 'zs']];
     },
     includes2: function () {
 
-        return [];
+        return [['antidisestablishmentarianism', 'aaaasaa', 'amestabliaraaba', 'stablishmentarianism'], 'stabli'];
     },
     includes3: function (arr) {
 
-        return [, []];
+        return [arr, 'wood', 3];
     },
     map: function (arr) {
 
-        return [];
+        return [arr, 'firstName'];
     },
     map2: function () {
+        var arr = [1, 2, 3, 4, 5, 6];
 
-        return [];
+        function square(n) {
+            if (typeof n !== 'number') {
+                return false;
+            }
+            if (n % 2 === 0) {
+                return n * n;
+            } else {
+                return n + 1;
+            }
+        }
+
+        return [arr, square];
+
     },
     partition: function (arr) {
 
-        return [];
+        var foo = function (o) {
+            return o.active;
+        };
+
+        return [arr, foo];
     },
     partition2: function (arr) {
 
-        return [];
+        return [arr, 'age'];
     },
     partition3: function (arr) {
 
-        return [];
+        var obj = {
+            "Diana":{age: 39},
+            "Kult":{age: 43},
+            "Rococo":{age: 11},
+            "Mul":{age: 45},
+            "Zacuklo":{ age:-8}
+        };
+        var foo = function (o) {
+            if (o.age < 40) {
+                return o.age += 10;
+            }
+        };
+        return [obj, foo];
     },
     reduce: function () {
 
-        return [];
+        var users = [1, 2, 3, 4, 5];
+
+        var x = function (sum, n) {
+            return sum + n * n;
+        };
+
+        return [users, x,0];
     },
     sortBy: function () {
 
