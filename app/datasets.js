@@ -25,6 +25,14 @@ module.exports = {
 
         return [];
     },
+    filter3: function (arr) {
+
+        return [arr, ['throwable', true]];
+    },
+    filter4: function (arr) {
+
+        return [arr, 'explosionPower'];
+    },
     find: function (arr) {
 
         return [];
@@ -32,6 +40,16 @@ module.exports = {
     find2: function () {
 
         return [];
+    },
+    find3: function (arr) {
+        var fu = function (o) {
+            return o.code.length > 22;
+        };
+
+        return [arr, fu];
+    },
+    find4: function (arr) {
+        return [arr, ['nickName', 'Eragon']];
     },
     groupBy: function () {
 
@@ -50,8 +68,8 @@ module.exports = {
         return [];
     },
     includes3: function (arr) {
-
         return [];
+
     },
     map: function (arr) {
 
@@ -74,11 +92,38 @@ module.exports = {
         return [];
     },
     reduce: function () {
+        var users = [1, 2, 3, 4, 5];
 
-        return [];
+        var x = function (sum, n) {
+            return sum + n * n;
+        };
+
+        return [users, x, 0];
+    },
+    reduce2: function (ob) {
+        var fu = function (a,b) {
+            return a+=b;
+        };
+
+        return [ob, fu];
     },
     sortBy: function () {
 
         return [];
+    },
+    sortBy2: function (arr) {
+
+        return [arr, ['pass','tickets','login']];
+    },
+    sortBy3: function (arr) {
+
+        return [arr, {pass: 1234, tickets: 10}];
+    },
+    sortBy4: function (arr) {
+        var fu = function (o) {
+            return o.pass + o.tickets;
+        };
+
+        return [arr, fu];
     }
 };

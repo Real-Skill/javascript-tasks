@@ -36,7 +36,9 @@ module.exports = {
         var predi = function (o) {
             if (o.age < 40) {
                 return o.age;
-            } else return false;
+            } else {
+                return false;
+            }
         };
 
         return [users, predi];
@@ -129,11 +131,11 @@ module.exports = {
     partition3: function () {
 
         var obj = {
-            "Diana":{age: 39},
-            "Kult":{age: 43},
-            "Rococo":{age: 11},
-            "Mul":{age: 45},
-            "Zacuklo":{ age:-8}
+            'Diana':{age: 39},
+            'Kult':{age: 43},
+            'Rococo':{age: 11},
+            'Mul':{age: 45},
+            'Zacuklo':{ age:-8}
         };
         var foo = function (o) {
             if (o.age < 40) {
