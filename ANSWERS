@@ -56,6 +56,14 @@ module.exports = {
 
         return [users, predi];
     },
+    filter3: function (arr) {
+
+        return [arr, ['throwable', true]];
+    },
+    filter4: function (arr) {
+
+        return [arr, 'explosionPower'];
+    },
     find: function (arr) {
 
         return [arr, {age: 65}];
@@ -69,6 +77,16 @@ module.exports = {
         var predi = 'NAME';
 
         return [users, predi];
+    },
+    find3: function (arr) {
+        var fu = function (o) {
+            return o.code.length > 22;
+        };
+
+        return [arr, fu];
+    },
+    find4: function (arr) {
+        return [arr, ['nickName', 'Eragon']];
     },
     groupBy: function () {
         var users = [2, 4, 9, 16, 25, 121, 81];
@@ -131,11 +149,11 @@ module.exports = {
     partition3: function () {
 
         var obj = {
-            'Diana':{age: 39},
-            'Kult':{age: 43},
-            'Rococo':{age: 11},
-            'Mul':{age: 45},
-            'Zacuklo':{ age:-8}
+            'Diana': {age: 39},
+            'Kult': {age: 43},
+            'Rococo': {age: 11},
+            'Mul': {age: 45},
+            'Zacuklo': {age: -8}
         };
         var foo = function (o) {
             if (o.age < 40) {
@@ -154,10 +172,32 @@ module.exports = {
 
         return [users, x, 0];
     },
+    reduce2: function (ob) {
+        var fu = function (a, b) {
+            return a += b;
+        };
+
+        return [ob, fu];
+    },
     sortBy: function () {
 
-        var array = ['Duch','da','korale','kaszmirowe','adorujac','cie'];
+        var array = ['Duch', 'da', 'korale', 'kaszmirowe', 'adorujac', 'cie'];
 
         return [array, 'length'];
+    },
+    sortBy2: function (arr) {
+
+        return [arr, ['pass', 'tickets', 'login']];
+    },
+    sortBy3: function (arr) {
+
+        return [arr, {pass: 1234, tickets: 10}];
+    },
+    sortBy4: function (arr) {
+        var fu = function (o) {
+            return o.pass + o.tickets;
+        };
+
+        return [arr, fu];
     }
 };

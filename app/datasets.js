@@ -15,7 +15,7 @@ module.exports = {
     },
     every2: function () {
 
-        return [[],];
+        return [[], ];
     },
     filter: function () {
 
@@ -27,11 +27,11 @@ module.exports = {
     },
     filter3: function (arr) {
 
-        return [arr, ['throwable', true]];
+        return [, []];
     },
     filter4: function (arr) {
 
-        return [arr, 'explosionPower'];
+        return [];
     },
     find: function (arr) {
 
@@ -42,14 +42,12 @@ module.exports = {
         return [];
     },
     find3: function (arr) {
-        var fu = function (o) {
-            return o.code.length > 22;
-        };
 
-        return [arr, fu];
+        return [];
     },
     find4: function (arr) {
-        return [arr, ['nickName', 'Eragon']];
+
+        return [, []];
     },
     groupBy: function () {
 
@@ -68,8 +66,8 @@ module.exports = {
         return [];
     },
     includes3: function (arr) {
-        return [];
 
+        return [];
     },
     map: function (arr) {
 
@@ -92,20 +90,12 @@ module.exports = {
         return [];
     },
     reduce: function () {
-        var users = [1, 2, 3, 4, 5];
 
-        var x = function (sum, n) {
-            return sum + n * n;
-        };
-
-        return [users, x, 0];
+        return [];
     },
     reduce2: function (ob) {
-        var fu = function (a,b) {
-            return a+=b;
-        };
 
-        return [ob, fu];
+        return [];
     },
     sortBy: function () {
 
@@ -113,17 +103,14 @@ module.exports = {
     },
     sortBy2: function (arr) {
 
-        return [arr, ['pass','tickets','login']];
+        return [];
     },
     sortBy3: function (arr) {
 
-        return [arr, {pass: 1234, tickets: 10}];
+        return [];
     },
     sortBy4: function (arr) {
-        var fu = function (o) {
-            return o.pass + o.tickets;
-        };
 
-        return [arr, fu];
+        return [];
     }
 };

@@ -6,6 +6,7 @@ var expect = chai.expect;
 var chance = require('chance').Chance();
 var _ = require('lodash');
 var datasets = require('../../app/datasets');
+var generator = require('./Generator');
 var sinon = require('sinon');
 
 describe('Lodash Collection training', function () {
@@ -20,7 +21,7 @@ describe('Lodash Collection training', function () {
 
                 expect(element1).to.eql(true);
                 expect(element2).to.eql(true);
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
             });
             it('should contain array of numbers and floating numbers', function () {
                 var arr = params[0];
@@ -69,7 +70,7 @@ describe('Lodash Collection training', function () {
 
                 expect(element1).to.eql(true);
                 expect(element2).to.eql('string');
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
             });
             it('should contain array of string with different strings length', function () {
                 var arr = params[0];
@@ -110,7 +111,7 @@ describe('Lodash Collection training', function () {
 
                 expect(element1).to.eql(true);
                 expect(element2).to.eql('string');
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
             });
             it('should contain array of objects where each object is length of 2', function () {
                 var array = params[0];
@@ -124,7 +125,7 @@ describe('Lodash Collection training', function () {
                 });
             });
             it('should return true if all elements pass the predicate "ALIVE" check', function () {
-                expect(_.every.apply(_, datasets.every())).to.eql(true);
+                expect(_.every.apply(_, params)).to.eql(true);
             });
         });
 
@@ -139,7 +140,7 @@ describe('Lodash Collection training', function () {
 
                 expect(element1).to.eql(true);
                 expect(element2).to.eql(true);
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
                 expect(params[1]).to.have.length(1);
             });
             it('should contain array of different type elements which are Booleanly true', function () {
@@ -169,7 +170,7 @@ describe('Lodash Collection training', function () {
 
                 expect(element1).to.eql(true);
                 expect(element2).to.eql(true);
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
             });
             it('should contain array of 5 object with length of 3, each', function () {
                 var array = params[0];
@@ -235,7 +236,7 @@ describe('Lodash Collection training', function () {
 
                 expect(element1).to.eql(true);
                 expect(element2).to.eql(true);
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
                 expect(Object.keys(params[1]).length).to.eql(2);
             });
             it('should contain array of 5 object with length of 4, each', function () {
@@ -261,13 +262,13 @@ describe('Lodash Collection training', function () {
                 ]);
             });
         });
-        describe('filter3 function',function () {
+        describe('filter3 function', function () {
             var arr = {
-                C4 : {explosionPower: 999, throwable: false},
-                Grenade : {explosionPower: 212, throwable: true},
-                Molotov : {explosionPower: 150, throwable: true},
-                BOMB : {explosionPower: 550, throwable: false},
-                Sheep : {explosionPower: 0, throwable: false}
+                C4: {explosionPower: 999, throwable: false},
+                Grenade: {explosionPower: 212, throwable: true},
+                Molotov: {explosionPower: 150, throwable: true},
+                BOMB: {explosionPower: 550, throwable: false},
+                Sheep: {explosionPower: 0, throwable: false}
             };
             var params = datasets.filter3(arr);
 
@@ -290,17 +291,17 @@ describe('Lodash Collection training', function () {
             });
             it('should return object relevant to the predicate match', function () {
                 expect(_.filter.apply(_, params)).to.eql(
-                    [ { explosionPower: 212, throwable: true },
-                    { explosionPower: 150, throwable: true } ]);
+                    [{explosionPower: 212, throwable: true},
+                        {explosionPower: 150, throwable: true}]);
             });
         });
-        describe('filter4 function',function () {
+        describe('filter4 function', function () {
             var arr = {
-                C4 : {explosionPower: 999, throwable: false},
-                Grenade : {explosionPower: 212, throwable: true},
-                Molotov : {explosionPower: 150, throwable: true},
-                BOMB : {explosionPower: 550, throwable: false},
-                Sheep : {explosionPower: 0, throwable: false}
+                C4: {explosionPower: 999, throwable: false},
+                Grenade: {explosionPower: 212, throwable: true},
+                Molotov: {explosionPower: 150, throwable: true},
+                BOMB: {explosionPower: 550, throwable: false},
+                Sheep: {explosionPower: 0, throwable: false}
             };
             var params = datasets.filter4(arr);
 
@@ -319,10 +320,10 @@ describe('Lodash Collection training', function () {
                 expect(predicate).to.have.length.above(7);
             });
             it('should return object relevant to the predicate match', function () {
-                expect(_.filter.apply(_, params)).to.eql([ { explosionPower: 999, throwable: false },
-                    { explosionPower: 212, throwable: true },
-                    { explosionPower: 150, throwable: true },
-                    { explosionPower: 550, throwable: false } ]);
+                expect(_.filter.apply(_, params)).to.eql([{explosionPower: 999, throwable: false},
+                    {explosionPower: 212, throwable: true},
+                    {explosionPower: 150, throwable: true},
+                    {explosionPower: 550, throwable: false}]);
             });
         });
     });
@@ -365,7 +366,7 @@ describe('Lodash Collection training', function () {
 
                 expect(element1).to.eql(true);
                 expect(element2).to.eql('string');
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
                 expect(predicate).to.have.length(4);
             });
             it('should contain array of objects', function () {
@@ -395,32 +396,8 @@ describe('Lodash Collection training', function () {
                 });
             });
         });
-        describe('find3 function',function () {
-            var randomKey = function (len) {
-                return chance.string({length: len, pool: 'absheuqwiqoSKMAKSIDJWQo12932197543'});
-            };
-            var keysGenerator = function (k1, k2, k3, k4) {
-                return {
-                    key1: {code: randomKey(k1) || 'SK1iDW27Si21W9aD43A3S'},
-                    key2: {code: randomKey(k2) || 'ihQeKoqa1q.3Sow2o15'},
-                    key3: {code: randomKey(k3) || 'SbK9WMQJ-2AA2S2Dio317iD'},
-                    key4: {code: randomKey(k4) || 'q5521SW7K1wKo91Whiq1ss'}
-                };
-            };
-            var findObj = function (o) {
-                var max = 0;
-                var code;
-                for (var i in o) {
-                    if (o.hasOwnProperty(i)) {
-                        if (max < o[i].code.length) {
-                            max = o[i].code.length;
-                            code = o[i];
-                        }
-                    }
-                }
-                return code;
-            };
-            var params = datasets.find3(keysGenerator('','','',''));
+        describe('find3 function', function () {
+            var params = datasets.find3(generator.keysGenerator('', '', '', ''));
 
             it('should match types of passing elements', function () {
                 var element1 = params[0] instanceof Object;
@@ -432,20 +409,20 @@ describe('Lodash Collection training', function () {
             });
             it('should pass tests for predicate function', function () {
                 var predicate = params[1];
-                var test1 = keysGenerator(50,2,4,3);
-                var test2 = keysGenerator(21,30,12,19);
-                var test3 = keysGenerator(7,22,9,921);
+                var test1 = generator.keysGenerator(50, 2, 4, 3);
+                var test2 = generator.keysGenerator(21, 30, 12, 19);
+                var test3 = generator.keysGenerator(7, 22, 9, 921);
 
-                expect(_.find.apply(_, [test1, predicate])).to.eql(findObj(test1));
-                expect(_.find.apply(_, [test2, predicate])).to.eql(findObj(test2));
-                expect(_.find.apply(_, [test3, predicate])).to.eql(findObj(test3));
+                expect(_.find.apply(_, [test1, predicate])).to.eql(generator.findObj(test1));
+                expect(_.find.apply(_, [test2, predicate])).to.eql(generator.findObj(test2));
+                expect(_.find.apply(_, [test3, predicate])).to.eql(generator.findObj(test3));
             });
             it('should find and return object where code length is above 22', function () {
-                expect(_.find.apply(_, params)).to.eql({ code: 'SbK9WMQJ-2AA2S2Dio317iD' });
+                expect(_.find.apply(_, params)).to.eql({code: 'SbK9WMQJ-2AA2S2Dio317iD'});
             });
         });
 
-        describe('find4 function',function () {
+        describe('find4 function', function () {
             var users = [
                 {nickName: 'Dragon', VIP: true, points: 212, age: 20},
                 {nickName: 'Demon', VIP: false, points: 12, age: 20},
@@ -472,7 +449,7 @@ describe('Lodash Collection training', function () {
                 expect(predicate[1]).to.have.length.above(2);
             });
             it('should find Eragon using proper predicate', function () {
-                expect(_.find.apply(_, params)).to.eql({ nickName: 'Eragon', VIP: true, points: 212, age: 20 });
+                expect(_.find.apply(_, params)).to.eql({nickName: 'Eragon', VIP: true, points: 212, age: 20});
             });
         });
     });
@@ -487,7 +464,7 @@ describe('Lodash Collection training', function () {
 
                 expect(element1).to.eql(true);
                 expect(element2).to.eql(true);
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
             });
             it('should contain array of numbers', function () {
                 var array = params[0];
@@ -525,7 +502,7 @@ describe('Lodash Collection training', function () {
 
                 expect(element1).to.eql(true);
                 expect(element2).to.eql('string');
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
             });
             it('should contain array of strings and numbers', function () {
                 var array = params[0];
@@ -640,6 +617,7 @@ describe('Lodash Collection training', function () {
             var params = datasets.includes3(array);
             var predicate1 = params[1];
             var predicate2 = params[2];
+
             it('should match types of passing elements', function () {
                 var element1 = params[0] instanceof Array;
                 var element2 = typeof params[1];
@@ -669,7 +647,7 @@ describe('Lodash Collection training', function () {
 
                 expect(element).to.eql('string');
                 expect(params[1]).to.have.length.above(0);
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
             });
             it('should map by one of the property name', function () {
                 var testFunction = function () {
@@ -704,9 +682,9 @@ describe('Lodash Collection training', function () {
 
                 expect(element1).to.eql(true);
                 expect(element2).to.eql(true);
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
             });
-            it('should return false if array contains not only number', function () {
+            it('should return false if passing arguments is not a number', function () {
                 expect(providedFunc('asd')).to.eql(false);
                 expect(providedFunc([])).to.eql(false);
                 expect(providedFunc({})).to.eql(false);
@@ -756,7 +734,7 @@ describe('Lodash Collection training', function () {
                 var element = params[1] instanceof Function;
 
                 expect(element).to.eql(true);
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
             });
             it('should pass mock test', function () {
                 var testObj = [
@@ -852,7 +830,7 @@ describe('Lodash Collection training', function () {
     });
 
     describe('reduce', function () {
-        describe('reduce function',function () {
+        describe('reduce function', function () {
             var params = datasets.reduce();
             var array = params[0];
             var spy = sinon.spy(params[1]);
@@ -865,7 +843,7 @@ describe('Lodash Collection training', function () {
                 expect(element1).to.eql(true);
                 expect(element2).to.eql(true);
                 expect(element3).to.eql('number');
-                expect(params.length).to.eql(3);
+                expect(params).to.have.length(3);
             });
             it('should pass mock test', function () {
                 var randomValues = function () {
@@ -894,8 +872,8 @@ describe('Lodash Collection training', function () {
                 expect(_.reduce.apply(_, datasets.reduce())).to.eql(55);
             });
         });
-        describe('reduce2 function',function () {
-            var obj = { name: 'Ala', pet: 'Cat', age: 'Young' };
+        describe('reduce2 function', function () {
+            var obj = {name: 'Ala', pet: 'Cat', age: 'Young'};
             var params = datasets.reduce2(obj);
             var spy = sinon.spy(params[1]);
 
@@ -929,7 +907,7 @@ describe('Lodash Collection training', function () {
 
                 expect(element1).to.eql(true);
                 expect(element2).to.eql('string');
-                expect(params.length).to.eql(2);
+                expect(params).to.have.length(2);
             });
             it('should contain array of random strings with different lenghts', function () {
                 expect(array).to.have.length(6);
@@ -999,18 +977,18 @@ describe('Lodash Collection training', function () {
                 });
             });
             it('should return sorted array using correct iteratees', function () {
-                expect(_.sortBy.apply(_, params)).to.eql([ { login: 'Butoiw', pass: 1234, tickets: 10, date: '09-11-16' },
-                    { login: 'Koasow', pass: 1234, tickets: 10, date: '06-11-16' },
-                    { login: 'Kooa', pass: 1234, tickets: 22, date: '05-11-16' },
-                    { login: 'Bausa', pass: 2184, tickets: 5, date: '10-11-16' },
-                    { login: 'Abero', pass: 2184, tickets: 10, date: '02-11-16' },
-                    { login: 'Demon', pass: 2342, tickets: 3, date: '17-10-16' },
-                    { login: 'Allu', pass: 2391, tickets: 5, date: '12-11-16' },
-                    { login: 'Zaodi', pass: 7431, tickets: 11, date: '15-11-16' } ]);
+                expect(_.sortBy.apply(_, params)).to.eql([{login: 'Butoiw', pass: 1234, tickets: 10, date: '09-11-16'},
+                    {login: 'Koasow', pass: 1234, tickets: 10, date: '06-11-16'},
+                    {login: 'Kooa', pass: 1234, tickets: 22, date: '05-11-16'},
+                    {login: 'Bausa', pass: 2184, tickets: 5, date: '10-11-16'},
+                    {login: 'Abero', pass: 2184, tickets: 10, date: '02-11-16'},
+                    {login: 'Demon', pass: 2342, tickets: 3, date: '17-10-16'},
+                    {login: 'Allu', pass: 2391, tickets: 5, date: '12-11-16'},
+                    {login: 'Zaodi', pass: 7431, tickets: 11, date: '15-11-16'}]);
             });
         });
     });
-    describe('sortBy3 function',function () {
+    describe('sortBy3 function', function () {
         var data = [
             {login: 'Kooa', pass: 1234, tickets: 22, date: '05-11-16'},
             {login: 'Allu', pass: 1234, tickets: 10, date: '12-11-16'},
@@ -1051,17 +1029,17 @@ describe('Lodash Collection training', function () {
             }
         });
         it('should return sorted array using proper values as iteratees', function () {
-            expect(_.sortBy.apply(_, params)).to.eql([ { login: 'Kooa', pass: 1234, tickets: 22, date: '05-11-16' },
-                { login: 'Demon', pass: 2184, tickets: 3, date: '17-10-16' },
-                { login: 'Koasow', pass: 1234, tickets: 12, date: '06-11-16' },
-                { login: 'Bausa', pass: 1234, tickets: 5, date: '10-11-16' },
-                { login: 'Zaodi', pass: 7431, tickets: 11, date: '15-11-16' },
-                { login: 'Abero', pass: 2184, tickets: 10, date: '02-11-16' },
-                { login: 'Allu', pass: 1234, tickets: 10, date: '12-11-16' },
-                { login: 'Butoiw', pass: 1234, tickets: 10, date: '09-11-16' } ]);
+            expect(_.sortBy.apply(_, params)).to.eql([{login: 'Kooa', pass: 1234, tickets: 22, date: '05-11-16'},
+                {login: 'Demon', pass: 2184, tickets: 3, date: '17-10-16'},
+                {login: 'Koasow', pass: 1234, tickets: 12, date: '06-11-16'},
+                {login: 'Bausa', pass: 1234, tickets: 5, date: '10-11-16'},
+                {login: 'Zaodi', pass: 7431, tickets: 11, date: '15-11-16'},
+                {login: 'Abero', pass: 2184, tickets: 10, date: '02-11-16'},
+                {login: 'Allu', pass: 1234, tickets: 10, date: '12-11-16'},
+                {login: 'Butoiw', pass: 1234, tickets: 10, date: '09-11-16'}]);
         });
     });
-    describe('sortBy4 function',function () {
+    describe('sortBy4 function', function () {
         var data = [
             {login: 'Abero', pass: 2184, tickets: 10, date: '12-11-16'},
             {login: 'Kooa', pass: 1234, tickets: 22, date: '15-11-16'},
@@ -1072,13 +1050,13 @@ describe('Lodash Collection training', function () {
             {login: 'Allu', pass: 2202, tickets: 5, date: '12-11-06'}
         ];
         var result = [
-            { login: 'Kooa', pass: 1234, tickets: -150, date: '15-11-16' },
-            { login: 'Butoiw', pass: 1234, tickets: 10, date: '15-11-16' },
-            { login: 'Kooa', pass: 1234, tickets: 22, date: '15-11-16' },
-            { login: 'Bausa', pass: 2184, tickets: 5, date: '10-11-16' },
-            { login: 'Abero', pass: 2184, tickets: 10, date: '12-11-16' },
-            { login: 'Allu', pass: 2202, tickets: 5, date: '12-11-06' },
-            { login: 'Bsasa', pass: 2184, tickets: 52, date: '12-11-12' }
+            {login: 'Kooa', pass: 1234, tickets: -150, date: '15-11-16'},
+            {login: 'Butoiw', pass: 1234, tickets: 10, date: '15-11-16'},
+            {login: 'Kooa', pass: 1234, tickets: 22, date: '15-11-16'},
+            {login: 'Bausa', pass: 2184, tickets: 5, date: '10-11-16'},
+            {login: 'Abero', pass: 2184, tickets: 10, date: '12-11-16'},
+            {login: 'Allu', pass: 2202, tickets: 5, date: '12-11-06'},
+            {login: 'Bsasa', pass: 2184, tickets: 52, date: '12-11-12'}
         ];
         var params = datasets.sortBy4(data);
         it('should match types of passing elements', function () {
