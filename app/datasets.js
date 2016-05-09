@@ -59,7 +59,11 @@ module.exports = {
         var param = '_SOMETHING_RANDOM_-Lorem-Ipsum-';
         return [param];
     },
-
+    lowerFirst: function()
+    {
+        var param = 'LOWER FIRST';
+        return [param];
+    },
     pad1: function()
     {
         var str = 'padding';
@@ -128,8 +132,6 @@ module.exports = {
         return [str1,str2,str3];
     },
 
-
-
     snakeCase: function()
     {
         var str ='--iAm-Python ';
@@ -179,9 +181,86 @@ module.exports = {
         return [str1,str2];
     },
 
-
-    flow: function()
+    trimEnd1: function()
     {
-        
+        var str = '  in the end   ';
+        return[str];
+    },
+
+    trimEnd2: function()
+    {
+        var str = '+-+-Pros and cons-+-+';
+        var str2 = '-+';
+        return[str,str2];
+    },
+
+    trimStart1: function()
+    {
+        var str = '  in the beginning';
+        return [str];
+    },
+
+    trimStart2: function()
+    {
+        var str = '<^> in the beginning';
+        var str2 = '<^>';
+        return [str,str2];
+    },
+
+    truncate1: function()
+    {
+        var str = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
+        return [str];
+    },
+
+    truncate2: function()
+    {
+        var str = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';
+        var arg2 = {'length': 20, 'separator': ' '};
+        return [str,arg2];
+    },
+
+    truncate3: function()
+    {
+        var str = 'Lorem ipsum dolor_sit_amet, consectetur adipiscing elit';
+        var arg2 = {'length': 25, 'separator':  /,-_?/};
+        return [str,arg2];
+    },
+
+    truncate4: function()
+    {
+        var str = 'Lorem ipsum dolor_sit_amet, consectetur adipiscing elit';
+        var arg2 =  {'omission': ' […]'};
+        return [str,arg2];
+    },
+
+    unescape: function()
+    {
+        var str ='Unescape this &lt; &amp; &gt;';
+        return [str];
+    },
+
+    uppercase: function()
+    {
+        var str = 'the-string to _convert';
+        return [str];
+    },
+
+    upperFirst: function()
+    {
+        var str = 'make me upper';
+        return [str];
+    },
+
+    words1: function()
+    {
+        var str = 'Could you cut this in pieces ?';
+        return [str];
+    },
+    words2: function()
+    {
+        var str = 'Cut-me too &';
+        var str2 =  /[^, -]+/g;
+        return [str,str2];
     }
 };
