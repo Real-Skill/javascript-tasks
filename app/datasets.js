@@ -1,10 +1,107 @@
 'use strict';
-// var _ = require('lodash');
+var _ = require('lodash');
 
 module.exports = {
 
     test: function() {
         return [];
+    },
+    
+    runInContext: function() {
+        var obj = {
+            'Date': function() {
+                return { 'getTime': getTimeMock };
+            }
+        };
+        return [obj];
+    },
+
+    mixin1: function() {
+        function vowels(string) {
+            return _.filter(string, function(v) {
+                return /[aeiou]/i.test(v);
+            });
+        }
+        var option = {
+            'chain':false
+        };
+        return [vowels('test'), option];
+    },
+
+    mixin2: function() {
+//         function vowels(string) {
+//             return _.filter(string, function(v) {
+//                 return /[aeiou]/i.test(v);
+//             });
+//         }
+//
+//         _.mixin({ 'vowels': vowels });
+//         _.vowels('fred');
+// // → ['e']
+//
+//         _('fred').vowels().value();
+// // → ['e']
+//
+//         _.mixin({ 'vowels': vowels }, { 'chain': false });
+//         _('fred').vowels();
+        return [];
+    },
+
+    cloneWith: function() {
+        var animals = ['dog', 'cat', 'rat'];
+        function customizer(value) {
+            for(var animal in animals){
+                if(animal == 'rat'){
+                    return false;
+                }
+            }
+                return true;
+        }
+        return [animals, customizer];
+    },
+
+    // prototypeTap: function() {
+    //     var value = [2,4,6,8];
+    //     var interceptor = function(array) {
+    //         array.push(10);
+    //     }
+    //     return [value, interceptor];
+    // },
+    //
+    // prototypeThru: function() {
+    //     var value = "ROSES are red";
+    //     var interceptor = function(value) {
+    //         return [value];
+    //     }
+    //     return [value, interceptor];
+    // },
+
+
+    bindAll1: function() {
+        var arr = [
+            [_.matches({ 'a': 1 }),           _.constant('matches A')],
+            [_.conforms({ 'b': _.isNumber }), _.constant('matches B')],
+            [_.constant(true),                _.constant('no match')]
+        ];
+        return [arr];
+    },
+
+    bindAll2: function() {
+        var arr = [
+            [_.matches({ 'a': 1 }),           _.constant('matches A')],
+            [_.conforms({ 'b': _.isNumber }), _.constant('matches B')],
+            [_.constant(true),                _.constant('no match')]
+        ];
+        return [arr];
+    },
+
+    cond: function() {
+        var arr = [
+            [_.matches({ 'a': 1 }),           _.constant('matches A')],
+            [_.conforms({ 'b': _.isNumber }), _.constant('matches B')],
+            [_.constant(true),                _.constant('no match')]
+        ];
+        return [arr];
     },
 
     parseInt: function() {
@@ -87,7 +184,7 @@ module.exports = {
         // [options.sourceURL='lodash.templateSources[n]'] (string): The sourceURL of the compiled template.
         // [options.variable='obj'] (string): The data object variable name.
 
-        var str = 'give mE sOmE suGar';
+        var str = 'hi <%= data.user %>!';
         var options = {
             'variable': 'data'
         };
