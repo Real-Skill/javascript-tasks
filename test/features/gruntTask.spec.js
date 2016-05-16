@@ -38,7 +38,7 @@ describe('Grunt tasks', function ()
         it('should run test for files in /app', function ()
         {
             expect(gruntTask.getKarmaReportContent()).toContain('tests="2"');
-            expect(gruntTask.getKarmaReportContent()).toContain('<testcase name="should add btn-danger a class when mouseenter"');
+            expect(gruntTask.getKarmaReportContent()).toContain('<testcase name="should add btn-danger class when mouseenter"');
             expect(gruntTask.getKarmaReportContent()).toContain('<testcase name="should remove btn-danger class when mouseleave"');
         });
         it('should not report any errors', function ()
@@ -76,22 +76,6 @@ describe('Grunt tasks', function ()
             {
                 expect(gruntTask.getWiredepIndexContent()).not.toContain('<script src="bower_components/bootstrap/');
             });
-        });
-    });
-
-    describe('package.json', function ()
-    {
-        it('should contain grunt-contrib-jshint dependency', function ()
-        {
-            expect(gruntTask.getPackageJsonContent()).toContain('grunt-contrib-jshint');
-        });
-        it('should contain grunt-contrib-jshint dependency', function ()
-        {
-            expect(gruntTask.getPackageJsonContent()).toContain('grunt-karma');
-        });
-        it('should contain grunt-contrib-jshint dependency', function ()
-        {
-            expect(gruntTask.getPackageJsonContent()).toContain('grunt-wiredep');
         });
     });
 });

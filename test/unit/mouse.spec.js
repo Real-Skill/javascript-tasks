@@ -19,7 +19,7 @@ describe('directives', function ()
         {
             circle.triggerHandler('mouseenter');
         });
-        it('should add btn-danger a class when mouseenter', function ()
+        it('should add btn-danger class when mouseenter', function ()
         {
             expect(circle.hasClass('btn-danger')).toBe(true);
         });

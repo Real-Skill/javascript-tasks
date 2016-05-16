@@ -3,7 +3,11 @@
 ## Summary
 Grunt is a task-based command line build tool for JavaScript projects. Grunt and its plugins are installed and managed via `npm`, the Node.js package manager.
 
-Create three grunt tasks responsible for validate files with JSHint, run unit tests and inject bower plugins directly into the `index.html` file.
+Your job is to create three grunt tasks responsible for:
+
+* validate files with JSHint,
+* run unit tests,
+* inject bower plugins directly into the `index.html` file.
 
 At the beginning application is in not working state.
 
@@ -17,10 +21,11 @@ After installing appropriate grunt plugins, configure `Grunt.js` file and create
     * for the `bootstrap` component inject only the CSS part
 
 * **jshint** task:
-    
-    * should detect errors and potential problems in .js files and create `jshint.xml` report in `target` folder (use built-in XML JSHint reporter),
-    * should specify all .js files from: `app` folder, `test` folder and its **subfolders** to linted, moreover `bower components` should be excluded from checking 
- 
+
+    * should use `.jshintrc` file
+    * should specify all **.js** files from: `app` folder, `test` folder and its **subfolders** to linted, moreover `bower components` should be excluded from checking
+    * should detect errors and potential problems in **.js** files and create `jshint.xml` report in `target` folder (use built-in XML JSHint reporter),
+
 * **karma** task:    
 
     * should use `karma.conf.js` configuration file

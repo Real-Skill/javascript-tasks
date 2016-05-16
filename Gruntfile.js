@@ -65,32 +65,17 @@ module.exports = function (grunt)
                 noColor: false
             },
             chrome: {
-                options: {
-                    args: {
-                        browser: 'chrome'
-                    }
-                }
+                options: {args: {browser: 'chrome'}}
             },
             firefox: {
-                options: {
-                    args: {
-                        browser: 'firefox'
-                    }
-                }
+                options: {args: {browser: 'firefox'}}
             },
             phantomjs: {
-                options: {
-                    args: {
-                        browser: 'phantomjs'
-                    }
-                }
+                options: {args: {browser: 'phantomjs'}}
             },
-            continuous: {
-                options: {
-                    keepAlive: true
-                }
-            }
+            continuous: {options: {keepAlive: true}}
         }
+        
     });
 
     grunt.registerTask('serve', ['connect:livereload', 'watch']);
