@@ -38,7 +38,7 @@ Returns the inverted `text`. If `text` is not a string returns false.
 
 ### factorial(N)
 
-Calculates factorial of `N` number. Returns array of numbers.
+Calculates factorial of `N` number. Returns array of numbers starting from `0`. For example passing `3`, array should looks like `[1,1,2,6]`.
 
 ### sumValueOfObjectProperties(object)
 
