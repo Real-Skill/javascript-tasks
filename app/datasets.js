@@ -1,262 +1,11 @@
 'use strict';
-var _ = require('lodash');
+// var _ = require('lodash');
 
 module.exports = {
 
     test: function() {
         return [];
     },
-    
-    runInContext: function() {
-        var obj = {
-            'Date': function() {
-                return { 'getTime': getTimeMock };
-            }
-        };
-        return [obj];
-    },
-
-    mixin1: function() {
-        function vowels(string) {
-            return _.filter(string, function(v) {
-                return /[aeiou]/i.test(v);
-            });
-        }
-        var option = {
-            'chain':false
-        };
-        return [vowels('test'), option];
-    },
-
-    mixin2: function() {
-//         function vowels(string) {
-//             return _.filter(string, function(v) {
-//                 return /[aeiou]/i.test(v);
-//             });
-//         }
-//
-//         _.mixin({ 'vowels': vowels });
-//         _.vowels('fred');
-// // → ['e']
-//
-//         _('fred').vowels().value();
-// // → ['e']
-//
-//         _.mixin({ 'vowels': vowels }, { 'chain': false });
-//         _('fred').vowels();
-        return [];
-    },
-
-    cloneWith: function() {
-        var animals = ['dog', 'cat', 'rat'];
-        function customizer(value) {
-            for(var animal in animals){
-                if(animal == 'rat'){
-                    return false;
-                }
-            }
-                return true;
-        }
-        return [animals, customizer];
-    },
-
-    // prototypeTap: function() {
-    //     var value = [2,4,6,8];
-    //     var interceptor = function(array) {
-    //         array.push(10);
-    //     }
-    //     return [value, interceptor];
-    // },
-    //
-    // prototypeThru: function() {
-    //     var value = "ROSES are red";
-    //     var interceptor = function(value) {
-    //         return [value];
-    //     }
-    //     return [value, interceptor];
-    // },
-
-
-    bindAll1: function() {
-        var arr = [
-            [_.matches({ 'a': 1 }),           _.constant('matches A')],
-            [_.conforms({ 'b': _.isNumber }), _.constant('matches B')],
-            [_.constant(true),                _.constant('no match')]
-        ];
-        return [arr];
-    },
-
-    bindAll2: function() {
-        var arr = [
-            [_.matches({ 'a': 1 }),           _.constant('matches A')],
-            [_.conforms({ 'b': _.isNumber }), _.constant('matches B')],
-            [_.constant(true),                _.constant('no match')]
-        ];
-        return [arr];
-    },
-
-    cond: function() {
-        var arr = [
-            [_.matches({ 'a': 1 }),           _.constant('matches A')],
-            [_.conforms({ 'b': _.isNumber }), _.constant('matches B')],
-            [_.constant(true),                _.constant('no match')]
-        ];
-        return [arr];
-    },
-
-    parseInt: function() {
-        var str = '-128-';
-        var radix = 16;
-        return [str, radix];
-    },
-    repeat: function() {
-        var dot = '.';
-        var times = 3;
-        return [dot, times];
-    },
-    replace1: function() {
-        var str = 'My favourite color is black';
-        var pattern = 'black';
-        var replacement = 'blue';
-        return [str, pattern, replacement];
-    },
-    replace2: function() {
-        var str = 'My favourite color is black';
-        var pattern = /black/g;
-        var replacement = 'blue';
-        return [str, pattern, replacement];
-    },
-    replace3: function() {
-        var str = 'My favourite color is black';
-        var pattern = 'black';
-        var replacement = function(r) {
-            r = 'blue';
-            return r;
-        };
-        return [str, pattern, replacement];
-    },
-    replace4: function() {
-        var str = 'My favourite color is black';
-        var pattern = /black/g;
-        var replacement = function(r) {
-            r = 'blue';
-            return r;
-        };
-        return [str, pattern, replacement];
-    },
-    snakeCase: function() {
-        var str = 'green Snakes are green obviously';
-        return [str];
-    },
-    split1: function() {
-
-        var str, sep, lim;
-        str = 'Trust me!';
-        // string = 'Trust me! I am engineer!';
-        sep = ' ';
-        lim = 2;
-        return [str, sep];
-    },
-    split2: function() {
-        var str, sep, lim;
-        str = 'Trust me! I am engineer!';
-        sep = / /g;
-        lim = 2;
-        return [str, sep, lim];
-    },
-    startCase: function() {
-        var str = 'starts FromThe beginning';
-        return [str];
-    },
-    startsWith: function() {
-        var str = 'a is first letter of the alphabet';
-        var target = 'a';
-        var num = 0;
-        return [str, target, num];
-    },
-    template: function() {
-        // [string=''] (string): The template string.
-        // [options={}] (Object): The options object.
-        // [options.escape=_.templateSettings.escape] (RegExp): The HTML "escape" delimiter.
-        // [options.evaluate=_.templateSettings.evaluate] (RegExp): The "evaluate" delimiter.
-        // [options.imports=_.templateSettings.imports] (Object): An object to import into the template as free variables.
-        // [options.interpolate=_.templateSettings.interpolate] (RegExp): The "interpolate" delimiter.
-        // [options.sourceURL='lodash.templateSources[n]'] (string): The sourceURL of the compiled template.
-        // [options.variable='obj'] (string): The data object variable name.
-
-        var str = 'hi <%= data.user %>!';
-        var options = {
-            'variable': 'data'
-        };
-        return [str, options];
-    },
-    toLower: function() {
-        var str = 'give mE sOmE suGar';
-        return [str];
-    },
-    toUpper: function() {
-        var str = 'give mE sOmE ChocOLate';
-        return [str];
-    },
-
-    trim: function() {
-        var str = 'trim me please;';
-        var chars = ' ;';
-        return [str, chars];
-    },
-    trimEnd: function() {
-        var str = ' spaces everywhere ';
-        return [str];
-    },
-    trimStart: function() {
-        var str = ' spaces everywhere ';
-        return [str];
-    },
-    truncate1: function() {
-        var longstring = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In eros mi, rhoncus id lobortis non, pharetra non erat.';
-        var options = {
-            'length': 30,
-            'separator': ' ',
-            'omission': '...'
-        };
-        return [longstring, options];
-    },
-    truncate2: function() {
-        var longstring = 'Lorem ipsum dolor sit amet - consectetur adipiscing elit. In eros mi, rhoncus id lobortis non, pharetra non erat.';
-        var options = {
-            'length': 30,
-            'separator': /-/g,
-            'omission': '..'
-        };
-        return [longstring, options];
-    },
-    unescape: function() {
-        var str = '10 &gt; 5';
-        return [str];
-    },
-    upperCase: function() {
-        var string = 'give me some coffee';
-        return [string];
-    },
-    upperFirst: function() {
-        var string = 'give me some tea';
-        return [string];
-    },
-
-    words1: function() {
-        var string, pattern;
-        string = 'I like potatoes';
-        pattern = 'potatoes';
-        return [string];
-    },
-    words2: function() {
-        var string, pattern;
-        string = 'Do-you-like-camels?';
-        pattern = /[^-]+/g;
-        return [string, pattern];
-    },
-
-
 
     functions: function() {
         function Foo() {
@@ -296,89 +45,89 @@ module.exports = {
 
     pickBy1: function() {
         var dimens = {
-                'x': 16,
-                'y': 8,
-                'z': 4
-            },
-            fun = function(n) {
-                return n > 10;
-            };
+            'x': 16,
+            'y': 8,
+            'z': 4
+        },
+        fun = function(n) {
+            return n > 10;
+        };
         return [dimens, fun];
     },
 
     pickBy2: function() {
         var dimens = {
-                'x': 16,
-                'y': 8,
-                'z': 4
-            },
-            fun = function(n) {
-                return n > 10;
-            };
+            'x': 16,
+            'y': 8,
+            'z': 4
+        },
+        fun = function(n) {
+            return n > 10;
+        };
         return [dimens, fun];
     },
 
     pickBy3: function() {
         var dimens = {
-                'x': 16,
-                'y': 8,
-                'z': 4
-            },
-            fun = function(n) {
-                return n > 10;
-            };
+            'x': 16,
+            'y': 8,
+            'z': 4
+        },
+        fun = function(n) {
+            return n > 10;
+        };
         return [dimens, fun];
     },
 
     pickBy4: function() {
         var dimens = {
-                'x': 16,
-                'y': 8,
-                'z': 4
-            },
-            fun = function(n) {
-                return n > 10;
-            };
+            'x': 16,
+            'y': 8,
+            'z': 4
+        },
+        fun = function(n) {
+            return n > 10;
+        };
         return [dimens, fun];
     },
 
     set1: function() {
         var figure = {
-                'rectangle': [{
-                    'rect1': {
-                        'width': 4,
-                        'height': 4
-                    }
-                }]
-            },
-            pattern = 'rectangle[0].rect1.height',
-            value = 8;
+            'rectangle': [{
+                'rect1': {
+                    'width': 4,
+                    'height': 4
+                }
+            }]
+        },
+        pattern = 'rectangle[0].rect1.height',
+        value = 8;
         return [figure, pattern, value];
     },
 
     set2: function() {
         var figure = {
-                'rectangle': [{
-                    'rect1': {
-                        'width': 4,
-                        'height': 4
-                    }
-                }]
-            },
-            pattern = ['rectangle', 0, 'rect1', 'height'],
-            value = 8;
+            'rectangle': [{
+                'rect1': {
+                    'width': 4,
+                    'height': 4
+                }
+            }]
+        },
+        pattern = ['rectangle', 0, 'rect1', 'height'],
+        value = 8;
         return [figure, pattern, value];
     },
 
     setWith: function() {
         var object = {
 
-            },
-            pattern = ' ',
-            value = 10,
-            customizer = function() {
+        },
+        pattern = ' ',
+        value = 10,
+        customizer = function() {
 
-            };
+        };
         return [object, pattern, value, customizer];
         // _.setWith(object, '[0][1]', 'a', Object);
         // → { '0': { '1': 'a' } }
@@ -403,86 +152,86 @@ module.exports = {
 
     transform1: function() {
         var numbers = [2, 4, 6, 8, 10],
-            fun = function(res, n) {
-                res.push(n + 1 + '');
-                return n < 5;
-            },
-            acc = [];
+        fun = function(res, n) {
+            res.push(n + 1 + '');
+            return n < 5;
+        },
+        acc = [];
         return [numbers, fun, acc];
     },
 
     transform2: function() {
         var obj = {
-                'weight': 10,
-                'width': 5,
-                'height': 600
-            },
-            fun = function(result, value, key) {
-                (result[value] || (result[value] = [])).push(key);
-            },
-            acc = {};
+            'weight': 10,
+            'width': 5,
+            'height': 600
+        },
+        fun = function(result, value, key) {
+            (result[value] || (result[value] = [])).push(key);
+        },
+        acc = {};
         // console.log(_.transform(obj, fun, acc));
         return [obj, fun, acc];
     },
 
     unset1: function() {
         var figure = {
-                'rectangle': [{
-                    'square': {
-                        'width': 4,
-                        'height': 4
-                    }
-                }]
-            },
-            pattern = 'rectangle[0].square.height';
+            'rectangle': [{
+                'square': {
+                    'width': 4,
+                    'height': 4
+                }
+            }]
+        },
+        pattern = 'rectangle[0].square.height';
         return [figure, pattern];
     },
 
     unset2: function() {
         var obj = {
-                'a': [{
-                    'b': {
-                        'c': 7
-                    }
-                }]
-            },
-            pattern = ['a', '0', 'b', 'c'];
+            'a': [{
+                'b': {
+                    'c': 7
+                }
+            }]
+        },
+        pattern = ['a', '0', 'b', 'c'];
         return [obj, pattern];
     },
 
     update: function() {
         var object = {
-                'rectangle': [{
-                    'rect1': {
-                        'width': 4,
-                        'height': 4
-                    }
-                }]
-            },
-            pattern = 'rectangle[0].rect1.height',
-            updater = function(n) {
-                return n * 2;
-            };
+            'rectangle': [{
+                'rect1': {
+                    'width': 4,
+                    'height': 4
+                }
+            }]
+        },
+        pattern = 'rectangle[0].rect1.height',
+        updater = function(n) {
+            return n * 2;
+        };
         return [object, pattern, updater];
     },
 
     updateWith: function() {
         var object = {
-                'rectangle': [{
-                    'rect1': {
-                        'width': 4,
-                        'height': 4
-                    }
-                }]
-            },
-            pattern = 'rectangle[0].rect1.height',
-            updater = function(n) {
-                return n * 3;
-            },
-            customizer = function() {
-                // return {};
-                return;
-            };
+            'rectangle': [{
+                'rect1': {
+                    'width': 4,
+                    'height': 4
+                }
+            }]
+        },
+        pattern = 'rectangle[0].rect1.height',
+        updater = function(n) {
+            return n * 3;
+        },
+        customizer = function() {
+            // return {};
+            return;
+        };
         return [object, pattern, updater, customizer];
     },
 
