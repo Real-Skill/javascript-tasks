@@ -19,8 +19,7 @@ describe('Lodash training', function() {
             });
             it('should contain one property square', function() {
                 var obj = params[0];
-                var i = 0;
-                expect(obj.hasOwnProperty('square')).to.eql(true);
+                expect(obj).to.have.ownProperty('square');
             });
             it('should not contain own property cube', function() {
                 var obj = params[0];
@@ -42,15 +41,9 @@ describe('Lodash training', function() {
             });
             it('should contain one property square', function() {
                 var obj = params[0];
-                var i = 0;
-                for (var key in obj) {
-                    if (obj.hasOwnProperty(key)) {
-                        if (obj[key] instanceof Function) {
-                            i++;
-                        }
-                    }
-                }
-                expect(i).to.eql(1);
+                expect(obj).to.have.ownProperty('square');
+                expect(obj).to.not.have.ownProperty('cube');
+                expect(obj).to.have.property('cube');
             });
             it('should not contain own property cube', function() {
                 var obj = params[0];
@@ -65,12 +58,7 @@ describe('Lodash training', function() {
         describe('pick', function() {
             describe('pick1', function() {
                 before(function() {
-                    params = datasets.pick1({
-                        'red': 1,
-                        'green': 2,
-                        'blue': 3,
-                        'yellow': 4
-                    });
+                    params = datasets.pick1();
                 });
                 it('should match types of passing elements', function() {
                     var param1 = params[0];
@@ -92,12 +80,7 @@ describe('Lodash training', function() {
 
             describe('pick2', function() {
                 before(function() {
-                    params = datasets.pick2({
-                        'red': 1,
-                        'green': 2,
-                        'blue': 3,
-                        'yellow': 4
-                    });
+                    params = datasets.pick2();
                 });
                 it('should match types of passing elements', function() {
                     var param1 = params[0];
@@ -115,15 +98,14 @@ describe('Lodash training', function() {
         });
 
         describe('pickBy', function() {
+
             describe('pickBy2', function() {
                 before(function() {
                     params = datasets.pickBy2();
                 });
                 it('should match types of passing elements', function() {
-                    var param1 = params[0];
-                    var param2 = params[1];
-                    expect(param1).to.be.an('object');
-                    expect(param2).to.be.a('Function');
+                    expect(params[0]).to.be.an('object');
+                    expect(params[1]).to.be.a('Function');
                     expect(params.length).to.eql(2);
                 });
                 it('should pick ', function() {
@@ -446,7 +428,6 @@ describe('Lodash training', function() {
         });
 
         describe('values', function() {
-            describe('values', function() {
                 before(function() {
                     params = datasets.values();
                 });
@@ -471,11 +452,9 @@ describe('Lodash training', function() {
                 it('should return array of own properties', function() {
                     expect(_.values.apply(_, params)).to.eql([ null, 2 ]);
                 });
-            });
         });
 
         describe('valuesIn', function() {
-            describe('valuesIn', function() {
                 before(function() {
                     params = datasets.valuesIn();
                 });
@@ -495,8 +474,6 @@ describe('Lodash training', function() {
                 it('should return array of all properties', function() {
                     expect(_.valuesIn.apply(_, params)).to.eql([ 6,7 ]);
                 });
-            });
-
         });
     });
 
