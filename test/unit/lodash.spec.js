@@ -4,8 +4,6 @@ var chai = require('chai');
 var expect = chai.expect;
 var _ = require('lodash');
 var datasets = require('../../app/datasets');
-var Guy = require('./Guy');
-var chance = require('chance').Chance();
 
 describe('Lodash training', function ()
 {
@@ -149,7 +147,7 @@ describe('Lodash training', function ()
 
     describe('escapeRegExp',function()
     {
-        var params
+        var params;
         beforeEach(function()
         {
             params =  datasets.escapeRegExp();
@@ -161,11 +159,11 @@ describe('Lodash training', function ()
             expect(params[0]).to.match(/[^$\.*+?()[]|]{"}"/);
         });
         it('should check if string length is correct', function(){
-            expect(params[0].length).to.equal(54);
+            expect(params[0].length).to.equal(44);
         });
-        it('Should escape the RegExp special characters "^", "$", "\", ".", "*", "+", "?", "(", ")", "[", "]", "{", "}", and "|" in string.', function()
+        it('should convert the characters "&", "<", ">"," '+"' "+', and "`" in string to their corresponding HTML entities. ', function()
         {
-            expect(_.escapeRegExp.apply(_, params).to.eql('\\[url\\] /Reg\\(exp\\)\\{2\\}erience/ \\(https://google\\.com/\\) \\[url\\]');
+             expect(_.escapeRegExp.apply(_, params)).to.eql("\\[url\\] /Reg\\(exp\\)/ \\(https://google\\.com/\\) \\[url\\]");
         });
     });
 
@@ -204,7 +202,7 @@ describe('Lodash training', function ()
         });
         it('Should convert string, as space separated words, to lower case.', function()
         {
-            expect(_.lowerCase.apply(_, params).to.eql('something random lorem ipsum');
+            expect(_.lowerCase.apply(_, params)).to.eql('something random lorem ipsum');
         });
     });
     describe('lowerFirst',function()
