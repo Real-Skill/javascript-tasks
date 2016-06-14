@@ -135,9 +135,8 @@ module.exports = {
 
     },
     partition: function (arr) {
-
         var foo = function (o) {
-            return o.active;
+            return o.status.newOne;
         };
 
         return [arr, foo];
@@ -149,11 +148,11 @@ module.exports = {
     partition3: function () {
 
         var obj = {
-            'Diana': {age: 39},
-            'Kult': {age: 43},
-            'Rococo': {age: 11},
-            'Mul': {age: 45},
-            'Zacuklo': {age: -8}
+            Diana: {age: 39},
+            Kult: {age: 43},
+            Rococo: {age: 11},
+            Mul: {age: 45},
+            Zacuklo: {age: -8}
         };
         var foo = function (o) {
             if (o.age < 40) {

@@ -15,7 +15,7 @@ module.exports = {
     },
     every2: function () {
 
-        return [[], ];
+        return [[],];
     },
     filter: function () {
 
@@ -88,7 +88,8 @@ module.exports = {
     partition3: function () {
 
         return [];
-    },
+    }
+    ,
     reduce: function () {
 
         return [];
