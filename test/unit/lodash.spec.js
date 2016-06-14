@@ -108,9 +108,10 @@ describe('Lodash Functions training', function () {
         it('should match type of passing element', function () {
             var element = params[0] instanceof Function;
 
+            expect(params).to.have.length(1);
             expect(element).to.eql(true);
         });
-        it('should return array of numbers if they\'re\ provided as arguments', function () {
+        it('should return array built from arguments provided to function', function () {
             var providedFunc = params[0];
 
             expect(providedFunc()).to.eql([]);
@@ -190,7 +191,7 @@ describe('Lodash Functions training', function () {
 
             rearg('a', 'b', 'c', 'd');
             expect(spy).to.have.been.callCount(1);
-            expect(spy).to.have.been.returned(["b", "d", "a", "c"]);
+            expect(spy).to.have.been.returned(['b', 'd', 'a', 'c']);
         });
     });
 

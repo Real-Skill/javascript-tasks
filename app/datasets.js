@@ -10,7 +10,7 @@ module.exports = {
     curry: function () {
         return [];
     },
-    flip: function () { //Look for arguments variable to complete this function
+    flip: function () { //use arguments to complete this task
         return [];
     },
     partial: function () {
