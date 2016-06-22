@@ -1,4 +1,3 @@
-'use strict';
 
 var chai = require('chai');
 var expect = chai.expect;
@@ -11,102 +10,111 @@ describe('Lodash training', function()
     describe('constant', function()
     {
         var params = datasets.constant();
+        var fun = _.constant.apply(_, params);
+
         it('should check if first parameter is an object',function()
         {
             expect(params[0]).to.be.an('object');
         });
-        it('should check objects values',function()
+        it('should check if function returns proper type', function()
         {
-            expect(params[0]).to.have.property('fred');
-            expect(params[0]).to.have.property('pebbles');
-            expect(params[0]).to.have.deep.property('john.age', 36);
+            expect(fun).to.be.a('function');
         });
-        it('should check if function returns an object', function(){
-             var getter = _.constant(params[0]);
-             expect(getter()).to.be.an('object');
+        it('should check if function returns an object', function()
+        {
+             expect(fun()).to.be.an('object');
         });
-        it('should create a function that returns value', function(){
-                expect(_.constant.apply(_, params)).to.be.a('function');
+        it('should create a function that returns value', function()
+        {
+             expect(fun()).to.eql({ John: 20 })
         });
     });
 
     describe('conforms', function()
     {
         var params = datasets.conforms();
-        var fun = _.conforms({ 'number': _.partial(_.gt, _, 38) });
+        var fun = _.conforms.apply(_, params);
 
         it('should check if first parameter is an object',function()
         {
            expect(params[0]).to.be.an('object');
         });
-        it('should check objects values',function()
+        it('should check if object returns a function', function()
         {
-           expect(params[0]).to.have.property('day');
-           expect(params[0]).to.have.property('number',1);
-        });
-        it('should check if it returns a function', function(){
             expect(fun).to.be.a('function');
         });
-        it('Creates a function that invokes the predicate properties of source with the corresponding property values of a given object, returning true if all predicates return truthy, else false.', function()
+        it('should create a function that invokes the predicate properties of source with the corresponding property values of a given object, returning true if all predicates return truthy, else false.', function()
         {
-            expect(fun()).to.be.false;
+          expect(fun({Temperature: 20, Pressure: 1000})).to.be.true;
+          expect(fun({Temperature: 3, Pressure: 2000})).to.be.false;
         });
     });
 
     describe('flow', function ()
     {
         var params = datasets.flow();
-        it('should check if first parameter is a function',function()
+        var diff = params[0];
+        var square = params[1];
+        var fun = _.flow.apply(_, params);
+
+        it('should check if parameters are functions',function()
         {
-           expect(params[0]).to.be.a('function');
+           expect(diff).to.be.a('function');
+           expect(square).to.be.a('function');
         });
-        it('should create a function that returns value.', function()
+        it('should check if function returns proper type', function()
         {
-            expect(_.flow.apply(_, params)).to.be.a('function');
+            expect(fun).to.be.a('function');
         });
-        it('should create a function that returns the result of invoking the given functions with the this binding of the created function, where each successive invocation is supplied the return value of the previous.', function (){
-            var addDivide = _.flow(_.divide, params[0]);
-            expect(addDivide(1, 2)).to.equal(0.125);
+        it('should create a function that returns the result of invoking the subtract function and then square function with supplied return value from the previous function', function (){
+            expect(fun(10,2)).to.eql(64);
+            expect(fun(20,16)).to.eql(16);
         });
     });
 
     describe('flowRight', function()
     {
         var params = datasets.flowRight();
-        it('should check if first parameter is a function',function()
+        var square = params[0];
+        var add = params[1];
+        var fun = _.flowRight.apply(_, params);
+
+        it('should check if parameters are functions',function()
         {
-           expect(params[0]).to.be.a('function');
+            expect(add).to.be.a('function');
+            expect(square).to.be.a('function');
         });
-        it('should check if function return proper value', function(){
-           var addTriple = _.flowRight(params[0],_.divide);
-           expect(addTriple(1, 2)).to.equal(0.125);
+        it('should check if function returns proper type', function(){
+            expect(fun).to.be.a('function');
         });
-        it('should create a function that invokes the given functions from right to left and returns value.', function ()
+        it('should create a function that invokes square and add function from right to left and returns value.', function ()
         {
-           expect(_.flowRight.apply(_, params)).to.be.a('function');
+            expect(fun(2,2)).to.eql(16);
+            expect(fun(10,2)).to.eql(144);
         });
     });
     describe('identity', function()
     {
         var params = datasets.identity();
+        var fun = _.identity.apply(_, params);
+
         it('should check if first parameter is an object')
         {
           expect(params[0]).to.be.an('object');
         }
-        it('should check objects values', function()
+        it('should check if function returns proper type', function()
         {
-          expect(params[0]).to.have.property('first');
-          expect(params[0]).to.have.property('second');
-          expect(params[0]).to.have.deep.property('third.set', true);
+          expect(fun).to.be.an('object');
         });
         it('should return the first argument given to it.', function()
         {
-          expect(_.identity.apply(_, params)).to.be.an('object');
+          expect(fun).to.be.eql({value: 10});
         });
     });
     describe('matches', function()
     {
         var params = datasets.matches();
+        var fun = _.matches.apply(_, params);
 
         it('should check number of parameters', function()
         {
@@ -122,15 +130,15 @@ describe('Lodash training', function()
         });
         it('Should create a function that performs a partial deep comparison between a given object and source, returning true if the given object has equivalent property values, else false. ', function(){
 
-            var matcher =_.matches.apply(_, params);
-            expect( matcher({'day': 'Monday', 'number': 1, 'pass': true})).to.equal(true);
-            expect( matcher({'day': 'Tuesday',   'number': 2, 'pass': false})).to.equal(false);
+            expect( fun({'day': 'Monday', 'number': 1, 'pass': true})).to.equal(true);
+            expect( fun({'day': 'Tuesday', 'number': 2, 'pass': false})).to.equal(false);
         });
     });
 
     describe('matchesProperty', function()
     {
         var params = datasets.matchesProperty();
+        var fun =_.matchesProperty.apply(_, params);
 
         it('should check number of parameters', function()
         {
@@ -141,18 +149,14 @@ describe('Lodash training', function()
             expect(params[0]).to.be.a('string');
             expect(params[1]).to.be.a('string');
         });
-        it('should check parameters length', function()
-        {
-            expect(params[0].length).to.equal(4);
-            expect(params[1].length).to.equal(6);
+        it('should check if function returns proper type', function(){
+            expect(fun).to.be.a('function');
         });
-        it('Should  function that performs a partial deep comparison between the value at path of a given object to src Value, returning true if the object value is equivalent, else false.', function(){
-            var propertyMatcher =_.matchesProperty.apply(_, params);
-            expect( propertyMatcher({'type':'banana'})).to.equal(true);
-            expect( propertyMatcher({'type':'avocado'})).to.equal(false);
+        it('Should perform a partial deep comparison between the value at path of a given object to src Value, returning true if the object value is equivalent, else false.', function(){
+            expect( fun({'type':'banana'})).to.equal(true);
+            expect( fun({'type':'avocado'})).to.equal(false);
         });
     });
 
-    
 });
 
