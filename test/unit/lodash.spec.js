@@ -14,11 +14,10 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(params[0]).to.have.length.above(0);
             expect(params).to.have.length(1);
         });
-        it('shold return transformed string', function () {
-                expect(_.camelCase.apply(_, params)).to.eql('someVeryLongStringPreparedToTransform');
+        it('should convert string to camel case', function () {
+                expect(_.camelCase.apply(_, params)).to.eql('someStringToTestFunction');
             }
         );
     });
@@ -29,11 +28,10 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(params[0]).to.have.length.above(0);
             expect(params).to.have.length(1);
         });
-        it('shold return transformed string', function () {
-                expect(_.capitalize.apply(_, params)).to.eql('Some very long string prepared to transform');
+        it('should convert the first character of string to upper case and the remaining to lower case', function () {
+                expect(_.capitalize.apply(_, params)).to.eql('Some string to test function');
             }
         );
     });
@@ -44,11 +42,10 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(params[0]).to.have.length.above(0);
             expect(params).to.have.length(1);
         });
-        it('shold return transformed string', function () {
-                expect(_.deburr.apply(_, params)).to.eql('some very long string prepared to transform');
+        it('should remove combining diacritical marks from string', function () {
+                expect(_.deburr.apply(_, params)).to.eql('some string to test function');
             }
         );
     });
@@ -59,16 +56,17 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(params[0]).to.have.length.above(0);
             expect(params[1]).to.be.a('string');
-            expect(params[1]).to.have.length.above(0);
-            expect(params).to.have.length.within(2,3);
+            expect(params).to.have.length.within(2, 3);
             if (params[2] !== undefined && params.length === 3) {
-                expect(params[2]).to.be.a('number');
                 expect(Number.isInteger(params[2])).to.eql(true);
             }
         });
-        it('shold return true if string ends with target, else false', function () {
+        it('should check if letter on given position is a target string', function () {
+                expect(params[0][params[2] - 1]).to.eql(params[1]);
+            }
+        );
+        it('should check if string ends with the given target string', function () {
                 expect(_.endsWith.apply(_, params)).to.eql(true);
             }
         );
@@ -80,11 +78,10 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(params[0]).to.have.length.above(0);
             expect(params).to.have.length(1);
         });
-        it('shold return transformed string', function () {
-                expect(_.escape.apply(_, params)).to.eql('Tom &amp; Jerry are friends');
+        it('should return converted string', function () {
+                expect(_.escape.apply(_, params)).to.eql('Tom &amp; Jerry are old friends');
             }
         );
     });
@@ -95,11 +92,10 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(params[0]).to.have.length.above(0);
             expect(params).to.have.length(1);
         });
-        it('shold return transformed string', function () {
-                expect(_.escapeRegExp.apply(_, params)).to.eql('\[realskill\]\(https://realskill\.com/\)');
+        it('should return converted string', function () {
+                expect(_.escapeRegExp.apply(_, params)).to.eql('\\[realskill\\]\\(https://realskill\\.com/\\)');
             }
         );
     });
@@ -110,11 +106,10 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(params[0]).to.have.length.above(0);
             expect(params).to.have.length(1);
         });
         it('shold return transformed string', function () {
-                expect(_.kebabCase.apply(_, params)).to.eql('some-very-long-string-prepared-to-transform');
+                expect(_.kebabCase.apply(_, params)).to.eql('some-string-to-test-function');
             }
         );
     });
@@ -125,11 +120,10 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(params[0]).to.have.length.above(0);
             expect(params).to.have.length(1);
         });
-        it('shold return transformed string', function () {
-                expect(_.lowerCase.apply(_, params)).to.eql('some very long string prepared to transform');
+        it('should return string converted to lowercase', function () {
+                expect(_.lowerCase.apply(_, params)).to.eql('some string to test function');
             }
         );
     });
@@ -140,11 +134,10 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(params[0]).to.have.length.above(0);
             expect(params).to.have.length(1);
         });
-        it('should return transformed string', function () {
-                expect(_.lowerFirst.apply(_, params)).to.eql('sOME VERY LONG STRING PREPARED TO TRANSFORM');
+        it('should return converted string with first letter in lowercase', function () {
+                expect(_.lowerFirst.apply(_, params)).to.eql('sOME STRING TO TEST FUNCTION');
             }
         );
     });
@@ -157,13 +150,12 @@ describe('Lodash training', function () {
             expect(params[0]).to.be.a('string');
             expect(Number.isInteger(params[1])).to.eql(true);
             expect(params[1]).to.be.above(params[0].length);
-            expect(params).to.have.length.within(2,3);
+            expect(params).to.have.length.within(2, 3);
             if (params[2] !== undefined && params.length === 3) {
                 expect(params[2]).to.be.a('string');
-                expect(params[2]).to.have.length.above(0);
             }
         });
-        it('should return transformed string', function () {
+        it('should return converted string with padding characters', function () {
                 expect(_.pad.apply(_, params)).to.eql('._._.some long sweet text._._.');
             }
         );
@@ -177,13 +169,12 @@ describe('Lodash training', function () {
             expect(params[0]).to.be.a('string');
             expect(Number.isInteger(params[1])).to.eql(true);
             expect(params[1]).to.be.above(params[0].length);
-            expect(params).to.have.length.within(2,3);
+            expect(params).to.have.length.within(2, 3);
             if (params[2] !== undefined && params.length === 3) {
                 expect(params[2]).to.be.a('string');
-                expect(params[2]).to.have.length.above(0);
             }
         });
-        it('should return transformed string', function () {
+        it('should return converted string with padding characters on right', function () {
                 expect(_.padEnd.apply(_, params)).to.eql('some another long sweet text.*.*.*.*');
             }
         );
@@ -197,13 +188,13 @@ describe('Lodash training', function () {
             expect(params[0]).to.be.a('string');
             expect(Number.isInteger(params[1])).to.eql(true);
             expect(params[1]).to.be.above(params[0].length);
-            expect(params).to.have.length.within(2,3);
+            expect(params).to.have.length.within(2, 3);
             if (params[2] !== undefined && params.length === 3) {
                 expect(params[2]).to.be.a('string');
                 expect(params[2]).to.have.length.above(0);
             }
         });
-        it('should return transformed string', function () {
+        it('should return converted string with padding characters on left', function () {
                 expect(_.padStart.apply(_, params)).to.eql('|_|_|_|_|_|_try again some long sweet text');
             }
         );
@@ -215,16 +206,13 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(Number.isInteger(params[1])).to.eql(true);
-            expect(params[1]).to.be.above(params[0].length);
-            expect(params).to.have.length.within(2,3);
-            if (params[2] !== undefined && params.length === 3) {
-                expect(params[2]).to.be.a('string');
-                expect(params[2]).to.have.length.above(0);
+            expect(params).to.have.length.within(1, 2);
+            if (params[1] !== undefined && params.length === 2) {
+                expect(Number.isInteger(params[1])).to.eql(true);
             }
         });
-        it('shold return true if string ends with target, else false', function () {
-                expect(_.parseInt.apply(_, params)).to.eql('some another long sweet text.*.*.*.*');
+        it('should return converted string to integer', function () {
+                expect(_.parseInt.apply(_, params)).to.eql(8);
             }
         );
     });
@@ -244,17 +232,62 @@ describe('Lodash training', function () {
     });
 
     describe('replace', function () {
-        before(function () {
-            params = datasets.replace();
+        describe('replace1', function () {
+            before(function () {
+                params = datasets.replace1();
+            });
+            it('should match types of passing elements', function () {
+                expect(params[0]).to.be.a('string');
+                expect(params[1]).to.be.a('string');
+                expect(params[2]).to.be.a('string');
+            });
+            it('should return modified string', function () {
+                    expect(_.replace.apply(_, params)).to.eql('Hello universe!');
+                }
+            );
         });
-        it('should match types of passing elements', function () {
-            expect(params[0]).to.be.a('string');
-            expect(Number.isInteger(params[1])).to.eql(true);
-        });
-        it('should ...', function () {
-                expect(_.replace.apply(_, params)).to.eql('');
-            }
-        );
+        // describe('replace2', function () {
+        //     before(function () {
+        //         params = datasets.replace2();
+        //     });
+        //     it('should match types of passing elements', function () {
+        //         expect(params[0]).to.be.a('string');
+        //         expect(params[1]).to.be.a('string');
+        //         expect(params[2]).to.be.a('string');
+        //     });
+        //     it('should return modified stringg', function () {
+        //             expect(_.replace.apply(_, params)).to.eql('He llo world!');
+        //         }
+        //     );
+        // });
+        // describe('replace3', function () {
+        //     before(function () {
+        //         params = datasets.replace3();
+        //     });
+        //     it('should match types of passing elements', function () {
+        //         expect(params[0]).to.be.a('string');
+        //         expect(params[1]).to.be.a('string');
+        //         expect(params[2]).to.be.a('string');
+        //     });
+        //     it('should return modified string', function () {
+        //             expect(_.replace.apply(_, params)).to.eql('Hell o world!');
+        //         }
+        //     );
+        // });
+        // describe('replace4', function () {
+        //     before(function () {
+        //         params = datasets.replace4();
+        //     });
+        //     it('should match types of passing elements', function () {
+        //         expect(params[0]).to.be.a('string');
+        //         expect(params[1]).to.be.a('string');
+        //         expect(params[2]).to.be.a('string');
+        //     });
+        //     it('should return modified string', function () {
+        //             expect(_.replace.apply(_, params)).to.eql('Helloc world!');
+        //         }
+        //     );
+        // });
     });
 
     describe('snakeCase', function () {
@@ -264,8 +297,8 @@ describe('Lodash training', function () {
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
         });
-        it('should return transformed string', function () {
-                expect(_.snakeCase.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
+        it('should return converted string', function () {
+                expect(_.snakeCase.apply(_, params)).to.eql('some_string_to_test_function');
             }
         );
     });
@@ -279,8 +312,8 @@ describe('Lodash training', function () {
             expect(params[1]).to.be.a('string');
             expect(Number.isInteger(params[2])).to.eql(true);
         });
-        it('should return split string', function () {
-                expect(_.split.apply(_, params)).to.eql([ 'split', 'me' ]);
+        it('should return the string segments', function () {
+                expect(_.split.apply(_, params)).to.eql(['split', 'me']);
             }
         );
     });
@@ -292,8 +325,8 @@ describe('Lodash training', function () {
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
         });
-        it('should return transformed string', function () {
-                expect(_.startCase.apply(_, params)).to.eql('Some Very Long String Prepared To Transform');
+        it('should return converted string', function () {
+                expect(_.startCase.apply(_, params)).to.eql('Some String To Test Function');
             }
         );
     });
@@ -304,16 +337,17 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(params[0]).to.have.length.above(0);
             expect(params[1]).to.be.a('string');
-            expect(params[1]).to.have.length.above(0);
-            expect(params).to.have.length.within(2,3);
+            expect(params).to.have.length.within(2, 3);
             if (params[2] !== undefined && params.length === 3) {
-                expect(params[2]).to.be.a('number');
                 expect(Number.isInteger(params[2])).to.eql(true);
             }
         });
-        it('shold return true if string ends with target, else false', function () {
+        it('should check if letter on given position is a target string', function () {
+                expect(params[0][params[2]]).to.eql(params[1]);
+            }
+        );
+        it('should check if string starts with the given target string', function () {
                 expect(_.startsWith.apply(_, params)).to.eql(true);
             }
         );
@@ -359,7 +393,7 @@ describe('Lodash training', function () {
         });
         it('should not contain empty option parameter', function () {
                 var param2 = params[1];
-                for (var key in param2){
+                for (var key in param2) {
                     expect(param2[key]).to.not.be.empty;
                 }
             }
@@ -373,8 +407,8 @@ describe('Lodash training', function () {
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
         });
-        it('should return transformed string', function () {
-                expect(_.toLower.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
+        it('should return converted string', function () {
+                expect(_.toLower.apply(_, params)).to.eql('some string to test function');
             }
         );
     });
@@ -386,8 +420,8 @@ describe('Lodash training', function () {
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
         });
-        it('should return transformed string', function () {
-                expect(_.toUpper.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
+        it('should return converted string', function () {
+                expect(_.toUpper.apply(_, params)).to.eql('SOME STRING TO TEST FUNCTION');
             }
         );
     });
@@ -400,8 +434,8 @@ describe('Lodash training', function () {
             expect(params[0]).to.be.a('string');
             expect(params[1]).to.be.a('string');
         });
-        it('should return transformed string', function () {
-                expect(_.trim.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
+        it('should return trimmed string', function () {
+                expect(_.trim.apply(_, params)).to.eql('some string to test function');
             }
         );
     });
@@ -414,8 +448,8 @@ describe('Lodash training', function () {
             expect(params[0]).to.be.a('string');
             expect(params[1]).to.be.a('string');
         });
-        it('should return transformed string', function () {
-                expect(_.trimEnd.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
+        it('should return trimmed string', function () {
+                expect(_.trimEnd.apply(_, params)).to.eql('some string to test');
             }
         );
     });
@@ -428,25 +462,25 @@ describe('Lodash training', function () {
             expect(params[0]).to.be.a('string');
             expect(params[1]).to.be.a('string');
         });
-        it('should return transformed string', function () {
-                expect(_.trimStart.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
+        it('should return trimmed string', function () {
+                expect(_.trimStart.apply(_, params)).to.eql('some string to test function.....');
             }
         );
     });
 
-    describe('truncate', function () {
-        before(function () {
-            params = datasets.truncate();
-        });
-        it('should match types of passing elements', function () {
-            expect(params[0]).to.be.a('string');
-            expect(params[1]).to.be.a('string');
-        });
-        it('should return transformed string', function () {
-                expect(_.truncate.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
-            }
-        );
-    });
+    // describe('truncate', function () {
+    //     before(function () {
+    //         params = datasets.truncate();
+    //     });
+    //     it('should match types of passing elements', function () {
+    //         expect(params[0]).to.be.a('string');
+    //         expect(params[1]).to.be.an('object');
+    //     });
+    //     it('should return truncated string', function () {
+    //             expect(_.truncate.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
+    //         }
+    //     );
+    // });
 
     describe('unescape', function () {
         before(function () {
@@ -456,20 +490,20 @@ describe('Lodash training', function () {
             expect(params[0]).to.be.a('string');
         });
         it('should return transformed string', function () {
-                expect(_.unescape.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
+                expect(_.unescape.apply(_, params)).to.eql('tom & jerry were old friends');
             }
         );
     });
 
-    describe('uppercase', function () {
+    describe('upperCase', function () {
         before(function () {
-            params = datasets.uppercase();
+            params = datasets.upperCase();
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
         });
         it('should return transformed string', function () {
-                expect(_.uppercase.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
+                expect(_.upperCase.apply(_, params)).to.eql('SOME STRING TO TEST FUNCTION');
             }
         );
     });
@@ -482,7 +516,7 @@ describe('Lodash training', function () {
             expect(params[0]).to.be.a('string');
         });
         it('should return transformed string', function () {
-                expect(_.upperFirst.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
+                expect(_.upperFirst.apply(_, params)).to.eql('Some string to test function');
             }
         );
     });
@@ -496,24 +530,24 @@ describe('Lodash training', function () {
                 expect(params[0]).to.be.a('string');
                 expect(params[1]).to.be.a('string');
             });
-            it('should return transformed string', function () {
-                    expect(_.words2.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
+            it('should return words of string', function () {
+                    expect(_.words.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
                 }
             );
         });
-        describe('words1', function () {
-            before(function () {
-                params = datasets.words1();
-            });
-            it('should match types of passing elements', function () {
-                expect(params[0]).to.be.a('string');
-                expect(params[1]).to.be.an('RegExp');
-            });
-            it('should return transformed string', function () {
-                    expect(_.words2.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
-                }
-            );
-        });
+        // describe('words2', function () {
+        //     before(function () {
+        //         params = datasets.words2();
+        //     });
+        //     it('should match types of passing elements', function () {
+        //         expect(params[0]).to.be.a('string');
+        //         expect(params[1]).to.be.an('RegExp');
+        //     });
+        //     it('should return words of string', function () {
+        //             expect(_.words.apply(_, params)).to.eql([ 'bread', 'butter', 'milk' ]);
+        //         }
+        //     );
+        // });
     });
 
 });

@@ -4,25 +4,25 @@
 module.exports = {
 
     camelCase: function () {
-        var string = 'Some very long string prepared to transform';
+        var string = 'some string to test function';
         return [string];
     },
     capitalize: function () {
-        var string = 'some very long string prepared to transform';
+        var string = 'SOME STRING TO TEST FUNCTION';
         return [string];
     },
     deburr: function () {
-        var string = 'somé véry long string préparéd to transform';
+        var string = 'somé string to tést function';
         return [string];
     },
     endsWith: function () {
-        var string = 'string to test if ends with';
+        var string = 'some string to test function';
         var target = 'e';
-        var position = 19;
+        var position = 17;
         return [string, target, position];
     },
     escape: function () {
-        var string = 'Tom & Jerry are friends';
+        var string = 'Tom & Jerry are old friends';
         return [string];
     },
     escapeRegExp: function () {
@@ -30,15 +30,15 @@ module.exports = {
         return [string];
     },
     kebabCase: function () {
-        var string = 'some very long string prepared to transform';
+        var string = 'some string to test function';
         return [string];
     },
     lowerCase: function () {
-        var string = 'SOME VERY LONG STRING PREPARED TO TRANSFORM';
+        var string = 'SOME STRING TO TEST FUNCTION';
         return [string];
     },
     lowerFirst: function () {
-        var string = 'SOME VERY LONG STRING PREPARED TO TRANSFORM';
+        var string = 'SOME STRING TO TEST FUNCTION';
         return [string];
     },
     pad: function () {
@@ -60,35 +60,57 @@ module.exports = {
         return [string, length, pad_string];
     },
     parseInt: function () {
-        return [];
+        var string = '1000';
+        var radix = 2;
+        return [string, radix];
     },
     repeat: function () {
         var string = 'repeat me!'
         var n = 4;
         return [string, n];
     },
-    // replace: function () {
-    //
-    //     return [];
-    // },
+    replace1: function () {
+        var string = 'Hello world!';
+        var pattern = 'world';
+        var replacement = 'universe';
+        return [string, pattern, replacement];
+    },
+    replace2: function () {
+        var string = 'Hello universe!';
+        var pattern = 'universe';
+        var replacement = 'world';
+        return [string, pattern, replacement];
+    },
+    replace3: function () {
+        var string = 'Hello universe!';
+        var pattern = 'universe';
+        var replacement = 'world';
+        return [string, pattern, replacement];
+    },
+    replace4: function () {
+        var string = 'Hello universe!';
+        var pattern = 'universe';
+        var replacement = 'world';
+        return [string, pattern, replacement];
+    },
     snakeCase: function () {
-        var string = 'Some very long string prepared to transform';
+        var string = 'some string to test function';
         return [string];
     },
     split: function () {
-        var string = 'split-me-i-am-too-long';
+        var string = 'split-me-please-i-am-too-long';
         var separator = '-';
         var limit = 2;
         return [string, separator, limit];
     },
     startCase: function () {
-        var string = 'Some very long string prepared to transform';
+        var string = 'some string to test function';
         return [string];
     },
     startsWith: function () {
-        var string = 'string to test if ends with';
+        var string = 'some string to test function';
         var target = 'e';
-        var position = 11;
+        var position = 3;
         return [string, target, position];
     },
 
@@ -111,50 +133,52 @@ module.exports = {
     },
 
     toLower: function () {
-        var string = 'Some very long string prepared to transform';
+        var string = 'SOME STRING TO TEST FUNCTION';
         return [string];
     },
     toUpper: function () {
-        var string = 'Some very long string prepared to transform';
+        var string = 'some string to test function';
         return [string];
     },
     trim: function () {
-        var string;
-        var chars;
-        return [];
+        var string = '..some string to test function.....';
+        var chars = '.';
+        return [string, chars];
     },
     trimEnd: function () {
-        var string;
-        var chars;
-        return [];
+        var string = 'some string to test!';
+        var chars = '!';
+        return [string, chars];
     },
     trimStart: function () {
-        var string;
-        var chars;
-        return [];
+        var string = '..some string to test function.....';
+        var chars = '.';
+        return [string, chars];
     },
     truncate: function () {
 
         return [];
     },
     unescape: function () {
-
-        return [];
+    var string = 'tom &amp; jerry were old friends'
+        return [string];
     },
     upperCase: function () {
-
-        return [];
+        var string = 'some string to test function'
+        return [string];
     },
     upperFirst: function () {
-
-        return [];
+        var string = 'some string to test function'
+        return [string];
     },
     words1: function () {
-
-        return [];
+        var string = 'bread, butter, milk';
+        var pattern = ''
+        return [string, pattern];
     },
     words2: function () {
-
-        return [];
+        var string = 'bread, butter, milk';
+        var pattern = /[^, ]+/
+        return [string, pattern];
     },
 };
