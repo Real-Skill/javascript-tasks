@@ -77,20 +77,24 @@ module.exports = {
     },
     replace2: function () {
         var string = 'Hello universe!';
-        var pattern = 'universe';
+        var pattern = /universe/g;
         var replacement = 'world';
         return [string, pattern, replacement];
     },
     replace3: function () {
         var string = 'Hello universe!';
         var pattern = 'universe';
-        var replacement = 'world';
+        var replacement = function () {
+            return 'world';
+        };
         return [string, pattern, replacement];
     },
     replace4: function () {
         var string = 'Hello universe!';
-        var pattern = 'universe';
-        var replacement = 'world';
+        var pattern = /universe/g;
+        var replacement = function () {
+            return 'world';
+        };
         return [string, pattern, replacement];
     },
     snakeCase: function () {
@@ -156,11 +160,12 @@ module.exports = {
         return [string, chars];
     },
     truncate: function () {
-
-        return [];
+        var string = 'some very long text, we should cut it'
+        var options = {'length':22, 'omission': '...'}
+        return [string, options];
     },
     unescape: function () {
-    var string = 'tom &amp; jerry were old friends'
+        var string = 'tom &amp; jerry were old friends'
         return [string];
     },
     upperCase: function () {
@@ -173,12 +178,11 @@ module.exports = {
     },
     words1: function () {
         var string = 'bread, butter, milk';
-        var pattern = ''
-        return [string, pattern];
+        return [string];
     },
     words2: function () {
         var string = 'bread, butter, milk';
-        var pattern = /[^, ]+/
+        var pattern = /[^, ]+/g;
         return [string, pattern];
     },
 };

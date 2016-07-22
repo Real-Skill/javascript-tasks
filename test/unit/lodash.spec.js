@@ -246,48 +246,48 @@ describe('Lodash training', function () {
                 }
             );
         });
-        // describe('replace2', function () {
-        //     before(function () {
-        //         params = datasets.replace2();
-        //     });
-        //     it('should match types of passing elements', function () {
-        //         expect(params[0]).to.be.a('string');
-        //         expect(params[1]).to.be.a('string');
-        //         expect(params[2]).to.be.a('string');
-        //     });
-        //     it('should return modified stringg', function () {
-        //             expect(_.replace.apply(_, params)).to.eql('He llo world!');
-        //         }
-        //     );
-        // });
-        // describe('replace3', function () {
-        //     before(function () {
-        //         params = datasets.replace3();
-        //     });
-        //     it('should match types of passing elements', function () {
-        //         expect(params[0]).to.be.a('string');
-        //         expect(params[1]).to.be.a('string');
-        //         expect(params[2]).to.be.a('string');
-        //     });
-        //     it('should return modified string', function () {
-        //             expect(_.replace.apply(_, params)).to.eql('Hell o world!');
-        //         }
-        //     );
-        // });
-        // describe('replace4', function () {
-        //     before(function () {
-        //         params = datasets.replace4();
-        //     });
-        //     it('should match types of passing elements', function () {
-        //         expect(params[0]).to.be.a('string');
-        //         expect(params[1]).to.be.a('string');
-        //         expect(params[2]).to.be.a('string');
-        //     });
-        //     it('should return modified string', function () {
-        //             expect(_.replace.apply(_, params)).to.eql('Helloc world!');
-        //         }
-        //     );
-        // });
+        describe('replace2', function () {
+            before(function () {
+                params = datasets.replace2();
+            });
+            it('should match types of passing elements', function () {
+                expect(params[0]).to.be.a('string');
+                expect(params[1]).to.be.a('RegExp');
+                expect(params[2]).to.be.a('string');
+            });
+            it('should return modified string', function () {
+                    expect(_.replace.apply(_, params)).to.eql('Hello world!');
+                }
+            );
+        });
+        describe('replace3', function () {
+            before(function () {
+                params = datasets.replace3();
+            });
+            it('should match types of passing elements', function () {
+                expect(params[0]).to.be.a('string');
+                expect(params[1]).to.be.a('string');
+                expect(params[2]).to.be.a('function');
+            });
+            it('should return modified string', function () {
+                    expect(_.replace.apply(_, params)).to.eql('Hello world!');
+                }
+            );
+        });
+        describe('replace4', function () {
+            before(function () {
+                params = datasets.replace4();
+            });
+            it('should match types of passing elements', function () {
+                expect(params[0]).to.be.a('string');
+                expect(params[1]).to.be.a('RegExp');
+                expect(params[2]).to.be.a('function');
+            });
+            it('should return modified string', function () {
+                    expect(_.replace.apply(_, params)).to.eql('Hello world!');
+                }
+            );
+        });
     });
 
     describe('snakeCase', function () {
@@ -468,19 +468,30 @@ describe('Lodash training', function () {
         );
     });
 
-    // describe('truncate', function () {
-    //     before(function () {
-    //         params = datasets.truncate();
-    //     });
-    //     it('should match types of passing elements', function () {
-    //         expect(params[0]).to.be.a('string');
-    //         expect(params[1]).to.be.an('object');
-    //     });
-    //     it('should return truncated string', function () {
-    //             expect(_.truncate.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
-    //         }
-    //     );
-    // });
+    describe('truncate', function () {
+        before(function () {
+            params = datasets.truncate();
+        });
+        it('should match types of passing elements', function () {
+            expect(params[0]).to.be.a('string');
+            expect(params).to.have.length.within(1, 2);
+            if (params[1] !== undefined && params.length === 2) {
+                expect(params[1]).to.be.an('object');
+            }
+        });
+        it('should check if second argument have validate properties', function () {
+            var options = params[1];
+            if (options !== undefined && params.length === 2) {
+                expect(options).to.have.any.keys('length', 'omission', 'separator');
+            }
+            // powinien miec max 3 wlasciowsci
+            // pierwsza number
+        });
+        it('should return truncated string', function () {
+                expect(_.truncate.apply(_, params)).to.eql('some very long text...');
+            }
+        );
+    });
 
     describe('unescape', function () {
         before(function () {
@@ -528,26 +539,32 @@ describe('Lodash training', function () {
             });
             it('should match types of passing elements', function () {
                 expect(params[0]).to.be.a('string');
-                expect(params[1]).to.be.a('string');
+                expect(params).to.have.length.within(1, 2);
+                if (params[1] !== undefined && params.length === 2) {
+                    expect(params[1]).to.be.a('string');
+                }
             });
             it('should return words of string', function () {
-                    expect(_.words.apply(_, params)).to.eql('some_very_long_string_prepared_to_transform');
+                    expect(_.words.apply(_, params)).to.eql([ 'bread', 'butter', 'milk' ]);
                 }
             );
         });
-        // describe('words2', function () {
-        //     before(function () {
-        //         params = datasets.words2();
-        //     });
-        //     it('should match types of passing elements', function () {
-        //         expect(params[0]).to.be.a('string');
-        //         expect(params[1]).to.be.an('RegExp');
-        //     });
-        //     it('should return words of string', function () {
-        //             expect(_.words.apply(_, params)).to.eql([ 'bread', 'butter', 'milk' ]);
-        //         }
-        //     );
-        // });
+        describe('words2', function () {
+            before(function () {
+                params = datasets.words2();
+            });
+            it('should match types of passing elements', function () {
+                expect(params[0]).to.be.a('string');
+                expect(params).to.have.length.within(1, 2);
+                if (params[1] !== undefined && params.length === 2) {
+                    expect(params[1]).to.be.a('RegExp');
+                }
+            });
+            it('should return words of string', function () {
+                    expect(_.words.apply(_, params)).to.eql(['bread', 'butter', 'milk']);
+                }
+            );
+        });
     });
 
 });
