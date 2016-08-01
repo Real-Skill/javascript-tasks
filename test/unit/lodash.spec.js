@@ -566,5 +566,4 @@ describe('Lodash training', function () {
             );
         });
     });
-
 });
