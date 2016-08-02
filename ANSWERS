@@ -89,9 +89,13 @@ module.exports = {
         return [arr, ['nickName', 'Eragon']];
     },
     groupBy: function () {
-        var users = [2, 4, 9, 16, 25, 121, 81];
+        var users = [3, 4, 9, 16, 26, 121, 82];
+        var foo = function (i)
+        {
+            return 1 === (i % 2) ? i : Math.sqrt(i);
+        };
 
-        return [users, Math.sqrt];
+        return [users, foo];
     },
     groupBy2: function () {
         var users = ['xyz', 2, 'combi', 4, 5, 'xyz'];

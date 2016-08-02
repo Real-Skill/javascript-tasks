@@ -454,7 +454,7 @@ describe('Lodash Collection training', function () {
         });
     });
 
-    describe('groupBy', function () {
+    describe('groupBy ', function () {
         describe('groupBy function', function () {
             var params = datasets.groupBy();
 
@@ -477,19 +477,22 @@ describe('Lodash Collection training', function () {
             it('should pass the test for provided function', function () {
                 var providedFunc = params[1];
 
-                expect(providedFunc(49)).to.eql(7);
-                expect(_.ceil(providedFunc(35), 2)).to.eql(5.92);
-                expect(_.ceil(providedFunc(63), 3)).to.eql(7.938);
+                expect(providedFunc(49)).to.eql(49);
+                expect(providedFunc(16)).to.eql(4);
+                expect(_.ceil(providedFunc(32), 2)).to.eql(5.66);
+                expect(_.ceil(providedFunc(68), 3)).to.eql(8.247);
+                expect(_.ceil(providedFunc(35), 2)).to.eql(35);
+                expect(_.ceil(providedFunc(71), 3)).to.eql(71);
             });
             it('should return an object with grouped square root elements', function () {
                 expect(_.groupBy.apply(_, datasets.groupBy())).to.eql({
-                    '2': [4],
-                    '3': [9],
-                    '4': [16],
-                    '5': [25],
-                    '9': [81],
-                    '11': [121],
-                    '1.4142135623730951': [2]
+                    "2": [4],
+                    "3": [3],
+                    "4": [16],
+                    "9": [9],
+                    "121": [121],
+                    "5.0990195135927845": [26],
+                    "9.055385138137417": [82]
                 });
             });
         });
