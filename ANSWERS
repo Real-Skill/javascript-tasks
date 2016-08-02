@@ -1,0 +1,206 @@
+'use strict';
+
+module.exports = {
+    countBy: function () {
+        return [[1, 2, 2, 6, 6, 7.1, 7.6, 7.2], Math.floor];
+    },
+    countBy2: function () {
+
+        var array = ['ala', 'CKM', 'cyka', 'bliat', 'tomi', 'ziom'];
+        var foo = 'length';
+        return [array, foo];
+    },
+    every: function () {
+
+        var users = [
+            {usr: 21, ALIVE: true},
+            {usr: 'pico', ALIVE: true},
+            {usr: 'asd', ALIVE: true}
+        ];
+        return [users, 'ALIVE'];
+    },
+    every2: function () {
+
+        var users = [Function, 1, true, 'asd'];
+
+        return [users, Boolean];
+    },
+    filter: function () {
+        var users = [
+            {name: 'Ali', age: 33, active: false},
+            {name: 'zz', age: 56, active: false},
+            {name: 'Kali', age: 21, active: true},
+            {name: 'wqe', age: 88, active: true},
+            {name: 'aszdew', age: 55, active: true}
+        ];
+        var predi = function (o) {
+            if (o.age < 40) {
+                return o.age;
+            } else {
+                return false;
+            }
+        };
+
+        return [users, predi];
+    },
+    filter2: function () {
+        var users = [
+            {name: 'Bow', amount: 23, available: true, type: 'RANGE'},
+            {name: 'Axe', amount: 32, available: false, type: 'MELEE'},
+            {name: 'Sword', amount: 23, available: true, type: 'MELEE'},
+            {name: 'Lance', amount: 11, available: false, type: 'MELEE/RANGE'},
+            {name: 'GUN', amount: 23, available: true, type: 'RANGE'}
+        ];
+
+        var predi = {amount: 23, available: true};
+
+        return [users, predi];
+    },
+    filter3: function (arr) {
+
+        return [arr, ['throwable', true]];
+    },
+    filter4: function (arr) {
+
+        return [arr, 'explosionPower'];
+    },
+    find: function (arr) {
+
+        return [arr, {age: 65}];
+    },
+    find2: function () {
+        var users = [
+            {NAME: 'Rudi', age: 15, active: true, gender: 'M'},
+            {NAME: 'Kodi', age: 25, active: true},
+            {NAME: 'Joe', age: 23, active: false}
+        ];
+        var predi = 'NAME';
+
+        return [users, predi];
+    },
+    find3: function (arr) {
+        var fu = function (o) {
+            return o.code.length > 22;
+        };
+
+        return [arr, fu];
+    },
+    find4: function (arr) {
+        return [arr, ['nickName', 'Eragon']];
+    },
+    groupBy: function () {
+        var users = [3, 4, 9, 16, 26, 121, 82];
+        var foo = function (i)
+        {
+            return 1 === (i % 2) ? i : Math.sqrt(i);
+        };
+
+        return [users, foo];
+    },
+    groupBy2: function () {
+        var users = ['xyz', 2, 'combi', 4, 5, 'xyz'];
+
+        return [users, 'length'];
+    },
+    includes: function () {
+
+        var users = {'firstName': 'Ali', 'lastName': 'BOM BOM', 'users': 999999, 'running': true};
+
+        return [users, ['Ali', 'zs']];
+    },
+    includes2: function () {
+        var users = ['antidisestablishmentarianism', 'konfucju', 'ekostablistorm', 'stablisorism'];
+
+        return [users, 'stabli'];
+    },
+    includes3: function (arr) {
+
+        return [arr, 'wood', 3];
+    },
+    map: function (arr) {
+
+        return [arr, 'firstName'];
+    },
+    map2: function () {
+        var arr = [1, 2, 3, 4, 5, 6];
+
+        function square(n) {
+            if (typeof n !== 'number') {
+                return false;
+            }
+            if (n % 2 === 0) {
+                return n * n;
+            } else {
+                return n + 1;
+            }
+        }
+
+        return [arr, square];
+
+    },
+    partition: function (arr) {
+        var foo = function (o) {
+            return o.status.newOne;
+        };
+
+        return [arr, foo];
+    },
+    partition2: function (arr) {
+
+        return [arr, 'age'];
+    },
+    partition3: function () {
+
+        var obj = {
+            Diana: {age: 39},
+            Kult: {age: 43},
+            Rococo: {age: 11},
+            Mul: {age: 45},
+            Zacuklo: {age: -8}
+        };
+        var foo = function (o) {
+            if (o.age < 40) {
+                return o.age += 10;
+            }
+        };
+        return [obj, foo];
+    },
+    reduce: function () {
+
+        var users = [1, 2, 3, 4, 5];
+
+        var x = function (sum, n) {
+            return sum + n * n;
+        };
+
+        return [users, x, 0];
+    },
+    reduce2: function (ob) {
+        var fu = function (a, b) {
+            return a += b;
+        };
+
+        return [ob, fu];
+    },
+    sortBy: function () {
+
+        var array = ['Duch', 'da', 'korale', 'kaszmirowe', 'adorujac', 'cie'];
+
+        return [array, 'length'];
+    },
+    sortBy2: function (arr) {
+
+        return [arr, ['pass', 'tickets', 'login']];
+    },
+    sortBy3: function (arr) {
+
+        return [arr, {pass: 1234, tickets: 10}];
+    },
+    sortBy4: function (arr) {
+        var fu = function (o) {
+            return o.pass + o.tickets;
+        };
+
+        return [arr, fu];
+    }
+};
