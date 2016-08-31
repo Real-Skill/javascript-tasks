@@ -17,7 +17,7 @@ describe('Lodash training', function ()
             elem1 = params[0];
             constant = _.constant.apply(_, params);
         });
-        it('should verify params',function()
+        it('should verify params', function()
         {
             expect(params[0 instanceof Object]).to.eql(true);
         });
@@ -67,9 +67,12 @@ describe('Lodash training', function ()
             expect(elem1 instanceof Function).to.eql(true);
             expect(elem2 instanceof Function).to.eql(true);
         });
-        it('should return added first elem power second ', function ()
+        it('should add first element to second element and then square result ', function ()
         {
-            expect(flow(2, 3)).to.eql(16);
+            expect(flow(1, 2)).to.eql(9);
+            expect(flow(2, 3)).to.eql(25);
+            expect(flow(3, 4)).to.eql(49);
+            expect(flow(4, 5)).to.eql(81);
         });
     });
 
@@ -92,10 +95,12 @@ describe('Lodash training', function ()
             expect(elem1 instanceof Function).to.eql(true);
             expect(elem2 instanceof Function).to.eql(true);
         });
-        it('should return square added first elem to second', function ()
+        it('should multiply first element by second element and then result should be doubled', function ()
         {
-            expect(flowRight(2, 2)).to.eql(16);
-            expect(flowRight(10, 2)).to.eql(144);
+            expect(flowRight(2, 2)).to.eql(8);
+            expect(flowRight(10, 2)).to.eql(40);
+            expect(flowRight(5, 3)).to.eql(30);
+            expect(flowRight(6, 4)).to.eql(24);
         });
     });
 
@@ -113,7 +118,7 @@ describe('Lodash training', function ()
         it('should verify params', function ()
         {
             expect(params.length).to.equal(1);
-            expect(elem1 instanceof Object).to.eql('object');
+            expect(elem1 instanceof Object).to.eql(true);
         });
         it('should check object keys', function ()
         {
