@@ -415,7 +415,7 @@ describe('Lodash training', function () {
             var param2 = params[1];
             expect(param1).to.be.a('string');
             expect(params).to.have.length.within(1, 2);
-            if (param2 !== undefined && params.length == 2) {
+            if (param2 !== undefined && params.length === 2) {
                 expect(param2).to.be.an('object');
                 expect(Object.keys(param2)).to.have.length.within(1, 6);
             }
@@ -426,28 +426,32 @@ describe('Lodash training', function () {
 
             expect(param2).to.have.any.keys(options);
             for (var key in param2) {
-                expect(key).to.be.oneOf(options);
-                if (key === options[0]) {
-                    expect(key).to.be.a('RegExp');
-                }
-                if (key === options[1]) {
-                    expect(key).to.be.a('RegExp');
-                }
-                if (key === options[2]) {
-                    expect(key).to.be.an('Object');
-                }
-                if (key === options[3]) {
-                    expect(key).to.be.a('RegExp');
-                }
-                if (key === options[4]) {
-                    expect(key).to.be.a('string');
+                if(key.hasOwnProperty(param2[key])){
+                    expect(key).to.be.oneOf(options);
+                    if (key === options[0]) {
+                        expect(key).to.be.a('RegExp');
+                    }
+                    if (key === options[1]) {
+                        expect(key).to.be.a('RegExp');
+                    }
+                    if (key === options[2]) {
+                        expect(key).to.be.an('Object');
+                    }
+                    if (key === options[3]) {
+                        expect(key).to.be.a('RegExp');
+                    }
+                    if (key === options[4]) {
+                        expect(key).to.be.a('string');
+                    }
                 }
             }
         });
         it('should not contain empty option parameter', function () {
                 var param2 = params[1];
                 for (var key in param2) {
-                    expect(param2[key]).to.not.be.empty;
+                    if(key.hasOwnProperty(param2[key])) {
+                        expect(param2[key]).to.not.be.empty;
+                    }
                 }
             }
         );
@@ -545,7 +549,7 @@ describe('Lodash training', function () {
                 var options = params[1];
                 expect(options['length']).to.be.a('number');
                 expect(Number.isInteger(options['length'])).to.eql(true);
-            expect(options['omission']).to.be.a('string');
+                expect(options['omission']).to.be.a('string');
             }
         );
         it('should return truncated string', function () {
