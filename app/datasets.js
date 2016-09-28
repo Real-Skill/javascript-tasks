@@ -8,7 +8,7 @@ module.exports = {
         return [string];
     },
     capitalize: function () {
-        var string = 'SOME STRING TO TEST FUNCTION';
+        var string = 'some STRING TO TEST FUNCTION';
         return [string];
     },
     deburr: function () {
@@ -184,5 +184,5 @@ module.exports = {
         var string = 'bread, butter, milk';
         var pattern = /[^, ]+/g;
         return [string, pattern];
-    },
+    }
 };
