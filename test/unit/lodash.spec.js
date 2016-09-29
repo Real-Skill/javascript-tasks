@@ -176,12 +176,11 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(Number.isInteger(params[1])).to.eql(true);
             expect(params[1]).to.be.above(params[0].length);
-            expect(params).to.have.length.within(2, 3);
-            if (params[2] !== undefined && params.length === 3) {
-                expect(params[2]).to.be.a('string');
-            }
+            expect(Number.isInteger(params[1])).to.eql(true);
+            expect(params[2]).to.be.a('string');
+            expect(params[2]).to.not.eql('undefined');
+            expect(params).to.have.length(3);
         });
         it('should check if transformed string have proper length', function () {
             expect(_.pad.apply(_, params).length).to.be.eql(params[1]);
@@ -198,12 +197,11 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(Number.isInteger(params[1])).to.eql(true);
             expect(params[1]).to.be.above(params[0].length);
-            expect(params).to.have.length.within(2, 3);
-            if (params[2] !== undefined && params.length === 3) {
-                expect(params[2]).to.be.a('string');
-            }
+            expect(Number.isInteger(params[1])).to.eql(true);
+            expect(params[2]).to.be.a('string');
+            expect(params[2]).to.not.eql('undefined');
+            expect(params).to.have.length(3);
         });
         it('should check if transformed string have proper length', function () {
             expect(_.pad.apply(_, params).length).to.be.eql(params[1]);
@@ -220,13 +218,12 @@ describe('Lodash training', function () {
         });
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
-            expect(Number.isInteger(params[1])).to.eql(true);
             expect(params[1]).to.be.above(params[0].length);
-            expect(params).to.have.length.within(2, 3);
-            if (params[2] !== undefined && params.length === 3) {
-                expect(params[2]).to.be.a('string');
-                expect(params[2]).to.have.length.above(0);
-            }
+            expect(Number.isInteger(params[1])).to.eql(true);
+            expect(params[2]).to.be.a('string');
+            expect(params[2]).to.have.length.above(0);
+            expect(params[2]).to.not.eql('undefined');
+            expect(params).to.have.length(3);
         });
         it('should check if transformed string have proper length', function () {
             expect(_.pad.apply(_, params).length).to.be.eql(params[1]);
@@ -391,10 +388,9 @@ describe('Lodash training', function () {
         it('should match types of passing elements', function () {
             expect(params[0]).to.be.a('string');
             expect(params[1]).to.be.a('string');
-            expect(params).to.have.length.within(2, 3);
-            if (params[2] !== undefined && params.length === 3) {
-                expect(Number.isInteger(params[2])).to.eql(true);
-            }
+            expect(Number.isInteger(params[2])).to.eql(true);
+            expect(params[2]).to.not.eql('undefined');
+            expect(params).to.have.length(3);
         });
         it('should check if letter on given position is a target string', function () {
                 expect(params[0][params[2]]).to.eql(params[1]);
