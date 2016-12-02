@@ -3,225 +3,375 @@
 
 module.exports = {
 
-    assign: function(){
+    assign: function ()
+    {
 
         return [];
     },
 
     //alias _.extend
-    assignIn: function(){
+    assignIn: function ()
+    {
 
         return [];
     },
 
-    at1: function(obj){
+    at1: function (obj)
+    {
 
         return [];
     },
 
-    at2: function(){
+    at2: function ()
+    {
 
         return [];
     },
 
-    defaults: function(){
+    defaults: function ()
+    {
 
         return [];
     },
 
-    defaultsDeep: function(){
+    defaultsDeep: function ()
+    {
 
         return [];
     },
 
-    findKey1: function(obj){
-
-        return [];
-
-    },
-
-    findKey2: function(obj) {
+    findKey1: function (obj)
+    {
 
         return [];
     },
 
-    findKey3: function(obj) {
+    findKey2: function (obj)
+    {
 
         return [];
     },
 
-    findKey4: function(obj) {
+    findKey3: function (obj)
+    {
 
         return [];
     },
 
-    findLastKey1: function(obj){
+    findKey4: function (obj)
+    {
 
         return [];
     },
 
-    findLastKey2: function(obj){
+    findLastKey1: function (obj)
+    {
 
         return [];
     },
 
-    findLastKey3: function(obj){
+    findLastKey2: function (obj)
+    {
 
         return [];
     },
 
-    findLastKey4: function(obj){
+    findLastKey3: function (obj)
+    {
 
         return [];
     },
 
-    forIn: function(){
+    findLastKey4: function (obj)
+    {
 
         return [];
     },
 
-    forInRight: function(){
+    forIn: function ()
+    {
 
         return [];
     },
 
-    forOwn: function(){
+    forInRight: function ()
+    {
 
         return [];
     },
 
-    forOwnRight: function(){
+    forOwn: function ()
+    {
 
         return [];
     },
 
-    get1: function(obj){
+    forOwnRight: function ()
+    {
 
         return [];
     },
 
-    get2: function(obj) {
+    functions: function ()
+    {
 
         return [];
     },
 
-    get3: function(obj){
+    functionsIn: function ()
+    {
 
         return [];
     },
 
-    has1: function(){
+    get1: function (obj)
+    {
 
         return [];
     },
 
-    has2: function(){
+    get2: function (obj)
+    {
 
         return [];
     },
 
-    hasIn1: function(){
+    get3: function (obj)
+    {
 
         return [];
     },
 
-    hasIn2: function(){
+    has1: function ()
+    {
 
         return [];
     },
 
-    invert: function(obj1){
+    has2: function ()
+    {
 
         return [];
     },
 
-    invertBy1: function(obj1){
+    hasIn1: function ()
+    {
 
         return [];
     },
 
-    invertBy2: function(obj){
+    hasIn2: function ()
+    {
 
         return [];
     },
 
-    invoke1: function(obj){
+    invert: function (obj1)
+    {
 
         return [];
     },
 
-    invoke2: function(obj){
+    invertBy1: function (obj1)
+    {
 
         return [];
     },
 
-    keys: function(){
+    invertBy2: function (obj)
+    {
 
         return [];
     },
 
-    keysIn: function(){
+    invoke1: function (obj)
+    {
 
         return [];
     },
 
-    mapKeys2: function(obj){
+    invoke2: function (obj)
+    {
 
         return [];
     },
 
-    mapValues1: function(obj){
+    keys: function ()
+    {
 
         return [];
     },
 
-    mapValues2: function(obj){
+    keysIn: function ()
+    {
 
         return [];
     },
 
-    merge: function(){
+    mapKeys2: function (obj)
+    {
 
         return [];
     },
 
-    mergeWith: function(){
+    mapValues1: function (obj)
+    {
 
         return [];
     },
 
-    omit1: function(obj){
+    mapValues2: function (obj)
+    {
 
         return [];
     },
 
-    omit2: function(obj){
+    merge: function ()
+    {
 
         return [];
     },
 
-    omitBy: function(obj, filter){
+    mergeWith: function ()
+    {
 
         return [];
     },
 
-    result1: function(obj){
+    omit1: function (obj)
+    {
 
         return [];
     },
 
-    result2: function(obj) {
+    omit2: function (obj)
+    {
 
         return [];
     },
 
-    result3: function(obj){
+    omitBy: function (obj, filter)
+    {
 
         return [];
     },
 
-    result4: function(obj){
+    pick1: function ()
+    {
+        return [];
+    },
+
+    pick2: function ()
+    {
 
         return [];
+    },
+
+    pickBy: function ()
+    {
+        return [];
+    },
+
+    result1: function (obj)
+    {
+
+        return [];
+    },
+
+    result2: function (obj)
+    {
+
+        return [];
+    },
+
+    result3: function (obj)
+    {
+
+        return [];
+    },
+
+    result4: function (obj)
+    {
+
+        return [];
+    },
+
+    set1: function ()
+    {
+
+        return [];
+    },
+
+    set2: function ()
+    {
+
+        return [];
+    },
+
+    setWith: function ()
+    {
+
+        return [];
+    },
+
+    toPairs: function ()
+    {
+
+        return [];
+    },
+
+    toPairsIn: function ()
+    {
+
+        return [];
+    },
+
+    transform1: function ()
+    {
+
+        return []
+    },
+
+    transform2: function ()
+    {
+
+        return []
+    },
+
+    unset1: function ()
+    {
+
+        return []
+    },
+
+    unset2: function ()
+    {
+
+        return []
+    },
+
+    update: function ()
+    {
+
+        return []
+    },
+
+    updateWith: function ()
+    {
+
+        return []
+    },
+
+    values: function ()
+    {
+
+        return []
+    },
+
+
+    valuesIn: function ()
+    {
+
+        return []
     }
 };
