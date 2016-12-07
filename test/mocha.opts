@@ -1,0 +1,4 @@
+--ui bdd
+--reporter spec
+--recursive
+test/unit/**/*.spec.js
