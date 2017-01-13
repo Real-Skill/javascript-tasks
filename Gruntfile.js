@@ -37,7 +37,8 @@ module.exports = function (grunt)
                     test: {
                         options: {
                             base: ['app'],
-                            port: 9001
+                            port: 9001,
+                            hostname: process.env.HOSTNAME
                         }
                     },
                     livereload: {
@@ -49,15 +50,6 @@ module.exports = function (grunt)
 
                                 ];
                             }
-                        }
-                    }
-                },
-                protractor_webdriver: {
-                    driver: {
-                        options: {
-                            path: 'node_modules/.bin/',
-                            command: 'webdriver-manager start',
-                            keepAlive: true
                         }
                     }
                 },
@@ -128,11 +120,11 @@ module.exports = function (grunt)
 
     grunt.registerTask('serve', ['connect:livereload', 'watch']);
 
-    grunt.registerTask('verify', ['jshint:verify', 'karma:unit', 'connect:test', 'protractor_webdriver', 'protractor:chrome']);
+    grunt.registerTask('verify', ['jshint:verify', 'karma:unit', 'connect:test', 'protractor:chrome']);
 
     grunt.registerTask('test:dev', ['karma:dev']);
 
-    grunt.registerTask('test:e2e', ['connect:test', 'protractor_webdriver', 'protractor:chrome']);
+    grunt.registerTask('test:e2e', ['connect:test', 'protractor:chrome']);
 
     grunt.registerTask('default', ['serve']);
 };
