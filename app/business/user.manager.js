@@ -1,27 +1,27 @@
-(function ()
+'use strict';
+
+var sha1 = require('sha1');
+var userDAO = require('../DAO/userDAO');
+
+function hashPassword(password)
 {
-    'use strict';
+    return sha1(password);
+}
 
-    var sha1 = require('sha1');
-    var userDAO = require('../DAO/userDAO');
+function authenticate(email, password)
+{
 
-    function hashPassword(password)
-    {
-        return sha1(password);
-    }
+}
 
-    function authenticate(email, password)
-    {
+function getUserByToken(token)
+{
 
-    }
+    return userDAO.get(token.userId);
 
-    function getUserByToken(token)
-    {
+}
 
-    }
+module.exports = {
+    authenticate: authenticate,
+    getUserByToken: getUserByToken
+};
 
-    module.exports = {
-        authenticate: authenticate,
-        getUserByToken: getUserByToken
-    };
-})();

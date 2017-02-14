@@ -1,17 +1,18 @@
-(function ()
+'use strict';
+var Promise = require('bluebird');
+
+function isAuthenticated(context)
 {
-    'use strict';
-    var Promise = require('bluebird');
-
-    function isAuthenticated(context)
+    return new Promise(function (resolve, reject)
     {
-        return new Promise(function(resolve,reject){
-            //        TODO make sure this function is properly implemented.
+        if (!context || !context.user) {
             reject();
-        });
-    }
+        } else {
+            resolve();
+        }
+    });
+}
 
-    module.exports = {
-        isAuthenticated: isAuthenticated
-    };
-})();
+module.exports = {
+    isAuthenticated: isAuthenticated
+};
