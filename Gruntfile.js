@@ -1,5 +1,7 @@
 /*jshint camelcase:false*/
 
+var _ = require('lodash');
+
 module.exports = function (grunt)
 {
     'use strict';
@@ -7,24 +9,26 @@ module.exports = function (grunt)
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-protractor-webdriver');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-wiredep');
 
     require('load-grunt-tasks')(grunt);
 
-    var config = {
+    var paths = {
         app: 'app'
     };
 
-    grunt.initConfig({
-        config: {app: 'app'},
+    var config = _.extend(require('./Gruntfile.part.js'), {
+        config: paths,
         watch: {
             livereload: {
                 options: {
                     livereload: '<%= connect.options.livereload %>'
                 },
-                files: ['<%= config.app %>/**/*.html', '<%= config.app %>/**/*.js']
+                files: ['<%= paths.app %>/**/*.html', '<%= paths.app %>/**/*.js']
             }
         },
-
         connect: {
             options: {
                 port: 9000,
@@ -42,7 +46,7 @@ module.exports = function (grunt)
                     open: true,
                     middleware: function (connect)
                     {
-                        return [connect().use('/bower_components', connect.static('./bower_components')), connect.static(config.app)
+                        return [connect().use('/bower_components', connect.static('./bower_components')), connect.static(paths.app)
 
                         ];
                     }
@@ -75,8 +79,9 @@ module.exports = function (grunt)
             },
             continuous: {options: {keepAlive: true}}
         }
-        
     });
+
+    grunt.initConfig(config);
 
     grunt.registerTask('serve', ['connect:livereload', 'watch']);
 

@@ -13,7 +13,7 @@ At the beginning application is in not working state.
 
 ## Goals
 
-After installing appropriate grunt plugins, configure `Grunt.js` file and create three tasks:
+After installing appropriate grunt plugins, configure `Gruntfile.part.js` (as it was `config` passed to `grunt.initConfig(config)`) file and create three tasks:
 
 * **wiredep** task:
 
@@ -24,7 +24,7 @@ After installing appropriate grunt plugins, configure `Grunt.js` file and create
 
     * should use `.jshintrc` file
     * should specify all **.js** files from: `app` folder, `test` folder and its **subfolders** to linted, moreover `bower components` should be excluded from checking
-    * should detect errors and potential problems in **.js** files and create `jshint.xml` report in `target` folder (use built-in XML JSHint reporter),
+    * should detect errors and potential problems in **.js** files and create `jshint.xml` report in `target` folder (use built-in checkstyle reporter),
 
 * **karma** task:    
 
