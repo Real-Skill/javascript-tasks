@@ -1,5 +1,9 @@
 {
-  "protect": [
-    "test/", "README.md", ".gitignore", ".jshintrc", "package.json"
-  ]
+    "protect": [
+        "test/",
+        "README.md",
+        ".gitignore",
+        ".jshintrc",
+        "package.json"
+    ]
 }
