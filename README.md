@@ -15,7 +15,7 @@ Authentication middleware is declared in `routes.js`.
 When user is authenticated the middleware should set user property on request object, which is used later on as context to create managers.
 Managers pass the context to `security` service that decides if user is authenticated or not.
 
-If user is NOT authetnicated an is attepmts to get restricted resource, the they should get 401 http status code.
+If user is NOT authenticated an is attempts to get restricted resource, the they should get 401 http status code.
 Password in database should be encoded with `sha1`.
 
 ##API

@@ -11,7 +11,7 @@
         } else {
             var token = request.headers.authorization.substring(6);
             token = new Buffer(token, 'base64').toString('ascii');
-            userManager.create(request).getUserByToken(token).then(function (result)
+            userManager.getUserByToken(token).then(function (result)
             {
                 request.user = result;
                 next();
