@@ -1,0 +1,13 @@
+{
+    "protect": [
+        "node_modules/",
+        "target/",
+        "test/",
+        "README.md",
+        ".gitignore",
+        ".jshintrc",
+        ".jshintignore",
+        "Gruntfile.js",
+        "package.json"
+    ]
+}
