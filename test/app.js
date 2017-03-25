@@ -12,7 +12,7 @@ module.exports = function createApp()
 
     app.get('/', function (req, res)
     {
-        res.send(200, progress);
+        res.send('' + progress);
     });
     app.post('/', function (req, res)
     {
