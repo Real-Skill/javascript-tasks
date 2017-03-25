@@ -2,9 +2,9 @@
   "name": "nodejs-realskill-scaffolding",
   "version": "0.0.0",
   "private": true,
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "chai": "3.5.0",
     "grunt": "0.4.5",
     "grunt-cli": "0.1.13",
     "grunt-contrib-jshint": "0.11.2",
