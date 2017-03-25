@@ -1,4 +1,4 @@
 .idea
 *.iml
-node_modules/
-target/
+node_modules
+target
