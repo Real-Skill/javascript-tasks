@@ -1,45 +1,42 @@
-(function ()
+module.exports = function (grunt)
 {
     'use strict';
 
-    module.exports = function (grunt)
-    {
-        grunt.loadNpmTasks('grunt-contrib-jshint');
-        grunt.loadNpmTasks('grunt-karma');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-karma');
 
-        grunt.initConfig({
-            karma: {
+    grunt.initConfig({
+        karma: {
+            options: {
+                configFile: 'test/karma.conf.js'
+            },
+            unit: {
+                singleRun: true
+            },
+            dev: {
+                singleRun: false
+            }
+        },
+        jshint: {
+            default: {
                 options: {
-                    configFile: 'test/karma.conf.js'
+                    jshintrc: true
                 },
-                unit: {
-                    singleRun: true
-                },
-                dev: {
-                    singleRun: false
+                files: {
+                    src: ['app/**/*.js', 'test/**/*.js']
                 }
             },
-            jshint: {
-                default: {
-                    options: {
-                        jshintrc: true
-                    },
-                    files: {
-                        src: ['app/**/*.js', 'test/**/*.js']
-                    }
+            verify: {
+                options: {
+                    jshintrc: true,
+                    reporter: 'checkstyle',
+                    reporterOutput: 'target/jshint.xml'
                 },
-                verify: {
-                    options: {
-                        jshintrc: true,
-                        reporter: 'checkstyle',
-                        reporterOutput: 'target/jshint.xml'
-                    },
-                    files: {src: ['app/**/*.js', 'test/**/*.js']}
-                }
+                files: {src: ['app/**/*.js', 'test/**/*.js']}
             }
-        });
+        }
+    });
 
-        grunt.registerTask('verify', ['jshint:verify', 'karma:unit']);
-        grunt.registerTask('test:dev', ['karma:dev']);
-    };
-})();
+    grunt.registerTask('verify', ['jshint:verify', 'karma:unit']);
+    grunt.registerTask('test:dev', ['karma:dev']);
+};
