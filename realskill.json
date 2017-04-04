@@ -2,7 +2,8 @@
     "protect": [
         "node_modules/",
         "target/",
-        "test/",
+        "test/unit/app.spec.js",
+        "test/mocha.opts",
         "README.md",
         ".gitignore",
         ".jshintrc",
