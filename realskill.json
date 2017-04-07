@@ -1,7 +1,6 @@
 {
   "protect": [
         "node_modules/",
-        "app/bower_components/",
         "target/",
         "test/",
         "README.md",
