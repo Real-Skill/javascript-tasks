@@ -6,7 +6,7 @@
   "eqeqeq": true,
   "eqnull": true,
   "forin": true,
-  "freeze": false,
+  "freeze": true,
   "immed": true,
   "indent": 4,
   "jquery": true,
