@@ -33,7 +33,7 @@ module.exports = function (grunt)
             options: {
                 port: 9000,
                 livereload: 35729,
-                hostname: '127.0.0.1'
+                hostname: (process.env.HOSTNAME || 'localhost')
             },
             test: {
                 options: {
@@ -85,7 +85,11 @@ module.exports = function (grunt)
 
     grunt.registerTask('serve', ['connect:livereload', 'watch']);
 
-    grunt.registerTask('verify', ['jshint', 'wiredep', 'karma:unit', 'connect:test', 'protractor_webdriver', 'protractor:chrome']);
+    var verityTask = ['jshint', 'wiredep', 'karma:unit', 'connect:test', 'protractor_webdriver', 'protractor:chrome'];
+    if (process.env.WEBDRIVER_RUNNIG) {
+        verityTask.splice(verityTask.indexOf('protractor_webdriver'), 1);
+    }
+    grunt.registerTask('verify', verityTask);
 
     grunt.registerTask('test:e2e', ['connect:test', 'protractor_webdriver', 'protractor:chrome']);
 
