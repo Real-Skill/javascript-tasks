@@ -27,12 +27,17 @@
   "undef": true,
   "unused": true,
   "globals": {
+    "angular": true,
     "module": true,
     "require": true,
     "describe": true,
     "afterEach": true,
     "beforeEach": true,
+    "beforeAll": true,
     "it": true,
+    "by": true,
+    "element": true,
+    "browser": true,
     "expect": true,
     "jasmine": true,
     "spyOn": true
