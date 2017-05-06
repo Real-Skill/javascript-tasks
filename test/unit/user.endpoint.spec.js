@@ -3,7 +3,6 @@ describe('user.endpoint', function ()
     'use strict';
 
     var superTest = require('supertest-as-promised')(require('../../app/index.js'));
-    var sha1 = require('sha1');
     var chai = require('chai');
     var expect = chai.expect;
 
