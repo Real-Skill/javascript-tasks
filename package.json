@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "express": "4.13.3"
+    "body-parser": "1.14.1",
+    "express": "4.13.3",
+    "express-joi": "0.3.1"
   },
   "devDependencies": {
     "bluebird": "3.0.5",
@@ -15,6 +17,7 @@
     "lodash": "3.10.1",
     "mocha-junit-reporter": "1.6.1",
     "node-uuid": "1.4.7",
+    "supertest": "3.0.0",
     "supertest-as-promised": "2.0.2"
   },
   "scripts": {
