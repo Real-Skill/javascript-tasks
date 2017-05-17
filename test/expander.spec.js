@@ -21,7 +21,7 @@ function defer()
         promise: promise
     };
 }
-
+process.exit(123)
 describe('Expander', function ()
 {
     var defers;
