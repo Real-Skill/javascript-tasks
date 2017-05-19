@@ -10,7 +10,7 @@ Your solutions should be placed inside **app/exercise4.js** file(inside window.e
 
 ### countVowels()
 
-String prototype. Returns the number of vowels in string.
+String prototype. Returns the number of vowels in string (case insensitive).
 
 ### arrayToString()
 

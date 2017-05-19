@@ -6,11 +6,15 @@
     {
         describe('countVowels', function ()
         {
-            it('should return count of vowels ', function ()
+            it('should count number of vowels', function ()
             {
                 expect('I am some text'.countVowels()).toEqual(5);
                 expect('aeiouy'.countVowels()).toEqual(6);
+            });
+            it('should count number of vowels (case insensitive)', function ()
+            {
                 expect('AEIOUYX'.countVowels()).toEqual(6);
+                expect('AE ae bcd'.countVowels()).toEqual(4);
             });
             it('should return 0 for empty string', function ()
             {
@@ -28,9 +32,13 @@
             {
                 expect(['one', 2, 'three', 4].arrayToString()).toEqual('one 2 three 4');
             });
-            it('should return from the array of different types of elements', function ()
+            it('should return string from the array of different types of elements', function ()
             {
                 expect([false, 0, 'one', 2].arrayToString()).toEqual('false 0 one 2');
+            });
+            it('should return empty from the empty array', function ()
+            {
+                expect([].arrayToString()).toEqual('');
             });
         });
 
