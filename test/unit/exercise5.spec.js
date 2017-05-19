@@ -8,65 +8,44 @@
 
         describe('mergeObject', function ()
         {
+            var objects = [
+                {name: 'John', age: 34},
+                {email: 'john@email.com', gender: 'male'},
+                {title: 'The Lord of the Rings'},
+                {author: 'J.R.R. Tolkien', comments: ['Good book!', 'Like it!']}
+            ];
+            var mergeResult = {name: 'John', age: 34, email: 'john@email.com', gender: 'male'};
+            var mergeResult2 = {title: 'The Lord of the Rings', author: 'J.R.R. Tolkien', comments: ['Good book!', 'Like it!']};
+
             describe('general', function ()
             {
                 it('should return object with properties from object1 and object2', function ()
                 {
-                    expect(exercise5.mergeObject({
-                        name: 'John',
-                        age: 34
-                    }, {
-                        email: 'john@email.com',
-                        gender: 'male'
-                    })).toEqual({
-                        name: 'John',
-                        age: 34,
-                        email: 'john@email.com',
-                        gender: 'male'
-                    });
-
-                    expect(exercise5.mergeObject({title: 'The Lord of the Rings'}, {
-                        author: 'John Ronald Reuel Tolkien',
-                        comments: ['Good book!', 'I really like this book']
-                    })).toEqual({
-                        title: 'The Lord of the Rings',
-                        author: 'John Ronald Reuel Tolkien',
-                        comments: ['Good book!', 'I really like this book']
-                    });
+                    expect(exercise5.mergeObject(objects[0], objects[1])).toEqual(mergeResult);
+                    expect(exercise5.mergeObject(objects[2], objects[3])).toEqual(mergeResult2);
                 });
-
             });
 
-            describe('when parameters are not numbers', function ()
+            describe('when parameters are not objects', function ()
             {
                 it('should return false when object1 is not object', function ()
                 {
-                    expect(exercise5.mergeObject('text', {
-                        title: 'The Lord of the Rings',
-                        comments: ['Good book!']
-                    })).toEqual(false);
+                    expect(exercise5.mergeObject('text', objects[0])).toEqual(false);
+                    expect(exercise5.mergeObject(['text'], objects[0])).toEqual(false);
                 });
 
                 it('should return false when object2 is not object', function ()
                 {
-                    expect(exercise5.mergeObject({
-                        name: 'John',
-                        age: 11
-                    }, 'Jack')).toEqual(false);
+                    expect(exercise5.mergeObject(objects[0], 'Jack')).toEqual(false);
+                    expect(exercise5.mergeObject(objects[0], ['Jack'])).toEqual(false);
                 });
             });
         });
 
         describe('countLetter', function ()
         {
-            var book;
-            beforeEach(function ()
-            {
-                book = {
-                    title: 'The Lord of the Rings',
-                    author: 'John Ronald Reuel Tolkien'
-                };
-            });
+            var book = {title: 'The Lord of the Rings', author: 'John Ronald Reuel Tolkien'};
+
             it('should count the numbers of "a" character in all properties of an object', function ()
             {
                 expect(exercise5.countLetter(book, 'a')).toEqual(1);
