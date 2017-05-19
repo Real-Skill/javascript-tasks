@@ -22,11 +22,11 @@ Returns minimum number from array. When array is empty, returns false.
 
 ### findAlmostMax(arr)
 
-Returns second greatest number from `arr` array. When array is empty or contains only strings, returns false.
+Returns second greatest number from `arr` array. When array is empty or doesn't contain any numbers returns false.
 
 ### findAlmostMin(arr)
 
-Returns second lowest number from `arr` array. When array is empty or contains only strings, returns false.
+Returns second lowest number from `arr` array. When array is empty or doesn't contain any numbers , returns false.
 
 ## Before you start...
 
