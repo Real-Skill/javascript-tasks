@@ -9,93 +9,32 @@
         describe('doAdult', function ()
         {
             var peopleArray = [
-                {
-                    name: 'John',
-                    age: 10
-                },
-                {
-                    name: 'Jack',
-                    age: 14
-                },
-                {
-                    name: 'Jenny',
-                    age: 30
-                },
-                {
-                    name: 'Maria',
-                    age: 55
-                },
-                {
-                    name: 'Steve',
-                    age: 17
-                }
+                {name: 'John', age: 10},
+                {name: 'Jack', age: 14},
+                {name: 'Jenny', age: 30},
+                {name: 'Maria', age: 55},
+                {name: 'Steve', age: 17}
             ];
-
             var peopleArray2 = [
-                {
-                    name: 'John',
-                    age: 18
-                },
-                {
-                    name: 'Jack',
-                    age: 17
-                },
-                {
-                    name: 'Jenny',
-                    age: 10
-                },
-                {
-                    name: 'Maria',
-                    age: 15
-                },
-                {
-                    name: 'Steve',
-                    age: 90
-                }
+                {name: 'John', age: 18},
+                {name: 'Jack', age: 17},
+                {name: 'Jenny', age: 10},
+                {name: 'Maria', age: 15},
+                {name: 'Steve', age: 90}
             ];
             var adultList = [
-                {
-                    name: 'John',
-                    age: 18
-                },
-                {
-                    name: 'Jack',
-                    age: 18
-                },
-                {
-                    name: 'Jenny',
-                    age: 30
-                },
-                {
-                    name: 'Maria',
-                    age: 55
-                },
-                {
-                    name: 'Steve',
-                    age: 18
-                }
+                {name: 'John', age: 18},
+                {name: 'Jack', age: 18},
+                {name: 'Jenny', age: 30},
+                {name: 'Maria', age: 55},
+                {name: 'Steve', age: 18}
             ];
             var adultList2 = [
-                {
-                    name: 'John',
-                    age: 18
-                },
-                {
-                    name: 'Jack',
-                    age: 18
-                },
-                {
-                    name: 'Jenny',
-                    age: 18
-                },
-                {
-                    name: 'Maria',
-                    age: 18
-                },
-                {
-                    name: 'Steve',
-                    age: 90
-                }
+                {name: 'John', age: 18},
+                {name: 'Jack', age: 18},
+                {name: 'Jenny', age: 18},
+                {name: 'Maria', age: 18},
+                {name: 'Steve', age: 90}
             ];
 
             beforeEach(function ()
@@ -103,8 +42,7 @@
                 exercise3.doAdult(peopleArray);
                 exercise3.doAdult(peopleArray2);
             });
-
-            it('should update array', function ()
+            it('should increase to 18 every age property that is less than 18', function ()
             {
                 expect(peopleArray).toEqual(adultList);
                 expect(peopleArray2).toEqual(adultList2);
@@ -148,6 +86,7 @@
                 });
             });
         });
+
         describe('reverseText', function ()
         {
             it('should return inverse the string', function ()
@@ -183,23 +122,9 @@
         {
             it('should sum all values of properties', function ()
             {
-                expect(exercise3.sumProperties({
-                    param0: 2,
-                    param1: 5,
-                    param2: 9,
-                    param3: 2,
-                    param4: 20
-                })).toEqual(38);
-                expect(exercise3.sumProperties({
-                    param0: 1,
-                    param1: 2,
-                    param2: 3,
-                    param3: 2
-                })).toEqual(8);
-                expect(exercise3.sumProperties({
-                    param0: 10,
-                    param1: 11
-                })).toEqual(21);
+                expect(exercise3.sumProperties({a: 2, b: 5, c: 9, d: 2, e: 20})).toEqual(38);
+                expect(exercise3.sumProperties({param0: 1, param1: 2, param2: 3, param3: 2})).toEqual(8);
+                expect(exercise3.sumProperties({age: 10, num: 11})).toEqual(21);
             });
         });
     });

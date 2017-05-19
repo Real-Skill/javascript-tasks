@@ -29,8 +29,7 @@ Calculate capacity of three box objects with the provided dimensions:
         bY = y
         bZ = y + z
   
- and returns **number** of the box that has the largest capacity upon calculation (boxX -> **1**, boxY -> **2**, boxZ = **3**). If parameters `x`,`y`,`z` are 
- not a numbers returns false.
+ and returns **number** of the box that has the largest capacity upon calculation (boxX -> **1**, boxY -> **2**, boxZ = **3**). If parameters `x`,`y`,`z` are not numbers returns false.
 
 ### reverseText(text)
 
