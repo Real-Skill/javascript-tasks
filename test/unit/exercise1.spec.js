@@ -19,7 +19,6 @@ describe('exercise1', function ()
                 expect(exercise1.getDescendingNumbers(1, 15)).toBe(false);
             });
         });
-
         describe('when parameters are not numbers', function ()
         {
             it('should return false when "start" is a string', function ()
@@ -51,6 +50,11 @@ describe('exercise1', function ()
         it('should delete string from list and return empty array', function ()
         {
             expect(exercise1.deleteString('a', ['a'])).toEqual([]);
+        });
+        it('should delete all occurrences of string', function ()
+        {
+            expect(exercise1.deleteString('a', ['a','a','a'])).toEqual([]);
+            expect(exercise1.deleteString('a', ['a','b','a','c'])).toEqual(['b','c']);
         });
     });
 
@@ -98,8 +102,6 @@ describe('exercise1', function ()
                 expect(exercise1.squareOdd(['test', 2, 3, 9, 'text'])).toEqual(['test', 2, 9, 81, 'text']);
             });
         });
-
-
     });
 
     describe('areaOfTrapezoid', function ()
@@ -112,8 +114,6 @@ describe('exercise1', function ()
                 expect(exercise1.areaOfTrapezoid(1, 3, 6)).toEqual(12);
             });
         });
-
-
         describe('when "a", "b" or "h" is a negative number', function ()
         {
             it('should return false when "a" is a negative number', function ()
@@ -128,8 +128,6 @@ describe('exercise1', function ()
             {
                 expect(exercise1.areaOfTrapezoid(1, 3, -6)).toBe(false);
             });
-
-
         });
         describe('when "a", "b" or "h" is not a number', function ()
         {
@@ -145,8 +143,6 @@ describe('exercise1', function ()
             {
                 expect(exercise1.areaOfTrapezoid(1, 3, 'text')).toBe(false);
             });
-
         });
-
     });
 });

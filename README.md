@@ -1,6 +1,6 @@
 # Basic JavaScript Part I
 
-##Summary
+## Summary
 JS Assessment for basic JavaScript knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
  
 ## Goals
@@ -9,15 +9,15 @@ Your solutions should be placed inside **app/exercise1.js** file(inside window.e
 
 ### getDescendingNumbers(numberFrom, numberTo)
 
-Returns the string with numbers in descending order separated by ' ' (space). If `numberFrom` is lower than `numberTo` returns false.
+Returns the string with numbers in descending order separated by ' ' (space). If `numberFrom` is lower than `numberTo` returns false. If the parameters aren't a numbers also should return false. 
 
 ### deleteString(string, array)
 
-Removes `string` from `array` of strings. Returns update array of strings.
+Removes all occurrences of `string` in `array` of strings. Returns update `array` of strings.
 
 ### stringCounter(array)
 
-Returns a number of String elements in `array`.
+Returns a number of **String** elements in `array`.
 
 ### squareOdd(array)
 
