@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "bluebird": "3.0.5",
     "hapi": "16.4.3",
     "hapi-auth-bearer-token": "5.1.0",
     "inert": "4.2.0",
     "joi": "10.6.0"
   },
   "devDependencies": {
-    "bluebird": "3.0.5",
     "chai": "3.4.1",
     "grunt": "0.4.5",
     "grunt-cli": "0.1.13",

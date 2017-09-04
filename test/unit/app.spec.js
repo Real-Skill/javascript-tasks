@@ -13,7 +13,7 @@ var db = require('../../app/db');
 chai.should();
 Promise.longStackTraces();
 
-describe('Express app', function ()
+describe('Hapi app', function ()
 {
     var server;
     var supertest;
