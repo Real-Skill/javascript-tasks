@@ -12,8 +12,8 @@ When dependency conflicts are resolved correctly, you should see properly workin
 
 ### To install dependencies
 
-
-    npm install
+    yarn install
+    bower install
 
 ### To start application in live reload mode
 
@@ -32,7 +32,7 @@ To run e2e tests in development mode:
 
 To run verify jshint, tests and coverage:
 
-    npm test
+    yarn test
 
 ## Before you start, read about
 [bower-how-to](http://herereadthis.com/code/bower-how-to)
