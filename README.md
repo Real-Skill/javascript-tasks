@@ -13,7 +13,7 @@ There are some tests for current app in `oldApp.spec.js` file which you can remo
 ##Setup
 To install dependencies from package.json:
 
-    npm install
+    yarn install
 
 To run tests in development mode:
 
@@ -21,7 +21,7 @@ To run tests in development mode:
 
 To run verify jshint and tests:
 
-    npm test
+    yarn test
 
 To run verify jshint and tests with human readable output:
 
