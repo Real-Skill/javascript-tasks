@@ -36,7 +36,7 @@ After installing appropriate grunt plugins, configure `Gruntfile.part.js` (as it
 ### To install dependencies 
 
 ```
-npm install
+yarn install
 ```
 
 ```
