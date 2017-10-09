@@ -13,6 +13,9 @@
     "grunt-mocha-test": "0.12.7",
     "mocha-junit-reporter": "1.6.1"
   },
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "scripts": {
     "test": "grunt verify --force"
   }
