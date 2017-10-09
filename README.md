@@ -157,7 +157,7 @@ docker-compose up -d
 
 To install dependencies from package.json:
 
-npm install
+yarn install
 
 To run tests in development mode:
 
@@ -165,7 +165,7 @@ mocha --watch
 
 To run verify jshint and tests:
 
-npm test
+yarn test
 
 To run verify jshint and tests with human readable output:
 
