@@ -7,7 +7,7 @@ Find out why and fix the issue.
 ###Setup
 To install dependencies from package.json:
 
-    npm install
+    yarb install
 
 To run tests in development mode:
 
@@ -15,7 +15,7 @@ To run tests in development mode:
 
 To run verify jshint, tests and coverage:
 
-    npm test
+    yarn test
 
 To run verify jshint, tests and coverage with human readable output:
 
