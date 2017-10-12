@@ -21,7 +21,7 @@ Please find the bug and fix the implementation so that following tests pass:
 ##Setup
 To install dependencies from package.json:
 
-    npm install
+    yarn install
 
 To run tests in development mode:
 
@@ -29,7 +29,7 @@ To run tests in development mode:
 
 To run verify jshint and tests:
 
-    npm test
+    yarn test
 
 To run verify jshint and tests with human readable output:
 
