@@ -21,7 +21,7 @@ Right now whenever we instantiate the wrapper the artificial date is lost. Pleas
 ##Setup
 To install dependencies from package.json:
 
-    npm install
+    yarn install
 
 To run tests in development mode:
 
@@ -29,7 +29,7 @@ To run tests in development mode:
 
 To run verify jshint and tests:
 
-    npm test
+    yarn test
 
 To run verify jshint and tests with human readable output:
 
