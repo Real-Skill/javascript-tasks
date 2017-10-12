@@ -35,7 +35,7 @@ Javascript EcmaScript5 tutorials and more:
 
 ### To install dependencies
 
-    npm install
+    yarn install
 
 ### JShint
 
@@ -51,7 +51,7 @@ To start developing unit tests
  
 To run tests and static analysis
 
-    npm test
+    yarn test
 
 Good luck!
  
