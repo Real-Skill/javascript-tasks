@@ -16,6 +16,9 @@
     "sinon": "1.17.3",
     "sinon-chai": "2.8.0"
   },
+  "engines": {
+    "node": ">=6.0.0"
+  },
   "scripts": {
     "test": "grunt verify --force"
   }
