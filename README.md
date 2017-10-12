@@ -42,7 +42,7 @@ Authorization: Token YWJj
 ##Setup
 To install dependencies from package.json:
 
-    npm install
+    yarn install
 
 To run tests in development mode:
 
@@ -50,7 +50,7 @@ To run tests in development mode:
 
 To run verify jshint, tests and coverage:
 
-    npm test
+    yarn test
 
 To run verify jshint, tests and coverage with human readable output:
 
