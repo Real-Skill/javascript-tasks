@@ -1,10 +1,10 @@
-#Expressjs basics
+# Expressjs basics
 
-##Summary
+## Summary
 
 Basic routing, validation, middleware, error handling and redirection.
 
-##Goal
+## Goal
 
 Implement express app with the following endpoints:
 
@@ -70,7 +70,7 @@ For saving and retrieving the entity use `app/db.js` service.
 
 
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
     yarn install
