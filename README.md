@@ -1,11 +1,11 @@
 # Lodash Number training
 
-##Summary
+## Summary
 
 Training tasks for Lodash Number. The exercise consist of a few simple tasks.
 You are supposed to implement method, having provided only the method name and purpose.
 
-##Goal
+## Goal
 
 Tests contain some usage of lodash methods.
 Make sure that datasets `app/datasets.js` for each method are correct.
@@ -27,11 +27,11 @@ If only one argument is provided a number between 0 and the given number is retu
 If floating is true, or either lower or upper are floats, a floating-point number is returned instead of an integer. 
 
 
-##Before you start
+## Before you start
 
 Read Lodash documentation at [http://lodash.com/docs](http://lodash.com/docs).
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
     yarn install
