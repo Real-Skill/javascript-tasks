@@ -1,16 +1,16 @@
-#Promisify
+# Promisify
 
-##Summary
+## Summary
 
 Promisify standard NodeJS callback hell.
 
-##Goal 
+## Goal 
 
 We've got a working app, but we don't like that callback hell. Please rewrite it to use promises.
 
 There are some tests for current app in `oldApp.spec.js` file which you can remove once new app conforms to `app.spec.js`.
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
     yarn install
