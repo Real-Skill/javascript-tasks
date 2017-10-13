@@ -1,10 +1,10 @@
-#Promisie bug
+# Promisie bug
 
-##Summary
+## Summary
 
 Fix promise broken chain.
 
-##Goal 
+## Goal 
 
 We've got a function called app, that accepts 3 callbacks. Each callback returns promise.
 First it should invoke callback A.
@@ -14,7 +14,7 @@ If both A and B resolve, app should return value resolved by B.
  
 `app.js` contains a first attempt to solve this, but not all tests are passing. Please fix that.
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
     yarn install
