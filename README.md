@@ -1,12 +1,12 @@
-#Lodash training
+# Lodash training
 
-##Summary
+## Summary
 
 Training tasks for Lodash Lang. The exercise consist of a few simple tasks.
 You are supposed to implement method, having provided only the method name
 and purpose.
 
-##Goal
+## Goal
 
 Tests contain some usage of lodash methods.
 Make sure that datasets `app/datasets.js` for each method are correct.
@@ -253,11 +253,11 @@ represented correctly.
 Converts value to a string. An empty string is returned for null and
 undefined values. The sign of -0 is preserved.
 
-##Before you start
+## Before you start
 
 Read Lodash documentation at [http://lodash.com/docs](http://lodash.com/docs).
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
     yarn install
