@@ -1,11 +1,11 @@
-#NodeJS Singleton bug
+# NodeJS Singleton bug
 
-##Summary
+## Summary
 
 We have `db` service that serves as in-memory database. It is a single method that when invoked returns interface to save entity or get all entities from db.
 We want to instantiate the db separately for each different entity type we want to store (so that we do not store dogs and cats in the same db).
 
-##Goal 
+## Goal 
 
 Please find the bug and fix the implementation so that following tests pass:
 
@@ -18,7 +18,7 @@ Please find the bug and fix the implementation so that following tests pass:
             dog db should NOT be empty
 
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
     yarn install
