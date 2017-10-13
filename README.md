@@ -1,10 +1,10 @@
-#NodeJS cyclomatic complexity
+# NodeJS cyclomatic complexity
 
-##Summary
+## Summary
 We've got simple foo and bar modules that depend on each other. For some reason bar cannot see `foo.getName` method.
 Find out why and fix the issue.
 
-###Setup
+### Setup
 To install dependencies from package.json:
 
     yarb install
