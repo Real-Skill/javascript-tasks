@@ -1,12 +1,12 @@
-#NodeJS Singleton bug
+# NodeJS Singleton bug
 
-##Summary
+## Summary
 
 We have a date wrapper to get current date. Normally it should always return current date but when artificial date is set then that date should always be returned.
 This is very useful for unit testing. We are instantiating this wrapper in many places of the application, but what we want is to no matter how many times
 it is instantiated the artifical date should be kept throughout all the instances. 
 
-##Goal 
+## Goal 
 
 Right now whenever we instantiate the wrapper the artificial date is lost. Please find the bug and fix the implementation so that following tests pass:
 
@@ -18,7 +18,7 @@ Right now whenever we instantiate the wrapper the artificial date is lost. Pleas
           should return the same date despite running time
 
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
     yarn install
