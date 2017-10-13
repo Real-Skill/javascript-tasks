@@ -1,14 +1,14 @@
-#Promisify
+# Promisify
 
-##Summary
+## Summary
 
 Promisify standard NodeJS callback hell.
 
-##Goal 
+## Goal 
 
 We've got a working app, but we don't like that callback hell. Please rewrite it to use promises.
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
     yarn install
