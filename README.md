@@ -1,10 +1,10 @@
-#Redis ERR invalid DB index
+# Redis ERR invalid DB index
 
-##Summary
+## Summary
 
 Make that annoying error disappear.
 
-##Goal 
+## Goal 
 
 We've got a redis wrapper that accepts connection url as parameter and return promisified wrapper.
 The problem is that there are some strange logs in console about error:
@@ -15,7 +15,7 @@ Please inspect that and try to get rid of that error.
 
 You may only modify `redisWrapper.js`.
 
-##Setup
+## Setup
 You need to have Redis. You can install it manually of if you have docker and docker-compose, run:
 
     docker-compose up -d
