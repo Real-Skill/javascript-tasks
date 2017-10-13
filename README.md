@@ -1,11 +1,11 @@
-#ExpressJS - simple security
+# ExpressJS - simple security
 
-##Summary
+## Summary
 Authentication in ExpressJS.
 
 We've got simple app where user can do CRUD operations on a phone book. Please, secure it.
 
-##Goal
+## Goal
 Your task is to secure the `phone` endpoint so that only authenticated users can interact with it.
 There are already some routes and business objects configured.
 All you need to do is to implement authentication.
@@ -18,9 +18,9 @@ Managers pass the context to `security` service that decides if user is authenti
 If user is NOT authenticated an is attempts to get restricted resource, the they should get 401 http status code.
 Password in database should be encoded with `sha1`.
 
-##API
+## API
 
-###Authenticate user
+### Authenticate user
 ```
 POST /api/user/auth
 {email:'', password:''}
@@ -39,7 +39,7 @@ Sample header for token 'abc'.
 Authorization: Token YWJj
 ```
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
     yarn install
