@@ -1,12 +1,12 @@
-#Lodash training
+# Lodash training
 
-##Summary
+## Summary
 
 Training tasks for Lodash Collection. The exercise consist of a few simple tasks.
 You are supposed to implement method, having provided only the method name
 and purpose.
 
-##Goal
+## Goal
 
 Tests contain some usage of lodash methods.
 Make sure that datasets `app/datasets.js` for each method are correct.
@@ -67,12 +67,12 @@ Creates an array of elements, sorted in ascending order by the results of runnin
 This method performs a stable sort, that is, it preserves the original sort order of equal elements. The iteratees are invoked with one argument: (value).
 
 
-##Before you start
+## Before you start
 
 Read Lodash documentation at [http://lodash.com/docs](http://lodash.com/docs).
 
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
     yarn install
