@@ -54,7 +54,7 @@ To run e2e tests in development mode:
     grunt test:e2e
 
 
-###Before you start, please refer to:
+### Before you start, please refer to:
 * [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint)
 * [grunt-karma](https://github.com/karma-runner/grunt-karma)
 * [grunt-wiredep](https://github.com/stephenplusplus/grunt-wiredep)
