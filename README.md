@@ -1,10 +1,10 @@
 # Mongoose custom valdiation
 
-##Summary
+## Summary
 Our car dealer wants to forbid it's staff to order any pink cars.
 The only exception is "Pink Cadillac", it's probably because of that song he's heard on the radio.
 
-##Goal
+## Goal
 Implement mongoose validation to make our dealer happy.
 
 We store cars in MongoDb using Mongoose and the schema looks like this:
