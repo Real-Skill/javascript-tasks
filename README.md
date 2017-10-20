@@ -1,169 +1,169 @@
-#Lodash training
+# Lodash training
 
-##Summary
+## Summary
 
-Training tasks for Lodash String. The exercise consist of a few simple tasks.
-You are supposed to implement method, having provided only the method name and purpose.
+These are training tasks for Lodash String. The exercise consists of a few simple tasks.
+You are supposed to implement a method, having only the method name and purpose provided.
 
-##Goal
+## Goal
 
-Tests contain some usage of lodash methods.
+These tests contain some usage of lodash methods.
 Make sure that datasets `app/datasets.js` for each method are correct.
 
 ### _.camelCase
 
-Converts string to camel case.
+It converts the string to camel case.
 
 ### _.capitalize
 
-Converts the first character of string to upper case and the remaining to lower case.
+It converts the first character of string to upper case and the remaining to lower case.
 
 ### _.deburr
 
-Deburrs string by converting Latin-1 Supplement and Latin Extended-A letters to basic Latin letters and removing combining diacritical marks.
+It deburrs the string by converting Latin-1 Supplement and Latin Extended-A letters to basic Latin letters and by removing and combining diacritical marks.
 
 ### _.endsWith
 	
-Checks if string ends with the given target string.
+It checks if the string ends with the given target string.
 
 ### _.escape
 	
-Converts the characters "&", "<", ">", '"', and "'" in string to their corresponding HTML entities.
+It converts the characters "&", "<", ">", '"', and "'" in the string to their corresponding HTML entities.
 	
 ### _.escapeRegExp
 
-Escapes the RegExp special characters "^", "$", "", ".", "*", "+", "?", "(", ")", "[", "]", "{", "}", and "|" in string.
+It escapes the RegExp special characters "^", "$", "", ".", "*", "+", "?", "(", ")", "[", "]", "{", "}", and "|" in the string.
 
 ### _.kebabCase
 
-Converts string to kebab case.
+It converts the string to kebab case.
 
 ### _.lowerCase
 
-Converts string, as space separated words, to lower case.
+It converts the string, as space separated words, to lower case.
 
 ### _.lowerFirst
 
-Converts the first character of string to lower case.
+It converts the first character of the string to lower case.
 
 ### _.pad
 
-Pads string on the left and right sides if it's shorter than length. Padding characters are truncated if they can't be evenly divided by length.
+It pads the string on the left and right sides if it's shorter than the length. Padding characters are truncated if they can't be evenly divided by length.
 
 ### _.padEnd
 
-Pads string on the right side if it's shorter than length. Padding characters are truncated if they exceed length.
+It pads the string on the right side if it's shorter than the length. Padding characters are truncated if they exceed the length.
 
 ### _.padStart
 	
-Pads string on the left side if it's shorter than length. Padding characters are truncated if they exceed length.
+it pads the string on the left side if it's shorter than the length. Padding characters are truncated if they exceed the length.
 	
 ### _.parseInt
 
-Converts string to an integer of the specified radix. If radix is undefined or 0, a radix of 10 is used unless value is a hexadecimal, in which case a radix of 16 is used.
+It converts the string to an integer of the specified radix. If the radix is undefined or 0, the radix of 10 is used unless the value is a hexadecimal, in which case the radix of 16 is used.
 
 ### _.repeat
 
-Repeats the given string n times.
+It repeats the given string n times.
 
 ### _.replace1
 
-Replaces matches for pattern in string with replacement.
+It replaces matches for pattern in the string with replacement.
 
 ### _.replace2
 
-Replaces matches for pattern in string with replacement.
+It replaces matches for pattern in the string with replacement.
 
 ### _.replace3
 
-Replaces matches for pattern in string with replacement.
+It replaces matches for pattern in the string with replacement.
 
 ### _.replace4
 
-Replaces matches for pattern in string with replacement.
+It replaces matches for pattern in the string with replacement.
 
 ### _.snakeCase
 
-Converts string to snake case.
+It converts the string to snake case.
 
 ### _.split
 
-Splits string by separator.
+It splits the string by a separator.
 
 ### _.startCase
 
-Converts string to start case.
+It converts the string to start case.
 
 ### _.startsWith
 
-Checks if string starts with the given target string.
+It checks if the string starts with the given target string.
 
 ### _.template
 
-Creates a compiled template function that can interpolate data properties in "interpolate" delimiters, HTML-escape interpolated data properties in "escape" delimiters, and execute JavaScript in "evaluate" delimiters. Data properties may be accessed as free variables in the template. If a setting object is given, it takes precedence over _.templateSettings values.
+It creates a compiled template function that can interpolate data properties in "interpolate" delimiters, HTML-escape interpolated data properties in "escape" delimiters, and execute JavaScript in "evaluate" delimiters. Data properties may be accessed as free variables in the template. If a setting object is given, it takes precedence over _.templateSettings values.
 
 ### _.toLower
 
-Converts string, as a whole, to lower case just like String#toLowerCase.
+It converts the string, as a whole, to lower case just like String#toLowerCase.
 
 ### _.toUpper
 
-Converts string, as a whole, to upper case just like String#toUpperCase.
+It converts the string, as a whole, to upper case just like String#toUpperCase.
 
 ### _.trim
 
-Removes leading and trailing whitespace or specified characters from string.
+It removes leading and trailing whitespace or specified characters from the string.
 
 ### _.trimEnd
 
-Removes trailing whitespace or specified characters from string.
+It removes trailing whitespace or specified characters from the string.
 
 ### _.trimStart
 
-Removes leading whitespace or specified characters from string.
+It removes leading whitespace or specified characters from the string.
 
 ### _.truncate
 
-Truncates string if it's longer than the given maximum string length. The last characters of the truncated string are replaced with the omission string which defaults to "...".
+It truncates the string if it's longer than the given maximum string length. The last characters of the truncated string are replaced with the omission string which defaults to "...".
 
 ### _.unescape
 
-The inverse of _.escape; this method converts the HTML entities &amp;, &lt;, &gt;, &quot;, and &#39; in string to their corresponding characters.
+It is the inverse of _.escape; this method converts the HTML entities &amp;, &lt;, &gt;, &quot;, and &#39; in the string to their corresponding characters.
 
 ### _.upperCase
 
-Converts string, as space separated words, to upper case.
+It converts the string, as space separated words, to upper case.
 
 ### _.upperFirst
 
-Converts the first character of string to upper case.
+It converts the first character of the string to upper case.
 
 ### _.words1
 
-Splits string into an array of its words.
+It splits the string into an array of its words.
 
 ### _.words2	
  
-Splits string into an array of its words.
+It splits the string into an array of its words.
 
 
-##Before you start
+## Before you start
 
 Read Lodash documentation at [http://lodash.com/docs](http://lodash.com/docs).
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
-    yarn install
+    npm install
 
 To run tests in development mode:
 
     mocha --watch
 
-To run verify jshint and tests:
+To run jshint and tests:
 
-    yarn test
+    npm test
 
-To run verify jshint and tests with human readable output:
+To run jshint and tests with human readable output:
 
     grunt --force
