@@ -1,7 +1,7 @@
 # Basic JavaScript Part I
 
 ## Summary
-JS Assessment for basic JavaScript knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
+This is JS Assessment for basic JavaScript knowledge. The exercise consists of a few simple tasks. You are supposed to implement functions, having only the function name and purpose provided.
  
 ## Goals
 
@@ -9,23 +9,23 @@ Your solutions should be placed inside **app/exercise1.js** file(inside window.e
 
 ### getDescendingNumbers(numberFrom, numberTo)
 
-Returns the string with numbers in descending order separated by ' ' (space). If `numberFrom` is lower than `numberTo` returns false. If the parameters aren't a numbers also should return false. 
+It returns a string with numbers in the descending order and separated by ' ' (space). If the `numberFrom` is lower than the `numberTo` , it returns false. If the parameters aren't numbers, it should also return false. 
 
 ### deleteString(string, array)
 
-Removes all occurrences of `string` in `array` of strings. Returns update `array` of strings.
+It removes all the occurrences of the `string` in an `array` of strings. It returns the update `array` of strings.
 
 ### stringCounter(array)
 
-Returns a number of **String** elements in `array`.
+It returns a number of **String** elements in the `array`.
 
 ### squareOdd(array)
 
-Square value of every odd number inside of `array`. Returns update array and leaves the rest of items unaffected.
+It squares the value of every odd number inside the `array`. It returns an update array and leaves the rest of items unaffected.
 
 ### areaOfTrapezoid(a,b,h)
 
-Calculate the area of a trapezoid. If the parameters are incorrect the function should return false.
+It calculates the area of a trapezoid. If the parameters are incorrect the function should return false.
 
 ## Before you start...
 
@@ -41,11 +41,11 @@ Javascript EcmaScript5 tutorials and more:
 
 ### To install dependencies
 
-    yarn install
+    npm install
 
 ### JShint
 
-To run verify jshint:
+To run jshint:
 
     grunt jshint:default
 
@@ -57,6 +57,6 @@ To start developing unit tests
  
 To run tests and static analysis
 
-    yarn test
+    npm test
 
 Good luck!
