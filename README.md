@@ -2,7 +2,7 @@
 
 ## Summary
 
-JS Assessment for basic JavaScript knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
+This JS Assessment for basic JavaScript knowledge. The exercise consists of a few simple tasks. You are supposed to implement functions, having  only the function name and purpose provided.
 
 ## Goals
 
@@ -10,23 +10,23 @@ Your solutions should be placed inside **app/exercise6.js** file(inside window.e
 
 ### isPalindrome(str)
 
-Returns true when `str` is a palindrome when it isn't returns false.
+It returns true when `str` is a palindrome; when it isn't, it returns false.
 
 ### onlyLetter(text)
 
-Returns string with letters from `text` (without space). When `text` is not string returns false. 
+It returns a string with letters from `text` (without space). When the `text` is not a string, it returns false. 
 
 ### alphabetOrder(str)
 
-Returns lower case letters from `str` in alphabetical order. Capitalization doesn't matter.
+It returns lower case letters from `str` in alphabetical order. Capitalization doesn't matter.
 
 ### upperCase(str)
 
-Converts the first letter of each word of the string in upper case.
+It converts the first letter of each word of the string to upper case.
 
 ### findTheLongestWord(str)
 
-Finds the longest word within the `str`. Returns the array.
+It finds the longest word within the `str`. It returns the array.
 
 ## Before you start...
 
@@ -42,11 +42,11 @@ Javascript EcmaScript5 tutorials and more:
 
 ### To install dependencies
 
-    yarn install
+    npm install
 
 ### JShint
 
-To run verify jshint:
+To run jshint:
 
     grunt jshint:default
 
@@ -58,7 +58,7 @@ To start developing unit tests
  
 To run tests and static analysis
 
-    yarn test
+    npm test
 
 Good luck!
  
