@@ -1,10 +1,10 @@
-#Expressjs basics
+# ExpressJs basics
 
-##Summary
+## Summary
 
-Basic routing, validation, middleware, error handling and redirection.
+This is about basic routing, validation, middleware, error handling and redirection.
 
-##Goal
+## Goal
 
 Implement express app with the following endpoints:
 
@@ -26,7 +26,7 @@ Implement express app with the following endpoints:
             should respond with 400 status code
         when owner is missing
             should respond with 200 status code
-        when posting dog with id not found in db
+        when posting dog with id is not found in db
             should respond 404 status code
         when authentication token is invalid
             should respond with 401
@@ -34,7 +34,7 @@ Implement express app with the following endpoints:
             should respond with 401
         when authorization header is missing
             should respond with 401
-        when not connected to DB
+        when it is not connected to DB
             should respond with 500
     GET /dog/:id
         when asking for non-existing id
@@ -45,15 +45,15 @@ Implement express app with the following endpoints:
             should respond with 401
         when authorization header is missing
             should respond with 401
-        when not connected to DB
+        when it is not connected to DB
             should respond with 500
     GET /hound/:id
         should redirect to /dog/:id
         
-Static content should be served from public directory.
+Static content should be served from the public directory.
 
-All requests to non-static content must be authenticated using "Bearer token" authorization strategy.
-Use `app/authenticator.js` service to determine if token is valid or not.
+All requests to the non-static content must be authenticated using "Bearer token" authorization strategy.
+Use `app/authenticator.js` service to determine whether the token is valid or not.
 
 Maximum payload size should be 70 bytes.
 
@@ -70,19 +70,19 @@ For saving and retrieving the entity use `app/db.js` service.
 
 
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
-    yarn install
+    npm install
 
 To run tests in development mode:
 
     mocha --watch
 
-To run verify jshint and tests:
+To run jshint and tests:
 
-    yarn test
+    npm test
 
-To run verify jshint and tests with human readable output:
+To run jshint and tests with human readable output:
 
     grunt --force
