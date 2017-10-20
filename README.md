@@ -2,25 +2,24 @@
 
 ## Summary
 In this task, you have to deal with package conflicts.
-This app uses AngularJS, AngularUI, typeahead.js, fuelux and Angular-Bootstrap. Those libraries have transitive dependencies that may conflict with each other.
+This app uses AngularJS, AngularUI, typeahead.js, fuelux and Angular-Bootstrap. These libraries have transitive dependencies that may conflict with one another.
 
 ## Goal
-Modify **bower.json** file so that next `bower install` does not ask any question and app works properly
+Modify **bower.json** file so that next `bower install` does not ask any question and the app works properly.
 When dependency conflicts are resolved correctly, you should see properly working Typeahead, Checkbox - fluent and Checkbox with buttons.
 
 ## Setup
 
 ### To install dependencies
 
-    yarn install
-    bower install
+    npm install
 
 ### To start application in live reload mode
 
     grunt serve
     
 ### Jshint
-To run verify jshint:
+To run jshint:
     
     grunt jshint:default
 
@@ -30,9 +29,9 @@ To run e2e tests in development mode:
 
     grunt test:e2e
 
-To run verify jshint, tests and coverage:
+To run jshint, tests and coverage:
 
-    yarn test
+    npm test
 
 ## Before you start, read about
 [bower-how-to](http://herereadthis.com/code/bower-how-to)
