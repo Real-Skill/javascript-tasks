@@ -2,25 +2,25 @@
 
 ## Summary
 
-JS Assessment for JavaScript modules knowledge. You are supposed to implement functions, having provided only the function name and purpose.
+This is JS Assessment for JavaScript modules knowledge. You are supposed to implement functions, having only the function name and purpose provided.
 
 ## Goals
 
 Your solutions should be placed inside **app/modules.js** file(inside window.modulesAnswers object).
 
-## createModule(greeting, name):
+## createModule(greeting, name)
 
-Returns object with three properties:
+It returns an object with three properties:
 
     name: str2
     greeting: str1
     sayIt: Function
     
-`sayIt` function is expected to return new string in the following pattern:
+`sayIt` function is expected to return a new string in the following pattern:
 
     <greeting>, <name>
     
-Keep in mind that name and greeting of the module can be modified after module has been created and it has to be reflected in `sayIt` method.
+Keep in mind that the name and greeting of the module can be modified after the module has been created and it has to be reflected in `sayIt` method.
 
 ## Before you start...
 
@@ -36,11 +36,11 @@ Javascript EcmaScript5 tutorials and more:
 
 ### To install dependencies
 
-    yarn install
+    npm install
 
 ### JShint
 
-To run verify jshint:
+To run jshint:
 
     grunt jshint:default
 
@@ -52,7 +52,7 @@ To start developing unit tests
  
 To run tests and static analysis
 
-    yarn test
+    npm test
 
 Good luck!
  
