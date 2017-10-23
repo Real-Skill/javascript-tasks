@@ -2,7 +2,7 @@
 
 ## Summary
 
-JS Assessment for basic JavaScript knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
+This is JS Assessment for basic JavaScript knowledge. The exercise consists of a few simple tasks. You are supposed to implement functions having only the function name and purpose provided.
 
 ## Goals
 
@@ -10,11 +10,11 @@ Your solutions should be placed inside **app/exercise3.js** file(inside window.e
 
 ### doAdult(array)
 
-Modify every person from `array` which has the age property less than 18 and increases it to 18. It doesn't return any value.
+It modifies every person from the `array` which has the age property lower than 18 and it increases it to 18. It doesn't return any value.
 
 ### findTheBiggerBox(x,y,z)
 
-Calculate capacity of three box objects with the provided dimensions:
+It calculates the capacity of three box objects with the provided dimensions:
  
     boxX:
         bX = 3 * x
@@ -29,19 +29,19 @@ Calculate capacity of three box objects with the provided dimensions:
         bY = y
         bZ = y + z
   
- and returns **number** of the box that has the largest capacity upon calculation (boxX -> **1**, boxY -> **2**, boxZ = **3**). If parameters `x`,`y`,`z` are not numbers returns false.
+and it returns **number** of the box that has the largest capacity upon calculation (boxX -> **1**, boxY -> **2**, boxZ = **3**). If the parameters `x`,`y`,`z` are not numbers, it returns false.
 
 ### reverseText(text)
 
-Returns the inverted `text`. If `text` is not a string returns false.
+It returns the inverted `text`. If the `text` is not a string, it returns false.
 
 ### factorial(N)
 
-Calculates factorial of `N` number. Returns array of numbers starting from `0`. For example passing `3`, array should looks like `[1,1,2,6]`.
+It calculates factorial of `N` number. It returns the array of numbers starting from `0`. For example when passing `3`, the array should look like `[1,1,2,6]`.
 
 ### sumValueOfObjectProperties(object)
 
-Return sum of all objects properties values.
+It return the sum of all object properties values.
 
 ## Before you start...
 
@@ -57,11 +57,11 @@ Javascript EcmaScript5 tutorials and more:
 
 ### To install dependencies
 
-    yarn install
+    npm install
 
 ### JShint
 
-To run verify jshint:
+To run jshint:
 
     grunt jshint:default
 
@@ -73,7 +73,7 @@ To start developing unit tests
  
 To run tests and static analysis
 
-    yarn test
+    npm test
 
 Good luck!
  
