@@ -2,79 +2,79 @@
 
 # Summary
 
-JS Assessment for JavaScript arrays knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided only the 
-function name and purpose.
+This is JS Assessment for JavaScript arrays knowledge. The exercise consists of a few simple tasks. You are supposed to implement functions, having only the 
+function name and purpose provided.
 
 ## Goals
 
 Your solutions should be placed inside **app/arraysAnswers.js** file(inside window.arraysAnswers object).
 
-### indexOf(array, item):
+### indexOf(array, item)
 
-Returns the position of `item` in `array`. If there no `item` is found in `array`, returns -1.
+It returns the position of the `item` in the `array`. If there is no `item` found in the `array`, it returns -1.
 
-### sum(array):
+### sum(array)
 
-Returns sum of all numbers in the `array`.
+It returns the sum of all numbers in the `array`.
 
-### copy(array):
+### copy(array)
 
-Returns copy of `array`.
+It returns a copy of the `array`.
 
-### remove(array, item):
+### remove(array, item)
 
-Remove all occurrences of `item` from `array`.
+It removes all occurrences of the `item` from the `array`.
 
-### removeFromCopy(array, item):
+### removeFromCopy(array, item)
 
-Returns a copy of `array` without any occurrences of `item`.
+It returns a copy of the `array` without any occurrences of the `item`.
 
-### append(array, item):
+### append(array, item)
 
-Append `item` at the end of `array`.
+It appends the `item` at the end of the `array`.
 
-### appendToCopy(array, item):
+### appendToCopy(array, item)
 
-Returns a copy of `array` with `item` appended at the end.
+It returns a copy of the `array` with the `item` appended at the end.
 
-### truncate(array):
+### truncate(array)
 
-Removes last item from `array`. Returns removed element.
+It removes the last item from the `array`. It returns the removed element.
 
-### prepend(array, item):
+### prepend(array, item)
 
-Adds `item` at the beginning of `array`.
+It adds the `item` at the beginning of the `array`.
 
-### curtail(array):
+### curtail(array)
 
-Removes first item from array. Returns removed element
+It removes the first item from the array. It returns the removed element
 
-### concat(a, b):
+### concat(a, b)
 
-Returns new array with all items from arrays `a` and `b`. 
+It returns the new array with all items from the arrays `a` and `b`. 
 i.e. a=[3,4], b=[1,2] => concat(a,b) = [3,4,1,2]
 
-### insert(array, index, item):
+### insert(array, index, item)
 
-Inserts `item` to an `array` at given `index`.
+It inserts the `item` to an `array` at a given `index`.
 i.e. insert([1,2,3], 1, 'a') => [1,'a',2,3]
 
-### count(array, item):
+### count(array, item)
 
-Reeturns number of occurrences of `item` in `array`.
+It returns the number of occurrences of the `item` in the `array`.
 
-### duplicates(array):
+### duplicates(array)
 
-Returns array of all dupplicates in arrray. Order is irrelevant.
-i.e. duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3]) => [1, 3, 4]
+It returns the array of all duplicates in an array. The order is irrelevant.
+i.e. it duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3]) => [1, 3, 4]
 
-### square(array):
+### square(array)
 
-Returns array where each element is the power of 2 of every element from `array`.
+It returns the array where each element is the power of 2 of every element from the `array`.
 
-### findAllOccurrences:
+### findAllOccurrences
 
-Returns array of indexes under which `target` is found in `array`.
+It returns the array of indexes under which the `target` is found in the `array`.
 i.e. findAllOccurrences(['a', 'b', 'c', 'b'], 'b') => [1,3]
 
 ## Before you start...
@@ -91,11 +91,11 @@ Javascript EcmaScript5 tutorials and more:
 
 ### To install dependencies
 
-    yarn install
+    npm install
 
 ### JShint
 
-To run verify jshint:
+To run jshint:
 
     grunt jshint:default
 
@@ -107,7 +107,7 @@ To start developing unit tests
  
 To run tests and static analysis
 
-    yarn test
+    npm test
 
 Good luck!
  
