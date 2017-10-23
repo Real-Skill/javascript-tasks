@@ -1,32 +1,33 @@
-#Promisie bug
+# Promise bug
 
-##Summary
+## Summary
 
-Fix promise broken chain.
+You should fix this promise broken chain.
 
-##Goal 
+## Goal 
 
-We've got a function called app, that accepts 3 callbacks. Each callback returns promise.
-First it should invoke callback A.
-If A resolves, app should invoke B with on param, the value resolved by A. 
-If A rejects, the error should be handled by C and B should not be invoked. In this case app should return result of C invocation. 
-If both A and B resolve, app should return value resolved by B.
+We've got a function called app, that accepts 3 callbacks. Each callback returns a promise.
+First, it should invoke callback A.
+If A resolves it, the app should invoke B with the value resolved by A on param. 
+If A rejects it, the error should be handled by C and B should not be invoked. In this case the app should return the result of C invocation. 
+If both A and B resolve, the app should return the value resolved by B.
  
-`app.js` contains a first attempt to solve this, but not all tests are passing. Please fix that.
+`app.js` contains the first attempt to solve this, but not all tests are passing. Please fix that.
 
-##Setup
+## Setup
+
 To install dependencies from package.json:
 
-    yarn install
+    npm install
 
 To run tests in development mode:
 
     mocha --watch
 
-To run verify jshint and tests:
+To run jshint and tests:
 
-    yarn test
+    npm test
 
-To run verify jshint and tests with human readable output:
+To run jshint and tests with human readable output:
 
     grunt --force
