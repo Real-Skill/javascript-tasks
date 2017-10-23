@@ -2,7 +2,7 @@
 
 ## Summary
 
-JS Assessment for basic JavaScript knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
+This is JS Assessment for basic JavaScript knowledge. The exercise consists of a few simple tasks. You are supposed to implement functions having only the function name and purpose provided.
 
 ## Goals
 
@@ -10,23 +10,23 @@ Your solutions should be placed inside **app/exercise2.js** file(inside window.e
 
 ### reverseNumber(number)
 
-Reverses digits in the `number`. If parameter is not a number return false.
+It reverses digits in the `number`. If the parameter is not a number, it returns false.
 
 ### squareOrCube(array)
 
-Squares every **odd** number and cube every **even** number in `array`. Returns the update array of numbers.
+It squares every **odd** number and cube every **even** number in `array`. It returns the update array of numbers.
 
 ### replaceString(list, string, newString)
 
-Searches `string` in the `list` and replaces it to `newString`. Returns corrected array or false (when **string** doesn't exist).
+It searches the  `string` in the `list` and replaces it to `newString`. It returns the corrected array or false (when the **string** doesn't exist).
 
 ### maxArray(array)
 
-Returns maximum number from `array` of numbers. If array contains other elements than number returns false;
+It returns the maximal number from the `array` of numbers. If the array contains other elements than number, it returns false;
 
 ### getObject(list, name)
 
-Returns object with the specified `name` from `list` of  objects. If there are no such object on the list returns false.
+It returns the object with the specified `name` from the `list` of  objects. If there are no such object on the list, it returns false.
 
 ## Before you start...
 
@@ -42,11 +42,11 @@ Javascript EcmaScript5 tutorials and more:
 
 ### To install dependencies
 
-    yarn install
+    npm install
 
 ### JShint
 
-To run verify jshint:
+To run jshint:
 
     grunt jshint:default
 
@@ -58,7 +58,7 @@ To start developing unit tests
  
 To run tests and static analysis
 
-    yarn test
+    npm test
 
 Good luck!
  
