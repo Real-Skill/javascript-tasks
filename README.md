@@ -2,74 +2,74 @@
 
 ## Summary
 
-JS Assessment for JavaScript functions knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided only the 
-function name and purpose.
+This is JS Assessment for JavaScript functions knowledge. The exercise consists of a few simple tasks. You are supposed to implement functions, having only the 
+function name and purpose provided.
 
 ## Goals
 
 Your solutions should be placed inside **app/functions.js** file(inside window.functionsAnswers object).
 
-### argsAsArray(fn, paramsArray):
+### argsAsArray(fn, paramsArray)
 
-Returns result of calling `fn` function with params from `paramsArray`.
+It returns the result of calling `fn` function with the params from `paramsArray`.
 i.e. 
 given `paramsArray=[1,2,3], sayIt = function`
 when `argsAsArray(sayIt, paramsArray)`
-then result should be the same as calllin `sayIt(1,2,3)`
+then result should be the same as callling `sayIt(1,2,3)`
 
-### speak(fn, context):
+### speak(fn, context)
 
-Returns result of calling `fn` function as a method of `context`.
+It returns the result of calling `fn` function as a method of the `context`.
 
-### functionFunction(firstPart):
+### functionFunction(firstPart)
 
-Returns function that accepts one param `secondParam`. That function should return concatenated string "{firstPart}, {secondPart}".
+It returns the function that accepts one param `secondParam`. This function should return a concatenated string "{firstPart}, {secondPart}".
 i.e. functionFunction('a')('b') => 'a, b'
 
-### makeClosures(valueArray):
+### makeClosures(valueArray)
 
-Returns array of functions that accept one param: `fn` function. Invocation of function in result array should return result of calling `fn` with
+It returns an array of functions that accept one param: `fn` function. The invocation of the function in the result array should return the result of calling `fn` with a
 corresponding item from `valueArray` as a param.
 i.e. makeClosures([1,3])[0](echo) === echo(1)
 i.e. makeClosures([1,3])[1](echo) === echo(3)
 
-### partial(fn, str1, str2):
+### partial(fn, str1, str2)
 
-Returns a function that accepts `str3` param and when called, returns result of `fn` called with str1, str2, str3.
+It returns a function that accepts `str3` param and when called, it returns the result of `fn` called with str1, str2, str3.
 
-### useArguments(...):
+### useArguments(...)
 
-Returns sum of all parameters.
+It returns the sum of all parameters.
 
-### callIt(fn):
+### callIt(fn)
 
-Returns result of calling `fn` with variable parameters.
+It returns the result of calling `fn` with the variable parameters.
 i.e. callIt(fn, arg1, arg2, arg3) === fn(arg1, arg2, arg3)
 
-### partialUsingArguments(fn, ...):
+### partialUsingArguments(fn, ...)
 
-Returns function that when called returns result of `fn` called with concatenation of params of `partialUsingArguments` invocation (without first param) and 
-params of it's own:
+It returns the function which, when called, returns the result of `fn` called with concatenation of params of the `partialUsingArguments` invocation (without the first param) and 
+the params of its own:
 
     expect(functionsAnswers.partialUsingArguments(partialMe)(a, b, c)).toEqual(partialMe(a, b, c));
     expect(functionsAnswers.partialUsingArguments(partialMe, a)(b, c)).toEqual(partialMe(a, b, c));
     expect(functionsAnswers.partialUsingArguments(partialMe, a, b)(c)).toEqual(partialMe(a, b, c));
     expect(functionsAnswers.partialUsingArguments(partialMe, a, b, c)()).toEqual(partialMe(a, b, c));
 
-### curryIt:
+### curryIt
 
-Implement more advanced function accepting only single parameter:
+It implements more advanced function accepting only a single parameter:
 
     fn
     
-This function is expected to call **fn** with required number of parameters(depending on how many parameters 
-function consumes). If there are not enough arguments, function should return new function that accepts remaining parameter.
-If there were still not enough parameters for this function it should return new function similar to previous, but with decreased
+This function is expected to call **fn** with the required number of parameters (depending on how many parameters the
+function consumes). If there are not enough arguments, the function should return a new function that accepts the remaining parameter.
+If there are still not enough parameters for this function it should return a new function similar to the previous one, but with decreased
 parameters required remaining and so on. For example:
 
     curryIt(fn)(a)(b)(c)
     
-should return same value(calculated from fn with passed parameters) as following call:
+should return the same value (calculated from fn with passed parameters) as the following call:
 
     curryIt(fn(a, b, c))
 
@@ -87,11 +87,11 @@ Javascript EcmaScript5 tutorials and more:
 
 ### To install dependencies
 
-    yarn install
+    npm install
 
 ### JShint
 
-To run verify jshint:
+To run jshint:
 
     grunt jshint:default
 
@@ -103,7 +103,7 @@ To start developing unit tests
  
 To run tests and static analysis
 
-    yarn test
+    npm test
 
 Good luck!
  
