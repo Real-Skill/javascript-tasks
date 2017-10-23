@@ -2,7 +2,7 @@
 
 ## Summary
 
-JS Assessment for basic JavaScript knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
+This is JS Assessment for basic JavaScript knowledge. The exercise consists of a few simple tasks. You are supposed to implement functions, having only the function name and purpose provided.
 
 ## Goals
 
@@ -10,20 +10,20 @@ Your solutions should be placed inside **app/exercise5.js** file (inside window.
 
 ### mergeObject(object1,object2)
 
-Copies properties from one objects to another. Returns object or if parameters `object1`,`object2` are not an objects returns false.
+It copies properties from one objects to another. It returns object or if the parameters `object1`,`object2` are not objects , it returns false.
 
 ### countLetter(object,letter)
 
-Counts the occurrence of a `letter` (lower and upper case doesn't matter) inside every property of an `object`.
+It counts the occurrence of a `letter` (lower and upper case doesn't matter) inside every property of an `object`.
 
 ### makeObject(array)
 
-Creates object from 2D `array` where each element of `array` is an array like this: [properties, propertiesValue]. Returns false when inner array isn't 
-equal 2 dimensions.
+It creates an object from 2D `array` where each element of the `array` is an array like this: [properties, propertiesValue]. It returns false when the inner array isn't 
+equal to 2 dimensions.
 
 ### propertyNames(object)
 
-Creates 2D array from `object` where each element of array is an array like this: [properties, propertiesValue]. 
+It creates 2D array from the `object` where each element of the array is an array like this: [properties, propertiesValue]. 
 
 ## Before you start...
 
@@ -39,11 +39,11 @@ Javascript EcmaScript5 tutorials and more:
 
 ### To install dependencies
 
-    yarn install
+    npm install
 
 ### JShint
 
-To run verify jshint:
+To run jshint:
 
     grunt jshint:default
 
@@ -55,7 +55,7 @@ To start developing unit tests
  
 To run tests and static analysis
 
-    yarn test
+    npm test
 
 Good luck!
  
