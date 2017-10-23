@@ -1,57 +1,57 @@
-#ExpressJS - simple security
+# ExpressJS - simple security
 
-##Summary
+## Summary
 Authentication in ExpressJS.
 
-We've got simple app where user can do CRUD operations on a phone book. Please, secure it.
+We have a simple app in which the user can do CRUD operations on the phone book. You should secure the app.
 
-##Goal
-Your task is to secure the `phone` endpoint so that only authenticated users can interact with it.
-There are already some routes and business objects configured.
-All you need to do is to implement authentication.
+## Goal
+Your task is to secure the `phone` endpoint so that only authenticated users could interact with it.
+There have been some routes and business objects configured already.
+All you need to do is to implement authentication process.
 
-Look at `user.manager.js` and `security.js`. Security checks happen on business layer.
+Look at `user.manager.js` and `security.js`. Security checks are done on business layer.
 Authentication middleware is declared in `routes.js`.
-When user is authenticated the middleware should set user property on request object, which is used later on as context to create managers.
-Managers pass the context to `security` service that decides if user is authenticated or not.
+When the user is authenticated the middleware should set user property on the requested object, which is used later on as the context to create managers.
+Managers pass the context to `security` service which decides if the user is authenticated or not.
 
-If user is NOT authenticated an is attempts to get restricted resource, the they should get 401 http status code.
-Password in database should be encoded with `sha1`.
+If the user is NOT authenticated and is still attempting to get to the restricted resources, they should get 401 http status code.
+The password in database should be encoded with `sha1`.
 
-##API
+## API
 
-###Authenticate user
+### Authenticate the user
 ```
 POST /api/user/auth
 {email:'', password:''}
 ```
 
-Expected response:
+The expected response is:
 
 ```
 {token:''}
 ```
 
-The token is plain value. It should be Base64 encoded end sent as header on subsequent requests that requires authorization.
-Sample header for token 'abc'.
+The token is plain value. It should be Base64 encoded and sent as a header to subsequent requests that require authorization.
+A sample header for the token is 'abc'.
 
 ```
 Authorization: Token YWJj
 ```
 
-##Setup
+## Setup 
 To install dependencies from package.json:
 
-    yarn install
+    npm install
 
 To run tests in development mode:
 
     mocha --watch
 
-To run verify jshint, tests and coverage:
+To run jshint, tests and coverage:
 
-    yarn test
+    npm test
 
-To run verify jshint, tests and coverage with human readable output:
+To run jshint, tests and coverage with human readable output:
 
     grunt --force
