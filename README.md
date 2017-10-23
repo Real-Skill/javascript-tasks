@@ -6,10 +6,10 @@ We need a function that would watch for inserts to MongoDB and notify us back vi
 
 ## Goal
 
-Implement tailer function that will accept 3 params: db driver, collectionName and a callback that should be invoked when new rows arrive
+Implement the tailer function that will accept 3 params: db driver, collectionName and a callback that should be invoked when a new rows arrives
 (one invocation per row).
 
-We want to be able to invoke this method many times to listen on different collections.
+We want to be able to invoke this method many times to listen to different collections.
 Keep in mind that the collections might not be prepared for tailing and it's your job to set them up.
 
 
@@ -20,16 +20,16 @@ You need to have MongoDB. You can install it manually of if you have docker and 
 
 To install dependencies from package.json:
 
-    yarn install
+    npm install
 
 To run tests in development mode:
 
     mocha --watch
 
-To run verify jshint and tests:
+To run jshint and tests:
 
-    yarn test
+    npm test
 
-To run verify jshint and tests with human readable output:
+To run jshint and tests with human readable output:
 
     grunt --force
