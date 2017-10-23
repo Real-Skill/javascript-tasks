@@ -2,7 +2,7 @@
 
 ## Summary
 
-JS Assessment for basic JavaScript knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided only the function name and purpose.
+This is JS Assessment for basic JavaScript knowledge. The exercise consists of a few simple tasks. You are supposed to implement functions having  only the function name and purpose provided.
 
 ## Goals
 
@@ -10,19 +10,19 @@ Your solutions should be placed inside **app/exercise4.js** file(inside window.e
 
 ### countVowels()
 
-String prototype. Returns the number of vowels in string (case insensitive).
+This is a string prototype. It returns the number of vowels in the string (case insensitive).
 
 ### arrayToString()
 
-Array prototype. Returns the string of elements (separated by ' ') from array.
+This is an array prototype. It returns the string of elements (separated by ' ') from the array.
 
 ### add()
 
-Number prototype. Returns the number increased by `number`.
+This is a number prototype. It returns the number increased by `number`.
 
 ### isInTheRange()
 
-Number prototype. Returns true when number is between `a` and `b`, otherwise returns false. When `b` is less than `a` returns undefined.
+This is a number prototype. It returns true when the number is between `a` and `b`, otherwise it returns false. When `b` is less than `a` it returns undefined.
 
 ## Before you start...
 
@@ -38,11 +38,11 @@ Javascript EcmaScript5 tutorials and more:
 
 ### To install dependencies
 
-    yarn install
+    npm install
 
 ### JShint
 
-To run verify jshint:
+To run jshint:
 
     grunt jshint:default
 
@@ -54,7 +54,7 @@ To start developing unit tests
  
 To run tests and static analysis
 
-    yarn test
+    npm test
 
 Good luck!
  
