@@ -2,25 +2,26 @@
 
 ## Summary
 
-JS Assessment for JavaScript objects knowledge. The exercise consist of a few simple tasks. You are supposed to implement functions, having provided 
-only the function name and purpose.
+This is JS Assessment for JavaScript objects knowledge. The exercise consists of a few simple tasks. You are supposed to implement functions, having 
+only the function name and purpose provided.
 
 ### Goals
 
 Your solutions should be placed inside **app/objects`.js** file(inside window.objectsAnswers object).
 
-### alterContext(fn, context):
+### alterContext(fn, context)
 
-Return result of calling method (`fn`) of some object in context of another `context`.
+It returns the result of a calling method (`fn`) of some object in the context of another `context`.
 
 ### alterObjects(constructor, greeting
 
-It is expected that this function should change `constructor` so that every object created by it has it's greeting property changed
-to a new `greeting`. Already existing objects derived from `constructor` should also have their properties changed.
+This function is expected to change the `constructor` so that every object created by this has it's greeting property changed
+to a new `greeting`. 
+The objects already existing and derived from the `constructor` should also have their properties changed.
 
-### iterate:
+### iterate
 
-Iterates over object properties and returns them as strings in array according to the following pattern:
+It iterates over the object properties and returns them as a strings in an array according to the following pattern:
 
     ['<property>: <property value>', ...]
 
@@ -38,11 +39,11 @@ Javascript EcmaScript5 tutorials and more:
 
 ### To install dependencies
 
-    yarn install
+    npm install
 
 ### JShint
 
-To run verify jshint:
+To run jshint:
 
     grunt jshint:default
 
@@ -54,7 +55,7 @@ To start developing unit tests
  
 To run tests and static analysis
 
-    yarn test
+    npm test
 
 Good luck!
  
