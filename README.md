@@ -1,34 +1,34 @@
-#Lodash training
+# Lodash Training
 
-##Summary
+## Summary
 
-Training tasks for Lodash Math. The exercise consist of a few simple tasks.
-You are supposed to implement method, having provided only the method name and purpose.
+These are training tasks for Lodash Math. The exercise consists of a few simple tasks.
+You are supposed to implement a method, having only the method name and purpose provided.
 
-##Goal
+## Goal
 
-Tests contain some usage of lodash methods.
+The tests contain some usage of lodash methods.
 Make sure that datasets `app/datasets.js` for each method are correct.
 
 ### _.add
 
-Adds two numbers.
+It adds two numbers.
 
 ### _.ceil
 
-Computes number rounded up to precision.
+It computes number rounded up to precision.
 
 ### _.divide
 
-Divide two numbers.
+It divides two numbers.
 
 ### _.floor
 
-Computes number rounded down to precision.
+It computes number rounded down to precision.
 
 ### _.max
 
-Computes the maximum value of array. If array is empty or falsey,
+It computes the maximum value of array. If the array is empty or falsey,
 undefined is returned.
 
 ### _.maxBy
@@ -40,7 +40,7 @@ by which the value is ranked. The iteratee is invoked with one argument:
 
 ### _.mean
 
-Computes the mean of the values in array.
+It computes the mean of the values in array.
 
 ### _.meanBy
 
@@ -50,7 +50,7 @@ The iteratee is invoked with one argument: (value).
 
 ### _.min
 
-Computes the minimum value of array. If array is empty or falsey,
+It computes the minimum value of array. If the array is empty or falsey,
 undefined is returned.
 
 ### _.minBy
@@ -62,19 +62,19 @@ by which the value is ranked. The iteratee is invoked with one argument:
 
 ### _.multiply
 
-Multiply two numbers.
+It multiplies two numbers.
 
 ### _.round
 
-Computes number rounded to precision.
+It computes a number rounded to precision.
 
 ### _.subtract
 
-Subtract two numbers.
+It subtracts two numbers.
 
 ### _.sum
 
-Computes the sum of the values in array.
+It computes the sum of the values in array.
 
 ### _.sumBy
 
@@ -83,23 +83,23 @@ is invoked for each element in array to generate the value to be summed.
 The iteratee is invoked with one argument: (value).
 
 
-##Before you start
+## Before you start
 
 Read Lodash documentation at [http://lodash.com/docs](http://lodash.com/docs).
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
-    yarn install
+    npm install
 
 To run tests in development mode:
 
     mocha --watch
 
-To run verify jshint and tests:
+To run jshint and tests:
 
-    yarn test
+    npm test
 
-To run verify jshint and tests with human readable output:
+To run jshint and tests with human readable output:
 
     grunt --force
