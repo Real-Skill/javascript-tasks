@@ -1,29 +1,29 @@
-#XHR bug
+# XHR bug
 
-##Summary
+## Summary
 
-We are 100% positive that request returns 100 but for some reason the condition that expects it, fails.
+We are 100% positive that the request returns 100 but for some reason the condition that expects such return, fails.
 
-##Goal
+## Goal
 
-There is an ExpressJS app and we use one endpoint to query some abstract "progress".
-We have a client library that hits that endpoint and returns true if progress is equall to 100; false othervise;
-Please find out why tests are failing.
+This is the ExpressJS app and we use one endpoint to query some abstract "progress".
+We have a client library that hits that endpoint and returns true if the progress is equall to 100; false othervise;
+Please find out why the tests are failing.
 
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
-    yarn install
+    npm install
 
 To run tests in development mode:
 
     mocha --watch
 
-To run verify jshint and tests:
+To run jshint and tests:
 
-    yarn test
+    npm test
 
-To run verify jshint and tests with human readable output:
+To run jshint and tests with human readable output:
 
     grunt --force
