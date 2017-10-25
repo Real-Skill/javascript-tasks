@@ -62,7 +62,7 @@ describe('tailer', function () {
 
     before(function () {
       dogSpy = sinon.spy();
-      return tailer.delay && tailer(db, 'dog', dogSpy).delay(createTailerTimeout);
+      return tailer(db, 'dog', dogSpy).delay(createTailerTimeout);
     });
 
     describe('and 2 dogs are added', function () {
@@ -97,7 +97,7 @@ describe('tailer', function () {
 
           before(function () {
             catSpy = sinon.spy();
-            return tailer.delay && tailer(db, 'cat', catSpy).delay(createTailerTimeout);
+            return tailer(db, 'cat', catSpy).delay(createTailerTimeout);
           });
 
           describe('and a cat is added', function () {

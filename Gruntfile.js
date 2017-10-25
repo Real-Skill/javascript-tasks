@@ -21,7 +21,7 @@ module.exports = function (grunt)
         mochaTest: {
             options: {
                 recursive: true,
-                src: ['test/unit/**/*.spec.js'],
+                src: ['test/**/*.spec.js'],
                 ui: 'bdd'
             },
             default: {
