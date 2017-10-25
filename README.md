@@ -20,7 +20,7 @@ You need to have MongoDB. You can install it manually of if you have docker and 
 
 To install dependencies from package.json:
 
-    npm install
+    yarn install
 
 To run tests in development mode:
 
@@ -28,7 +28,7 @@ To run tests in development mode:
 
 To run jshint and tests:
 
-    npm test
+    yarn test
 
 To run jshint and tests with human readable output:
 
