@@ -1,11 +1,11 @@
-#Concurrent promises bug
+# Concurrent promises bug
 
-##Summary
+## Summary
 
 We have an app that prepares relational data to be indexed into ElasticSearch.
 The code sometimes passes and sometimes not. We suspect that it's related to promise concurrency. 
 
-##Goal
+## Goal
 
 We have data stored in some abstract db and here is sample data:
 
@@ -61,7 +61,7 @@ like this `data[relationshipType][relationshipId]`.
 The problem is that this code works only if `people` collection is processed before `pets`.
 Make the code immune to that, but keep it generic so that it's easy to add another resource type.
 
-##Hint
+## Hint
 
 Try using Bluebird.reduce function.
 
