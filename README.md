@@ -1,9 +1,9 @@
-#MongoDB - simple pagination
+# MongoDB - simple pagination
 
-##Summary
+## Summary
 DAO's method designed to receiving data from mongo database. There is ability to paginate data using only mongo query.
 
-##Goal
+## Goal
 Your goal consist in write body of DAO's search method. Use **/app/DAO/phoneDAO** file for your solution. Searching operation is performing on collection which has structure:
 
 ```
@@ -23,7 +23,7 @@ You need to fill our DAO method in accordance to guidelines:
  where results is found data and total is number of all elements in collection.
 
 
-##Setup
+## Setup
 Type `npm install` before start.
 
 Type `grunt test` to run unit tests. Note that you have to run `mongod` on your system before running rests.
