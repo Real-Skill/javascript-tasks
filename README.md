@@ -1,9 +1,9 @@
-#MongoDB - search, sort and pagination
+# MongoDB - search, sort and pagination
 
-##Summary
+## Summary
 Implement DAO layer responsible for retrieving data from MongoDB.
 
-##Goal
+## Goal
 Your goal is to write `search` method using the **/app/DAO/phoneDAO** file as your solution.
 The search operation will be performed on the collection with the following structure:
 
@@ -25,7 +25,7 @@ You need to fill DAO method in accordance to the guidelines:
 - returned data structure should be like: `{ results: [], total: int }`, where `results` are found data and `total` is a number of all elements in 
 the collection.
 
- ##Setup
+## Setup
 To install dependencies from package.json:
 
     npm install
