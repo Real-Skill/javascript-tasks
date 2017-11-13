@@ -1,19 +1,19 @@
-#Lodash training
+# Lodash training
 
-##Summary
+## Summary
 
 Training tasks for Lodash.
 
-##Goal 
+## Goal 
 
 Tests contain some usage of lodash methods. 
 Make sure that datasets `app/datasets.js` for each method are correct.
 
-##Before you start
+## Before you start
 
 Read Lodash documentation at [http://lodash.com/docs](http://lodash.com/docs).
 
-##Setup
+## Setup
 To install dependencies from package.json:
 
     npm install
