@@ -1,10 +1,10 @@
 # Mongoose valdiation error
 
-##Summary
+## Summary
 Everything seems absolutely perfect, but for some reason we're getting ValidationError.
 Find out why and fix the issue.
 
-##Goal
+## Goal
 We have simple Mongo database where we store TODOs. The schema looks like this:
 
 ```
